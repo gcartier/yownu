@@ -1,0 +1,20 @@
+(script jazz
+
+(import (world)
+        (world.autoload)
+        (world.geometry)
+        (world.syntax (phase syntax)))
+
+(let ((world (current-world))
+      (me (current-me)))
+  (let ((planet (determine-planet~ world (get-position~ me))))
+    (if (not planet)
+        (bell)
+      (let ((model "tree_pine_med")
+            (center (get-position~ planet))
+            (radius (get-radius~ planet)))
+        (loop (repeat 10)
+              (let ((dir (random-direction)))
+                (let ((pos (vertex+ center (vertex-scalar* dir radius))))
+                  (let ((entity (place-model~ world model pos)))
+                    (realign-lookat~ entity dir))))))))))
