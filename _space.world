@@ -1,0 +1,16 @@
+;;;==============
+;;;  JazzScheme
+;;;==============
+;;;
+;;;; World
+;;;
+
+
+(data jazz
+
+
+(import world.data)
+
+
+(form
+  (<World> start-zone: "planet" start-grid?: #f ambient-gravity: #f64(0. 0. 0.))))
