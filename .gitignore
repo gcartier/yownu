@@ -1,0 +1,6 @@
+/bin
+/binaries
+/build
+/deploy
+.configuration
+.jazzini
