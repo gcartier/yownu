@@ -1,0 +1,12 @@
+(package space
+  
+  (root "src")
+  (products (space (title "Space")
+                   (run space.run)
+                   (update space.client
+                           space.run
+                           space.window
+                           space.world
+                           space.zone)
+                   (dependencies world)))
+  (project ".project"))
