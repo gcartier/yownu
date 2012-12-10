@@ -14,51 +14,14 @@
 (module space.run jazz
 
 
-(import (jazz.debuggee)
-        (jazz.graphic.opengl.glew)
-        (jazz.graphic.opengl.window)
-        (jazz.ide.login)
-        (jazz.io)
-        (jazz.platform)
-        (jazz.system)
-        (jazz.ui)
-        (jazz.ui.window)
-        (world)
-        (world.autoload)
-        (world.foreign)
-        (world.io)
-        (world.window)
-        (world.client)
-        (world.client.window)
-        (world.syntax (phase syntax))
+(import (world)
+        (world.boot)
         (space.client)
         (space.window))
 
 
-(definition (register-profiles)
-  (show-jazz-profiles? #f)
-  (show-profiles-appl 'world)
-  (set-profile-kinds
-    '(<kinds>
-       (<kind> name: "Client"  kind: profile template: "client"))))
-
-
 (definition (run descriptor)
-  (initialize-aliases)
-  (set-cursor :arrow)
-  (register-profiles)
-  (parameterize ((run-loop? #f))
-    (boot-environment~ (new Space-Client)))
-  (let ((appl (get-application)))
-    (let ((profile (get-profile~ appl)))
-      (let ((position (if profile (opengl-window-position~ profile) {Point 50 50}))
-            (size (if profile (opengl-window-size~ profile) {Dimension 1200 800})))
-        (set-?u profile)
-        (set-current-world-window (new-opengl-window class: Space-Window fullscreen?: (shift-down?) position: position size: size visible?: #f))))
-    (select-default-world)
-    (set-default-context (current-world))
-    (show~ (current-world-window))
-    (run-loop~ appl)))
+  (boot-client Space-Client Space-Window "space" "planet"))
 
 
 (register-product-run 'space
