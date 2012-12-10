@@ -9,8 +9,9 @@
 (data jazz
 
 
-(import world.data)
+(import world.data
+        space.world)
 
 
 (form
-  (<World> start-zone: "planet" start-grid?: #f ambient-gravity: #f64(0. 0. 0.))))
+  (<Space-World> start-zone: "planet" start-grid?: #f ambient-gravity: #f64(0. 0. 0.))))
