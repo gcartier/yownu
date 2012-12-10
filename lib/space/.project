@@ -15,7 +15,7 @@
 
 (form
   (<Project>               name: space    description-file: {File :context ".package"}
-    (<*>                                  tag-reference: {File :context "client.project"})
+    (<*>                                  tag-reference: {File :context "space.project"})
     (<Project-Directory>                  directory: {Directory :context "src"}
       (<Project-Directory>                directory: {Directory :context "src" "space"}
         (<Jazz-File>       name: client   source: {File :context "src" "space" "client.jazz"})

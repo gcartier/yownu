@@ -13,5 +13,5 @@
 
 
 (form
-  (<Project> name: space description-file: {File :context ".repository"} active-project: lib:space:Client
+  (<Project> name: space description-file: {File :context ".repository"} active-project: lib:space:Space
     (<*>                 tag-reference: {File :context "lib" ".project"}))))
