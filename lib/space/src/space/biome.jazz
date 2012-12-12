@@ -1,0 +1,74 @@
+;;;==============
+;;;  JazzScheme
+;;;==============
+;;;
+;;;; Space Biome
+;;;
+;;;  The Initial Developer of the Original Code is Guillaume Cartier.
+;;;  Portions created by the Initial Developer are Copyright (C) 2012
+;;;  the Initial Developer. All Rights Reserved.
+;;;
+;;;  Contributor(s):
+
+
+(module space.biome jazz
+
+
+(import (world)
+        (world.autoload)
+        (world.geometry)
+        (world.light)
+        (world.planet)
+        (world.syntax (phase syntax))
+        (world.zone))
+
+
+;;;
+;;;; Biome
+;;;
+
+
+(class Space-Biome extends Object
+  
+  
+  (slot name  getter generate)
+  (slot earth getter generate)
+  (slot trees getter generate)
+  
+  
+  (method override (initialize (name: name #f) (earth: earth #f) (trees: trees #f))
+    (set! name~self name)
+    (set! earth~self earth)
+    (set! trees~self trees))
+  
+  
+  (method override (print output readably)
+    (print-unreadable self output
+      (lambda (output)
+        (format output "{s}" name)))))
+
+
+;;;
+;;;; Biomes
+;;;
+
+
+(definition tree-birch
+  '("tree_birch_small" "tree_birch_med" "tree_birch_big"))
+
+(definition tree-pine
+  '("tree_pine_small" "tree_pine_med" "tree_pine_big"))
+
+
+(definition public biomes
+  (list
+    (new Space-Biome name: 'grass  earth: "grass"  trees: tree-pine)
+    (new Space-Biome name: 'greek  earth: "greek")
+    (new Space-Biome name: 'ground earth: "ground" trees: tree-birch)
+    (new Space-Biome name: 'fire   earth: "fire"   trees: tree-birch)
+    (new Space-Biome name: 'funky  earth: "funky")
+    (new Space-Biome name: 'roman  earth: "roman"  trees: tree-birch)))
+
+
+(definition public (random-biome)
+  (random-element biomes)))

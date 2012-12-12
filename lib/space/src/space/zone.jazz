@@ -20,23 +20,72 @@
         (world.light)
         (world.planet)
         (world.syntax (phase syntax))
-        (world.zone))
+        (world.zone)
+        (space.biome))
 
 
 (class Space-Zone extends Zone
   
   
+  ;;;
+  ;;;; Populate
+  ;;;
+  
+  
   (method override (populate-zone)
     (add-element (new Light-Ambient position: (vertex 0. 0. 0.)))
-    (loop (repeat 10)
-          (let ((universe-radius 250.))
-            (define (random-universe)
-              (vertex (random-between (- universe-radius) universe-radius)
-                      (random-between (- universe-radius) universe-radius)
-                      (random-between (- universe-radius) universe-radius)))
-            
+    (let ((universe-radius 250.)
+          (universe-density 10))
+      (define (random-universe)
+        (vertex (random-between (- universe-radius) universe-radius)
+                (random-between (- universe-radius) universe-radius)
+                (random-between (- universe-radius) universe-radius)))
+      
+      (loop (repeat universe-density)
             (let ((position (random-universe))
                   (size (random-between 5. 50.))
-                  (image (random-element '("fire" "funky" "grass" "ground" "romanSlate" "romanTile"))))
-              (debug position size image)
-              (new Planet parent: self position: position size: size image: image)))))))
+                  (biome (random-biome)))
+              (let ((image (get-earth~ biome)))
+                (let ((planet (new Planet parent: self position: position size: size image: image)))
+                  (add-element planet)
+                  (let ((trees (get-trees~ biome)))
+                    (when trees
+                      (populate-trees planet trees)))))))
+      (place-player)))
+  
+  
+  (method (populate-trees planet trees)
+    (let ((world (current-world)))
+      (let ((size (get-size~ planet))
+            (center (get-position~ planet))
+            (radius (get-radius~ planet)))
+        (loop (repeat (random (fxround (* 10. size))))
+              (let ((model (random-element trees)))
+                (receive (dir pos) (random-position planet)
+                  (let ((entity (place-model~ world model pos savable?: #f)))
+                    (realign-lookat~ entity dir))))))))
+  
+  
+  (method (place-player)
+    (let ((me (current-me))
+          (planet (random-element (collect-planets))))
+      (receive (dir pos) (random-position planet)
+        (set-position~ me pos)
+        (realign-lookat~ me dir))))
+  
+  
+  (method (random-position planet)
+    (let ((center (get-position~ planet))
+          (radius (get-radius~ planet))
+          (dir (random-direction)))
+      (let ((pos (vertex+ center (vertex-scalar* dir radius))))
+        (values dir pos))))
+  
+  
+  ;;;
+  ;;;; Skybox
+  ;;;
+  
+  
+  (method override (prepare-skybox)
+    (install-skybox (find-skybox "nebula")))))

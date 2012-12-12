@@ -17,7 +17,14 @@
 (import (world)
         (world.autoload)
         (world.live)
-        (world.syntax (phase syntax)))
+        (world.syntax (phase syntax))
+        (space.biome))
 
 
-(class Space-World extends World))
+(class Space-World extends World
+  
+  
+  (method override (initialize-world)
+    (nextmethod)
+    ;; see all the universe
+    (set! view-distance 19))))
