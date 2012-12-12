@@ -16,8 +16,27 @@
 
 (import (world)
         (world.autoload)
+        (world.geometry)
+        (world.light)
+        (world.planet)
         (world.syntax (phase syntax))
         (world.zone))
 
 
-(class Space-Zone extends Zone))
+(class Space-Zone extends Zone
+  
+  
+  (method override (populate-zone)
+    (add-element (new Light-Ambient position: (vertex 0. 0. 0.)))
+    (loop (repeat 10)
+          (let ((universe-radius 250.))
+            (define (random-universe)
+              (vertex (random-between (- universe-radius) universe-radius)
+                      (random-between (- universe-radius) universe-radius)
+                      (random-between (- universe-radius) universe-radius)))
+            
+            (let ((position (random-universe))
+                  (size (random-between 5. 50.))
+                  (image (random-element '("fire" "funky" "grass" "ground" "romanSlate" "romanTile"))))
+              (debug position size image)
+              (new Planet parent: self position: position size: size image: image)))))))
