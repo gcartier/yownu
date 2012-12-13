@@ -14,7 +14,8 @@
 (module space.zone jazz
 
 
-(import (world)
+(import (jazz.jml)
+        (world)
         (world.autoload)
         (world.geometry)
         (world.light)
@@ -25,6 +26,10 @@
 
 
 (class Space-Zone extends Zone
+  
+  
+  (form
+    (<install> floor-level: #f))
   
   
   ;;;
