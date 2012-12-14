@@ -41,21 +41,29 @@
     (add-element (new Light-Ambient position: (vertex 0. 0. 0.)))
     (let ((universe-radius 250.)
           (universe-density 10))
+      (define (place-planets)
+        (loop (repeat universe-density)
+              (let ((position (random-universe))
+                    (size (random-between 5. 50.))
+                    (biome (random-biome)))
+                (let ((image (get-earth~ biome)))
+                  (let ((planet (new Planet parent: self position: position size: size image: image)))
+                    (generate-planet~ planet)
+                    (add-element planet)
+                    (let ((trees (get-trees~ biome)))
+                      (when trees
+                        (populate-trees planet trees))))))))
+      
       (define (random-universe)
         (vertex (random-between (- universe-radius) universe-radius)
                 (random-between (- universe-radius) universe-radius)
                 (random-between (- universe-radius) universe-radius)))
       
-      (loop (repeat universe-density)
-            (let ((position (random-universe))
-                  (size (random-between 5. 50.))
-                  (biome (random-biome)))
-              (let ((image (get-earth~ biome)))
-                (let ((planet (new Planet parent: self position: position size: size image: image)))
-                  (add-element planet)
-                  (let ((trees (get-trees~ biome)))
-                    (when trees
-                      (populate-trees planet trees)))))))
+      @test
+      (profiler:with-profile 'populate
+        (lambda ()
+          (time (place-planets))))
+      (place-planets)
       (place-player)))
   
   
@@ -73,10 +81,12 @@
   
   (method (place-player)
     (let ((me (current-me))
-          (planet (random-element (collect-planets))))
-      (receive (dir pos) (random-position planet)
-        (set-position~ me pos)
-        (realign-lookat~ me dir))))
+          (planets (collect-planets)))
+      (unless (null? planets)
+        (let ((planet (random-element planets)))
+          (receive (dir pos) (random-position planet)
+            (set-position~ me pos)
+            (realign-lookat~ me dir))))))
   
   
   (method (random-position planet)
