@@ -15,11 +15,13 @@
 
 
 (import (jazz.jml)
+        (jazz.system)
         (world)
         (world.autoload)
         (world.geometry)
         (world.light)
         (world.planet)
+        (world.profiling)
         (world.syntax (phase syntax))
         (world.zone)
         (space.biome))
@@ -38,13 +40,14 @@
   
   
   (method override (populate-zone)
-    (add-element (new Light-Ambient position: (vertex 0. 0. 0.)))
-    (let ((universe-radius 250.)
-          (universe-density 10))
+    (when (find-setting 'space.ambient-light? #t)
+      (add-element (new Light-Ambient position: (vertex 0. 0. 0.))))
+    (let ((space-radius (find-setting 'space.radius 250.))
+          (space-density (find-setting 'space.density 5)))
       (define (place-planets)
-        (loop (repeat universe-density)
-              (let ((position (random-universe))
-                    (size (random-between 5. 50.))
+        (loop (repeat space-density)
+              (let ((position (random-space))
+                    (size (random-between (find-setting 'space.planet-min-size 5.) (find-setting 'space.planet-max-size 50.)))
                     (biome (random-biome)))
                 (let ((image (get-earth~ biome)))
                   (let ((planet (new Planet parent: self position: position size: size image: image)))
@@ -54,16 +57,12 @@
                       (when trees
                         (populate-trees planet trees))))))))
       
-      (define (random-universe)
-        (vertex (random-between (- universe-radius) universe-radius)
-                (random-between (- universe-radius) universe-radius)
-                (random-between (- universe-radius) universe-radius)))
+      (define (random-space)
+        (vertex (random-between (- space-radius) space-radius)
+                (random-between (- space-radius) space-radius)
+                (random-between (- space-radius) space-radius)))
       
-      @test
-      (profiler:with-profile 'populate
-        (lambda ()
-          (time (place-planets))))
-      (place-planets)
+      (profiling 'populate (lambda () (place-planets)))
       (place-player)))
   
   
@@ -72,7 +71,7 @@
       (let ((size (get-size~ planet))
             (center (get-position~ planet))
             (radius (get-radius~ planet)))
-        (loop (repeat (random (fxround (* 10. size))))
+        (loop (repeat (random (fxround (* (find-setting 'space.planet-trees 10.) size))))
               (let ((model (random-element trees)))
                 (receive (dir pos) (random-position planet)
                   (let ((entity (place-model~ world model pos savable?: #f)))
