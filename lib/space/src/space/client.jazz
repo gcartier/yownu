@@ -14,10 +14,19 @@
 (module space.client jazz
 
 
-(import (world)
+(import (jazz.io)
+        (world)
         (world.autoload)
         (world.client)
         (world.syntax (phase syntax)))
 
 
-(class Space-Client extends World-Client))
+(class Space-Client extends World-Client
+  
+  
+  (method override (settings-root)
+    {Directory Home ".space"})
+  
+  
+  (method override (use-profile?)
+    #f)))
