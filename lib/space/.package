@@ -3,6 +3,7 @@
   (root "src")
   (products (space (title "Space")
                    (run space.run)
+                   (build (space executable: "space" resources: "resources"))
                    (update space.client
                            space.run
                            space.window

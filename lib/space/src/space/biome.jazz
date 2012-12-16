@@ -70,5 +70,10 @@
     (new Space-Biome name: 'roman  earth: "roman"  trees: tree-birch)))
 
 
+(definition public (find-biome name)
+  (or (find biomes name key: get-name~ return: 'item)
+      (error "Unknown biome: {s}" name)))
+
+
 (definition public (random-biome)
   (random-element biomes)))
