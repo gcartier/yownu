@@ -1,0 +1,8 @@
+(script jazz
+
+(import (world)
+        (world.autoload)
+        (world.geometry)
+        (world.syntax (phase syntax)))
+
+(testing? (not (testing?))))
