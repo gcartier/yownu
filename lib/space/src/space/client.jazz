@@ -15,6 +15,7 @@
 
 
 (import (jazz.io)
+        (jazz.system)
         (world)
         (world.autoload)
         (world.client)
@@ -24,12 +25,24 @@
 (class Space-Client extends World-Client
   
   
+  (slot space-settings initialize #f getter generate)
+  
+  
   (method override (settings-root)
     {Directory Home ".space"})
   
   
   (method override (settings-alias)
     'Space)
+  
+  
+  (method override (initialize-settings)
+    (nextmethod)
+    (set! space-settings (new File-Settings))
+    (register-settings space-settings)
+    (set-setting~ space-settings 'world.world-directories '(("space" . {Directory Space})))
+    (set-setting~ space-settings 'world.worlds-directories #f)
+    (set-setting~ space-settings 'world.user-assets? #f))
   
   
   (method override (use-profile?)

@@ -24,12 +24,6 @@ space.planet-trees            10.
 ;;;
 
 
-;; Setup
-world.start-world             "space"
-world.world-directories       (("space" . {Directory Home "space"}))
-world.worlds-directories      #f
-world.user-assets?            #f
-
 ;; Render
 world.tile-shader             phong
 world.sector-size             16
