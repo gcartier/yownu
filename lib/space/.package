@@ -9,5 +9,7 @@
                            space.window
                            space.world
                            space.zone)
-                   (dependencies world)))
+                   (dependencies world
+                                 world.client
+                                 world.server)))
   (project ".project"))
