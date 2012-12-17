@@ -1,0 +1,79 @@
+;;;==============
+;;;  JazzScheme
+;;;==============
+;;;
+;;;; Space Product
+;;;
+;;;  The Initial Developer of the Original Code is Guillaume Cartier.
+;;;  Portions created by the Initial Developer are Copyright (C) 2012
+;;;  the Initial Developer. All Rights Reserved.
+;;;
+;;;  Contributor(s):
+
+
+(module space.product jazz
+
+
+(import (jazz.io)
+        (world.settings))
+
+
+;;;
+;;;; Build
+;;;
+
+
+(definition (build descriptor (unit: unit #f) (force?: force? #f))
+  (define (copy-info)
+    (install-file '("README"))
+    (install-file '("devel" "world" "Help.ftx"))
+    (install-file '("devel" "world" "News.ftx")))
+  
+  (define (copy-assets)
+    (let ((path '("lib" "world.client" "assets")))
+      (let ((src (world-directory path 'World))
+            (dst (world-directory path 'Build)))
+        (install-directory "assets" src dst))))
+  
+  (define (copy-doc)
+    (let ((src (world-directory '("lib" "world.website" "content") 'World))
+          (dst (world-directory '("doc") 'Build)))
+      (install-directory "doc" src dst)))
+  
+  (define (copy-templates)
+    (let ((src (world-templates-directory 'World))
+          (dst (world-templates-directory 'Build)))
+      (install-directory "templates" src dst)))
+  
+  (define (install-file path (name #f))
+    (let ((src (world-file path 'World))
+          (dst (world-file path 'Build)))
+      (unless (and (exists?~ dst)
+                   (equal? (digest-file (parse~ src) 'SHA-1) (digest-file (parse~ dst) 'SHA-1)))
+        (build-feedback "; copying {a}..." (or name (last path)))
+        (create-directories~ dst)
+        (copy-file~ src dst))))
+  
+  (define (install-directory name src dst)
+    (unless (and (exists?~ dst)
+                 (equal? (digest-directory src 'SHA-1) (digest-directory dst 'SHA-1)))
+      ;; should only copy changes with feedback accordingly
+      (build-feedback "; copying {a}..." name)
+      (create-directories~ dst)
+      (copy-directory~ src dst)))
+  
+  (initialize-aliases)
+  (copy-info)
+  (copy-assets)
+  (copy-doc)
+  (copy-templates)
+  (build-product-descriptor descriptor unit: unit force?: force?))
+
+
+;;;
+;;;; Register
+;;;
+
+
+(register-product 'space
+  build: build))
