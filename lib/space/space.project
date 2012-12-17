@@ -10,4 +10,10 @@
 
 
 (form
-  (<Jazz-Project> name: Space working: {Directory :context "../.."} product: space)))
+  (<Jazz-Project>  name: Space   default-traits: (Safety.Release) working: {Directory :context "../.."} product: space
+    (<Trait>       name: Safety
+      (<install>)
+      (<Trait>     name: Debug
+        (<install>               configuration: "debug"))
+      (<Trait>     name: Release
+        (<install>               configuration: "release"))))))
