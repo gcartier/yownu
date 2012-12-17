@@ -1,0 +1,101 @@
+;;;==============
+;;;  JazzScheme
+;;;==============
+;;;
+;;;; Space Client Settings
+;;;
+
+
+;;;
+;;;; Space
+;;;
+
+
+space.ambient-light?          #t
+space.radius                  250.
+space.density                 5
+space.planet-min-size         5.
+space.planet-max-size         50.
+space.planet-trees            10.
+
+
+;;;
+;;;; World
+;;;
+
+
+;; Setup
+world.start-world             "space"
+world.world-directories       (("space" . {Directory Home "space"}))
+world.worlds-directories      #f
+world.user-assets?            #f
+
+;; Render
+world.tile-shader             phong
+world.sector-size             16
+world.view-distance           13
+world.idle-rendering          5
+world.buzy-rendering          2
+world.dynamic-lights          8
+world.lightmaps?              #t
+world.shadowmaps?             #f
+world.texture-arrays?         #t
+world.multisampling           2
+world.post-processing?        #t
+world.perspective-fov         45.
+world.perspective-near        0.1
+world.perspective-far         10000.0
+
+;; Tick
+world.tick-pulse              .01
+
+;; Interface
+world.start-interface?        #t
+world.track-sensitivity       200.
+world.axes-graduation?        #f
+world.confirmation-dialogs?   #t
+world.sun-cycle?              #t
+world.random-seed             #f
+
+;; Game
+world.fire-direction          eye
+
+;; History
+world.history?                #t
+world.history-max             500
+world.actors-history?         #t
+world.evaluate-future?        #f
+world.inhibit-slicing?        #f
+
+;; Debug
+world.validate-opengl?        #t
+world.validate-shaders?       #t
+world.testing                 #f
+world.gc-report?              #f
+
+;; Collision
+world.debug-collisions?       #f
+
+;; Camera
+world.camera-move-speed       .5
+world.camera-strafe-speed     0.1
+world.camera-rotate-speed     0.03
+
+;; Network
+world.client.host             #u8(192 168 1 101)
+world.client.service          50000
+world.client.auto-connect?    #f
+world.client.user             #f
+world.client.password         #f
+world.client.player-name      "Anonymous"
+world.client.player-avatar    {Color Red}
+world.client.debug?           #f
+
+
+;;;
+;;;; Jazz
+;;;
+
+
+jazz.render-pulse             .01
+jazz.evaluation-mode          interpret

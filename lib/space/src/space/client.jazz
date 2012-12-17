@@ -28,5 +28,9 @@
     {Directory Home ".space"})
   
   
+  (method override (settings-alias)
+    'Space)
+  
+  
   (method override (use-profile?)
     #f)))
