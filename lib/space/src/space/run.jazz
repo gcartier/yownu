@@ -17,7 +17,8 @@
 (import (world)
         (world.boot)
         (space.client)
-        (space.window))
+        (space.window)
+        (space.windows (cond windows)))
 
 
 (definition (run descriptor)

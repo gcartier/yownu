@@ -26,6 +26,10 @@
   
   
   (slot space-settings initialize #f getter generate)
+
+  
+  (method override (process-name)
+    "Space")
   
   
   (method override (settings-root)

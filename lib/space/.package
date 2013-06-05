@@ -5,9 +5,11 @@
                    (run space.run)
                    (unit space.product)
                    (build (space executable: "space" resources: "resources"))
-                   (update space.client
+                   (update space.biome
+                           space.client
                            space.run
                            space.window
+                           space.windows
                            space.world
                            space.zone)
                    (dependencies world

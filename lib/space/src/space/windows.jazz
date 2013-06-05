@@ -1,0 +1,26 @@
+;;;==============
+;;;  JazzScheme
+;;;==============
+;;;
+;;;; Space Windows
+;;;
+;;;  The Initial Developer of the Original Code is Guillaume Cartier.
+;;;  Portions created by the Initial Developer are Copyright (C) 2012
+;;;  the Initial Developer. All Rights Reserved.
+;;;
+;;;  Contributor(s):
+
+
+(module space.windows jazz
+
+
+(import (jazz.platform)
+        (jazz.system)
+        (jazz.ui.window)
+        (space.window))
+
+
+(specific (window-style (<Space-Window> window) rest)
+  (if (find-setting 'world.borderless? #f)
+      WS_POPUP
+    (nextmethod window rest))))
