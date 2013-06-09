@@ -15,10 +15,14 @@
 
 
 (import (jazz.io)
+        (jazz.jml)
+        (jazz.library)
         (jazz.system)
+        (jazz.ui)
         (world)
         (world.autoload)
         (world.client)
+        (world.client.actions)
         (world.syntax (phase syntax)))
 
 
@@ -49,5 +53,54 @@
     (set-setting~ space-settings 'world.user-assets? #f))
   
   
+  (method override (default-bindings)
+    (new Space-Bindings))
+  
+  
   (method override (use-profile?)
-    #f)))
+    #f)
+
+  
+  ;;;
+  ;;;; Actions
+  ;;;
+  
+  
+  (method override (class-actions)
+    (append (list (find-actions 'space))
+            (nextmethod)))
+  
+  
+  ;;;
+  ;;;; Events
+  ;;;
+  
+  
+  (method (on-teleport-player evt)
+    (place-player~ (current-zone))))
+
+
+;;;
+;;;; Bindings
+;;;
+
+
+(class Space-Bindings extends World-Bindings
+  
+  
+  (form
+    (<install>
+      (<Space-Actions> name: space))))
+
+
+;;;
+;;;; Space
+;;;
+
+
+(class Space-Actions extends World-Actions
+  
+  
+  (form
+    (<install>                             title: "Space"
+      (<Action-Item> name: teleport-player title: "Teleport Player" action-handler: {Event-Handler :application on-teleport-player} shortcut: {Shortcut :alt #\P})))))

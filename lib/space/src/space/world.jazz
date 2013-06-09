@@ -89,10 +89,4 @@
         (space.biome))
 
 
-(class Space-World extends World
-  
-  
-  (method override (initialize-world)
-    (nextmethod)
-    ;; see all the universe
-    (set! view-distance 19))))
+(class Space-World extends World))
