@@ -41,16 +41,20 @@
   
   
   (method override (settings-alias)
-    'Space)
+    'App)
+  
+  
+  (method override (initialize-app)
+    (register-alias 'App
+                    (list (if (is-alias? 'Space)
+                              'Space
+                            'Build))))
   
   
   (method override (initialize-settings)
     (nextmethod)
-    (register-alias 'Project
-                    (list (if (is-alias? 'Space)
-                              'Space
-                            'Build)))
-    (register-alias 'Space-World (get-list~ (new-directory~ (get-parent~ (get-parent~ {Directory Project})) '("worlds" "space"))))
+    (register-alias 'Root (get-list~ (get-parent~ (get-parent~ {Directory App}))))
+    (register-alias 'Space-World '(Root "worlds" "space"))
     (set! space-settings (new File-Settings))
     (register-settings space-settings)
     (set-setting~ space-settings 'world.world-directories '(("space" . {Directory Space-World})))
