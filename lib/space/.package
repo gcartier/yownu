@@ -4,7 +4,7 @@
   (products (space (title "Space")
                    (run space.run)
                    (unit space.product)
-                   (build (space executable: "space" resources: "resources"))
+                   (build (space executable: "Space" resources: "resources"))
                    (update space.biome
                            space.client
                            space.product
