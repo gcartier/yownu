@@ -14,7 +14,10 @@
 (module space.run jazz
 
 
-(import (world)
+(import (jazz.graphic.opengl.glew)
+        (jazz.graphic.opengl.window)
+        (jazz.platform)
+        (world)
         (world.boot)
         (space.client)
         (space.window)
@@ -22,7 +25,19 @@
 
 
 (definition (run descriptor)
-  (boot-client Space-Client Space-Window "space" #f))
+  (cond ((command-argument "glversion")
+         (new-opengl-window visible?: #f)
+         (system-message (format "OpenGL {a}" (glGetString GL_VERSION))))
+        ((command-argument "glextension")
+         => (lambda (arg)
+              (new-opengl-window visible?: #f)
+              (system-message (format "OpenGL extension {a} {a} supported"
+                                      arg
+                                      (if (glewIsSupported arg)
+                                          "is"
+                                        "not")))))
+        (else
+         (boot-client Space-Client Space-Window "space" #f))))
 
 
 (register-product-run 'space
