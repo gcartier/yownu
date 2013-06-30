@@ -33,7 +33,7 @@ world.buzy-rendering          2
 world.dynamic-lights          8
 world.lightmaps?              #t
 world.shadowmaps?             #f
-world.texture-arrays?         #t
+world.texture-arrays?         default
 world.multisampling           2
 world.post-processing?        #t
 world.perspective-fov         45.
