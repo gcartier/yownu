@@ -25,17 +25,24 @@
 
 
 (definition (run descriptor)
+  (define (check-extension ext)
+    (format "{a} {a} supported"
+            ext
+            (if (glewIsSupported ext)
+                "is"
+              "not")))
+  
   (cond ((command-argument "glversion")
          (new-opengl-window visible?: #f)
          (system-message (format "OpenGL {a}" (glGetString GL_VERSION))))
         ((command-argument "glextension")
          => (lambda (arg)
               (new-opengl-window visible?: #f)
-              (system-message (format "OpenGL extension {a} {a} supported"
-                                      arg
-                                      (if (glewIsSupported arg)
-                                          "is"
-                                        "not")))))
+              (system-message (format "OpenGL extension {a}" (check-extension arg)))))
+        ((command-argument "glinformation")
+         (new-opengl-window visible?: #f)
+         (system-message (string-append (format "OpenGL {a}{%}{%}" (glGetString GL_VERSION))
+                                        (check-extension "GL_EXT_texture_array"))))
         (else
          (boot-client Space-Client Space-Window "space" #f))))
 
