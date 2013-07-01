@@ -9,6 +9,7 @@
                            space.client
                            space.product
                            space.run
+                           space.start
                            space.window
                            space.windows
                            space.world

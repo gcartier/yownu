@@ -5,7 +5,10 @@
   {Format Heading1}
   {Format Base left-margin: 48 bulleted?: #t}
   {Format Heading2}
-  {Format Base left-margin: 0 bulleted?: #f})
+  {Format Base left-margin: 0 bulleted?: #f}
+  {Format Heading2 left-margin: 16 bulleted?: #t}
+  {Format Heading2 left-margin: 48 bulleted?: #t}
+  {Format Heading2 left-margin: 80 bulleted?: #t})
 
  styles:
  ({Text-Style Base}
@@ -13,13 +16,29 @@
   {Text-Style Heading2})
 
  paragraphs:
- ((1 ("Reflect on the structure of servers / clients that is the most seamless for users" 0))
-  (1 ("Go through all the code to get back into it and add comments and documentation (Doc.ftx)" 0))
-  (1 ("Decide what to include in v1.0" 0))
-  (1 ("Work on v1.0" 0))
+ ((2 ("Todo" 1))
   (5)
-  (1 ("Fix slowdown when more than 1 world is run on same computer" 0))
-  (0)
+  (1 ("Reflect on the structure of servers / clients that is the most seamless for users" 0))
+  (5)
+  (5)
+  (4 ("Closed-Beta" 2))
+  (6 ("Add sound on gc option" 0))
+  (6 ("Understand what seems to be a recuring noticable delay not occuring on gcs!" 0))
+  (6 ("Add gc duration to the counter" 0))
+  (6 ("Add a memory pane" 0))
+  (6 ("Fix the location texture not found on non texture arrays computers" 0))
+  (6 ("Fix memory leaks" 0))
+  (7 ("Zone revert leak a lot" 0))
+  (8 ("prepare tile leaks a lot" 0))
+  (6 ("Fix prepare tile being very slow with texture arrays" 0))
+  (7 ("Due in large to the large earth image" 0))
+  (7 ("Not pad if largest image!?" 0))
+  (6 ("Wait cursor on zone load, ..." 0))
+  (6 ("Actions that act on the interface like main menu should reshow the interface if hidden" 0))
+  (6 ("Need a more complete solution to opengl bug tracking than calling gl-check-error" 0))
+  (4)
+  (4)
+  (4 ("Release" 2))
   (1 ("Welcome screen, login and character choice" 0))
   (1 ("Multiple accounts, servers, characters" 0))
   (1 ("Server persistence of characters (settings)" 0))
@@ -32,6 +51,8 @@
   (1 ("Trade between players!?" 0))
   (1 ("Serialize game state for debugging" 0))
   (5)
+  (5)
+  (4 ("Mathieu" 2))
   (1 ("With Mathieu and looking at Space, identify everything that can be done / improved / ... at relatively low effort" 0))
   (3 ("Like every domain, 3d techniques have evolved from simple starts and I could benefit from implementing many of those simple techniques that are in the 80 / 20 reward / effort range" 0))
   (5))}
