@@ -97,6 +97,18 @@
   
   
   ;;;
+  ;;;; Tiles
+  ;;;
+  
+  
+  (method override (prepare-tiles)
+    (let ((world (current-world)))
+      (prepare-tile~ world
+        adder: (lambda (atlas)
+                 (add-file~ atlas (find-texture-file~ world "earth.png"))))))
+  
+  
+  ;;;
   ;;;; Skybox
   ;;;
   

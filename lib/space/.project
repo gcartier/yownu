@@ -25,4 +25,5 @@
         (<Jazz-File>       name: zone    source: {File :context "src" "space" "zone.jazz"})
         (<Jazz-File>       name: biome   source: {File :context "src" "space" "biome.jazz"})
         (<Jazz-File>       name: product source: {File :context "src" "space" "product.jazz"})
-        (<Jazz-File>       name: windows source: {File :context "src" "space" "windows.jazz"}))))))
+        (<Jazz-File>       name: windows source: {File :context "src" "space" "windows.jazz"})
+        (<Jazz-File>       name: start   source: {File :context "src" "space" "start.jazz"}))))))
