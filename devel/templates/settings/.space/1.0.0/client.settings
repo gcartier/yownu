@@ -49,6 +49,7 @@ world.track-sensitivity       200.
 world.axes-graduation?        #f
 world.confirmation-dialogs?   #t
 world.sun-cycle?              #t
+world.skybox                  #f
 world.gc-sound?               default
 world.random-seed             #f
 
