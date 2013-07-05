@@ -41,7 +41,7 @@
       (install-directory "doc" src dst)))
   
   (define (copy-templates)
-    (let ((src (world-templates-directory 'World))
+    (let ((src (world-templates-directory 'Space))
           (dst (world-templates-directory 'Build)))
       (install-directory "templates" src dst)))
   
