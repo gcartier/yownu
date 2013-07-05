@@ -24,6 +24,12 @@ space.planet-trees            10.
 ;;;
 
 
+;; Window
+world.fullscreen?             #t
+world.borderless?             #f
+world.position                {Point 50 50}
+world.size                    {Dimension 1200 800} ;; {Dimension 850 550}
+
 ;; Render
 world.tile-shader             phong
 world.sector-size             16
