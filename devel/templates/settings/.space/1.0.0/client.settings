@@ -40,8 +40,9 @@ world.dynamic-lights          8
 world.lightmaps?              #t
 world.shadowmaps?             #f
 world.texture-arrays?         default
-world.multisampling           2
+world.framebuffer-objects?    default
 world.post-processing?        #t
+world.multisampling           2
 world.perspective-fov         45.
 world.perspective-near        0.1
 world.perspective-far         10000.0
