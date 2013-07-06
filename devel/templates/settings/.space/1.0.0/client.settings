@@ -46,6 +46,7 @@ world.multisampling           2
 world.perspective-fov         45.
 world.perspective-near        0.1
 world.perspective-far         10000.0
+world.earth?                  #t
 
 ;; Tick
 world.tick-pulse              .01
