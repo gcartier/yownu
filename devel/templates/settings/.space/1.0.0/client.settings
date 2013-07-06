@@ -95,6 +95,18 @@ world.client.player-name      "Anonymous"
 world.client.player-avatar    {Color Red}
 world.client.debug?           #f
 
+;; Test
+world.test1                   #f
+world.test2                   #f
+world.test3                   #f
+world.test4                   #f
+world.test5                   #f
+world.test6                   #f
+world.test7                   #f
+world.test8                   #f
+world.test9                   #f
+world.test0                   #f
+
 
 ;;;
 ;;;; Jazz
