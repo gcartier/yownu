@@ -27,6 +27,8 @@
         (jazz.runtime)
         (jazz.system)
         (jazz.ui)
+        (jazz.ui.view)
+        (jazz.ui.window)
         (time)
         (world)
         (world.actor)
