@@ -93,4 +93,25 @@
         (space.biome))
 
 
-(class Space-World extends World))
+(definition user-zones
+  {Directory Settings "zones"})
+
+
+(class Space-World extends World
+  
+  
+  (method override (get-zones-directories)
+    (if (exists?~ user-zones)
+        (cons user-zones (nextmethod))
+      (nextmethod)))
+  
+  
+  (method override (zone-writable? moniker)
+    (and moniker (or writable?
+                     (pathname=? (get-parent~ moniker) user-zones))))
+  
+  
+  (method override (new-zone-file base)
+    (if (and (get-world-directory) writable?)
+        (nextmethod base)
+      (new-file~ user-zones (make-filename base "zone"))))))
