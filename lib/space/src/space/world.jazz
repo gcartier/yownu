@@ -114,4 +114,30 @@
   (method override (new-zone-file base)
     (if (and (get-world-directory) writable?)
         (nextmethod base)
-      (new-file~ user-zones (make-filename base "zone"))))))
+      (new-file~ user-zones (make-filename base "zone"))))
+  
+  
+  (method override (update-title)
+    (define (present-zone)
+      (let ((zone (current-zone+)))
+        (if (not zone)
+            "New"
+          (present-title (get-moniker~ zone) (get-modified?~ zone)))))
+    
+    (define (present-title moniker modified?)
+      (format "{a}{a}"
+              (present-name moniker)
+              (present-modified modified?)))
+    
+    (define (present-name moniker)
+      (if (not moniker)
+          "New"
+        (get-base~ moniker)))
+    
+    (define (present-modified modified?)
+      (if modified?
+          " *"
+        ""))
+    
+    (set-title~ window (format "Space - {a}"
+                               (present-zone))))))
