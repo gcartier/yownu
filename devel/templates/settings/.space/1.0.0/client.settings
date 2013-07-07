@@ -81,9 +81,9 @@ world.gc-report?              #f
 world.debug-collisions?       #f
 
 ;; Camera
-world.camera-move-speed       2.5
-world.camera-strafe-speed     0.5
-world.camera-rotate-speed     0.03
+world.camera-move-speed       .5
+world.camera-strafe-speed     0.1
+world.camera-rotate-speed     0.025
 
 ;; Network
 world.client.host             #u8(192 168 1 101)
