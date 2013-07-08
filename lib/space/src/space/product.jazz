@@ -25,9 +25,10 @@
 
 (definition (build descriptor (unit: unit #f) (force?: force? #f))
   (define (copy-info)
-    (install-file '("README"))
-    (install-file '("devel" "world" "Help.ftx"))
-    (install-file '("devel" "world" "News.ftx")))
+    (install-file '("README") 'Space)
+    (install-file '("devel" "space" "Help.ftx") 'Space)
+    (install-file '("devel" "space" "News.ftx") 'Space)
+    (install-file '("devel" "space" "Roadmap.ftx") 'Space))
   
   (define (copy-assets)
     (let ((path '("lib" "world.client" "assets")))
@@ -45,8 +46,8 @@
           (dst (world-templates-directory 'Build)))
       (install-directory "templates" src dst)))
   
-  (define (install-file path (name #f))
-    (let ((src (world-file path 'World))
+  (define (install-file path (alias #f) (name #f))
+    (let ((src (world-file path alias))
           (dst (world-file path 'Build)))
       (unless (and (exists?~ dst)
                    (equal? (digest-file (parse~ src) 'SHA-1) (digest-file (parse~ dst) 'SHA-1)))
