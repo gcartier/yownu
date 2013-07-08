@@ -27,7 +27,8 @@
         (world.client.actions)
         (world.settings)
         (world.syntax (phase syntax))
-        (space.window))
+        (space.window)
+        (space.zone))
 
 
 (class Space-Client extends World-Client
@@ -97,7 +98,10 @@
   
   
   (method (on-teleport-player evt)
-    (place-player~ (current-zone)))
+    (let ((zone (current-zone)))
+      (if (is? zone Space-Zone)
+          (place-player~ zone)
+        (bell))))
   
   
   ;;;
