@@ -97,7 +97,24 @@
   
   
   (method (on-teleport-player evt)
-    (place-player~ (current-zone))))
+    (place-player~ (current-zone)))
+  
+  
+  ;;;
+  ;;;; Files
+  ;;;
+  
+  
+  (method override (news-file)
+    (world-file '("devel" "space" "News.ftx") 'Space))
+  
+  
+  (method override (roadmap-file)
+    (world-file '("devel" "space" "Roadmap.ftx") 'Space))
+  
+  
+  (method override (help-file)
+    (world-file '("devel" "space" "Help.ftx") 'Space)))
 
 
 ;;;
