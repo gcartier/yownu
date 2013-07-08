@@ -110,15 +110,15 @@
   
   
   (method override (news-file)
-    (world-file '("devel" "space" "News.ftx") 'Space))
+    (world-file '("devel" "space" "News.ftx") 'App))
   
   
   (method override (roadmap-file)
-    (world-file '("devel" "space" "Roadmap.ftx") 'Space))
+    (world-file '("devel" "space" "Roadmap.ftx") 'App))
   
   
   (method override (help-file)
-    (world-file '("devel" "space" "Help.ftx") 'Space)))
+    (world-file '("devel" "space" "Help.ftx") 'App)))
 
 
 ;;;
