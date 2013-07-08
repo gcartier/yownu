@@ -125,4 +125,13 @@
   
   
   (method override (prepare-skybox)
-    (install-skybox (find-skybox "nebula")))))
+    (install-skybox (find-skybox "nebula")))
+  
+  
+  ;;;
+  ;;;; Edition
+  ;;;
+  
+  
+  (method override (zone-editable?)
+    #f)))

@@ -112,7 +112,7 @@
   
   
   (method override (new-zone-file base)
-    (if (and (get-world-directory) writable?)
+    (if (and newable? (get-world-directory))
         (nextmethod base)
       (new-file~ user-zones (make-filename base "zone"))))
   
