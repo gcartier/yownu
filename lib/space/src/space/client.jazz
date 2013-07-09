@@ -25,6 +25,9 @@
         (world.autoload)
         (world.client)
         (world.client.actions)
+        (world.client.bars)
+        (world.interface)
+        (world.interface.bars)
         (world.settings)
         (world.syntax (phase syntax))
         (space.window)
@@ -118,7 +121,24 @@
   
   
   (method override (help-file)
-    (world-file '("devel" "space" "Help.ftx") 'App)))
+    (world-file '("devel" "space" "Help.ftx") 'App))
+  
+  
+  ;;;
+  ;;;; Interface
+  ;;;
+  
+  
+  (method override (setup-application-interface)
+    (install-bars
+      `((,Space-Main-Bar      horizontal (center -10))
+        (,World-Game-Bar      horizontal (center -36))
+        (,World-Window-Bar    horizontal (-10 -10))
+        (,World-Camera-Bar    horizontal (-10 -36))
+        (,World-Debug-Bar     horizontal (10 -10))
+        (,World-History-Bar   horizontal (10 -36))
+        (,World-Edition-Bar   vertical   (-36 center))
+        (,World-Interface-Bar vertical   (-10 center))))))
 
 
 ;;;
@@ -131,6 +151,8 @@
   
   (form
     (<install>
+      (<!>             name: world-world
+        (<!>           name: world-open  visible?: #f))
       (<Space-Actions> name: space))))
 
 
@@ -144,4 +166,17 @@
   
   (form
     (<install>                             title: "Space"
-      (<Action-Item> name: teleport-player title: "Teleport Player" action-handler: {Event-Handler :application on-teleport-player} shortcut: {Shortcut :alt #\P})))))
+      (<Action-Item> name: teleport-player title: "Teleport Player" action-handler: {Event-Handler :application on-teleport-player} shortcut: {Shortcut :alt #\P}))))
+
+
+;;;
+;;;; Main
+;;;
+
+
+(class Space-Main-Bar extends World-Main-Bar
+  
+  
+  (form
+    (<install>
+      (<!> name: world-open visible?: #f)))))
