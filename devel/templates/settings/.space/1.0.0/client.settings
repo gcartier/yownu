@@ -62,7 +62,7 @@ world.gc-sound?               default
 world.random-seed             #f
 
 ;; Game
-world.fire-direction          eye
+world.free-aim?               #t
 
 ;; History
 world.history?                #t
