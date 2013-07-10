@@ -36,6 +36,8 @@
   (7 ("Cheetah, human, ..." 0))
   (7 ("Should enable a quick hack for minecraft stairs" 0))
   (6 ("Have at least one thing to grab attention and want to return" 0))
+  (6 ("Replace confirmation when saving over existing" 0))
+  (6 ("Toggle fire between direction and sight!?" 0))
   (6 ("Test all functionality" 0))
   (6 ("Fix alt-T on sphere selected" 0))
   (6 ("Shader for grid!?" 0))
