@@ -58,6 +58,7 @@ world.tick-pulse              .01
 ;; Interface
 world.start-interface?        #t
 world.track-sensitivity       200.
+world.axes?                   #f
 world.axes-graduation?        #f
 world.confirmation-dialogs?   #t
 world.sun-cycle?              #t
