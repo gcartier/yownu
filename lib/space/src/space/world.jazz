@@ -60,6 +60,7 @@
         (world.history)
         (world.homogeneous)
         (world.interface)
+        (world.interface.dialogs)
         (world.io)
         (world.light)
         (world.lookat)

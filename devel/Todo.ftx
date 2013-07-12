@@ -25,7 +25,6 @@
   (7 ("Zone revert leaks a lot" 0))
   (8 ("Prepare tile leaks a lot" 0))
   (7 ("I think singleton setters should call close" 0))
-  (6 ("Fix gravity coming back from space zone" 0))
   (6 ("Debug minecraft draw-atlas crash" 0))
   (6 ("Make it so draw-atlas calls map-texture only once" 0))
   (6 ("Finish ellipsoid collisions" 0))
