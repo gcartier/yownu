@@ -21,6 +21,7 @@
         (jazz.io)
         (jazz.jml)
         (jazz.library)
+        (jazz.logger)
         (jazz.media)
         (jazz.network)
         (jazz.platform)
@@ -82,6 +83,7 @@
         (world.settings)
         (world.shader)
         (world.shaders)
+        (world.support)
         (world.syntax (phase syntax))
         (world.texture)
         (world.tile)
@@ -98,6 +100,10 @@
 
 
 (class Space-World extends World
+  
+  
+  (method override (zone-based?)
+    #t)
   
   
   (method override (get-zones-directories)
