@@ -17,6 +17,7 @@
 (import (jazz.jml)
         (jazz.system)
         (world)
+        (world.atlas)
         (world.autoload)
         (world.geometry)
         (world.light)
@@ -110,13 +111,21 @@
   ;;;
   
   
-  (method override (prepare-tiles)
+  (method override (create-atlas)
     (let ((world (current-world)))
       (if (not (get-earth?~ world))
           (nextmethod)
-        (prepare-tile~ world
-          adder: (lambda (atlas)
-                   (add-file~ atlas (find-texture-file~ world "earth.png")))))))
+        (or (registered-atlas 'space)
+            (let ((atlas (create-space-atlas)))
+              (register-atlas 'space atlas)
+              atlas)))))
+  
+  
+  (method (create-space-atlas)
+    (let ((world (current-world)))
+      (make-tile-atlas~ world
+        adder: (lambda (atlas)
+                 (add-file~ atlas (find-texture-file~ world "earth.png"))))))
   
   
   ;;;
