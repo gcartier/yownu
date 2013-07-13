@@ -63,6 +63,8 @@ world.axes-graduation?        #f
 world.confirmation-dialogs?   #t
 world.sun-cycle?              #t
 world.skybox                  #f
+world.music?                  #t
+world.sounds?                 #t
 world.gc-sound?               default
 world.random-seed             #f
 
