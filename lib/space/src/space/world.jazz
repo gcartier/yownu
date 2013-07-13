@@ -14,7 +14,8 @@
 (module space.world jazz
 
 
-(import (jazz.geometry)
+(import (jazz.development)
+        (jazz.geometry)
         (jazz.graphic)
         (jazz.graphic.opengl.autoload)
         (jazz.graphic.opengl.glew)
