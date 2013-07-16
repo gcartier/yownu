@@ -29,8 +29,8 @@ world.start-new?              #f
 world.start-zone              #f
 
 ;; Window
-world.fullscreen?             #t
-world.borderless?             #f
+world.fullscreen?             default
+world.borderless?             default
 world.position                {Point 50 50}
 world.size                    {Dimension 1200 800} ;; {Dimension 850 550}
 

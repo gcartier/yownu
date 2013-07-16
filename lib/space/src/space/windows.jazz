@@ -17,10 +17,11 @@
 (import (jazz.platform)
         (jazz.system)
         (jazz.ui.window)
+        (world.settings)
         (space.window))
 
 
 (specific (window-style (<Space-Window> window) rest)
-  (if (find-setting 'world.borderless? #f)
+  (if (world-setting 'world.borderless? #f 'default)
       WS_POPUP
     (nextmethod window rest))))
