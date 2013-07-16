@@ -61,6 +61,7 @@
         (world.history)
         (world.homogeneous)
         (world.interface)
+        (world.interface.bars)
         (world.interface.dialogs)
         (world.io)
         (world.light)
