@@ -20,6 +20,7 @@
         (jazz.system)
         (world)
         (world.boot)
+        (world.fonts)
         (space.client)
         (space.run)
         (space.window)
