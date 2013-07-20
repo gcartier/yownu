@@ -54,10 +54,10 @@
 
 
 (definition tree-birch
-  '("tree_birch_small" "tree_birch_med" "tree_birch_big"))
+  '("tree/birch_small" "tree/birch_med" "tree/birch_big"))
 
 (definition tree-pine
-  '("tree_pine_small" "tree_pine_med" "tree_pine_big"))
+  '("tree/pine_small" "tree/pine_med" "tree/pine_big"))
 
 
 (definition public biomes
