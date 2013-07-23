@@ -65,6 +65,7 @@ world.sun-cycle?              #t
 world.skybox                  #f
 world.music?                  #t
 world.sounds?                 #t
+world.selection-sounds?       #t
 world.gc-sound?               default
 world.random-seed             #f
 
