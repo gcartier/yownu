@@ -68,6 +68,7 @@ world.sounds?                 #t
 world.selection-sounds?       #t
 world.gc-sound?               default
 world.random-seed             #f
+world.user-assets?            #f
 
 ;; Game
 world.free-aim?               #t

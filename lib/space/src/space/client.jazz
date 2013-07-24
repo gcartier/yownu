@@ -74,8 +74,7 @@
     (set! space-settings (new File-Settings))
     (register-settings space-settings)
     (set-setting~ space-settings 'world.world-directories '(("space" . {Directory Space-World})))
-    (set-setting~ space-settings 'world.worlds-directories #f)
-    (set-setting~ space-settings 'world.user-assets? #f))
+    (set-setting~ space-settings 'world.worlds-directories #f))
   
   
   (method override (default-bindings)
