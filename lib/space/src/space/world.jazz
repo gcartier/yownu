@@ -51,6 +51,7 @@
         (world.external)
         (world.external.milkshape)
         (world.external.obj)
+        (world.fog)
         (world.folio)
         (world.foreign)
         (world.foreign.obj)
