@@ -111,7 +111,7 @@
   
   
   (method override (get-zones-directories)
-    (if (exists?~ user-zones)
+    (if (and (user-assets?) (exists?~ user-zones))
         (cons user-zones (nextmethod))
       (nextmethod)))
   
