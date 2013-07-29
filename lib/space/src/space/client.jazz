@@ -135,12 +135,12 @@
         (,World-Game-Bar      game      horizontal (center -36))
         (,World-Window-Bar    window    horizontal (-10 -10))
         (,World-Camera-Bar    camera    horizontal (-10 -36))
-        (,World-Debug-Bar     debug     horizontal (10 -10))
-        (,World-History-Bar   history   horizontal (10 -36))
+        (,Space-Debug-Bar     debug     horizontal (10 -10))
+        (,Space-History-Bar   history   horizontal (10 -36))
         (,World-Models-Bar    models    horizontal (10 -24.) #f)
         (,World-Target-Bar    target    horizontal (-10 10))
         (,World-Edition-Bar   edition   vertical   (-36 center))
-        (,World-Interface-Bar interface vertical   (-10 center))
+        (,Space-Interface-Bar interface vertical   (-10 center))
         (,World-Collision-Bar collision horizontal (-10 36) #f)))))
 
 
@@ -154,13 +154,61 @@
   
   (form
     (<install>
+      (<!>             name: world-interface
+        (<!>           name: toggle-mode            visible?: #f))
       (<!>             name: world-world
-        (<!>           name: world-new     visible?: #f)
-        (<!>           name: world-open    visible?: #f)
-        (<!>           name: world-save    visible?: #f)
-        (<!>           name: world-save-as visible?: #f)
-        (<!>           name: world-revert  visible?: #f))
+        (<!>           name: world-new              visible?: #f)
+        (<!>           name: world-open             visible?: #f)
+        (<!>           name: world-save             visible?: #f)
+        (<!>           name: world-save-as          visible?: #f)
+        (<!>           name: world-revert           visible?: #f))
+      (<!>             name: world-camera
+        (<!>           name: toggle-3d              visible?: #f))
+      (<!>             name: world-graphics
+        (<!>           name: toggle-lighting        visible?: #f)
+        (<!>           name: toggle-projection      visible?: #f))
+      (<!>             name: world-history
+        (<!>           name: toggle-history         visible?: #f)
+        (<!>           name: reset-history          visible?: #f)
+        (<!>           name: toggle-evaluate-future visible?: #f))
+      (<!>             name: world-server
+        (<!>           name: connect-to-server      visible?: #f)
+        (<!>           name: disconnect-from-server visible?: #f)
+        (<!>           name: request-server-update  visible?: #f))
+      (<!>             name: world-debug
+        (<!>           name: toggle-draw-atlas      visible?: #f))
       (<Space-Actions> name: space))))
+
+
+;;;
+;;;; Bars
+;;;
+
+
+(class Space-Interface-Bar extends World-Interface-Bar
+  
+  
+  (form
+    (<install>
+      (<!> name: toggle-lighting visible?: #f))))
+
+
+(class Space-History-Bar extends World-History-Bar
+  
+  
+  (form
+    (<install>
+      (<!> name: toggle-history         visible?: #f)
+      (<!> name: reset-history          visible?: #f)
+      (<!> name: toggle-evaluate-future visible?: #f))))
+
+
+(class Space-Debug-Bar extends World-Debug-Bar
+  
+  
+  (form
+    (<install>
+      (<!> name: toggle-draw-atlas visible?: #f))))
 
 
 ;;;
