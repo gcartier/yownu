@@ -175,52 +175,107 @@
           (<!>           name: world-save             visible?: #f)
           (<!>           name: world-save-as          visible?: #f)
           (<!>           name: world-revert           visible?: #f))
-        (<world-camera!>
-          (<!>           name: toggle-3d              visible?: #f))
-        (<world-graphics!>
-          (<!>           name: toggle-lighting        visible?: #f)
-          (<!>           name: toggle-projection      visible?: #f))
         (<world-server!>
           (<!>           name: connect-to-server      visible?: #f)
           (<!>           name: disconnect-from-server visible?: #f)
           (<!>           name: request-server-update  visible?: #f))
+        (<world-camera!>
+          (<!>           name: toggle-3d              visible?: #f)
+          (<!>           name: toggle-camera-lock     visible?: #f))
+        (<world-graphics!>
+          (<!>           name: toggle-lighting        visible?: #f)
+          (<!>           name: toggle-projection      visible?: #f))
+        (<world-edition!>
+          (<!>           name: textures-showcase      visible?: #f)
+          (<!>           name: import-model           visible?: #f)
+          (<!>           name: reload-textures        visible?: #f))
         (<world-history!>
           (<!>           name: toggle-history         visible?: #f)
           (<!>           name: reset-history          visible?: #f)
           (<!>           name: toggle-evaluate-future visible?: #f))
+        (<world-window!>
+          (<!>           name: live-gaia/world        visible?: #f)
+          (<!>           name: design-gaia/world      visible?: #f)
+          (<!>           name: restore-gaia/world     visible?: #f))
         (<world-debug!>
-          (<!>           name: toggle-draw-atlas      visible?: #f)))))
+          (<!>           name: toggle-debug-sectors   visible?: #f)
+          (<!>           name: toggle-debug-areas     visible?: #f)
+          (<!>           name: toggle-draw-atlas      visible?: #f)
+          (<!>           name: toggle-draw-me         visible?: #f)
+          (<!>           name: toggle-gc-sound        visible?: #f)
+          (<!>           name: reset-marks            visible?: #f)
+          (<!>           name: clear-console          visible?: #f)
+          (<!>           name: clear-terminal         visible?: #f)
+          (<!>           name: garbage-collect        visible?: #f)
+          (<!>           name: explore-interface      visible?: #f)
+          (<!>           name: test1                  visible?: #f)
+          (<!>           name: test2                  visible?: #f)
+          (<!>           name: test3                  visible?: #f)
+          (<!>           name: test4                  visible?: #f)
+          (<!>           name: test5                  visible?: #f)
+          (<!>           name: test6                  visible?: #f)
+          (<!>           name: test7                  visible?: #f)
+          (<!>           name: test8                  visible?: #f)
+          (<!>           name: test9                  visible?: #f)
+          (<!>           name: test0                  visible?: #f)))))
   
   (define-trait user-main World-Actionbar
     (<Role-Trait>
       (<install>
-        (<!> name: world-new    visible?: #f)
-        (<!> name: world-open   visible?: #f)
-        (<!> name: world-save   visible?: #f)
-        (<!> name: world-revert visible?: #f))))
+        (<!>             name: world-new              visible?: #f)
+        (<!>             name: world-open             visible?: #f)
+        (<!>             name: world-save             visible?: #f)
+        (<!>             name: world-revert           visible?: #f))))
   
   (define-trait user-interface World-Actionbar
     (<Role-Trait>
       (<install>
-        (<!> name: toggle-lighting visible?: #f))))
+        (<!>             name: toggle-lighting        visible?: #f))))
+
+  (define-trait user-camera World-Actionbar
+    (<Role-Trait>
+      (<install>
+        (<!>             name: toggle-camera-lock     visible?: #f))))
+
+  (define-trait user-edition World-Actionbar
+    (<Role-Trait>
+      (<install>
+        (<!>             name: textures-showcase      visible?: #f))))
 
   (define-trait user-history World-Actionbar
     (<Role-Trait>
       (<install>
-        (<!> name: toggle-history         visible?: #f)
-        (<!> name: reset-history          visible?: #f)
-        (<!> name: toggle-evaluate-future visible?: #f))))
+        (<!>             name: toggle-history         visible?: #f)
+        (<!>             name: reset-history          visible?: #f)
+        (<!>             name: toggle-evaluate-future visible?: #f))))
+  
+  (define-trait user-window World-Actionbar
+    (<Role-Trait>
+      (<install>
+        (<!>             name: live-gaia/world        visible?: #f)
+        (<!>             name: design-gaia/world      visible?: #f)
+        (<!>             name: restore-gaia/world     visible?: #f))))
   
   (define-trait user-debug World-Actionbar
     (<Role-Trait>
       (<install>
-        (<!> name: toggle-draw-atlas visible?: #f))))
+        (<!>             name: toggle-debug-sectors   visible?: #f)
+        (<!>             name: toggle-debug-areas     visible?: #f)
+        (<!>             name: toggle-draw-atlas      visible?: #f)
+        (<!>             name: toggle-draw-me         visible?: #f)
+        (<!>             name: reset-marks            visible?: #f)
+        (<!>             name: clear-terminal         visible?: #f)
+        (<!>             name: garbage-collect        visible?: #f)
+        (<!>             name: explore-interface      visible?: #f))))
 
   (definition user-role
     `((:bindings ,user-bindings)
       (main ,user-main)
       (interface ,user-interface)
+      (camera ,user-camera)
+      (edition ,user-edition)
       (history ,user-history)
+      (window ,user-window)
       (debug ,user-debug)))
 
 
