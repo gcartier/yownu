@@ -50,8 +50,6 @@
   
   
   (method override (populate-zone)
-    (when (find-setting 'space.ambient-light? #t)
-      (add-element (new Light-Ambient position: (vertex 0. 0. 0.))))
     (let ((space-radius (find-setting 'space.radius 250.))
           (space-density (find-setting 'space.density 5)))
       (define (place-planets)
