@@ -77,7 +77,7 @@
   (method (populate-trees planet trees)
     (let ((world (current-world)))
       (let ((size (get-size~ planet))
-            (center (get-position~ planet))
+            (position (get-position~ planet))
             (radius (get-radius~ planet)))
         (loop (repeat (random (fxround (* (find-setting 'space.planet-trees 10.) size))))
               (let ((model (random-element trees)))
@@ -97,15 +97,15 @@
   
   
   (method (random-position planet)
-    (let ((center (get-position~ planet))
+    (let ((position (get-position~ planet))
           (radius (get-radius~ planet))
           (dir (random-direction)))
-      (let ((pos (vertex+ center (vertex-scalar* dir radius))))
+      (let ((pos (vertex+ position (vertex-scalar* dir radius))))
         (values dir pos))))
   
   
   ;;;
-  ;;;; Tiles
+  ;;;; Blocks
   ;;;
   
   
@@ -121,7 +121,7 @@
   
   (method (create-space-atlas)
     (let ((world (current-world)))
-      (make-tile-atlas~ world
+      (make-block-atlas~ world
         adder: (lambda (atlas)
                  (add-file~ atlas (find-texture-file~ world "earth.png"))))))
   

@@ -25,6 +25,7 @@
   (4 ("Closed-Alpha" 2))
   (6 ("Finish ellipsoid collisions" 0))
   (7 ("Cheetah, human, ..." 0))
+  (7 ("4 legged creatures orienting to slope" 0))
   (7 ("Should enable a quick hack for minecraft stairs" 0))
   (6 ("Finish all edition features" 0))
   (6 ("Test all functionality" 0))

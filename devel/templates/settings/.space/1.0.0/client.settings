@@ -34,7 +34,7 @@ world.position                {Point 50 50}
 world.size                    {Dimension 1200 800}
 
 ;; Render
-world.tile-shader             phong
+world.block-shader            phong
 world.sector-size             16
 world.view-distance           13
 world.idle-rendering          5

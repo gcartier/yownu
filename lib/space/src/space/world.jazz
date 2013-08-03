@@ -90,7 +90,6 @@
         (world.support)
         (world.syntax (phase syntax))
         (world.texture)
-        (world.tile)
         (world.triangle)
         (world.user)
         (world.view)
