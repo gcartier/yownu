@@ -11,7 +11,8 @@
   {Format Heading2 left-margin: 0 bulleted?: #f}
   {Format Heading1 left-margin: 16 bulleted?: #t}
   {Format Heading1 left-margin: 48 bulleted?: #t}
-  {Format Heading1 left-margin: 0 bulleted?: #f})
+  {Format Heading1 left-margin: 0 bulleted?: #f}
+  {Format Base left-margin: 16 bulleted?: #t})
 
  styles:
  ({Text-Style Base}
@@ -32,6 +33,7 @@
   (3 ("Fix tile painting regression" 0))
   (3 ("Remove experimental pathing" 0))
   (3 ("Order showcase blocks" 0))
+  (12 ("Flat blocks on grid" 0))
   (2)
   (1 ("2013/08/02" 1))
   (9 ("Fix models not appearing" 0))
