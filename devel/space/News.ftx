@@ -34,6 +34,8 @@
   (3 ("Remove experimental pathing" 0))
   (3 ("Order showcase blocks" 0))
   (12 ("Flat blocks on grid" 0))
+  (12 ("Corner blocks" 0))
+  (12 ("Step blocks" 0))
   (2)
   (1 ("2013/08/02" 1))
   (9 ("Fix models not appearing" 0))
