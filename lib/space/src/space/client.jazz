@@ -167,6 +167,8 @@
   (define-trait user-bindings Bindings
     (<Role-Trait>
       (<install>
+        (<world-menu!>
+          (<!>           name: view-help              visible?: #f))
         (<world-interface!>
           (<!>           name: toggle-mode            visible?: #f))
         (<world-world!>
