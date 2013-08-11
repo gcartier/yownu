@@ -91,17 +91,18 @@
           (planets (collect-planets)))
       (unless (null? planets)
         (let ((planet (random-element planets)))
-          (receive (dir pos) (random-position planet)
+          (receive (dir pos) (random-position planet 25.)
             (set-position~ me pos)
             (realign-lookat~ me dir))))))
   
   
-  (method (random-position planet)
-    (let ((position (get-position~ planet))
-          (radius (get-radius~ planet))
-          (dir (random-direction)))
-      (let ((pos (vertex+ position (vertex-scalar* dir radius))))
-        (values dir pos))))
+  (method (random-position planet (surface-distance 0.))
+    (let ((world (current-world)))
+      (let ((position (get-position~ planet))
+            (radius (get-radius~ planet))
+            (dir (random-direction)))
+        (let ((pos (vertex+ position (vertex-scalar* dir (+ radius surface-distance)))))
+          (values dir pos)))))
   
   
   ;;;

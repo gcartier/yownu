@@ -182,7 +182,6 @@
           (<!>           name: disconnect-from-server visible?: #f)
           (<!>           name: request-server-update  visible?: #f))
         (<world-camera!>
-          (<!>           name: toggle-3d              visible?: #f)
           (<!>           name: toggle-camera-lock     visible?: #f))
         (<world-graphics!>
           (<!>           name: toggle-lighting        visible?: #f)

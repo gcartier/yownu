@@ -62,7 +62,7 @@
 
 (definition public biomes
   (list
-    (new Space-Biome name: 'grass  earth: "grass"  trees: tree-pine)
+    (new Space-Biome name: 'turf   earth: "turf"   trees: tree-pine)
     (new Space-Biome name: 'greek  earth: "greek")
     (new Space-Biome name: 'ground earth: "ground" trees: tree-birch)
     (new Space-Biome name: 'fire   earth: "fire"   trees: tree-birch)

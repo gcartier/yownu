@@ -33,7 +33,7 @@ world.borderless?             default
 world.position                {Point 50 50}
 world.size                    {Dimension 1200 800}
 
-;; Render
+;; Video
 world.block-shader            phong
 world.sector-size             16
 world.view-distance           13
@@ -49,28 +49,30 @@ world.multisampling           2
 world.perspective-fov         45.
 world.perspective-near        0.1
 world.perspective-far         10000.0
+world.sun-cycle?              #t
+world.skybox                  #f
 world.fog?                    #t
 world.fog-density             default
 world.fog-color               default
 world.earth?                  #t
 
-;; Tick
-world.tick-pulse              .01
-
-;; Interface
-world.start-interface?        #t
-world.track-sensitivity       200.
-world.axes?                   #f
-world.axes-graduation?        #f
-world.confirmation-dialogs?   #t
-world.sun-cycle?              #t
-world.skybox                  #f
+;; Audio
 world.music?                  #t
 world.sounds?                 #t
 world.selection-sounds?       #t
 world.gc-sound?               default
+
+;; Interface
+world.start-interface?        #t
+world.confirmation-dialogs?   #t
+world.axes?                   #f
+world.axes-graduation?        #f
+world.track-sensitivity       200.
 world.random-seed             #f
 world.user-assets?            default
+
+;; Tick
+world.tick-pulse              .01
 
 ;; Game
 world.free-aim?               #t
