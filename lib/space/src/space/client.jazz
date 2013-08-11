@@ -186,7 +186,8 @@
           (<!>           name: toggle-camera-lock     visible?: #f))
         (<world-graphics!>
           (<!>           name: toggle-lighting        visible?: #f)
-          (<!>           name: toggle-projection      visible?: #f))
+          (<!>           name: toggle-projection      visible?: #f)
+          (<!>           name: toggle-gadgets         visible?: #f))
         (<world-edition!>
           (<!>           name: textures-showcase      visible?: #f)
           (<!>           name: import-model           visible?: #f)
@@ -232,7 +233,8 @@
   (define-trait user-interface World-Actionbar
     (<Role-Trait>
       (<install>
-        (<!>             name: toggle-lighting        visible?: #f))))
+        (<!>             name: toggle-lighting        visible?: #f)
+        (<!>             name: toggle-gadgets         visible?: #f))))
 
   (define-trait user-camera World-Actionbar
     (<Role-Trait>

@@ -28,6 +28,8 @@
   (1 ("2013/08/11" 1))
   (9 ("Show widgets only for entities" 0))
   (9 ("Fix first gadget not appearing" 0))
+  (9 ("Show gadgets when in their showcase" 0))
+  (9 ("Fix orbit mode for bottom anchored models" 0))
   (11)
   (1 ("2013/08/10" 1))
   (9 ("Fix showcase animations" 0))
