@@ -1,0 +1,29 @@
+{Formatted-Text
+ formats:
+ ({Format Base}
+  {Format Base left-margin: 16 bulleted?: #t}
+  {Format Heading1}
+  {Format Base left-margin: 48 bulleted?: #t}
+  {Format Heading2}
+  {Format Base left-margin: 0 bulleted?: #f}
+  {Format Heading2 left-margin: 16 bulleted?: #t}
+  {Format Heading2 left-margin: 48 bulleted?: #t}
+  {Format Heading2 left-margin: 80 bulleted?: #t}
+  {Format Heading2 left-margin: 0 bulleted?: #f}
+  {Format Heading2 left-margin: -16 bulleted?: #t}
+  {Format Heading2 left-margin: -32 bulleted?: #f})
+
+ styles:
+ ({Text-Style Base}
+  {Text-Style Heading1}
+  {Text-Style Heading2})
+
+ paragraphs:
+ ((2 ("Knowledge Base" 1))
+  (5)
+  (5)
+  (6 ("On commit bc28710241cd111dec6dae501f721c63d7748bdc when I updated on my personal PC there was a huge performance regression" 0))
+  (7 ("I built the same code on my personal PC and the regression was not there" 0))
+  (7 ("I tried to reproduce the problem by going back in history and updating again but the problem did not reappear" 0))
+  (7 ("Uninstalling and reinstalling fixed the problem" 0))
+  (5))}
