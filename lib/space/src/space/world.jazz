@@ -21,6 +21,7 @@
         (jazz.graphic.opengl.glew)
         (jazz.io)
         (jazz.jml)
+        (jazz.jrm)
         (jazz.library)
         (jazz.logger)
         (jazz.media)

@@ -28,6 +28,7 @@
   (6 ("Fix perlin for non-positive quadrants (Alain)" 0))
   (6 ("Fix uv-sphere-generator (Alain)" 0))
   (6 ("Fix player with pumps getting stuck underneath blocks (Alain)" 0))
+  (6 ("Fix populate-trees regression where trees are not vertical anymore (Alain)" 0))
   (6 ("Fix animation bounds (Alain)" 0))
   (7 ("Validate all ok by using draw-target-parallelepiped" 0))
   (6 ("Rotater (Alain)" 0))

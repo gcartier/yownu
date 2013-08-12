@@ -24,8 +24,7 @@ space.planet-trees            10.
 
 
 ;; Start
-world.start-new?              #f
-world.start-zone              #f
+world.start-zone              default
 
 ;; Window
 world.fullscreen?             default

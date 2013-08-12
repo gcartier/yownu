@@ -76,9 +76,7 @@
   
   (method (populate-trees planet trees)
     (let ((world (current-world)))
-      (let ((size (get-size~ planet))
-            (position (get-position~ planet))
-            (radius (get-radius~ planet)))
+      (let ((size (get-size~ planet)))
         (loop (repeat (random (fxround (* (find-setting 'space.planet-trees 10.) size))))
               (let ((model (random-element trees)))
                 (receive (dir pos) (random-position planet)
