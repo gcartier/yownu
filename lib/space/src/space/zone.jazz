@@ -23,6 +23,7 @@
         (world.light)
         (world.planet)
         (world.profiling)
+        (world.skybox)
         (world.syntax (phase syntax))
         (world.zone)
         (space.biome))
