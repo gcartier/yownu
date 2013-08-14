@@ -48,6 +48,8 @@ world.multisampling           2
 world.perspective-fov         45.
 world.perspective-near        0.1
 world.perspective-far         10000.0
+world.ambient-color           #f
+world.sun-color               #f
 world.sun-cycle?              #t
 world.skybox                  #f
 world.fog?                    #t
