@@ -91,6 +91,8 @@ world.validate-shaders?       #t
 world.testing                 #f
 world.gc-report?              #f
 world.debug-ms3d?             #f
+world.debug-meshes?           #f
+world.debug-textures?         #f
 
 ;; Collision
 world.debug-collisions?       #f
