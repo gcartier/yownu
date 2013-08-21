@@ -51,6 +51,7 @@ world.perspective-far         10000.0
 world.ambient-color           #f
 world.sun-color               #f
 world.sun-cycle?              #t
+world.default-lights?         #t
 world.skybox                  #f
 world.fog?                    #t
 world.fog-density             default
