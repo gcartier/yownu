@@ -19,7 +19,8 @@
   {Format Base left-margin: 64 bulleted?: #f}
   {Format Base left-margin: 112 bulleted?: #t}
   {Format Base left-margin: 32 bulleted?: #f}
-  {Format Heading3 left-margin: 16 bulleted?: #t})
+  {Format Heading3 left-margin: 16 bulleted?: #t}
+  {Format Heading3 left-margin: 0 bulleted?: #f})
 
  styles:
  ({Text-Style Base}
@@ -44,7 +45,10 @@
   (4 ("Performance improvements" 0))
   (19 ("Binary format" 0))
   (19 ("Rendering performance" 0))
+  (20)
+  (20 ("Lighting" 0))
   (19 ("Ambient occlusion lighting" 0))
+  (13)
   (13)
   (4 ("Alpha 3" 2))
   (0 ("Multi-player support" 0))
@@ -54,8 +58,10 @@
   (2 ("Server management of content" 0))
   (2 ("Synchronize content for new players" 0))
   (5)
+  (5)
   (4 ("Alpha 4" 2))
   (0 ("World generation" 0))
+  (13)
   (13)
   (4 ("Beta 1" 2))
   (0 ("Dawn of Space game" 0))
