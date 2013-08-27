@@ -85,11 +85,6 @@
   
   (method override (use-profile?)
     #f)
-  
-  
-  (method override (finish-process)
-    (nextmethod)
-    (install-role (find-setting 'world.role 'user)))
 
   
   ;;;
