@@ -14,7 +14,8 @@
 (module space.zone jazz
 
 
-(import (jazz.jml)
+(import (jazz.graphic.opengl.glew)
+        (jazz.jml)
         (jazz.system)
         (world)
         (world.atlas)
@@ -119,9 +120,21 @@
               atlas)))))
   
   
-  (method (create-space-atlas)
+  (method override (create-atlas-nearest)
+    (let ((world (current-world)))
+      (if (not (get-earth?~ world))
+          (nextmethod)
+        (or (registered-atlas 'space-nearest)
+            (let ((atlas (create-space-atlas min-filter: GL_NEAREST mag-filter: GL_NEAREST)))
+              (register-atlas 'space-nearest atlas)
+              atlas)))))
+  
+  
+  (method (create-space-atlas (min-filter: min-filter #f) (mag-filter: mag-filter #f))
     (let ((world (current-world)))
       (make-block-atlas~ world
+        min-filter: min-filter
+        mag-filter: mag-filter
         adder: (lambda (atlas)
                  (add-file~ atlas (find-texture-file~ world "earth.png"))))))
   
