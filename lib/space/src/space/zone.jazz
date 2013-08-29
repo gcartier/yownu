@@ -136,7 +136,7 @@
         min-filter: min-filter
         mag-filter: mag-filter
         adder: (lambda (atlas)
-                 (add-file~ atlas (find-texture-file~ world "earth.png"))))))
+                 (add-file~ atlas (find-texture-file~ world "earth"))))))
   
   
   ;;;

@@ -240,6 +240,11 @@
       (<install>
         (<!>             name: textures-showcase      visible?: #f))))
 
+  (define-trait user-models World-Actionbar
+    (<Role-Trait>
+      (<install>
+        (<!>             name: import-model           visible?: #f))))
+
   (define-trait user-history World-Actionbar
     (<Role-Trait>
       (<install>
@@ -272,6 +277,7 @@
       (interface ,user-interface)
       (camera ,user-camera)
       (edition ,user-edition)
+      (models ,user-models)
       (history ,user-history)
       (window ,user-window)
       (debug ,user-debug)))

@@ -134,7 +134,7 @@ world.test0                   #f
 
 minecraft.tile-resolution     32
 minecraft.generate-mipmap?    32
-minecraft.day-cycle           default; day; night
+minecraft.day-cycle           default ;; day night
 
 
 ;;;
