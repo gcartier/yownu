@@ -125,7 +125,7 @@
       (if (not (get-earth?~ world))
           (nextmethod)
         (or (registered-atlas 'space-nearest)
-            (let ((atlas (create-space-atlas min-filter: GL_NEAREST mag-filter: GL_NEAREST)))
+            (let ((atlas (create-space-atlas min-filter: GL_NEAREST)))
               (register-atlas 'space-nearest atlas)
               atlas)))))
   
