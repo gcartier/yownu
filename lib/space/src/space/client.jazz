@@ -164,8 +164,6 @@
       (<install>
         (<world-menu!>
           (<!>           name: view-help              visible?: #f))
-        (<world-interface!>
-          (<!>           name: toggle-mode            visible?: #f))
         (<world-world!>
           (<!>           name: world-new              visible?: #f)
           (<!>           name: world-open             visible?: #f)
@@ -180,7 +178,6 @@
           (<!>           name: toggle-camera-lock     visible?: #f))
         (<world-graphics!>
           (<!>           name: toggle-lighting        visible?: #f)
-          (<!>           name: toggle-projection      visible?: #f)
           (<!>           name: toggle-gadgets         visible?: #f))
         (<world-edition!>
           (<!>           name: textures-showcase      visible?: #f)
