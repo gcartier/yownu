@@ -43,6 +43,7 @@ world.lightmaps?                 #t
 world.shadowmaps?                #f
 world.texture-arrays?            default
 world.framebuffer-objects?       default
+world.framebuffer-blit?          default
 world.framebuffer-multisample?   default
 world.arb-multisample?           default
 world.post-processing?           #t
