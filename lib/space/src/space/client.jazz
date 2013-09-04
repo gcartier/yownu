@@ -143,6 +143,7 @@
         (,World-Target-Bar    target    horizontal (-10 10))
         (,World-Edition-Bar   edition   vertical   (-36 center))
         (,World-Interface-Bar interface vertical   (-10 center))
+        (,World-Tutorial-Bar  tutorial  horizontal (10 10) #f)
         (,World-Collision-Bar collision horizontal (-10 36) #f))))
 
 
@@ -191,6 +192,7 @@
           (<!>           name: live-gaia/world        visible?: #f)
           (<!>           name: design-gaia/world      visible?: #f)
           (<!>           name: restore-gaia/world     visible?: #f))
+        (<world-tutorial!>)
         (<world-debug!>
           (<!>           name: toggle-debug-sectors   visible?: #f)
           (<!>           name: toggle-debug-areas     visible?: #f)
@@ -256,6 +258,10 @@
         (<!>             name: design-gaia/world      visible?: #f)
         (<!>             name: restore-gaia/world     visible?: #f))))
   
+  (define-trait user-tutorial World-Actionbar
+    (<Role-Trait>
+      (<install>)))
+  
   (define-trait user-debug World-Actionbar
     (<Role-Trait>
       (<install>
@@ -277,6 +283,7 @@
       (models ,user-models)
       (history ,user-history)
       (window ,user-window)
+      (tutorial ,user-tutorial)
       (debug ,user-debug)))
 
 
