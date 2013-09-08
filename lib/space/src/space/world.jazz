@@ -14,7 +14,9 @@
 (module space.world jazz
 
 
-(import (jazz.development)
+(import (jazz.debuggee)
+        (jazz.detprof)
+        (jazz.development)
         (jazz.geometry)
         (jazz.graphic)
         (jazz.graphic.opengl.autoload)
@@ -32,6 +34,7 @@
         (jazz.ui)
         (jazz.ui.view)
         (jazz.ui.window)
+        (profiler)
         (time)
         (world)
         (world.actor)

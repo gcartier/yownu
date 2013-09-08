@@ -72,7 +72,8 @@
                 (random-between (- space-radius) space-radius)
                 (random-between (- space-radius) space-radius)))
       
-      (profiling 'populate (lambda () (place-planets)))
+      (site populate
+        (place-planets))
       (place-player)))
   
   
