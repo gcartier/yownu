@@ -1,0 +1,6 @@
+tower asus - no memory optimisations
+
+2013-07-24
+  eye:     23m, 14m, .030s
+  warsong: 56m, 24m, .052s
+  keralis: 22m, 35m, .034s

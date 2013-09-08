@@ -1,0 +1,5 @@
+view-distance = 13
+
+unknown date
+  performance/render   : 64 of 72
+  performance/entities : 17 of 17

@@ -1,0 +1,5 @@
+view-distance = 13
+
+2013-08-30
+  performance/render   : 46 of 46
+  performance/entities : 12 of 12
