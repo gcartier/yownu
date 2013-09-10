@@ -32,8 +32,6 @@
   (5)
   (4 ("Memory" 2))
   (4)
-  (6 ("In my current implementation of 'loop', the set! implies some memory allocation" 0))
-  (7 ("Problem can be circumnavigated by using 'for'" 0))
-  (7 ("Correct solution is to recode 'loop' without using set!" 0))
+  (6 ("When crossing blocks set! can allocate memory" 0))
   (6 ("Not having a proper-tail-calls declaration in a loop can also allocate memory" 0))
   (9))}
