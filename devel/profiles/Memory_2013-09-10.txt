@@ -1,0 +1,21 @@
+tower asus - no memory optimisations
+
+2013-09-10 before new side-effect free loop
+  animate, 1k, 5m
+  draw-grid, 63k, 286m
+  draw-neighbors, 53k, 240m
+  draw-procedures, 0k, 0m
+  draw-sectors, 53k, 242m
+  draw-skybox, 0k, 1m
+  draw-world, 119k, 540m
+  draw-zone, 54k, 243m
+  evaluate-frame, 1k, 5m
+  process-keys, 0k, 2m
+  register, 0k, 1m
+  render-character, 1k, 4m
+  render-interface, 1k, 4m
+  render-opaque, 0k, 0m
+  render-transparent, 1k, 6m
+  render-world, 124k, 560m
+  setup-lighting, 2k, 9m
+  tick, 463k, 1202m
