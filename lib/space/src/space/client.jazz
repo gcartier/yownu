@@ -194,7 +194,6 @@
           (<!>           name: restore-gaia/world     visible?: #f))
         (<world-tutorial!>)
         (<world-debug!>
-          (<!>           name: toggle-profiler        visible?: #f)
           (<!>           name: toggle-debug-sectors   visible?: #f)
           (<!>           name: toggle-debug-areas     visible?: #f)
           (<!>           name: toggle-draw-atlas      visible?: #f)
@@ -266,7 +265,6 @@
   (define-trait user-debug World-Actionbar
     (<Role-Trait>
       (<install>
-        (<!>             name: toggle-profiler        visible?: #f)
         (<!>             name: toggle-debug-sectors   visible?: #f)
         (<!>             name: toggle-debug-areas     visible?: #f)
         (<!>             name: toggle-draw-atlas      visible?: #f)
