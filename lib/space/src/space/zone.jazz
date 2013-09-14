@@ -73,7 +73,7 @@
                 (random-between (- space-radius) space-radius)))
       
       (site (populate on?: #f)
-      (place-planets))
+        (place-planets))
       (place-player)))
   
   

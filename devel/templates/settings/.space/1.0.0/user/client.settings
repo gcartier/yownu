@@ -97,6 +97,7 @@ world.gc-report?                 #f
 world.debug-ms3d?                #f
 world.debug-meshes?              #f
 world.debug-textures?            #f
+world.info-display               #f
 world.profiler-display           #f
 
 ;; Collision
