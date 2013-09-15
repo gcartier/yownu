@@ -131,7 +131,7 @@
   (method override (new-zone-file base)
     (if (and newable? (get-world-directory))
         (nextmethod base)
-      (new-file~ user-zones (make-filename base "zone"))))
+      (new-file~ user-zones (split (make-filename base "zone") "/"))))
   
   
   (method override (update-title)
