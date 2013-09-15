@@ -23,9 +23,6 @@ space.planet-trees               10.
 ;;;
 
 
-;; Start
-world.start-zone                 default
-
 ;; Window
 world.fullscreen?                default
 world.borderless?                default
