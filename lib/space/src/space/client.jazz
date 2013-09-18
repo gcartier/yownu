@@ -14,9 +14,12 @@
 (module space.client jazz
 
 
-(import (jazz.debuggee)
+(import (jazz.catalog)
+        (jazz.debuggee)
+        (jazz.editor.lisp)
         (jazz.graphic)
         (jazz.graphic.opengl.window)
+        (jazz.ide)
         (jazz.io)
         (jazz.jml)
         (jazz.library)
@@ -41,6 +44,7 @@
   
   
   (slot space-settings initialize #f getter generate)
+  (slot cataloguer     initialize (new Cataloguer))
 
   
   (method override (process-name)
@@ -79,12 +83,31 @@
     (set-setting~ space-settings 'world.worlds-directories #f))
   
   
+  (method override (default-preferences)
+    (new Space-Preferences))
+  
+  
   (method override (default-bindings)
     (new Space-Bindings))
   
   
   (method override (use-profile?)
     #f)
+  
+  
+  (method override (finish-process)
+    (nextmethod)
+    (setup-cataloguer))
+  
+  
+  ;;;
+  ;;;; Closing
+  ;;;
+  
+  
+  (method override (close-environment)
+    (save-catalogs~ cataloguer)
+    (nextmethod))
 
   
   ;;;
@@ -124,6 +147,36 @@
   
   (method override (help-file)
     (world-file '("devel" "space" "Help.ftx") 'App))
+  
+  
+  ;;;
+  ;;;; Cataloguer
+  ;;;
+  
+  
+  (method override (get-cataloguer)
+    cataloguer)
+  
+  
+  (method (setup-cataloguer)
+    (define (world-catalog)
+      (let ((output {File Settings "work" "catalogs" "world.jcat"})
+            (directories {Directory Space-World})
+            (extensions :jazz))
+        (new Filing-Catalog 'world output directories extensions #f #f #t)))
+    
+    (define (user-catalog)
+      (let ((output {File Settings "work" "catalogs" "user.jcat"})
+            (directories {Directory Settings})
+            (extensions :jazz))
+        (new Filing-Catalog 'user output directories extensions #f #f #t)))
+    
+    (add-catalog~ cataloguer (world-catalog))
+    (add-catalog~ cataloguer (user-catalog))
+    (for-each-active-catalog~ cataloguer #f
+      (lambda (catalog)
+        (load-content~ catalog report?: #f)
+        (update~ catalog report?: #t))))
   
   
   ;;;
@@ -196,6 +249,7 @@
         (<world-tutorial!>)
         (<world-debug!>
           (<!>           name: toggle-target          visible?: #f)
+          (<!>           name: toggle-script          visible?: #f)
           (<!>           name: toggle-debug-sectors   visible?: #f)
           (<!>           name: toggle-debug-areas     visible?: #f)
           (<!>           name: toggle-draw-atlas      visible?: #f)
@@ -272,6 +326,7 @@
     (<Role-Trait>
       (<install>
         (<!>             name: toggle-target          visible?: #f)
+        (<!>             name: toggle-script          visible?: #f)
         (<!>             name: toggle-debug-sectors   visible?: #f)
         (<!>             name: toggle-debug-areas     visible?: #f)
         (<!>             name: toggle-draw-atlas      visible?: #f)
@@ -320,16 +375,47 @@
 
 
 ;;;
+;;;; Preferences
+;;;
+
+
+(class Space-Preferences extends IDE-Preferences
+  
+  
+  (form
+    (<install> toplevel-state: restored toolbar-classes: ((:menubar . {Reference World-Menubar}) (:toolbar . {Reference World-Toolbar}) (:status . {Reference World-Status})))))
+
+
+;;;
 ;;;; Bindings
 ;;;
 
 
-(class Space-Bindings extends World-Bindings
+(class Space-Bindings extends IDE-Bindings
   
   
   (form
     (<install>
-      (<Space-Actions> name: space))))
+      (<World-Menu-Actions>      name: world-menu)
+      (<World-Interface-Actions> name: world-interface)
+      (<World-Graphics-Actions>  name: world-graphics)
+      (<World-Sound-Actions>     name: world-sound)
+      (<World-Server-Actions>    name: world-server)
+      (<World-World-Actions>     name: world-world)
+      (<World-Zone-Actions>      name: world-zone)
+      (<World-Movement-Actions>  name: world-movement)
+      (<World-Camera-Actions>    name: world-camera)
+      (<World-Game-Actions>      name: world-game)
+      (<World-Spell-Actions>     name: world-spell)
+      (<World-Edition-Actions>   name: world-edition)
+      (<World-History-Actions>   name: world-history)
+      (<World-Window-Actions>    name: world-window)
+      (<World-Debug-Actions>     name: world-debug)
+      (<World-Tutorial-Actions>  name: world-tutorial)
+      (<World-Objective-Actions> name: world-objective)
+      (<World-Collision-Actions> name: world-collision)
+      (<World-Anonymous-Actions> name: world-anonymous)
+      (<Space-Actions>           name: space))))
 
 
 ;;;
@@ -342,4 +428,16 @@
   
   (form
     (<install>                             title: "Space"
-      (<Action-Item> name: teleport-player title: "Teleport Player" action-handler: {Event-Handler :application on-teleport-player} shortcut: {Shortcut :alt #\P})))))
+      (<Action-Item> name: teleport-player title: "Teleport Player" action-handler: {Event-Handler :application on-teleport-player} shortcut: {Shortcut :alt #\P}))))
+
+
+;;;
+;;;; Expressions
+;;;
+
+
+(define-expression define-objective
+  declaration?: #t
+  tabulate: 1
+  walk: :define
+  name-mangler: ("objective")))

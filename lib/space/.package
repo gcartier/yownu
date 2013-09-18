@@ -14,7 +14,9 @@
                            space.windows
                            space.world
                            space.zone)
-                   (dependencies world
+                   (dependencies jazz.git
+                                 jazz.groupware
+                                 world
                                  world.client
                                  world.server)))
   (project ".project"))
