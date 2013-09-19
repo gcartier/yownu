@@ -2,20 +2,20 @@
 ;;;  JazzScheme
 ;;;==============
 ;;;
-;;;; Space Client Settings
+;;;; Yownu Client Settings
 ;;;
 
 
 ;;;
-;;;; Space
+;;;; Yownu
 ;;;
 
 
-space.radius                     250.
-space.density                    5
-space.planet-min-size            5.
-space.planet-max-size            50.
-space.planet-trees               10.
+yownu.radius                     250.
+yownu.density                    5
+yownu.planet-min-size            5.
+yownu.planet-max-size            50.
+yownu.planet-trees               10.
 
 
 ;;;

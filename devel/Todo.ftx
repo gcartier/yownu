@@ -23,8 +23,6 @@
   (5)
   (5)
   (4 ("Alpha 1" 2))
-  (6 ("Need to find the name of the game!!!" 0))
-  (7 ("Maybe start by finding a nice acronym with no constraints and derive the name from it" 0))
   (6 ("Rendering regression on Dominique's computer" 0))
   (6 ("Drawing the grid allocates around 65K of memory each render!" 0))
   (7 ("It is clearly time to move to the mesh-based grid" 0))
@@ -149,6 +147,6 @@
   (5)
   (5)
   (4 ("Mathieu" 2))
-  (1 ("With Mathieu looking at Space, identify everything that can be done / improved / ... at relatively low effort" 0))
+  (1 ("With Mathieu looking at Yownu, identify everything that can be done / improved / ... at relatively low effort" 0))
   (3 ("Like every domain, 3d techniques have evolved from simple starts and I could benefit from implementing many of those simple techniques that are in the 80 / 20 reward / effort range" 0))
   (5))}
