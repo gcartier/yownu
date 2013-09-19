@@ -14,7 +14,8 @@
                            space.windows
                            space.world
                            space.zone)
-                   (dependencies jazz.git
+                   (dependencies jazz.editor.jazz
+                                 jazz.git
                                  jazz.groupware
                                  world
                                  world.client

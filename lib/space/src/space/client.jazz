@@ -16,12 +16,16 @@
 
 (import (jazz.catalog)
         (jazz.debuggee)
+        (jazz.debugger)
+        (jazz.debugger.jazz)
+        (jazz.debugger.jazz.stub)
         (jazz.editor.lisp)
         (jazz.graphic)
         (jazz.graphic.opengl.window)
         (jazz.ide)
         (jazz.io)
         (jazz.jml)
+        (jazz.jrm)
         (jazz.library)
         (jazz.system)
         (jazz.ui)
@@ -44,6 +48,7 @@
   
   
   (slot space-settings initialize #f getter generate)
+  (slot local-debugger initialize #f)
   (slot cataloguer     initialize (new Cataloguer))
 
   
@@ -95,9 +100,39 @@
     #f)
   
   
+  ;; copy-pasted from IDE
+  (method override (get-local-debugger)
+    local-debugger)
+  
+  
+  ;; copy-pasted from IDE
+  (method override (install-process)
+    (nextmethod)
+    (start-debuggers))
+  
+  
   (method override (finish-process)
     (nextmethod)
-    (setup-cataloguer))
+    (setup-cataloguer)
+    ;; a try
+    (set-debugger-manager (new Debugger-Manager)))
+  
+  
+  ;; copy-pasted from IDE
+  (method override (conclude-environment)
+    (nextmethod)
+    ;; do this at the last moment possible because any error beyond this point
+    ;; will be handled by the IDE itself which must thus be fully functional
+    (if (get-controller-debugger)
+        (attach-process~ local-debugger (get-local-process) #t)
+      (when kernel-source-access?
+        (attach-to-controller (get-local-register) #t)
+        (with-system-exception-debugger
+          (lambda ()
+            (ready-to-controller)
+            (transmit-runtime-information~ (get-local-process))
+            (current-input-port (console-input-port))
+            (current-output-port (console-output-port)))))))
   
   
   ;;;
@@ -147,6 +182,40 @@
   
   (method override (help-file)
     (world-file '("devel" "space" "Help.ftx") 'App))
+  
+  
+  ;;;
+  ;;;; Register
+  ;;;
+  
+  
+  ;; copy-pasted from IDE
+  (method override (register-base-objects)
+    (nextmethod)
+    (register-object~ (get-local-register) 'debugger (new Jazz-Debugger-Local-Proxy local-debugger)))
+  
+  
+  ;;;
+  ;;;; Runtime
+  ;;;
+  
+  
+  (method override (runtime-units)
+    '(tutorial.objectives))
+  
+  
+  ;;;
+  ;;;; Debugger
+  ;;;
+  
+  
+  ;; copy-pasted from IDE
+  (method (start-debuggers)
+    (when (not local-debugger)
+      (set! local-debugger (new Jazz-Debugger))
+      (start-debugger~ local-debugger)
+      (register-debugger local-debugger)
+      (set-current-debugger local-debugger)))
   
   
   ;;;
