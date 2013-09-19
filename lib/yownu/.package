@@ -1,0 +1,23 @@
+(package yownu
+  
+  (root "src")
+  (products (yownu (title "Yownu")
+                   (run yownu.run)
+                   (unit yownu.product)
+                   (build (yownu executable: "Yownu" resources: "resources"))
+                   (update yownu.biome
+                           yownu.client
+                           yownu.product
+                           yownu.run
+                           yownu.start
+                           yownu.window
+                           yownu.windows
+                           yownu.world
+                           yownu.zone)
+                   (dependencies jazz.editor.jazz
+                                 jazz.git
+                                 jazz.groupware
+                                 world
+                                 world.client
+                                 world.server)))
+  (project ".project"))

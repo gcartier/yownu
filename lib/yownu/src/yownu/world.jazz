@@ -2,7 +2,7 @@
 ;;;  JazzScheme
 ;;;==============
 ;;;
-;;;; Space World
+;;;; Yownu World
 ;;;
 ;;;  The Initial Developer of the Original Code is Guillaume Cartier.
 ;;;  Portions created by the Initial Developer are Copyright (C) 2012-2013
@@ -11,7 +11,7 @@
 ;;;  Contributor(s):
 
 
-(module space.world jazz
+(module yownu.world jazz
 
 
 (import (jazz.debuggee)
@@ -105,14 +105,14 @@
         (world.view)
         (world.window)
         (world.zone)
-        (space.biome))
+        (yownu.biome))
 
 
 (definition user-zones
   {Directory Settings "zones"})
 
 
-(class Space-World extends World
+(class Yownu-World extends World
   
   
   (method override (zone-based?)
@@ -158,5 +158,5 @@
           " *"
         ""))
     
-    (set-title~ window (format "Space - {a}"
+    (set-title~ window (format "Yownu - {a}"
                                (present-zone))))))

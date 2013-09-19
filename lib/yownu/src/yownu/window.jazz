@@ -2,7 +2,7 @@
 ;;;  JazzScheme
 ;;;==============
 ;;;
-;;;; Space Window
+;;;; Yownu Window
 ;;;
 ;;;  The Initial Developer of the Original Code is Guillaume Cartier.
 ;;;  Portions created by the Initial Developer are Copyright (C) 2012-2013
@@ -11,7 +11,7 @@
 ;;;  Contributor(s):
 
 
-(module space.window jazz
+(module yownu.window jazz
 
 
 (import (world)
@@ -20,4 +20,4 @@
         (world.window))
 
 
-(class Space-Window extends World-Window))
+(class Yownu-Window extends World-Window))

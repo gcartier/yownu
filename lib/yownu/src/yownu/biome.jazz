@@ -2,7 +2,7 @@
 ;;;  JazzScheme
 ;;;==============
 ;;;
-;;;; Space Biome
+;;;; Yownu Biome
 ;;;
 ;;;  The Initial Developer of the Original Code is Guillaume Cartier.
 ;;;  Portions created by the Initial Developer are Copyright (C) 2012-2013
@@ -11,7 +11,7 @@
 ;;;  Contributor(s):
 
 
-(module space.biome jazz
+(module yownu.biome jazz
 
 
 (import (world)
@@ -28,7 +28,7 @@
 ;;;
 
 
-(class Space-Biome extends Object
+(class Yownu-Biome extends Object
   
   
   (slot name  getter generate)
@@ -62,12 +62,12 @@
 
 (definition public biomes
   (list
-    (new Space-Biome name: 'turf   earth: "turf"   trees: tree-pine)
-    (new Space-Biome name: 'greek  earth: "greek")
-    (new Space-Biome name: 'ground earth: "ground" trees: tree-birch)
-    (new Space-Biome name: 'fire   earth: "fire"   trees: tree-birch)
-    (new Space-Biome name: 'funky  earth: "funky")
-    (new Space-Biome name: 'roman  earth: "roman"  trees: tree-birch)))
+    (new Yownu-Biome name: 'turf   earth: "turf"   trees: tree-pine)
+    (new Yownu-Biome name: 'greek  earth: "greek")
+    (new Yownu-Biome name: 'ground earth: "ground" trees: tree-birch)
+    (new Yownu-Biome name: 'fire   earth: "fire"   trees: tree-birch)
+    (new Yownu-Biome name: 'funky  earth: "funky")
+    (new Yownu-Biome name: 'roman  earth: "roman"  trees: tree-birch)))
 
 
 (definition public (find-biome name)

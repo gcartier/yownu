@@ -2,7 +2,7 @@
 ;;;  JazzScheme
 ;;;==============
 ;;;
-;;;; Space Zone
+;;;; Yownu Zone
 ;;;
 ;;;  The Initial Developer of the Original Code is Guillaume Cartier.
 ;;;  Portions created by the Initial Developer are Copyright (C) 2012-2013
@@ -11,7 +11,7 @@
 ;;;  Contributor(s):
 
 
-(module space.zone jazz
+(module yownu.zone jazz
 
 
 (import (jazz.graphic.opengl.glew)
@@ -27,10 +27,10 @@
         (world.skybox)
         (world.syntax (phase syntax))
         (world.zone)
-        (space.biome))
+        (yownu.biome))
 
 
-(class Space-Zone extends Zone
+(class Yownu-Zone extends Zone
   
   
   (form
@@ -115,9 +115,9 @@
     (let ((world (current-world)))
       (if (not (get-earth?~ world))
           (nextmethod)
-        (or (registered-atlas 'space)
-            (let ((atlas (create-space-atlas)))
-              (register-atlas 'space atlas)
+        (or (registered-atlas 'yownu)
+            (let ((atlas (create-yownu-atlas)))
+              (register-atlas 'yownu atlas)
               atlas)))))
   
   
@@ -125,13 +125,13 @@
     (let ((world (current-world)))
       (if (not (get-earth?~ world))
           (nextmethod)
-        (or (registered-atlas 'space-nearest)
-            (let ((atlas (create-space-atlas min-filter: GL_NEAREST)))
-              (register-atlas 'space-nearest atlas)
+        (or (registered-atlas 'yownu-nearest)
+            (let ((atlas (create-yownu-atlas min-filter: GL_NEAREST)))
+              (register-atlas 'yownu-nearest atlas)
               atlas)))))
   
   
-  (method (create-space-atlas (min-filter: min-filter #f) (mag-filter: mag-filter #f))
+  (method (create-yownu-atlas (min-filter: min-filter #f) (mag-filter: mag-filter #f))
     (let ((world (current-world)))
       (make-block-atlas~ world
         min-filter: min-filter

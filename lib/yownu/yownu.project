@@ -10,7 +10,7 @@
 
 
 (form
-  (<Jazz-Project>  name: Space   default-traits: (Safety.Release) directory: {Directory :context "../../build"} working: {Directory :context "../.."} product: space
+  (<Jazz-Project>  name: Yownu   default-traits: (Safety.Release) directory: {Directory :context "../../build"} working: {Directory :context "../.."} product: yownu
     (<Trait>       name: Safety
       (<install>)
       (<Trait>     name: Debug

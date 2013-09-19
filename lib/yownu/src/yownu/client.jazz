@@ -2,7 +2,7 @@
 ;;;  JazzScheme
 ;;;==============
 ;;;
-;;;; Space Client
+;;;; Yownu Client
 ;;;
 ;;;  The Initial Developer of the Original Code is Guillaume Cartier.
 ;;;  Portions created by the Initial Developer are Copyright (C) 2012-2013
@@ -11,7 +11,7 @@
 ;;;  Contributor(s):
 
 
-(module space.client jazz
+(module yownu.client jazz
 
 
 (import (jazz.catalog)
@@ -40,31 +40,31 @@
         (world.role)
         (world.settings)
         (world.syntax (phase syntax))
-        (space.window)
-        (space.zone))
+        (yownu.window)
+        (yownu.zone))
 
 
-(class Space-Client extends World-Client
+(class Yownu-Client extends World-Client
   
   
-  (slot space-settings initialize #f getter generate)
+  (slot yownu-settings initialize #f getter generate)
   (slot local-debugger initialize #f)
   (slot cataloguer     initialize (new Cataloguer))
 
   
   (method override (process-name)
-    "Space")
+    "Yownu")
   
   
   (method override (new-toplevel)
     (let ((fullscreen? (xor (world-setting 'world.fullscreen? (not (get-controller-debugger)) 'default) (shift-down?)))
           (pos (find-setting 'world.position {Point 50 50}))
           (size (find-setting 'world.size {Dimension 1200 800})))
-      (new-opengl-window class: Space-Window fullscreen?: fullscreen? position: pos size: size visible?: #f)))
+      (new-opengl-window class: Yownu-Window fullscreen?: fullscreen? position: pos size: size visible?: #f)))
   
   
   (method override (settings-root)
-    {Directory Home ".space"})
+    {Directory Home ".yownu"})
   
   
   (method override (settings-alias)
@@ -73,27 +73,27 @@
   
   (method override (initialize-app)
     (register-alias 'App
-                    (list (if (is-alias? 'Space)
-                              'Space
+                    (list (if (is-alias? 'Yownu)
+                              'Yownu
                             'Build))))
   
   
   (method override (initialize-settings)
     (nextmethod)
     (register-alias 'Root (get-list~ (get-parent~ (get-parent~ {Directory App}))))
-    (register-alias 'Space-World '(Root "worlds" "space"))
-    (set! space-settings (new File-Settings))
-    (register-settings space-settings)
-    (set-setting~ space-settings 'world.world-directories '(("space" . {Directory Space-World})))
-    (set-setting~ space-settings 'world.worlds-directories #f))
+    (register-alias 'Yownu-World '(Root "worlds" "yownu"))
+    (set! yownu-settings (new File-Settings))
+    (register-settings yownu-settings)
+    (set-setting~ yownu-settings 'world.world-directories '(("yownu" . {Directory Yownu-World})))
+    (set-setting~ yownu-settings 'world.worlds-directories #f))
   
   
   (method override (default-preferences)
-    (new Space-Preferences))
+    (new Yownu-Preferences))
   
   
   (method override (default-bindings)
-    (new Space-Bindings))
+    (new Yownu-Bindings))
   
   
   (method override (use-profile?)
@@ -151,7 +151,7 @@
   
   
   (method override (class-actions)
-    (append (list (find-actions 'space))
+    (append (list (find-actions 'yownu))
             (nextmethod)))
   
   
@@ -162,7 +162,7 @@
   
   (method (on-teleport-player evt)
     (let ((zone (current-zone)))
-      (if (is? zone Space-Zone)
+      (if (is? zone Yownu-Zone)
           (place-player~ zone)
         (bell))))
   
@@ -173,15 +173,15 @@
   
   
   (method override (news-file)
-    (world-file '("devel" "space" "News.ftx") 'App))
+    (world-file '("devel" "yownu" "News.ftx") 'App))
   
   
   (method override (roadmap-file)
-    (world-file '("devel" "space" "Roadmap.ftx") 'App))
+    (world-file '("devel" "yownu" "Roadmap.ftx") 'App))
   
   
   (method override (help-file)
-    (world-file '("devel" "space" "Help.ftx") 'App))
+    (world-file '("devel" "yownu" "Help.ftx") 'App))
   
   
   ;;;
@@ -230,7 +230,7 @@
   (method (setup-cataloguer)
     (define (world-catalog)
       (let ((output {File Settings "work" "catalogs" "world.jcat"})
-            (directories {Directory Space-World})
+            (directories {Directory Yownu-World})
             (extensions :jazz))
         (new Filing-Catalog 'world output directories extensions #f #f #t)))
     
@@ -448,7 +448,7 @@
 ;;;
 
 
-(class Space-Preferences extends IDE-Preferences
+(class Yownu-Preferences extends IDE-Preferences
   
   
   (form
@@ -460,7 +460,7 @@
 ;;;
 
 
-(class Space-Bindings extends IDE-Bindings
+(class Yownu-Bindings extends IDE-Bindings
   
   
   (form
@@ -484,7 +484,7 @@
       (<World-Objective-Actions> name: world-objective)
       (<World-Collision-Actions> name: world-collision)
       (<World-Anonymous-Actions> name: world-anonymous)
-      (<Space-Actions>           name: space))))
+      (<Yownu-Actions>           name: yownu))))
 
 
 ;;;
@@ -492,11 +492,11 @@
 ;;;
 
 
-(class Space-Actions extends World-Actions
+(class Yownu-Actions extends World-Actions
   
   
   (form
-    (<install>                             title: "Space"
+    (<install>                             title: "Yownu"
       (<Action-Item> name: teleport-player title: "Teleport Player" action-handler: {Event-Handler :application on-teleport-player} shortcut: {Shortcut :alt #\P}))))
 
 

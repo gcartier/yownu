@@ -2,7 +2,7 @@
 ;;;  JazzScheme
 ;;;==============
 ;;;
-;;;; Space Start
+;;;; Yownu Start
 ;;;
 ;;;  The Initial Developer of the Original Code is Guillaume Cartier.
 ;;;  Portions created by the Initial Developer are Copyright (C) 2012-2013
@@ -11,7 +11,7 @@
 ;;;  Contributor(s):
 
 
-(module space.start jazz
+(module yownu.start jazz
 
 
 (import (jazz.graphic.opengl.glew)
@@ -22,13 +22,13 @@
         (world.boot)
         (world.colors)
         (world.fonts)
-        (space.client)
-        (space.run)
-        (space.window)
-        (space.windows (cond windows)))
+        (yownu.client)
+        (yownu.run)
+        (yownu.window)
+        (yownu.windows (cond windows)))
 
 
-(definition (start-space)
+(definition (start-yownu)
   (define (check-extension ext)
     (format "{a} {a} supported"
             ext
@@ -59,7 +59,7 @@
                                         (format "GL_MAX_FRAGMENT_UNIFORM_COMPONENTS: {a}{%}" (glGetInteger* GL_MAX_FRAGMENT_UNIFORM_COMPONENTS)))))
         (else
          (load-point 'start)
-         (boot-client Space-Client "space" #f))))
+         (boot-client Yownu-Client "yownu" #f))))
 
 
-(set-space-start start-space))
+(set-yownu-start start-yownu))

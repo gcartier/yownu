@@ -2,7 +2,7 @@
 ;;;  JazzScheme
 ;;;==============
 ;;;
-;;;; Space Run
+;;;; Yownu Run
 ;;;
 ;;;  The Initial Developer of the Original Code is Guillaume Cartier.
 ;;;  Portions created by the Initial Developer are Copyright (C) 2012-2013
@@ -11,24 +11,24 @@
 ;;;  Contributor(s):
 
 
-(module space.run jazz
+(module yownu.run jazz
 
 
 (import (world))
 
 
-(definition space-start
+(definition yownu-start
   #f)
 
-(definition public (set-space-start start)
-  (set! space-start start))
+(definition public (set-yownu-start start)
+  (set! yownu-start start))
 
 
 (definition (run descriptor)
   (load-base)
-  (load-unit 'space.start)
-  (space-start))
+  (load-unit 'yownu.start)
+  (yownu-start))
 
 
-(register-product-run 'space
+(register-product-run 'yownu
   run))

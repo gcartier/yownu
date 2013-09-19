@@ -1,0 +1,29 @@
+;;;==============
+;;;  JazzScheme
+;;;==============
+;;;
+;;;; Project
+;;;
+
+
+(data jazz.ide.data.project
+
+
+(import (jazz.project)
+        (jazz.editor.jazz))
+
+
+(form
+  (<Project>               name: yownu   description-file: {File :context ".package"}
+    (<*>                                 tag-reference: {File :context "yownu.project"})
+    (<Project-Directory>                 directory: {Directory :context "src"}
+      (<Project-Directory>               directory: {Directory :context "src" "yownu"}
+        (<Jazz-File>       name: client  source: {File :context "src" "yownu" "client.jazz"})
+        (<Jazz-File>       name: run     source: {File :context "src" "yownu" "run.jazz"})
+        (<Jazz-File>       name: window  source: {File :context "src" "yownu" "window.jazz"})
+        (<Jazz-File>       name: world   source: {File :context "src" "yownu" "world.jazz"})
+        (<Jazz-File>       name: zone    source: {File :context "src" "yownu" "zone.jazz"})
+        (<Jazz-File>       name: biome   source: {File :context "src" "yownu" "biome.jazz"})
+        (<Jazz-File>       name: product source: {File :context "src" "yownu" "product.jazz"})
+        (<Jazz-File>       name: windows source: {File :context "src" "yownu" "windows.jazz"})
+        (<Jazz-File>       name: start   source: {File :context "src" "yownu" "start.jazz"}))))))

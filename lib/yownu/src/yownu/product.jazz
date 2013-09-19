@@ -2,7 +2,7 @@
 ;;;  JazzScheme
 ;;;==============
 ;;;
-;;;; Space Product
+;;;; Yownu Product
 ;;;
 ;;;  The Initial Developer of the Original Code is Guillaume Cartier.
 ;;;  Portions created by the Initial Developer are Copyright (C) 2012-2013
@@ -11,7 +11,7 @@
 ;;;  Contributor(s):
 
 
-(module space.product jazz
+(module yownu.product jazz
 
 
 (import (jazz.io)
@@ -25,10 +25,10 @@
 
 (definition (build descriptor (unit: unit #f) (force?: force? #f))
   (define (copy-info)
-    (install-file '("README") 'Space)
-    (install-file '("devel" "space" "Help.ftx") 'Space)
-    (install-file '("devel" "space" "News.ftx") 'Space)
-    (install-file '("devel" "space" "Roadmap.ftx") 'Space))
+    (install-file '("README") 'Yownu)
+    (install-file '("devel" "yownu" "Help.ftx") 'Yownu)
+    (install-file '("devel" "yownu" "News.ftx") 'Yownu)
+    (install-file '("devel" "yownu" "Roadmap.ftx") 'Yownu))
   
   (define (copy-assets)
     (let ((path '("lib" "world.client" "assets")))
@@ -42,7 +42,7 @@
       (install-directory "doc" src dst)))
   
   (define (copy-templates)
-    (let ((src (world-templates-directory 'Space))
+    (let ((src (world-templates-directory 'Yownu))
           (dst (world-templates-directory 'Build)))
       (install-directory "templates" src dst)))
   
@@ -76,5 +76,5 @@
 ;;;
 
 
-(register-product 'space
+(register-product 'yownu
   build: build))
