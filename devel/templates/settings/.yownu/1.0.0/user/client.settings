@@ -91,6 +91,7 @@ world.validate-opengl?           #t
 world.validate-shaders?          #t
 world.testing                    #f
 world.gc-report?                 #f
+world.debug-w3d?                 #f
 world.debug-ms3d?                #f
 world.debug-meshes?              #f
 world.debug-textures?            #f
