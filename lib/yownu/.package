@@ -14,7 +14,8 @@
                            yownu.windows
                            yownu.world
                            yownu.zone)
-                   (dependencies jazz.doc
+                   (dependencies gambit.ext
+                                 jazz.doc
                                  jazz.editor.jazz
                                  jazz.git
                                  jazz.groupware
