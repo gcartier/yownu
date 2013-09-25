@@ -103,6 +103,7 @@
         (world.triangle)
         (world.user)
         (world.view)
+        (world.w3d)
         (world.window)
         (world.zone)
         (yownu.biome))
