@@ -41,6 +41,9 @@
           (dst (world-directory '("doc") 'Build)))
       (install-directory "doc" src dst)))
   
+  (define (copy-external)
+    (install-file '("devel" "external" "fbx-conv" "windows" "fbx-conv.exe") 'Yownu))
+  
   (define (copy-templates)
     (let ((src (world-templates-directory 'Yownu))
           (dst (world-templates-directory 'Build)))
@@ -67,6 +70,7 @@
   (copy-info)
   (copy-assets)
   (copy-doc)
+  (copy-external)
   (copy-templates)
   (build-product-descriptor descriptor unit: unit force?: force?))
 
