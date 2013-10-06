@@ -14,7 +14,8 @@
 (module yownu.world jazz
 
 
-(import (jazz.debuggee)
+(import (gambit.ext)
+        (jazz.debuggee)
         (jazz.detprof)
         (jazz.development)
         (jazz.editor.jazz)

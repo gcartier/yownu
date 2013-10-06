@@ -7,6 +7,7 @@
                    (build (yownu executable: "Yownu" resources: "resources"))
                    (update yownu.biome
                            yownu.client
+                           yownu.debugger
                            yownu.product
                            yownu.run
                            yownu.start

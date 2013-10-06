@@ -1,0 +1,48 @@
+;;;==============
+;;;  JazzScheme
+;;;==============
+;;;
+;;;; Yownu Debugger
+;;;
+;;;  The Initial Developer of the Original Code is Guillaume Cartier.
+;;;  Portions created by the Initial Developer are Copyright (C) 2012-2013
+;;;  the Initial Developer. All Rights Reserved.
+;;;
+;;;  Contributor(s):
+
+
+(module yownu.debugger jazz
+
+
+(import (jazz.debugger.jazz))
+
+
+(class Yownu-Debugger extends Jazz-Debugger
+  
+  
+  ;;;
+  ;;;; Console
+  ;;;
+  
+  
+  ;; Until Yownu internal consoles
+  
+  
+  (method override (register-console-text debugged-process debugged-thread select?)
+    #f)
+  
+  
+  (method override (unregister-console-text text)
+    )
+  
+  
+  (method override (select-console resource)
+    )
+  
+  
+  (method override (console-output resource str)
+    (display str (terminal-port)))
+  
+  
+  (method override (clear-console resource)
+    (clear-terminal))))

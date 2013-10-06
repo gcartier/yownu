@@ -40,6 +40,7 @@
         (world.role)
         (world.settings)
         (world.syntax (phase syntax))
+        (yownu.debugger)
         (yownu.window)
         (yownu.zone))
 
@@ -209,10 +210,15 @@
   ;;;
   
   
+  ;; no REPL until Yownu internal consoles
+  (method override (start-console)
+    (select-console))
+  
+  
   ;; copy-pasted from IDE
   (method (start-debuggers)
     (when (not local-debugger)
-      (set! local-debugger (new Jazz-Debugger))
+      (set! local-debugger (new Yownu-Debugger))
       (start-debugger~ local-debugger)
       (register-debugger local-debugger)
       (set-current-debugger local-debugger)))
