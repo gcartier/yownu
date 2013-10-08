@@ -126,7 +126,7 @@
     ;; will be handled by the IDE itself which must thus be fully functional
     (if (get-controller-debugger)
         (attach-process~ local-debugger (get-local-process) #t)
-      (when kernel-source-access?
+      (when (and kernel-source-access? (find-setting 'yownu.debugger? #f))
         (attach-to-controller (get-local-register) #t)
         (with-system-exception-debugger
           (lambda ()
@@ -210,9 +210,11 @@
   ;;;
   
   
-  ;; no REPL until Yownu internal consoles
   (method override (start-console)
-    (select-console))
+    (if (remote-proxy? (get-controller-debugger))
+        (nextmethod)
+      ;; no REPL until Yownu internal consoles
+      (select-console)))
   
   
   ;; copy-pasted from IDE
