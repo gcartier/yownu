@@ -33,8 +33,6 @@ world.size                       {Dimension 1200 800}
 world.block-shader               phong
 world.sector-size                16
 world.view-distance              13
-world.idle-rendering             100
-world.buzy-rendering             20
 world.dynamic-lights             8
 world.lightmaps?                 #t
 world.shadowmaps?                #f
