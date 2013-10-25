@@ -41,8 +41,7 @@
         (world.settings)
         (world.syntax (phase syntax))
         (yownu.debugger)
-        (yownu.window)
-        (yownu.zone))
+        (yownu.window))
 
 
 (class Yownu-Client extends World-Client
@@ -163,7 +162,7 @@
   
   (method (on-teleport-player evt)
     (let ((zone (current-zone)))
-      (if (is? zone Yownu-Zone)
+      (if (eq? (category-name (class-of zone)) 'Yownu-Zone)
           (place-player~ zone)
         (bell))))
   

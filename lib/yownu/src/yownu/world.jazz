@@ -47,6 +47,7 @@
         (world.block)
         (world.blocks)
         (world.collision)
+        (world.configure)
         (world.debug)
         (world.draw)
         (world.dye)
