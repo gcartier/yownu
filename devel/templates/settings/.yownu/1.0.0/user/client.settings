@@ -94,6 +94,7 @@ world.gc-report?                 #f
 world.debug-w3d?                 #f
 world.debug-ms3d?                #f
 world.debug-meshes?              #f
+world.debug-lightmap?            #f
 world.debug-textures?            #f
 world.debug-animations?          #f
 world.info-display               #f

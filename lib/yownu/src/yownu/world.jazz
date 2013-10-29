@@ -76,6 +76,7 @@
         (world.interface.documents)
         (world.io)
         (world.light)
+        (world.lighting)
         (world.log)
         (world.lookat)
         (world.manager)
