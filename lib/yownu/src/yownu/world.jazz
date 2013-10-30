@@ -69,6 +69,7 @@
         (world.gravity)
         (world.history)
         (world.homogeneous)
+        (world.info)
         (world.interface)
         (world.interface.bars)
         (world.interface.color)
