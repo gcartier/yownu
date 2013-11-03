@@ -22,5 +22,6 @@
                                  jazz.groupware
                                  world
                                  world.client
-                                 world.server)))
+                                 world.server))
+            (yownu-walk (run yownu.walk)))
   (project ".project"))

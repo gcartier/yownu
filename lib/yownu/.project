@@ -27,4 +27,5 @@
         (<Jazz-File>       name: product  source: {File :context "src" "yownu" "product.jazz"})
         (<Jazz-File>       name: windows  source: {File :context "src" "yownu" "windows.jazz"})
         (<Jazz-File>       name: start    source: {File :context "src" "yownu" "start.jazz"})
-        (<Jazz-File>       name: debugger source: {File :context "src" "yownu" "debugger.jazz"}))))))
+        (<Jazz-File>       name: debugger source: {File :context "src" "yownu" "debugger.jazz"})
+        (<Jazz-File>       name: walk     source: {File :context "src" "yownu" "walk.jazz"}))))))
