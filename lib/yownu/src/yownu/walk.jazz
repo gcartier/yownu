@@ -48,8 +48,6 @@
 
 
 (definition public (yownu-walk)
-  (jazz:debug '******** (list (jazz:find-repository 'World)
-                              (jazz:find-repository 'Yownu)))
   (iterate-units walk-unit
     repositories: (list (jazz:find-repository 'World)
                         (jazz:find-repository 'Yownu))
