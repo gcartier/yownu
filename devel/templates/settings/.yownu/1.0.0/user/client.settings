@@ -34,8 +34,6 @@ world.block-shader               phong
 world.sector-size                16
 world.view-distance              13
 world.dynamic-lights             8
-world.lightmaps?                 #t
-world.shadowmaps?                #f
 world.texture-arrays?            default
 world.framebuffer-objects?       default
 world.framebuffer-blit?          default
