@@ -59,6 +59,7 @@
                                         (format "GL_MAX_FRAGMENT_UNIFORM_COMPONENTS: {a}{%}" (glGetInteger* GL_MAX_FRAGMENT_UNIFORM_COMPONENTS)))))
         (else
          (load-point 'start)
+         (set-min-heap! (* 500000 1024))
          (boot-client Yownu-Client "yownu" #f))))
 
 
