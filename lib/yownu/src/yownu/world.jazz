@@ -44,6 +44,7 @@
         (world.area)
         (world.atlas)
         (world.autoload)
+        (world.binary)
         (world.block)
         (world.blocks)
         (world.collision)
@@ -114,7 +115,8 @@
         (world.w3d)
         (world.window)
         (world.zone)
-        (yownu.biome))
+        (yownu.biome)
+        (zlib))
 
 
 (definition user-zones
