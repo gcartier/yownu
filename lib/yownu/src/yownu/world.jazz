@@ -144,7 +144,8 @@
   (method override (new-zone-file base)
     (if (and newable? (get-world-directory))
         (nextmethod base)
-      (new-file~ user-zones (split (make-filename base "zone") "/"))))
+      (let ((path (split base "/")))
+        (new-file~ user-zones (append path (list (zone-filename (last path))))))))
   
   
   (method override (update-title)
