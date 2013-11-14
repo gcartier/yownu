@@ -17,14 +17,10 @@
 (import (jazz.graphic.opengl.glew)
         (jazz.graphic.opengl.window)
         (jazz.platform)
-        (jazz.system)
         (world)
         (world.boot)
-        (world.colors)
-        (world.fonts)
         (yownu.client)
         (yownu.run)
-        (yownu.window)
         (yownu.windows (cond windows)))
 
 

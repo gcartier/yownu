@@ -14,13 +14,7 @@
 (module yownu.biome jazz
 
 
-(import (world)
-        (world.autoload)
-        (world.geometry)
-        (world.light)
-        (world.planet)
-        (world.syntax (phase syntax))
-        (world.zone))
+(import (world.syntax (phase syntax)))
 
 
 ;;;
