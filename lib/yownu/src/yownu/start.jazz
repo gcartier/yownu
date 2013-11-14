@@ -19,6 +19,8 @@
         (jazz.platform)
         (world)
         (world.boot)
+        (world.colors)
+        (world.fonts)
         (yownu.client)
         (yownu.run)
         (yownu.windows (cond windows)))
