@@ -23,5 +23,5 @@
                                  world
                                  world.client
                                  world.server))
-            (yownu-walk (run yownu.walk)))
+            (yownu-script (run yownu.script)))
   (project ".project"))

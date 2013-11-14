@@ -2,7 +2,7 @@
 ;;;  JazzScheme
 ;;;==============
 ;;;
-;;;; Walk
+;;;; Scripts
 ;;;
 ;;;  The contents of this file are subject to the Mozilla Public License Version
 ;;;  1.1 (the "License"); you may not use this file except in compliance with
@@ -35,7 +35,7 @@
 ;;;  See www.jazzscheme.org for details.
 
 
-(module yownu.walk jazz
+(module yownu.script jazz
 
 
 (import (jazz.io)
@@ -43,11 +43,59 @@
 
 
 ;;;
+;;;; Run
+;;;
+
+
+(definition public (yownu-run)
+  (cond ((member? "analyse" (command-line))
+         (yownu-analyse))
+        (else
+         (yownu-walk))))
+
+
+;;;
+;;;; Analyse
+;;;
+
+
+(definition (yownu-analyse)
+  (initialize-aliases)
+  (save-unreferenced-imports))
+
+
+(definition (save-unreferenced-imports)
+  (define (collect-unreferenced-imports unit-name)
+    (let ((declaration (parameterize ((analysis-mode? #t))
+                         (walk-unit unit-name))))
+      (when (is? declaration Module-Declaration)
+        (collect (lambda (import)
+                   (when (not (get-hit?~ import))
+                     (get-name~ import)))
+                 (get-imports~ declaration)))))
+  
+  (let ((all '()))
+    (iterate-units
+      (lambda (unit-name)
+        (feedback "Walking {a}..." unit-name)
+        (let ((unreferenced (collect-unreferenced-imports unit-name)))
+          (when (and unreferenced (not (null? unreferenced)))
+            (set! all (cons (cons unit-name unreferenced) all)))))
+      repositories: (list (jazz:find-repository 'World)
+                          (jazz:find-repository 'Yownu)))
+    (call-with-output-file (path-settings {File Home "unreferenced.jazz"} eol-encoding: (get-eol-encoding))
+      (lambda (port)
+        (pretty-print (sort string<? all key: (lambda (info) (symbol->string (car info))))
+                      port)))
+    (feedback "Done")))
+
+
+;;;
 ;;;; Walk
 ;;;
 
 
-(definition public (yownu-walk)
+(definition (yownu-walk)
   (iterate-units walk-unit
     repositories: (list (jazz:find-repository 'World)
                         (jazz:find-repository 'Yownu))
@@ -56,10 +104,10 @@
 
 
 ;;;
-;;;; Run
+;;;; Product
 ;;;
 
 
-(register-product-run 'yownu-walk
+(register-product-run 'yownu-script
   (lambda (descriptor)
-    (yownu-walk))))
+    (yownu-run))))
