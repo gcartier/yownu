@@ -23,6 +23,8 @@
   (5)
   (5)
   (4 ("Alpha 1" 2))
+  (6 ("Add a light, shoot it ->" 0))
+  (7 ("Bug due to color window being closed by a thread other than the event thread" 0))
   (6 ("Rendering regression on Dominique's computer" 0))
   (6 ("Drawing the grid allocates around 65K of memory each render!" 0))
   (7 ("It is clearly time to move to the mesh-based grid" 0))
