@@ -313,6 +313,8 @@
           (<!>           name: import-model           visible?: #f)
           (<!>           name: reload-textures        visible?: #f))
         (<world-history!>
+          (<!>           name: step-logic             visible?: #f)
+          (<!>           name: rewind-logic           visible?: #f)
           (<!>           name: toggle-history         visible?: #f)
           (<!>           name: reset-history          visible?: #f)
           (<!>           name: toggle-evaluate-future visible?: #f))
@@ -377,6 +379,8 @@
   (define-trait user-history World-Actionbar
     (<Role-Trait>
       (<install>
+        (<!>             name: step-logic             visible?: #f)
+        (<!>             name: rewind-logic           visible?: #f)
         (<!>             name: toggle-history         visible?: #f)
         (<!>             name: reset-history          visible?: #f)
         (<!>             name: toggle-evaluate-future visible?: #f))))
