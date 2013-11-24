@@ -26,6 +26,7 @@
         (jazz.io)
         (jazz.jml)
         (jazz.jrm)
+        (jazz.jrm.protocol)
         (jazz.library)
         (jazz.logger)
         (jazz.media)
