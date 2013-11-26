@@ -104,6 +104,8 @@ world.debug-collisions?          #f
 
 ;; Camera
 world.camera-move-speed          .5
+world.camera-blink-speed         1.
+world.camera-warp-speed          2.5
 world.camera-strafe-speed        0.1
 world.camera-rotate-speed        0.035
 
