@@ -96,7 +96,8 @@
 
 
 (definition (yownu-walk)
-  (iterate-units walk-unit
+  ;; we need to use generate-unit as warnings are reported in the generate phase
+  (iterate-units generate-unit
     repositories: (list (jazz:find-repository 'World)
                         (jazz:find-repository 'Yownu))
     feedback: (lambda (unit-name)
