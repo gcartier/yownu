@@ -98,6 +98,7 @@
         (world.profiling)
         (world.programs)
         (world.quad)
+        (world.queue)
         (world.render)
         (world.renderer)
         (world.renderers)

@@ -105,7 +105,7 @@ world.debug-collisions?          #f
 ;; Camera
 world.camera-move-speed          .5
 world.camera-strafe-speed        0.1
-world.camera-rotate-speed        0.025
+world.camera-rotate-speed        0.035
 
 ;; Network
 world.client.host                #u8(192 168 1 101)
