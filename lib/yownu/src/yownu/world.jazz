@@ -78,6 +78,7 @@
         (world.interface.dialogs)
         (world.interface.documents)
         (world.io)
+        (world.keys)
         (world.light)
         (world.lighting)
         (world.log)
