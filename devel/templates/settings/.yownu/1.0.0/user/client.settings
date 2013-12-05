@@ -81,7 +81,6 @@ world.free-aim?                  #t
 ;; History
 world.history?                   #t
 world.history-max                500
-world.actors-history?            #t
 world.evaluate-future?           #f
 world.inhibit-slicing?           #f
 
