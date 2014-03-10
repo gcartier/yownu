@@ -80,7 +80,7 @@ world.free-aim?                  #t
 
 ;; History
 world.history?                   #t
-world.history-max                500
+world.history-max                100
 world.evaluate-future?           #f
 world.inhibit-slicing?           #f
 
