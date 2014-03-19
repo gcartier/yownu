@@ -147,3 +147,11 @@ minecraft.generate-mipmap?       32
 
 jazz.render-pulse                .01
 jazz.evaluation-mode             interpret
+
+
+;;;
+;;;; OpenGL
+;;;
+
+
+jazz.opengl.debug-output?        #f
