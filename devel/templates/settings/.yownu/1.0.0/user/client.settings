@@ -63,7 +63,7 @@ world.gc-sound?                  default
 
 ;; Interface
 world.start-interface?           #t
-world.interface-target?          #t
+world.interface-target?          #f
 world.interface-script?          #f
 world.confirmation-dialogs?      #t
 world.axes?                      #f
