@@ -59,7 +59,7 @@ display_info () {
 
 update_submodules () {
     cd "$REL"
-    git submodule update
+    git submodule update --recursive
 }
 
 while getopts "l" OPTION; do
