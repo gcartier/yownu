@@ -62,10 +62,13 @@ update_submodules () {
     git submodule update --recursive
 }
 
-while getopts "l" OPTION; do
+while getopts "lr" OPTION; do
     case $OPTION in
 	"l" )
 	    UPDATE_SUBMODULES="false"
+	    ;;
+	"r" )
+	    UPDATE_SUBMODULES="true"
 	    ;;
     esac
 done
