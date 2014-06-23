@@ -4,3 +4,4 @@
 /deploy
 .configuration
 .jazzini
+.DS_Store
