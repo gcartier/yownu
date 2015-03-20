@@ -56,7 +56,7 @@
   (method override (new-toplevel)
     (let ((fullscreen? (xor (world-setting 'world.fullscreen? (not (get-controller-debugger)) 'default) (shift-down?)))
           (pos (find-setting 'world.position {Point 50 50}))
-          (size (find-setting 'world.size {Dimension 1200 800})))
+          (size (find-setting 'world.size {Dimension 800 500} @w {Dimension 1200 800})))
       (new-opengl-window class: Yownu-Window fullscreen?: fullscreen? position: pos size: size render?: #f visible?: #f)))
   
   

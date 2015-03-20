@@ -21,7 +21,7 @@
         (jazz.editor.jazz)
         (jazz.geometry)
         (jazz.graphic)
-        (jazz.graphic.opengl.autoload)
+        (jazz.graphic.opengl)
         (jazz.graphic.opengl.glew)
         (jazz.io)
         (jazz.jml)
