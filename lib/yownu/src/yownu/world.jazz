@@ -110,6 +110,7 @@
         (world.settings)
         (world.shader)
         (world.shaders)
+        (world.skybox)
         (world.support)
         (world.syntax (phase syntax))
         (world.task)
