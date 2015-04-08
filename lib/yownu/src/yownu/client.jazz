@@ -32,6 +32,7 @@
         (world.client)
         (world.client.actions)
         (world.client.bars)
+        (world.history)
         (world.interface.actions)
         (world.interface.bars)
         (world.role)
@@ -258,6 +259,9 @@
   
   
   (method override (setup-application-interface)
+    (let ((world (current-world)))
+      (let ((interface (get-interface~ world)))
+        (new History-Slider name: 'slider parent: interface size: {Dimension 400 40} location: '(center 32) visible?: #f)))
     (install-bars
       `((,World-Main-Bar      main      horizontal (center -10))
         (,World-Game-Bar      game      horizontal (center -36))

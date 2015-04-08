@@ -1,0 +1,92 @@
+;;;=========
+;;;  Yownu
+;;;=========
+;;;
+;;;; Yownu Server
+;;;
+;;;  The Initial Developer of the Original Code is Guillaume Cartier.
+;;;  Portions created by the Initial Developer are Copyright (C) 2012-2014
+;;;  the Initial Developer. All Rights Reserved.
+;;;
+;;;  Contributor(s):
+
+
+(module yownu.server jazz
+
+
+(import (jazz.debuggee)
+        (jazz.debugger)
+        (jazz.debugger.jazz.stub)
+        (jazz.graphic.opengl.window)
+        (jazz.ide)
+        (jazz.io)
+        (jazz.jml)
+        (jazz.jrm)
+        (jazz.library)
+        (jazz.system)
+        (jazz.ui)
+        (world)
+        (world.autoload)
+        (world.server)
+        (world.settings)
+        (world.syntax (phase syntax))
+        (yownu.window))
+
+
+(class Yownu-Server extends World-Server
+  
+  
+  (slot yownu-settings initialize #f getter generate)
+
+  
+  (method override (process-name)
+    "Yownu-Server")
+  
+  
+  (method override (new-toplevel)
+    (let ((fullscreen? (xor (world-setting 'world.fullscreen? (not (get-controller-debugger)) 'default) (shift-down?)))
+          (pos (find-setting 'world.position {Point 50 50}))
+          (size (find-setting 'world.size {Dimension 800 500} @w {Dimension 1200 800})))
+      (new-opengl-window class: Yownu-Window fullscreen?: fullscreen? position: pos size: size render?: #f visible?: #f)))
+  
+  
+  (method override (settings-root)
+    {Directory Home ".yownu"})
+  
+  
+  (method override (settings-alias)
+    'App)
+  
+  
+  (method override (initialize-app)
+    (register-alias 'App
+                    (list (if (is-alias? 'Yownu)
+                              'Yownu
+                            'Build))))
+  
+  
+  (method override (initialize-settings)
+    (nextmethod)
+    (register-alias 'Root (get-list~ (get-parent~ (get-parent~ {Directory App}))))
+    (register-alias 'Yownu-World '(Root "worlds" "yownu"))
+    (set! yownu-settings (new File-Settings))
+    (register-settings yownu-settings)
+    (set-setting~ yownu-settings 'world.world-directories '(("yownu" . {Directory Yownu-World})))
+    (set-setting~ yownu-settings 'world.worlds-directories #f))
+  
+  
+  (method override (use-profile?)
+    #f)
+
+
+  ;;;
+  ;;;; Roles
+  ;;;
+
+
+  (method public (user-role?)
+    (eq? current-role 'user))
+
+
+  (method public (programmer-role?)
+    (eq? current-role 'programmer))))

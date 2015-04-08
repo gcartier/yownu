@@ -1,0 +1,40 @@
+;;;=========
+;;;  Yownu
+;;;=========
+;;;
+;;;; Yownu Start Server
+;;;
+;;;  The Initial Developer of the Original Code is Guillaume Cartier.
+;;;  Portions created by the Initial Developer are Copyright (C) 2012-2014
+;;;  the Initial Developer. All Rights Reserved.
+;;;
+;;;  Contributor(s):
+
+
+(module yownu.start-server jazz
+
+
+(import (jazz.graphic.opengl.glew)
+        (jazz.graphic.opengl.window)
+        (jazz.platform)
+        (jazz.system)
+        (world)
+        (world.boot)
+        (world.colors)
+        (world.fonts)
+        (world.io)
+        (yownu.run-server)
+        (yownu.server)
+        (yownu.windows (cond windows)))
+
+
+(definition (start-yownu-server)
+  (load-point 'start)
+  (set-min-heap! (* 1000000 1024))
+  (boot-client Yownu-Server start: (lambda () (open-world/zone "yownu" #f)))
+  ;(visible? (boolean-parameter "window" 'world.server.window? #f))
+  ;(start-panel~ process)
+  )
+
+
+(set-yownu-start start-yownu-server))
