@@ -25,9 +25,14 @@
         (jazz.library)
         (jazz.system)
         (jazz.ui)
+        (jazz.version)
         (world)
         (world.autoload)
+        (world.history)
+        (world.interface.bars)
         (world.server)
+        (world.server.actions)
+        (world.server.bars)
         (world.settings)
         (world.syntax (phase syntax))
         (yownu.window))
@@ -41,6 +46,26 @@
   
   (method override (process-name)
     "Yownu-Server")
+  
+  
+  (method override (process-owner)
+    "Guillaume Cartier")
+  
+  
+  (method override (process-copyright)
+    "2012-2015")
+  
+  
+  (method override (process-icon)
+    "WebServer")
+  
+  
+  (method override (process-version)
+    {Version 1 0 2})
+  
+  
+  (method override (process-email)
+    "gucartier@gmail.com")
   
   
   (method override (new-toplevel)
@@ -75,8 +100,26 @@
     (set-setting~ yownu-settings 'world.worlds-directories #f))
   
   
+  (method override (default-preferences)
+    (new Yownu-Preferences))
+  
+  
+  (method override (default-bindings)
+    (new Yownu-Bindings))
+  
+  
   (method override (use-profile?)
     #f)
+
+  
+  ;;;
+  ;;;; Actions
+  ;;;
+  
+  
+  (method override (class-actions)
+    (append (list (find-actions 'yownu))
+            (nextmethod)))
 
 
   ;;;
@@ -89,4 +132,87 @@
 
 
   (method public (programmer-role?)
-    (eq? current-role 'programmer))))
+    (eq? current-role 'programmer))
+  
+  
+  ;;;
+  ;;;; Interface
+  ;;;
+  
+  
+  (method override (setup-application-interface)
+    (let ((world (current-world)))
+      (let ((interface (get-interface~ world)))
+        (new History-Slider name: 'slider parent: interface size: {Dimension 400 40} location: '(center 32) visible?: #f)))
+    (install-bars
+      `((,World-Main-Bar      main      horizontal (center -10))
+        (,World-Game-Bar      game      horizontal (center -36))
+        (,World-Window-Bar    window    horizontal (-10 -10))
+        (,World-Camera-Bar    camera    horizontal (-10 -36))
+        (,World-Debug-Bar     debug     horizontal (10 -10))
+        (,World-History-Bar   history   horizontal (10 -36))
+        (,World-Models-Bar    models    horizontal (10 -24.) #f)
+        (,World-Target-Bar    target    horizontal (-10 10))
+        (,World-Edition-Bar   edition   vertical   (-36 center))
+        (,World-Interface-Bar interface vertical   (-10 center))
+        (,World-Tutorial-Bar  tutorial  horizontal (10 10) #f)
+        (,World-Objective-Bar objective horizontal (114 10) #f)
+        (,World-Collision-Bar collision horizontal (-10 36) #f)
+        (,World-Minecraft-Bar minecraft vertical   (-10 -98) #f)))))
+
+
+;;;
+;;;; Preferences
+;;;
+
+
+(class Yownu-Preferences extends IDE-Preferences
+  
+  
+  (form
+    (<install> toplevel-state: restored)))
+
+
+;;;
+;;;; Bindings
+;;;
+
+
+(class Yownu-Bindings extends IDE-Bindings
+  
+  
+  (form
+    (<install>
+      (<World-Menu-Actions>      name: world-menu)
+      (<World-Interface-Actions> name: world-interface)
+      (<World-Graphics-Actions>  name: world-graphics)
+      (<World-Sound-Actions>     name: world-sound)
+      (<World-Server-Actions>    name: world-server)
+      (<World-World-Actions>     name: world-world)
+      (<World-Zone-Actions>      name: world-zone)
+      (<World-Movement-Actions>  name: world-movement)
+      (<World-Camera-Actions>    name: world-camera)
+      (<World-Game-Actions>      name: world-game)
+      (<World-Spell-Actions>     name: world-spell)
+      (<World-Edition-Actions>   name: world-edition)
+      (<World-History-Actions>   name: world-history)
+      (<World-Window-Actions>    name: world-window)
+      (<World-Debug-Actions>     name: world-debug)
+      (<World-Tutorial-Actions>  name: world-tutorial)
+      (<World-Objective-Actions> name: world-objective)
+      (<World-Collision-Actions> name: world-collision)
+      (<World-Minecraft-Actions> name: world-minecraft)
+      (<World-Anonymous-Actions> name: world-anonymous)
+      (<Yownu-Actions>           name: yownu))))
+
+
+;;;
+;;;; Actions
+;;;
+
+
+(class Yownu-Actions extends World-Actions
+  
+  
+  (form
+    (<install> title: "Yownu"))))
