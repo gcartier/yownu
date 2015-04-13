@@ -476,6 +476,8 @@
   
   (form
     (<install>
+      (<!>                       name: ide visible?: #f)
+      (<!>                       name: application visible?: #f)
       (<World-Menu-Actions>      name: world-menu)
       (<World-Interface-Actions> name: world-interface)
       (<World-Graphics-Actions>  name: world-graphics)
