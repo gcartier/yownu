@@ -25,7 +25,7 @@
                                  world.server))
             (yownu-server (title "Yownu-Server")
                           (run yownu.run-server)
-                          (build (yownu executable: "Yownu-Server" minimum-heap: 1000000 bundle: "yownu-server" resources: "resources"))
+                          (build (yownu-server executable: "Yownu-Server" minimum-heap: 1000000 bundle: "yownu-server" resources: "resources"))
                           (dependencies))
             (yownu-all (dependencies yownu
                                      yownu-server))

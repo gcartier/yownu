@@ -282,14 +282,10 @@
   ;;;
   ;;;; Roles
   ;;;
-
-
-  (method public (user-role?)
-    (eq? current-role 'user))
-
-
-  (method public (programmer-role?)
-    (eq? current-role 'programmer))
+  
+  
+  (method override (valid-roles)
+    '(user programmer))
 
 
   (define-trait user-bindings Bindings
