@@ -4,7 +4,7 @@
   (products (yownu (title "Yownu")
                    (run yownu.run)
                    (unit yownu.product)
-                   (build (yownu executable: "Yownu" minimum-heap: 500000 bundle: "yownu" resources: "resources"))
+                   (build (yownu executable: "Yownu" minimum-heap: 500000 bundle: "yownu" resources: "resources/yownu"))
                    (update yownu.biome
                            yownu.client
                            yownu.debugger
@@ -25,7 +25,7 @@
                                  world.server))
             (yownu-server (title "Yownu-Server")
                           (run yownu.run-server)
-                          (build (yownu-server executable: "Yownu-Server" minimum-heap: 1000000 bundle: "yownu-server" resources: "resources"))
+                          (build (yownu-server executable: "Yownu-Server" minimum-heap: 1000000 bundle: "yownu-server" resources: "resources/yownu-server"))
                           (dependencies))
             (yownu-all (dependencies yownu
                                      yownu-server))
