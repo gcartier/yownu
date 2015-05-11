@@ -25,6 +25,7 @@
         (jazz.jml)
         (jazz.jrm)
         (jazz.library)
+        (jazz.platform)
         (jazz.system)
         (jazz.ui)
         (jazz.version)
@@ -67,22 +68,31 @@
   
   
   (method override (settings-alias)
-    'App)
+    'Resources)
   
   
   (method override (initialize-app)
     (register-alias 'App
-                    (list (if (is-alias? 'Yownu)
-                              'Yownu
-                            'Build))))
+                    (list (cond ((is-alias? 'Yownu)
+                                 'Yownu)
+                                ((is-alias? 'Bundle)
+                                 'Bundle)
+                                (else
+                                 'Build))))
+    (register-resources-alias 'Yownu 'yownu))
   
   
   (method override (initialize-settings)
     (nextmethod)
-    (register-alias 'Root (get-list~ (get-parent~ (get-parent~ {Directory App}))))
-    (register-alias 'Yownu-World '(Root "worlds" "yownu"))
     (set! yownu-settings (new File-Settings))
     (register-settings yownu-settings)
+    (register-alias 'Root (get-list~ (get-parent~ (get-parent~ {Directory App}))))
+    (register-alias 'Yownu-World '(Root "worlds" "yownu"))
+    (when (not (exists?~ {Directory Yownu-World}))
+      (system-message (format "Unable to find Yownu's world: {a}" (parse~ {Directory Yownu-World}))
+                      type: 'problem
+                      title: "Yownu")
+      (exit 1))
     (set-setting~ yownu-settings 'world.world-directories '(("yownu" . {Directory Yownu-World})))
     (set-setting~ yownu-settings 'world.worlds-directories #f))
   
@@ -172,15 +182,15 @@
   
   
   (method override (news-file)
-    (world-file '("devel" "yownu" "News.ftx") 'App))
+    (world-file '("devel" "yownu" "News.ftx") 'Resources))
   
   
   (method override (roadmap-file)
-    (world-file '("devel" "yownu" "Roadmap.ftx") 'App))
+    (world-file '("devel" "yownu" "Roadmap.ftx") 'Resources))
   
   
   (method override (help-file)
-    (world-file '("devel" "yownu" "Help.ftx") 'App))
+    (world-file '("devel" "yownu" "Help.ftx") 'Resources))
   
   
   ;;;
@@ -265,6 +275,7 @@
         (new History-Slider name: 'slider parent: interface size: {Dimension 400 40} location: '(center 32) visible?: #f)))
     (install-bars
       `((,World-Main-Bar      main      horizontal (center -10))
+        ;; (,World-Client-Bar    client    horizontal (10 -98)) ;; overlaps the script pane
         (,World-Game-Bar      game      horizontal (center -36))
         (,World-Window-Bar    window    horizontal (-10 -10))
         (,World-Camera-Bar    camera    horizontal (-10 -36))
@@ -300,7 +311,7 @@
           (<!>           name: world-save             visible?: #f)
           (<!>           name: world-save-as          visible?: #f)
           (<!>           name: world-revert           visible?: #f))
-        (<world-server!>
+        (<world-client!>
           (<!>           name: connect-to-server      visible?: #f)
           (<!>           name: disconnect-from-server visible?: #f)
           (<!>           name: request-server-update  visible?: #f))
@@ -479,7 +490,7 @@
       (<World-Interface-Actions> name: world-interface)
       (<World-Graphics-Actions>  name: world-graphics)
       (<World-Sound-Actions>     name: world-sound)
-      (<World-Server-Actions>    name: world-server)
+      (<World-Client-Actions>    name: world-client)
       (<World-World-Actions>     name: world-world)
       (<World-Zone-Actions>      name: world-zone)
       (<World-Movement-Actions>  name: world-movement)
