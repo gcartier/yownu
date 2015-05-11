@@ -23,7 +23,7 @@
 (cond-expand
   (windows
    (specific (window-style (<Yownu-Window> window) rest)
-     (if (world-setting 'world.borderless? #f 'default)
+     (if (world-setting 'world.borderless? #f)
          WS_POPUP
        (nextmethod window rest))))
   (else)))
