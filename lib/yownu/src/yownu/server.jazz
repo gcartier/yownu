@@ -197,7 +197,7 @@
           (<!>           name: toggle-elements         visible?: #f)
           (<!>           name: toggle-post-processing  visible?: #f))
         (<world-sound!>
-          (<!>           name: change-music            visible?: #f))
+          (<!>           name: toggle-music            visible?: #f))
         (<world-edition!>
           (<!>           name: select-target-mode      visible?: #f)
           (<!>           name: move-target-mode        visible?: #f)
@@ -285,7 +285,7 @@
         (<!>             name: toggle-normals          visible?: #f)
         (<!>             name: toggle-elements         visible?: #f)
         (<!>             name: toggle-post-processing  visible?: #f)
-        (<!>             name: change-music            visible?: #f))))
+        (<!>             name: toggle-music            visible?: #f))))
 
   (define-trait admin-camera World-Actionbar
     (<Role-Trait>
