@@ -146,7 +146,7 @@
   
   (method override (zone-writable? moniker)
     (and moniker (or writable?
-                     (pathname=? (zone-container moniker) user-zones))))
+                     (subpath?~ user-zones (zone-container moniker)))))
   
   
   (method override (new-zone-file base)
