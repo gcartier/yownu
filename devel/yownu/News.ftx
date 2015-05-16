@@ -35,6 +35,7 @@
   (9 ("Change music is now toggle music on/off" 0))
   (9 ("Fix arrows beeping on mac" 0))
   (9 ("Add some mac-friendly shortcuts" 0))
+  (9 ("Automatically go first-person on player add" 0))
   (1)
   (1 ("2015/05/14" 1))
   (9 ("Minecraft zones can now be partially edited" 0))
