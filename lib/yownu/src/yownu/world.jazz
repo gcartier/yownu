@@ -62,6 +62,7 @@
         (world.external)
         (world.external.milkshape)
         (world.external.minecraft)
+        (world.external.nbt)
         (world.external.obj)
         (world.fog)
         (world.folio)
