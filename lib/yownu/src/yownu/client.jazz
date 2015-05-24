@@ -288,7 +288,7 @@
         (,World-Tutorial-Bar  tutorial  horizontal (10 10) #f)
         (,World-Objective-Bar objective horizontal (114 10) #f)
         (,World-Collision-Bar collision horizontal (-10 36) #f)
-        (,World-Minecraft-Bar minecraft vertical   (-10 -98) #f))))
+        (,World-Minecraft-Bar minecraft vertical   (-10 -54) #f))))
 
 
   ;;;
@@ -297,10 +297,183 @@
   
   
   (method override (valid-roles)
-    '(user programmer))
+    '(user designer programmer))
+  
+  
+  (method override (role-traits role)
+    (case role
+      ((user) user-role)
+      ((designer) designer-role)
+      ((programmer) programmer-role)
+      (else (nextmethod role))))
+
+
+  ;;;
+  ;;;; User
+  ;;;
 
 
   (define-trait user-bindings Bindings
+    (<Role-Trait>
+      (<install>
+        (<world-menu!>
+          (<!>           name: view-help              visible?: #f))
+        (<world-world!>
+          (<!>           name: world-new              visible?: #f)
+          (<!>           name: world-open             visible?: #f)
+          (<!>           name: world-save             visible?: #f)
+          (<!>           name: world-save-as          visible?: #f)
+          (<!>           name: world-revert           visible?: #f))
+        (<world-game!>
+          (<!>           name: mind-control           visible?: #f)
+          (<!>           name: toggle-aim             visible?: #f)
+          (<!>           name: toggle-free-aim        visible?: #f))
+        (<world-spell!>
+          (<!>           name: bomb                   visible?: #f)
+          (<!>           name: blink                  visible?: #f)
+          (<!>           name: warp                   visible?: #f)
+          (<!>           name: sprint                 visible?: #f))
+        (<world-client!>
+          (<!>           name: connect-to-server      visible?: #f)
+          (<!>           name: disconnect-from-server visible?: #f)
+          (<!>           name: request-server-update  visible?: #f))
+        (<world-camera!>
+          (<!>           name: orbit-motion           visible?: #f)
+          (<!>           name: free-motion            visible?: #f)
+          (<!>           name: toggle-camera-lock     visible?: #f))
+        (<world-graphics!>
+          (<!>           name: toggle-lighting        visible?: #f)
+          (<!>           name: toggle-gadgets         visible?: #f)
+          (<!>           name: toggle-normals         visible?: #f)
+          (<!>           name: toggle-elements        visible?: #f)
+          (<!>           name: toggle-post-processing visible?: #f))
+        (<world-interface!>
+          (<!>           name: run-script             visible?: #f)
+          (<!>           name: run-last-script        visible?: #f))
+        (<world-edition!>
+          (<!>           name: select-target-mode     visible?: #f)
+          (<!>           name: move-target-mode       visible?: #f)
+          (<!>           name: rotate-target-mode     visible?: #f)
+          (<!>           name: scale-target-mode      visible?: #f)
+          (<!>           name: gadgets-showcase       visible?: #f)
+          (<!>           name: tiles-showcase         visible?: #f)
+          (<!>           name: shaders-showcase       visible?: #f)
+          (<!>           name: animations-showcase    visible?: #f)
+          (<!>           name: meshes-showcase        visible?: #f)
+          (<!>           name: textures-showcase      visible?: #f)
+          (<!>           name: skyboxes-showcase      visible?: #f)
+          (<!>           name: import-model           visible?: #f)
+          (<!>           name: reload-textures        visible?: #f))
+        (<world-history!>                             visible?: #f)
+        (<world-window!>
+          (<!>           name: live-gaia/world        visible?: #f)
+          (<!>           name: design-gaia/world      visible?: #f)
+          (<!>           name: restore-gaia/world     visible?: #f))
+        (<world-tutorial!>)
+        (<world-debug!>                               visible?: #f))))
+  
+  (define-trait user-main World-Actionbar
+    (<Role-Trait>
+      (<install>
+        (<!>             name: world-new              visible?: #f)
+        (<!>             name: world-open             visible?: #f)
+        (<!>             name: world-save             visible?: #f)
+        (<!>             name: world-revert           visible?: #f))))
+  
+  (define-trait user-game World-Actionbar
+    (<Role-Trait>
+      (<install>
+        (<!>             name: bomb                   visible?: #f)
+        (<!>             name: blink                  visible?: #f)
+        (<!>             name: warp                   visible?: #f)
+        (<!>             name: sprint                 visible?: #f)
+        (<!>             name: mind-control           visible?: #f)
+        (<!>             name: toggle-aim             visible?: #f)
+        (<!>             name: toggle-free-aim        visible?: #f))))
+  
+  (define-trait user-target World-Actionbar
+    (<Role-Trait>
+      (<install>                                      visible?: #f)))
+  
+  (define-trait user-interface World-Actionbar
+    (<Role-Trait>
+      (<install>
+        (<!>             name: run-script             visible?: #f)
+        (<!>             name: run-last-script        visible?: #f)
+        (<!>             name: toggle-lighting        visible?: #f)
+        (<!>             name: toggle-gadgets         visible?: #f)
+        (<!>             name: toggle-normals         visible?: #f)
+        (<!>             name: toggle-elements        visible?: #f)
+        (<!>             name: toggle-post-processing visible?: #f))))
+
+  (define-trait user-camera World-Actionbar
+    (<Role-Trait>
+      (<install>
+        (<!>             name: orbit-motion           visible?: #f)
+        (<!>             name: free-motion            visible?: #f)
+        (<!>             name: toggle-camera-lock     visible?: #f))))
+
+  (define-trait user-edition World-Actionbar
+    (<Role-Trait>
+      (<install>
+        (<!>             name: gadgets-showcase       visible?: #f)
+        (<!>             name: tiles-showcase         visible?: #f)
+        (<!>             name: shaders-showcase       visible?: #f)
+        (<!>             name: animations-showcase    visible?: #f)
+        (<!>             name: meshes-showcase        visible?: #f)
+        (<!>             name: textures-showcase      visible?: #f)
+        (<!>             name: skyboxes-showcase      visible?: #f))))
+
+  (define-trait user-models World-Actionbar
+    (<Role-Trait>
+      (<install>
+        (<!>             name: import-model           visible?: #f))))
+
+  (define-trait user-history World-Actionbar
+    (<Role-Trait>
+      (<install>                                      visible?: #f)))
+  
+  (define-trait user-window World-Actionbar
+    (<Role-Trait>
+      (<install>
+        (<!>             name: live-gaia/world        visible?: #f)
+        (<!>             name: design-gaia/world      visible?: #f)
+        (<!>             name: restore-gaia/world     visible?: #f))))
+  
+  (define-trait user-tutorial World-Actionbar
+    (<Role-Trait>
+      (<install>)))
+  
+  (define-trait user-objective World-Actionbar
+    (<Role-Trait>
+      (<install>)))
+  
+  (define-trait user-debug World-Actionbar
+    (<Role-Trait>
+      (<install>                                      visible?: #f)))
+
+  (definition user-role
+    `((:bindings ,user-bindings)
+      (main ,user-main)
+      (game ,user-game)
+      (target ,user-target)
+      (interface ,user-interface)
+      (camera ,user-camera)
+      (edition ,user-edition)
+      (models ,user-models)
+      (history ,user-history)
+      (window ,user-window)
+      (tutorial ,user-tutorial)
+      (objective ,user-objective)
+      (debug ,user-debug)))
+
+
+  ;;;
+  ;;;; Designer
+  ;;;
+
+
+  (define-trait designer-bindings Bindings
     (<Role-Trait>
       (<install>
         (<world-menu!>
@@ -358,7 +531,7 @@
           (<!>           name: test9                  visible?: #f)
           (<!>           name: test0                  visible?: #f)))))
   
-  (define-trait user-main World-Actionbar
+  (define-trait designer-main World-Actionbar
     (<Role-Trait>
       (<install>
         (<!>             name: world-new              visible?: #f)
@@ -366,28 +539,28 @@
         (<!>             name: world-save             visible?: #f)
         (<!>             name: world-revert           visible?: #f))))
   
-  (define-trait user-interface World-Actionbar
+  (define-trait designer-interface World-Actionbar
     (<Role-Trait>
       (<install>
         (<!>             name: toggle-lighting        visible?: #f)
         (<!>             name: toggle-gadgets         visible?: #f))))
 
-  (define-trait user-camera World-Actionbar
+  (define-trait designer-camera World-Actionbar
     (<Role-Trait>
       (<install>
         (<!>             name: toggle-camera-lock     visible?: #f))))
 
-  (define-trait user-edition World-Actionbar
+  (define-trait designer-edition World-Actionbar
     (<Role-Trait>
       (<install>
         (<!>             name: textures-showcase      visible?: #f))))
 
-  (define-trait user-models World-Actionbar
+  (define-trait designer-models World-Actionbar
     (<Role-Trait>
       (<install>
         (<!>             name: import-model           visible?: #f))))
 
-  (define-trait user-history World-Actionbar
+  (define-trait designer-history World-Actionbar
     (<Role-Trait>
       (<install>
         (<!>             name: step-logic             visible?: #f)
@@ -395,22 +568,22 @@
         (<!>             name: reset-history          visible?: #f)
         (<!>             name: toggle-evaluate-future visible?: #f))))
   
-  (define-trait user-window World-Actionbar
+  (define-trait designer-window World-Actionbar
     (<Role-Trait>
       (<install>
         (<!>             name: live-gaia/world        visible?: #f)
         (<!>             name: design-gaia/world      visible?: #f)
         (<!>             name: restore-gaia/world     visible?: #f))))
   
-  (define-trait user-tutorial World-Actionbar
+  (define-trait designer-tutorial World-Actionbar
     (<Role-Trait>
       (<install>)))
   
-  (define-trait user-objective World-Actionbar
+  (define-trait designer-objective World-Actionbar
     (<Role-Trait>
       (<install>)))
   
-  (define-trait user-debug World-Actionbar
+  (define-trait designer-debug World-Actionbar
     (<Role-Trait>
       (<install>
         (<!>             name: toggle-target          visible?: #f)
@@ -424,18 +597,23 @@
         (<!>             name: garbage-collect        visible?: #f)
         (<!>             name: explore-interface      visible?: #f))))
 
-  (definition user-role
-    `((:bindings ,user-bindings)
-      (main ,user-main)
-      (interface ,user-interface)
-      (camera ,user-camera)
-      (edition ,user-edition)
-      (models ,user-models)
-      (history ,user-history)
-      (window ,user-window)
-      (tutorial ,user-tutorial)
-      (objective ,user-objective)
-      (debug ,user-debug)))
+  (definition designer-role
+    `((:bindings ,designer-bindings)
+      (main ,designer-main)
+      (interface ,designer-interface)
+      (camera ,designer-camera)
+      (edition ,designer-edition)
+      (models ,designer-models)
+      (history ,designer-history)
+      (window ,designer-window)
+      (tutorial ,designer-tutorial)
+      (objective ,designer-objective)
+      (debug ,designer-debug)))
+
+
+  ;;;
+  ;;;; Programmer
+  ;;;
 
 
   (define-trait programmer-bindings Bindings
@@ -452,14 +630,7 @@
 
   (definition programmer-role
     `((:bindings ,programmer-bindings)
-      (main ,programmer-main)))
-  
-  
-  (method override (role-traits role)
-    (case role
-      ((user) user-role)
-      ((programmer) programmer-role)
-      (else (nextmethod role)))))
+      (main ,programmer-main))))
 
 
 ;;;

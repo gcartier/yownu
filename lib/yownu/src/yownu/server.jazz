@@ -156,7 +156,7 @@
         (,World-Tutorial-Bar  tutorial  horizontal (10 10) #f)
         (,World-Objective-Bar objective horizontal (114 10) #f)
         (,World-Collision-Bar collision horizontal (-10 36) #f)
-        (,World-Minecraft-Bar minecraft vertical   (-10 -98) #f))))
+        (,World-Minecraft-Bar minecraft vertical   (-10 -54) #f))))
 
 
   ;;;
@@ -166,6 +166,17 @@
   
   (method override (valid-roles)
     '(admin))
+  
+  
+  (method override (role-traits role)
+    (case role
+      ((admin) admin-role)
+      (else (nextmethod role))))
+
+
+  ;;;
+  ;;;; Admin
+  ;;;
 
 
   (define-trait admin-bindings Bindings
@@ -352,13 +363,7 @@
       (window ,admin-window)
       (tutorial ,admin-tutorial)
       (objective ,admin-objective)
-      (debug ,admin-debug)))
-  
-  
-  (method override (role-traits role)
-    (case role
-      ((admin) admin-role)
-      (else (nextmethod role)))))
+      (debug ,admin-debug))))
 
 
 ;;;
