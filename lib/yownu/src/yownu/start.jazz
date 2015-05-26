@@ -64,6 +64,7 @@
         (else
          (load-point 'start)
          (set-min-heap! (* 500000 1024))
+         (initialize-platform)
          (boot-client Yownu-Client start: (lambda () (open-world/zone "yownu" #f))))))
 
 
