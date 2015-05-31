@@ -58,7 +58,7 @@
   
   (method override (new-toplevel)
     (let ((fullscreen? (xor (world-setting 'world.fullscreen? (not (get-controller-debugger))) (shift-down?)))
-          (pos (world-setting 'world.position {Point 100 100}))
+          (pos (world-setting 'world.position {Point 250 100}))
           (size (world-setting 'world.size (if (get-controller-debugger) {Dimension 900 600} {Dimension 1200 800}))))
       (new-opengl-window class: Yownu-Window fullscreen?: fullscreen? position: pos size: size need-version: {Version 3 2} render?: #f visible?: #f)))
   
@@ -284,11 +284,15 @@
         (,World-Models-Bar    models    horizontal (10 -24.) #f)
         (,World-Target-Bar    target    horizontal (-10 10))
         (,World-Edition-Bar   edition   vertical   (-36 center))
-        (,World-Interface-Bar interface vertical   (-10 center))
+        ,(case current-role
+           ((user)
+            `(,World-Interface-Bar interface horizontal (10 -10)))
+           (else
+            `(,World-Interface-Bar interface vertical   (-10 center))))
         (,World-Tutorial-Bar  tutorial  horizontal (10 10) #f)
         (,World-Objective-Bar objective horizontal (114 10) #f)
         (,World-Collision-Bar collision horizontal (-10 36) #f)
-        (,World-Minecraft-Bar minecraft vertical   (-10 -54) #f))))
+        (,World-Minecraft-Bar minecraft vertical   (-10 -62) #f))))
 
 
   ;;;
@@ -298,6 +302,12 @@
   
   (method override (valid-roles)
     '(user designer programmer))
+  
+  
+  (method override (customize-roles)
+    (when (neq? initial-role 'user)
+      (set-property~ (child~ (child~ (get-client-form~ user-bindings) 'world-world) 'toggle-user) 'visible? #t)
+      (set-property~ (child~ (get-client-form~ user-main) 'toggle-user) 'visible? #t)))
   
   
   (method override (role-traits role)
@@ -323,12 +333,17 @@
           (<!>           name: world-open             visible?: #f)
           (<!>           name: world-save             visible?: #f)
           (<!>           name: world-save-as          visible?: #f)
-          (<!>           name: world-revert           visible?: #f))
+          (<!>           name: world-revert           visible?: #f)
+          (<!>           name: toggle-user            visible?: #f))
         (<world-game!>
+          (<!>           name: change-vehicle         visible?: #f)
           (<!>           name: mind-control           visible?: #f)
           (<!>           name: toggle-aim             visible?: #f)
-          (<!>           name: toggle-free-aim        visible?: #f))
+          (<!>           name: toggle-free-aim        visible?: #f)
+          (<!>           name: toggle-fly             visible?: #f)
+          (<!>           name: character-pane         visible?: #f))
         (<world-spell!>
+          (<!>           name: bullet                 visible?: #f)
           (<!>           name: bomb                   visible?: #f)
           (<!>           name: blink                  visible?: #f)
           (<!>           name: warp                   visible?: #f)
@@ -350,7 +365,7 @@
         (<world-interface!>
           (<!>           name: run-script             visible?: #f)
           (<!>           name: run-last-script        visible?: #f))
-        (<world-edition!>
+        (<world-edition!>                             visible?: #f
           (<!>           name: select-target-mode     visible?: #f)
           (<!>           name: move-target-mode       visible?: #f)
           (<!>           name: rotate-target-mode     visible?: #f)
@@ -378,18 +393,22 @@
         (<!>             name: world-new              visible?: #f)
         (<!>             name: world-open             visible?: #f)
         (<!>             name: world-save             visible?: #f)
-        (<!>             name: world-revert           visible?: #f))))
+        (<!>             name: world-revert           visible?: #f)
+        (<!>             name: toggle-user            visible?: #f))))
   
   (define-trait user-game World-Actionbar
     (<Role-Trait>
       (<install>
+        (<!>             name: bullet                 visible?: #f)
         (<!>             name: bomb                   visible?: #f)
         (<!>             name: blink                  visible?: #f)
         (<!>             name: warp                   visible?: #f)
         (<!>             name: sprint                 visible?: #f)
         (<!>             name: mind-control           visible?: #f)
         (<!>             name: toggle-aim             visible?: #f)
-        (<!>             name: toggle-free-aim        visible?: #f))))
+        (<!>             name: toggle-free-aim        visible?: #f)
+        (<!>             name: toggle-fly             visible?: #f)
+        (<!>             name: character-pane         visible?: #f))))
   
   (define-trait user-target World-Actionbar
     (<Role-Trait>
@@ -415,7 +434,7 @@
 
   (define-trait user-edition World-Actionbar
     (<Role-Trait>
-      (<install>
+      (<install>                                      visible?: #f
         (<!>             name: gadgets-showcase       visible?: #f)
         (<!>             name: tiles-showcase         visible?: #f)
         (<!>             name: shaders-showcase       visible?: #f)
