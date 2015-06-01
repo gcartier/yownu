@@ -343,7 +343,6 @@
           (<!>           name: toggle-fly             visible?: #f)
           (<!>           name: character-pane         visible?: #f))
         (<world-spell!>
-          (<!>           name: bullet                 visible?: #f)
           (<!>           name: bomb                   visible?: #f)
           (<!>           name: blink                  visible?: #f)
           (<!>           name: warp                   visible?: #f)
@@ -399,7 +398,6 @@
   (define-trait user-game World-Actionbar
     (<Role-Trait>
       (<install>
-        (<!>             name: bullet                 visible?: #f)
         (<!>             name: bomb                   visible?: #f)
         (<!>             name: blink                  visible?: #f)
         (<!>             name: warp                   visible?: #f)
