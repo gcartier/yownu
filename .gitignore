@@ -2,6 +2,7 @@
 /binaries
 /build
 /cache
+/world
 .configuration
 .jazzini
 .DS_Store
