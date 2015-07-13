@@ -2,6 +2,7 @@
 /binaries
 /build
 /cache
+/jazz
 /world
 .configuration
 .jazzini
