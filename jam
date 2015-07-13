@@ -3,7 +3,7 @@
 REL="$(dirname "$0")"
 
 WRL="$REL/world"
-JAZ="$WRL/jazz"
+JAZ="$REL/jazz"
 JAM="$JAZ/jam"
 
 UPDATE_SUBMODULES="true"

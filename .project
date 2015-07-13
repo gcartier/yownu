@@ -14,5 +14,6 @@
 
 (form
   (<Project> name: yownu description-file: {File :context ".repository"} active-project: lib:yownu:Yownu
-    (<*>                 tag-reference: {File :context "lib" ".project"})
-    (<*>                 tag-reference: {File :context "world" ".project"}))))
+    (<*>                 tag-reference: {File :context "jazz" ".project"})
+    (<*>                 tag-reference: {File :context "world" ".project"})
+    (<*>                 tag-reference: {File :context "lib" ".project"}))))
