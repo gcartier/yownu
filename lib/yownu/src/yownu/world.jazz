@@ -125,7 +125,7 @@
         (world.window)
         (world.zone)
         (yownu.biome)
-        (zlib))
+        (zlib.foreign))
 
 
 (definition user-zones

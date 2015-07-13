@@ -324,7 +324,7 @@
 
 
   (define-trait user-bindings Bindings
-    (<Role-Trait>
+    (<Role-Trait>        name: user
       (<install>
         (<world-menu!>
           (<!>           name: view-help              visible?: #f))
@@ -342,6 +342,7 @@
           (<!>           name: toggle-free-aim        visible?: #f)
           (<!>           name: toggle-fly             visible?: #f)
           (<!>           name: character-pane         visible?: #f))
+        (<world-user!>                                visible?: #t)
         (<world-spell!>
           (<!>           name: bomb                   visible?: #f)
           (<!>           name: blink                  visible?: #f)
@@ -491,7 +492,7 @@
 
 
   (define-trait designer-bindings Bindings
-    (<Role-Trait>
+    (<Role-Trait>        name: designer
       (<install>
         (<world-menu!>
           (<!>           name: view-help              visible?: #f))
@@ -634,7 +635,7 @@
 
 
   (define-trait programmer-bindings Bindings
-    (<Role-Trait>
+    (<Role-Trait> name: programmer
       (<install>)))
   
   (define-trait programmer-main World-Actionbar
@@ -735,6 +736,7 @@
       (<World-Collision-Actions> name: world-collision)
       (<World-Minecraft-Actions> name: world-minecraft)
       (<World-Anonymous-Actions> name: world-anonymous)
+      (<World-User-Actions>      name: world-user visible?: #f)
       (<Yownu-Actions>           name: yownu))))
 
 
