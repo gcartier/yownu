@@ -57,7 +57,7 @@
       (install-file '("devel" "yownu" "Roadmap.ftx")))
     
     (define (copy-fonts)
-      (install-directory #f '("world" "jazz" "etc" "fonts") '("etc" "fonts")))
+      (install-directory #f '("jazz" "etc" "fonts") '("etc" "fonts")))
     
     (define (copy-assets)
       (install-directory '("world" "lib" "world.client" "assets")))
