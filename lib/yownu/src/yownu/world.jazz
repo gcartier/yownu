@@ -124,6 +124,7 @@
         (world.view)
         (world.w3d)
         (world.window)
+        (world.work)
         (world.zone)
         (yownu.biome)
         (zlib.foreign))

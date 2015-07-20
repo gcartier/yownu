@@ -26,6 +26,8 @@
 
 (definition (run descriptor)
   (load-base)
+  (set-worker-filename "Yownu-Worker")
+  (load-unit 'world.work)
   (load-unit 'yownu.start)
   (yownu-start))
 

@@ -31,8 +31,15 @@
           (new-directory~ {Directory Build} (format "{a}.app/Contents/Resources" bundle))
         {Directory Build})))
   
+  (define (macos-dir)
+    (let ((bundle (product-descriptor-build-bundle descriptor)))
+      (if bundle
+          (new-directory~ {Directory Build} (format "{a}.app/Contents/MacOS" bundle))
+        #f)))
+  
   (let ((project-dir {Directory Yownu})
-        (resources-dir (resources-dir)))
+        (resources-dir (resources-dir))
+        (macos-dir (macos-dir)))
     (define (install-file path)
       (let ((src (new-file~ project-dir path))
             (dst (new-file~ resources-dir path)))
@@ -72,6 +79,12 @@
     (define (copy-templates)
       (install-directory '("devel" "templates")))
     
+    (define (copy-worker)
+      (when (eq? kernel-platform 'mac)
+        (install-file~ {File Build "Yownu-Worker"} (new-file~ macos-dir "Yownu-Worker")
+          feedback: (lambda (action pathname)
+                      (build-feedback "; {a} {a}..." action (get-name~ pathname))))))
+    
     (build-product-descriptor descriptor unit: unit force?: force?)
     (initialize-aliases)
     (copy-info)
@@ -79,7 +92,8 @@
     (copy-assets)
     (copy-doc)
     (copy-external)
-    (copy-templates)))
+    (copy-templates)
+    (copy-worker)))
 
 
 ;;;

@@ -32,4 +32,5 @@
         (<Jazz-File>       name: script       source: {File :context "src" "yownu" "script.jazz"})
         (<Jazz-File>       name: run-server   source: {File :context "src" "yownu" "run-server.jazz"})
         (<Jazz-File>       name: server       source: {File :context "src" "yownu" "server.jazz"})
-        (<Jazz-File>       name: start-server source: {File :context "src" "yownu" "start-server.jazz"}))))))
+        (<Jazz-File>       name: start-server source: {File :context "src" "yownu" "start-server.jazz"})
+        (<Jazz-File>       name: run-worker   source: {File :context "src" "yownu" "run-worker.jazz"}))))))

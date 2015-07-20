@@ -27,7 +27,12 @@
                           (run yownu.run-server)
                           (build (yownu-server executable: "Yownu-Server" minimum-heap: 1000000 bundle: "yownu-server" resources: "resources/yownu-server"))
                           (dependencies))
+            (yownu-worker (title "Yownu-Worker")
+                          (run yownu.run-worker)
+                          (build (yownu-worker executable: "Yownu-Worker"))
+                          (dependencies))
             (yownu-all (dependencies yownu
-                                     yownu-server))
+                                     yownu-server
+                                     yownu-worker))
             (yownu-script (run yownu.script)))
   (project ".project"))
