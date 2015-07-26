@@ -29,7 +29,7 @@
                           (dependencies world.server))
             (yownu-worker (title "Yownu-Worker")
                           (run yownu.run-worker)
-                          (build (yownu-worker executable: "Yownu-Worker"))
+                          (build (yownu-worker executable: "Yownu-Worker" include-compiler?: #t))
                           (dependencies world.worker))
             (yownu-all (dependencies yownu
                                      yownu-server
