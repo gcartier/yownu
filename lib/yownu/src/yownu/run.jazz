@@ -14,7 +14,8 @@
 (module yownu.run jazz
 
 
-(import (world))
+(import (jazz.io)
+        (world))
 
 
 (definition yownu-start
@@ -26,7 +27,11 @@
 
 (definition (run descriptor)
   (load-base)
+  (set-settings-root {Directory Home ".yownu"})
+  (set-settings-alias 'Resources)
+  (set-valid-roles '(user designer programmer))
   (set-worker-filename "Yownu-Worker")
+  (load-unit 'world.settings)
   (load-unit 'world.work)
   (load-unit 'yownu.start)
   (yownu-start))

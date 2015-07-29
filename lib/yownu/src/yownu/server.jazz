@@ -78,14 +78,6 @@
       (new-opengl-window class: Yownu-Window fullscreen?: fullscreen? position: pos size: size need-version: {Version 3 2} render?: #f visible?: #f)))
   
   
-  (method override (settings-root)
-    {Directory Home ".yownu-server"})
-  
-  
-  (method override (settings-alias)
-    'Resources)
-  
-  
   (method override (initialize-app)
     (register-alias 'App
                     (list (cond ((is-alias? 'Yownu)
@@ -162,10 +154,6 @@
   ;;;
   ;;;; Roles
   ;;;
-  
-  
-  (method override (valid-roles)
-    '(admin))
   
   
   (method override (role-traits role)

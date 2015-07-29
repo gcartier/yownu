@@ -15,8 +15,7 @@
 
 
 (import (jazz.io)
-        (jazz.product)
-        (world.settings))
+        (jazz.product))
 
 
 ;;;
