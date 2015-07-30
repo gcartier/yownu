@@ -3,6 +3,7 @@
 /build
 /cache
 /jazz
+/jiri
 /world
 .configuration
 .jazzini

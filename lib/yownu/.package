@@ -20,6 +20,7 @@
                                  jazz.editor.jazz
                                  jazz.git
                                  jazz.groupware
+                                 jiri
                                  world
                                  world.client
                                  world.server))
