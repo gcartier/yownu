@@ -23,6 +23,7 @@
         (world.colors)
         (world.fonts)
         (world.io)
+        (world.settings)
         (yownu.run-server)
         (yownu.server)
         (yownu.windows (cond windows)))
