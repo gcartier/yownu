@@ -114,7 +114,9 @@
   
   (method override (finish-process)
     (nextmethod)
-    (setup-cataloguer)
+    ;; pretty costly
+    (when (world-setting 'world.catalog? #f)
+      (setup-cataloguer))
     ;; a try
     (set-debugger-manager (new Debugger-Manager)))
   
