@@ -14,11 +14,12 @@
 (module yownu.run-worker jazz
 
 
-(import (world.worker))
+(import (yownu.worker-settings)
+        (yownu.worker))
 
 
 (definition (run descriptor)
-  (process-work))
+  (boot-environment~ (new Yownu-Worker)))
 
 
 (register-product-run 'yownu-worker

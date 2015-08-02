@@ -81,7 +81,7 @@
     
     (define (copy-worker)
       (when (eq? kernel-platform 'mac)
-        (install-file~ {File Build "Yownu-Worker"} (new-file~ macos-dir "Yownu-Worker")
+        (install-directory~ {Directory Build "yownu-worker.app"} (new-directory~ macos-dir "yownu-worker.app")
           feedback: (lambda (action pathname)
                       (build-feedback "; {a} {a}..." action (get-name~ pathname))))))
     

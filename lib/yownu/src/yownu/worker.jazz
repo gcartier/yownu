@@ -1,0 +1,50 @@
+;;;=========
+;;;  Yownu
+;;;=========
+;;;
+;;;; Yownu Worker
+;;;
+;;;  The Initial Developer of the Original Code is Guillaume Cartier.
+;;;  Portions created by the Initial Developer are Copyright (C) 2012-2015
+;;;  the Initial Developer. All Rights Reserved.
+;;;
+;;;  Contributor(s):
+
+
+(module yownu.worker jazz
+
+
+(import (jazz.io)
+        (world.worker.appl))
+
+
+;;;
+;;;; Application
+;;;
+
+
+(class Yownu-Worker extends Worker-Application
+  
+  
+  (method override (process-name)
+    "Yownu")
+  
+  
+  (method override (new-toplevel)
+    (new Yownu-Worker-Toplevel))
+  
+  
+  (method override (initialize-app)
+    (register-resources-alias 'Yownu 'yownu)))
+
+
+;;;
+;;;; Toplevel
+;;;
+
+
+(class Yownu-Worker-Toplevel extends Worker-Toplevel
+  
+  
+  (method override (effective-title)
+    "Yownu")))

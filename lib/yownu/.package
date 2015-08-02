@@ -10,9 +10,15 @@
                            yownu.debugger
                            yownu.product
                            yownu.run
+                           yownu.run-server
+                           yownu.run-worker
+                           yownu.server
                            yownu.start
+                           yownu.start-server
                            yownu.window
                            yownu.windows
+                           yownu.worker
+                           yownu.worker-settings
                            yownu.world
                            yownu.zone)
                    (dependencies gambit.ext
@@ -30,7 +36,7 @@
                           (dependencies world.server))
             (yownu-worker (title "Yownu-Worker")
                           (run yownu.run-worker)
-                          (build (yownu-worker executable: "Yownu-Worker" include-compiler?: #t))
+                          (build (yownu-worker executable: "Yownu-Worker" bundle: "yownu-worker" resources: "resources/yownu-worker" include-compiler?: #t))
                           (dependencies world.worker))
             (yownu-all (dependencies yownu
                                      yownu-server
