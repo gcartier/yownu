@@ -15,8 +15,7 @@
 
 
 (import (jazz.io)
-        (world)
-        (world.splash))
+        (world))
 
 
 (definition yownu-start
