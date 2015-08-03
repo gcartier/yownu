@@ -31,6 +31,7 @@
   (set-valid-roles '(user designer programmer))
   (set-worker-filename (cond-expand (mac "yownu-worker.app/Contents/MacOS/Yownu-Worker")
                                     (else "Yownu-Worker")))
+  ;; world world.settings and world.work must be compiled
   (load-unit 'world.settings)
   (load-unit 'world.work)
   (load-unit 'yownu.start)
