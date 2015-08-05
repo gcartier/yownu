@@ -81,6 +81,7 @@
         (world.interface.color)
         (world.interface.dialogs)
         (world.interface.documents)
+        (world.interface.inventory)
         (world.interface.pane)
         (world.io)
         (world.keys)
