@@ -101,33 +101,17 @@
   ;;;
   
   
+  (method override (album-name)
+    'yownu)
+  
+  
   (method override (create-atlas)
     (let ((world (current-world)))
       (if (not (get-earth?~ world))
           (nextmethod)
-        (or (registered-atlas 'yownu)
-            (let ((atlas (create-yownu-atlas)))
-              (register-atlas 'yownu atlas)
-              atlas)))))
-  
-  
-  (method override (create-atlas-nearest)
-    (let ((world (current-world)))
-      (if (not (get-earth?~ world))
-          (nextmethod)
-        (or (registered-atlas 'yownu-nearest)
-            (let ((atlas (create-yownu-atlas min-filter: GL_NEAREST)))
-              (register-atlas 'yownu-nearest atlas)
-              atlas)))))
-  
-  
-  (method (create-yownu-atlas (min-filter: min-filter #f) (mag-filter: mag-filter #f))
-    (let ((world (current-world)))
-      (make-block-atlas~ world
-        min-filter: min-filter
-        mag-filter: mag-filter
-        adder: (lambda (atlas)
-                 (add-file~ atlas (find-texture-file~ world "earth"))))))
+        (make-block-atlas
+          adder: (lambda (atlas)
+                   (add-file~ atlas (find-texture-file~ world "earth")))))))
   
   
   ;;;
