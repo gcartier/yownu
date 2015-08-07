@@ -54,8 +54,6 @@
   (1 ("Lava" 0))
   (1 ("Dying" 0))
   (1 ("Ennemies" 0))
-  (3 ("Generators" 0))
-  (3 ("Stop generation when lighted" 0))
   (1 ("Levers (EH)" 0))
   (1 ("Redstone (EH)" 0))
   (1 ("Explosions (EH)" 0))
@@ -124,5 +122,5 @@
   (1 ("Other model for character" 0))
   (3 ("Geometrical" 0))
   (3 ("Fully skinned" 0))
-  (1 ("Maybe read JSON model files" 0))
+  (1 ("Natural enemy spawning" 0))
   (5))}
