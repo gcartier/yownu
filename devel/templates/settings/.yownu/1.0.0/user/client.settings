@@ -23,6 +23,9 @@ yownu.planet-trees               default ;; 10.
 ;;;
 
 
+;; Role
+world.start-user?                default ;; #f
+
 ;; Window
 world.fullscreen?                default ;; #f
 world.borderless?                default ;; #f
