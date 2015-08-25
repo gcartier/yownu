@@ -23,7 +23,8 @@
   {Format Base left-margin: 32 bulleted?: #f}
   {Format Heading2 left-margin: 32 bulleted?: #f}
   {Format Heading4}
-  {Format Heading5})
+  {Format Heading5}
+  {Format Heading3 left-margin: 16 bulleted?: #t})
 
  styles:
  ({Text-Style Base}
@@ -76,6 +77,21 @@
   (1 ("Implement cursor recentering on non-mac platforms" 0))
   (5)
   (5)
+  (15 ("Light" 3))
+  (5)
+  (1 ("Maybe make the 1 - 4 range map to for example .4 - 1. instead of .25 - 1. to get less intense ambient occlusion" 0))
+  (1 ("Also need to fix dwarf's dome completely black spots" 0))
+  (1 ("Understand why a night torch gives a losange pattern in yownu and more like a plus in minecraft. Is it all due to minecraft's usage of a texture to map block/sky to light? Strangely, using the old pow way to calculate light gives a plus like pattern" 0))
+  (1 ("Adjust and/or improve fog" 0))
+  (1 ("Using the sun to dynamically shade the faces would possibly give a very nice constantly changing effect. problem is what to do indoor. only solution i see is to interpolate between full sun angles at skylight = 15 to hardcoded minecraft-like values at skylight = 0" 0))
+  (1 ("When done, convert adjust-lighting to syntax" 0))
+  (5)
+  (5)
+  (15 ("Redstone" 3))
+  (15)
+  (24 ("With a redstone torch, a path of redstone and a lighted redstone lamp at the end: removing the redstone next to the lamp or the one after breaks the circuit but not the other ones" 0))
+  (5)
+  (5)
   (15 ("Framework" 3))
   (15)
   (1 ("Unload sectors/areas (use array representation) (GC)" 0))
@@ -86,7 +102,8 @@
   (1 ("Unify minecraft and standard worlds (GC)" 0))
   (3 ("Support new (GC)" 0))
   (3 ("Ambient light has to be done on the shader to support moving models" 0))
-  (1)
+  (1 ("Need some dependency tracking between code and data repositories" 0))
+  (5)
   (5)
   (15 ("Worker" 3))
   (15)
