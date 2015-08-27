@@ -13,7 +13,7 @@
 
 
 (form
-  (<Project> name: yownu description-file: {File :context ".repository"} active-project: lib:yownu:Yownu
+  (<Project> name: yownu description-file: {File :context ".repository"} depot-directory: {Directory :context} active-project: lib:yownu:Yownu
     (<*>                 tag-reference: {File :context "jazz" ".project"})
     (<*>                 tag-reference: {File :context "jiri" ".project"})
     (<*>                 tag-reference: {File :context "world" ".project"})
