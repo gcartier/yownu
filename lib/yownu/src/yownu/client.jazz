@@ -21,7 +21,6 @@
         (jazz.editor.jazz)
         (jazz.editor.lisp)
         (jazz.graphic.opengl.window)
-        (jazz.ide)
         (jazz.io)
         (jazz.jml)
         (jazz.jrm)

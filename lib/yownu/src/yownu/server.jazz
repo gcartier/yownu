@@ -15,13 +15,9 @@
 
 
 (import (jazz.debuggee)
-        (jazz.debugger)
-        (jazz.debugger.jazz.stub)
         (jazz.graphic.opengl.window)
-        (jazz.ide)
         (jazz.io)
         (jazz.jml)
-        (jazz.jrm)
         (jazz.library)
         (jazz.platform)
         (jazz.system)

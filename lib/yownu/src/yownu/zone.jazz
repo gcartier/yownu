@@ -14,11 +14,8 @@
 (module yownu.zone jazz
 
 
-(import (jazz.graphic.opengl.glew)
-        (jazz.jml)
-        (jazz.system)
+(import (jazz.jml)
         (world)
-        (world.atlas)
         (world.autoload)
         (world.geometry)
         (world.planet)

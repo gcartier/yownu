@@ -14,11 +14,7 @@
 (module yownu.start-server jazz
 
 
-(import (jazz.graphic.opengl.glew)
-        (jazz.graphic.opengl.window)
-        (jazz.platform)
-        (jazz.system)
-        (world)
+(import (world)
         (world.boot)
         (world.colors)
         (world.fonts)

@@ -14,8 +14,7 @@
 (module yownu.window jazz
 
 
-(import (world.syntax (phase syntax))
-        (world.window))
+(import (world.window))
 
 
 (class Yownu-Window extends World-Window))
