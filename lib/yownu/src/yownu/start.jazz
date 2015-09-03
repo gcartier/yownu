@@ -14,8 +14,8 @@
 (module yownu.start jazz
 
 
-(import (jazz.graphic.opengl.glew)
-        (jazz.graphic.opengl.window)
+(import (jazz.opengl.glew)
+        (jazz.opengl.window)
         (jazz.platform)
         (jazz.system)
         (world)
