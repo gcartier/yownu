@@ -24,6 +24,7 @@
                    (dependencies gambit.ext
                                  jazz.doc
                                  jazz.editor.jazz
+                                 jazz.fonts
                                  jazz.git
                                  jazz.groupware
                                  jiri

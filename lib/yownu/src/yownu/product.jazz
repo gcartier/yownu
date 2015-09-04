@@ -62,9 +62,6 @@
       (install-file '("devel" "yownu" "News.ftx") )
       (install-file '("devel" "yownu" "Roadmap.ftx")))
     
-    (define (copy-fonts)
-      (install-directory #f '("jazz" "etc" "fonts") '("etc" "fonts")))
-    
     (define (copy-assets)
       (install-directory '("world" "lib" "world.client" "assets"))
       (install-directory '("lib" "yownu" "assets")))
@@ -88,7 +85,6 @@
     (build-product-descriptor descriptor unit: unit force?: force?)
     (initialize-aliases)
     (copy-info)
-    (copy-fonts)
     (copy-assets)
     (copy-doc)
     (copy-external)

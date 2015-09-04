@@ -39,6 +39,7 @@
         (jazz.ui)
         (jazz.ui.view)
         (jazz.ui.window)
+        (jazz.zlib)
         (profiler)
         (time)
         (world)
@@ -128,8 +129,7 @@
         (world.window)
         (world.work)
         (world.zone)
-        (yownu.biome)
-        (zlib.foreign))
+        (yownu.biome))
 
 
 (definition user-zones
