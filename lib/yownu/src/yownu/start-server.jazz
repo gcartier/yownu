@@ -14,7 +14,8 @@
 (module yownu.start-server jazz
 
 
-(import (jazz.system)
+(import (jazz.process)
+        (jazz.system)
         (world)
         (world.boot)
         (world.colors)
