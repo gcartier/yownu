@@ -28,6 +28,7 @@
         (jazz.library)
         (jazz.opengl.window)
         (jazz.platform)
+        (jazz.settings)
         (jazz.system)
         (jazz.ui)
         (jazz.version)
@@ -142,7 +143,9 @@
   
   
   (method override (close-environment)
-    (save-catalogs~ (get-cataloguer))
+    (let ((cataloguer (get-cataloguer)))
+      (when cataloguer
+        (save-catalogs~ cataloguer)))
     (nextmethod))
 
   

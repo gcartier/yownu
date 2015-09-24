@@ -22,6 +22,7 @@
         (jazz.library)
         (jazz.opengl.window)
         (jazz.platform)
+        (jazz.settings)
         (jazz.system)
         (jazz.ui)
         (jazz.version)
