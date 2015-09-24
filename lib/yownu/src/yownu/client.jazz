@@ -51,7 +51,6 @@
   
   (slot yownu-settings initialize #f getter generate)
   (slot local-debugger initialize #f)
-  (slot cataloguer     initialize (new Cataloguer))
 
   
   (method override (process-name)
@@ -116,9 +115,6 @@
   
   (method override (finish-process)
     (nextmethod)
-    ;; pretty costly
-    (when (world-setting 'world.catalog? #f)
-      (setup-cataloguer))
     ;; a try
     (set-debugger-manager (new Debugger-Manager)))
   
@@ -146,7 +142,7 @@
   
   
   (method override (close-environment)
-    (save-catalogs~ cataloguer)
+    (save-catalogs~ (get-cataloguer))
     (nextmethod))
 
   
@@ -231,15 +227,11 @@
   
   
   ;;;
-  ;;;; Cataloguer
+  ;;;; Catalog
   ;;;
   
   
-  (method override (get-cataloguer)
-    cataloguer)
-  
-  
-  (method (setup-cataloguer)
+  (method override (setup-cataloguer)
     (define (world-catalog)
       (let ((output {File Settings "work" "catalogs" "world.jcat"})
             (directories {Directory Yownu-World})
@@ -252,12 +244,16 @@
             (extensions :jazz))
         (new Filing-Catalog 'user output directories extensions #f #f #t)))
     
-    (add-catalog~ cataloguer (world-catalog))
-    (add-catalog~ cataloguer (user-catalog))
-    (for-each-active-catalog~ cataloguer #f
-      (lambda (catalog)
-        (load-content~ catalog report?: #f)
-        (update~ catalog report?: #t))))
+    ;; pretty costly
+    (when (world-setting 'world.catalog? #f)
+      (let ((cataloguer (new Cataloguer)))
+        (add-catalog~ cataloguer (world-catalog))
+        (add-catalog~ cataloguer (user-catalog))
+        (for-each-active-catalog~ cataloguer #f
+          (lambda (catalog)
+            (load-content~ catalog report?: #f)
+            (update~ catalog report?: #t)))
+        (set-cataloguer cataloguer))))
   
   
   ;;;

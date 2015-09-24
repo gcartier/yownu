@@ -14,7 +14,7 @@
 (module yownu.world jazz
 
 
-(import (gambit.ext)
+(import (gambit.walk)
         (jazz.cairo)
         (jazz.debuggee)
         (jazz.detprof)

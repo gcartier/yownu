@@ -1,5 +1,9 @@
 (package yownu
   
+  (title "Yownu")
+  (description "Your Own Universe")
+  (authors "Guillaume Cartier" "Edouard Hebert")
+  (stage alpha)
   (root "src")
   (products (yownu (title "Yownu")
                    (run yownu.run)
@@ -11,17 +15,14 @@
                            yownu.product
                            yownu.run
                            yownu.run-server
-                           yownu.run-worker
                            yownu.server
                            yownu.start
                            yownu.start-server
                            yownu.window
                            yownu.windows
-                           yownu.worker
-                           yownu.worker-settings
                            yownu.world
                            yownu.zone)
-                   (dependencies gambit.ext
+                   (dependencies gambit.walk
                                  jazz.doc
                                  jazz.editor.jazz
                                  jazz.fonts
@@ -37,7 +38,12 @@
                           (dependencies world.server))
             (yownu-worker (title "Yownu-Worker")
                           (run yownu.run-worker)
+                          (unit yownu.product-worker)
                           (build (yownu-worker executable: "Yownu-Worker" bundle: "yownu-worker" resources: "resources/yownu-worker" include-compiler?: #t))
+                          (update yownu.product-worker
+                                  yownu.run-worker
+                                  yownu.worker
+                                  yownu.worker-settings)
                           (dependencies world.worker))
             (yownu-all (dependencies yownu
                                      yownu-server
