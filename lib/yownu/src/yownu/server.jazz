@@ -14,17 +14,15 @@
 (module yownu.server jazz
 
 
-(import (jazz.application)
+(import (jazz.action)
+        (jazz.application)
         (jazz.component)
         (jazz.debuggee)
         (jazz.io)
         (jazz.jml)
-        (jazz.library)
         (jazz.opengl.window)
         (jazz.platform)
         (jazz.settings)
-        (jazz.system)
-        (jazz.ui)
         (jazz.version)
         (world)
         (world.autoload)

@@ -17,7 +17,6 @@
 (import (jazz.opengl.glew)
         (jazz.opengl.window)
         (jazz.platform)
-        (jazz.system)
         (world)
         (world.boot)
         (world.colors)

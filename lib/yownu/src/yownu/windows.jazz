@@ -15,7 +15,7 @@
 
 
 (import (jazz.platform)
-        (jazz.ui.window)
+        (jazz.window)
         (world.settings)
         (yownu.window))
 

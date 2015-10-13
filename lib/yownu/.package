@@ -7,7 +7,7 @@
   (root "src")
   (products (yownu (title "Yownu")
                    (run yownu.run)
-                   (unit yownu.product)
+                   (product yownu.product)
                    (build (yownu executable: "Yownu" minimum-heap: 500000 bundle: "yownu" resources: "resources/yownu"))
                    (update yownu.biome
                            yownu.client
@@ -38,7 +38,7 @@
                           (dependencies world.server))
             (yownu-worker (title "Yownu-Worker")
                           (run yownu.run-worker)
-                          (unit yownu.product-worker)
+                          (product yownu.product-worker)
                           (build (yownu-worker executable: "Yownu-Worker" bundle: "yownu-worker" resources: "resources/yownu-worker" include-compiler?: #t))
                           (update yownu.product-worker
                                   yownu.run-worker
