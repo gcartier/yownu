@@ -15,6 +15,7 @@
 
 
 (import (jazz.process)
+        (jazz.settings (cond windows))
         (world)
         (world.boot)
         (world.colors)
