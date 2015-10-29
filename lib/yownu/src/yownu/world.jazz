@@ -21,6 +21,7 @@
         (jazz.detprof)
         (jazz.development)
         (jazz.editor.jazz)
+        (jazz.event)
         (jazz.geometry)
         (jazz.graphic)
         (jazz.io)
