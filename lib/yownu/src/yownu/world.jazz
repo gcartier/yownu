@@ -93,7 +93,7 @@
         (world.light)
         (world.light-syntax)
         (world.lighting)
-        (world.log)
+        @log (world.log)
         (world.lookat)
         (world.manager)
         (world.mark)
