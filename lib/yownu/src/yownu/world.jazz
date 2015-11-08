@@ -15,6 +15,7 @@
 
 
 (import (gambit.walk)
+        (jazz.audio)
         (jazz.cairo)
         (jazz.component)
         (jazz.debuggee)
