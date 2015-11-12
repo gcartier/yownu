@@ -57,7 +57,9 @@ world.earth?                     default ;; #t
 ;; Audio
 world.music?                     default ;; #t
 world.music-style                default ;; #f "piano" "minecraft" "warcraft"
+world.music-volume               default ;; 1.
 world.ambience?                  #t
+world.ambience-volume            default ;; .5
 world.game-volume                default ;; #f
 world.interface-volume           default ;; #f
 world.sounds?                    default ;; #t

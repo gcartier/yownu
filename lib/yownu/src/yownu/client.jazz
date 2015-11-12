@@ -58,6 +58,10 @@
     "Yownu")
   
   
+  (method override (process-version)
+    {Version 1 0})
+  
+  
   (method override (new-toplevel)
     (let ((fullscreen? (xor (world-setting 'world.fullscreen? (not (get-controller-debugger))) (shift-down?)))
           (pos (world-setting 'world.position {Point 250 100}))
@@ -188,6 +192,10 @@
   
   (method override (help-file)
     (world-file '("devel" "yownu" "Help.ftx") 'Resources))
+  
+  
+  (method override (about-file)
+    (world-file '("devel" "yownu" "About.ftx") 'Resources))
   
   
   ;;;

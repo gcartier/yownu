@@ -50,6 +50,7 @@
         (world.animation)
         (world.area)
         (world.atlas)
+        (world.audio)
         (world.autoload)
         (world.binary)
         (world.block)
