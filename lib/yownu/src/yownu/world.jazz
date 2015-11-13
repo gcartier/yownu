@@ -47,6 +47,7 @@
         (time)
         (world)
         (world.actor)
+        (world.album)
         (world.animation)
         (world.area)
         (world.atlas)
