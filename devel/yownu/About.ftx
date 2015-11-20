@@ -8,7 +8,11 @@
   {Format Heading2}
   {Format Heading2 left-margin: 16 bulleted?: #t}
   {Format Heading2 left-margin: 48 bulleted?: #t}
-  {Format Heading1 justification: center})
+  {Format Heading1 justification: center}
+  {Format Heading2 left-margin: 32}
+  {Format Heading2 left-margin: 64}
+  {Format Heading2 left-margin: 80 bulleted?: #t}
+  {Format Heading2 left-margin: 0})
 
  styles:
  ({Text-Style Base}
@@ -19,17 +23,41 @@
   {Text-Style Base font: {Font Text bold?: #f italic?: #t}}
   {Text-Style Base font: {Font Text italic?: #t}}
   {Text-Style Base font: {Font Text bold?: #f italic?: #f}}
-  {Text-Style Base font: {Font Text italic?: #f}})
+  {Text-Style Base font: {Font Text italic?: #f}}
+  {Text-Style Base frame: {Color Dark-Red}}
+  {Text-Style Base frame: #f}
+  {Text-Style Base color: {Color Dark-Red} frame: #f}
+  {Text-Style Base color: #f frame: #f}
+  {Text-Style Base color: #f highlight: {Color Dark-Red} frame: #f}
+  {Text-Style Base color: #f highlight: #f frame: #f}
+  {Text-Style Base color: {Color Red} highlight: #f frame: #f}
+  {Text-Style Base color: {Color Dark-Red} highlight: #f frame: #f}
+  {Text-Style Base font: {Font Text bold?: #f italic?: #f} color: {Color Dark-Blue}}
+  {Text-Style Base color: #f}
+  {Text-Style Base font: {Font Text bold?: #f italic?: #f} color: #f})
 
  paragraphs:
- ((8 ("Yownu 1.0" 1))
+ ((8 ("Yownu closed-alpha 1.0" 1))
   (3)
+  (5 ("A game of exploration where you create your own universe!" 0))
+  (5)
   (5 ("Copyright 2012-2015 Guillaume Cartier" 0))
   (5)
-  (5 ("Contributors:" 0))
+  (5 ("Contributors" 0))
   (5)
   (7 ("Alain Marcotte" 0))
   (7 ("Édouard Hébert" 0))
   (7 ("Marc Feeley" 0))
+  (5)
+  (5 ("Built with" 0))
+  (5)
+  (7 ("JazzScheme : www.jazzscheme.org" 0))
+  (7 ("Gambit : gambitscheme.org" 0))
+  (7 ("Cricket audio technology : www.crickettechnology.com" 0))
+  (5)
+  (5 ("By using this program you agree to not redistribute it in whole or in part, including screenshots and videos as Yownu closed-alpha contains copyrighted data from the following programs" 0))
+  (5)
+  (7 ("Warcraft" 0))
+  (7 ("Minecraft" 0))
   (5)
   (5 ("Send comments, suggestions, bugs,... to: gucartier@gmail.com" 0)))}
