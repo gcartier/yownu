@@ -14,11 +14,13 @@
 (module yownu.run-worker jazz
 
 
-(import (yownu.worker-settings)
+(import (world)
+        (yownu.worker-settings)
         (yownu.worker))
 
 
 (definition (run descriptor)
+  (set-valid-roles '(user designer programmer admin))
   (boot-environment~ (new Yownu-Worker)))
 
 

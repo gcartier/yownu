@@ -78,6 +78,7 @@ world.axes?                      default ;; #f
 world.axes-graduation?           default ;; #f
 world.track-sensitivity          default ;; 200.
 world.random-seed                default ;; #f
+world.show-belt?                 default ;; #t
 
 ;; Game
 world.free-aim?                  default ;; #f

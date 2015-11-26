@@ -126,6 +126,7 @@
         (world.skybox)
         (world.support)
         (world.syntax (phase syntax))
+        (world.target)
         (world.task)
         (world.texture)
         (world.triangle)
