@@ -23,6 +23,7 @@
         (jazz.development)
         (jazz.editor.jazz)
         (jazz.event)
+        (jazz.foreign)
         (jazz.geometry)
         (jazz.graphic)
         (jazz.io)
