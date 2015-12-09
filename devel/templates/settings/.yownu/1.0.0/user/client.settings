@@ -73,7 +73,6 @@ world.gc-sound?                  default ;; #f
 world.start-interface?           default ;; #t
 world.interface-target?          default ;; #f
 world.interface-script?          default ;; #f
-world.confirmation-dialogs?      default ;; #t
 world.axes?                      default ;; #f
 world.axes-graduation?           default ;; #f
 world.track-sensitivity          default ;; 200.

@@ -77,6 +77,8 @@
   (1 ("Optimize, smart settings, ... for low-end computers (GC)" 0))
   (3 ("We'll really need some UI for graphics settings (GC)" 0))
   (1 ("Setup github bug tracker and add info to about (GC)" 0))
+  (1 ("Every player should have a github user that I add to collaborators of the binary repo (GC)" 0))
+  (3 ("Could also put the setup on github (GC)" 0))
   (1 ("Send crashes to amazon bucket (GC)" 0))
   (5)
   (5)

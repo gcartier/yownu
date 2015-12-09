@@ -140,26 +140,11 @@
         (yownu.biome))
 
 
-(definition user-zones
-  {Directory Settings "zones"})
-
-
 (class Yownu-World extends World
   
   
   (method override (zone-based?)
     #t)
-  
-  
-  (method override (get-zones-directories)
-    (if (exists?~ user-zones)
-        (cons user-zones (nextmethod))
-      (nextmethod)))
-  
-  
-  (method override (new-zone-file base)
-    (let ((path (split base "/")))
-      (new-file~ user-zones (append path (list (zone-filename (last path)))))))
   
   
   (method override (update-title)
