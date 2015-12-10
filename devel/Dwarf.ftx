@@ -53,6 +53,7 @@
   (1 ("Redstone bugs (EH)" 0))
   (3 ("Need game save to adjust old format (EH)" 0))
   (1 ("Explosions (EH)" 0))
+  (1 ("Start fullscreen (GC)" 0))
   (1 ("Isn't the fall damage progression from height too fast (EH)" 0))
   (1 ("Limited edition (as in add ladder if in inventory) (GC)" 0))
   (1 ("Sound" 0))

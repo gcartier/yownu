@@ -143,10 +143,6 @@
 (class Yownu-World extends World
   
   
-  (method override (zone-based?)
-    #t)
-  
-  
   (method override (update-title)
     (define (present-zone)
       (let ((zone (current-zone+)))
