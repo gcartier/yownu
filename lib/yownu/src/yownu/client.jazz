@@ -59,7 +59,7 @@
   
   
   (method override (process-version)
-    {Version 1 0 beta})
+    {Version 1 0 closed-beta})
   
   
   (method override (new-toplevel)
