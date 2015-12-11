@@ -49,6 +49,7 @@
   (1 ("Start fullscreen (GC)" 0))
   (1 ("Isn't the fall damage progression from height too fast (EH)" 0))
   (1 ("Limited edition (as in add ladder if in inventory) (GC)" 0))
+  (1 ("Extract minecraft version (like 15w31a) from level.dat (EH)" 0))
   (1 ("Sound" 0))
   (3 ("Ambience fading out/in (GC)" 0))
   (3 ("Ambience based on outdoor/indoor heuristic (GC)" 0))
