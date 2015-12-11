@@ -279,9 +279,17 @@
       (let ((interface (get-interface~ world)))
         (new History-Slider name: 'slider parent: interface size: {Dimension 400 40} location: '(center 32) visible?: #f)))
     (install-bars
-      `((,World-Main-Bar      main      horizontal (center -10))
+      `(,(case current-role
+           ((user)
+            `(,World-Main-Bar      main      horizontal (-105 -10)))
+           (else
+            `(,World-Main-Bar      main      horizontal (center -10))))
         ;; (,World-Client-Bar    client    horizontal (10 -98)) ;; overlaps the script pane
-        (,World-Game-Bar      game      horizontal (center -36))
+        ,(case current-role
+           ((user)
+            `(,World-Game-Bar      game      horizontal (center -10)))
+           (else
+            `(,World-Game-Bar      game      horizontal (center -36))))
         (,World-Window-Bar    window    horizontal (-10 -10))
         (,World-Camera-Bar    camera    horizontal (-10 -36))
         (,World-Debug-Bar     debug     horizontal (10 -10))
@@ -336,6 +344,10 @@
           (<!>           name: world-save-as          visible?: #f)
           (<!>           name: world-revert           visible?: #f)
           (<!>           name: toggle-user            visible?: #f))
+        (<world-zone!>
+          (<!>           name: zone-new               visible?: #f)
+          (<!>           name: zone-open              visible?: #f)
+          (<!>           name: zone-delete            visible?: #f))
         (<world-game!>
           (<!>           name: change-vehicle         visible?: #f)
           (<!>           name: mind-control           visible?: #f)
@@ -359,6 +371,7 @@
           (<!>           name: toggle-camera-lock     visible?: #f))
         (<world-graphics!>
           (<!>           name: toggle-lighting        visible?: #f)
+          (<!>           name: toggle-fog             visible?: #f)
           (<!>           name: toggle-gadgets         visible?: #f)
           (<!>           name: toggle-normals         visible?: #f)
           (<!>           name: toggle-elements        visible?: #f)
@@ -395,6 +408,9 @@
         (<!>             name: world-open             visible?: #f)
         (<!>             name: world-save             visible?: #f)
         (<!>             name: world-revert           visible?: #f)
+        (<!>             name: zone-new               visible?: #f)
+        (<!>             name: zone-open              visible?: #f)
+        (<!>             name: zone-delete            visible?: #f)
         (<!>             name: toggle-user            visible?: #f))))
   
   (define-trait user-game World-Actionbar
@@ -420,6 +436,7 @@
         (<!>             name: run-script             visible?: #f)
         (<!>             name: run-last-script        visible?: #f)
         (<!>             name: toggle-lighting        visible?: #f)
+        (<!>             name: toggle-fog             visible?: #f)
         (<!>             name: toggle-gadgets         visible?: #f)
         (<!>             name: toggle-normals         visible?: #f)
         (<!>             name: toggle-elements        visible?: #f)
