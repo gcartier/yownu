@@ -346,8 +346,7 @@
           (<!>           name: toggle-user            visible?: #f))
         (<world-zone!>
           (<!>           name: zone-new               visible?: #f)
-          (<!>           name: zone-open              visible?: #f)
-          (<!>           name: zone-delete            visible?: #f))
+          (<!>           name: zone-open              visible?: #f))
         (<world-game!>
           (<!>           name: change-vehicle         visible?: #f)
           (<!>           name: mind-control           visible?: #f)
@@ -410,7 +409,6 @@
         (<!>             name: world-revert           visible?: #f)
         (<!>             name: zone-new               visible?: #f)
         (<!>             name: zone-open              visible?: #f)
-        (<!>             name: zone-delete            visible?: #f)
         (<!>             name: toggle-user            visible?: #f))))
   
   (define-trait user-game World-Actionbar
