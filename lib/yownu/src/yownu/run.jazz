@@ -26,8 +26,21 @@
 
 
 (definition (run descriptor)
+  (define (setup-aliases)
+    (register-alias 'App
+                    (cond ((is-alias? 'Yownu)
+                           (list 'Yownu))
+                          ((is-alias? 'Build)
+                           (expand~ (get-parent~ (get-parent~ {Directory Build}))))
+                          ((is-alias? 'Bundle)
+                           (list 'Bundle))
+                          (else
+                           (error "Unable to initialize App alias"))))
+    (register-resources-alias 'Yownu 'yownu))
+  
   (set-settings-root {Directory Home ".yownu"})
   (set-settings-alias 'Resources)
+  (set-aliases-setup setup-aliases)
   (set-valid-roles '(user designer programmer))
   (set-worker-filename (cond-expand (mac "yownu-worker.app/Contents/MacOS/Yownu-Worker")
                                     (else "Yownu-Worker")))

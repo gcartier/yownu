@@ -26,8 +26,19 @@
 
 
 (definition (run descriptor)
+  (define (setup-aliases)
+    (register-alias 'App
+                    (list (cond ((is-alias? 'Yownu)
+                                 'Yownu)
+                                ((is-alias? 'Bundle)
+                                 'Bundle)
+                                (else
+                                 'Build))))
+    (register-resources-alias 'Yownu-Server 'yownu-server))
+  
   (set-settings-root {Directory Home ".yownu-server"})
   (set-settings-alias 'Resources)
+  (set-aliases-setup setup-aliases)
   (set-valid-roles '(admin))
   (load-unit 'world.settings)
   (load-unit 'yownu.start-server)

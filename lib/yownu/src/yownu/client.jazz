@@ -69,19 +69,6 @@
       (new-opengl-window class: Yownu-Window fullscreen?: fullscreen? position: pos size: size need-version: {Version 3 2} render?: #f visible?: #f)))
   
   
-  (method override (initialize-app)
-    (register-alias 'App
-                    (cond ((is-alias? 'Yownu)
-                           (list 'Yownu))
-                          ((is-alias? 'Build)
-                           (expand~ (get-parent~ (get-parent~ {Directory Build}))))
-                          ((is-alias? 'Bundle)
-                           (list 'Bundle))
-                          (else
-                           (error "Unable to initialize App alias"))))
-    (register-resources-alias 'Yownu 'yownu))
-  
-  
   (method override (initialize-settings)
     (nextmethod)
     (set! yownu-settings (new File-Settings))

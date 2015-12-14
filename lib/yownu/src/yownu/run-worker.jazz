@@ -14,7 +14,8 @@
 (module yownu.run-worker jazz
 
 
-(import (world)
+(import (jazz.io)
+        (world)
         (yownu.worker-settings)
         (yownu.worker))
 

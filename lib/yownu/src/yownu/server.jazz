@@ -63,17 +63,6 @@
       (new-opengl-window class: Yownu-Window fullscreen?: fullscreen? position: pos size: size need-version: {Version 3 2} render?: #f visible?: #f)))
   
   
-  (method override (initialize-app)
-    (register-alias 'App
-                    (list (cond ((is-alias? 'Yownu)
-                                 'Yownu)
-                                ((is-alias? 'Bundle)
-                                 'Bundle)
-                                (else
-                                 'Build))))
-    (register-resources-alias 'Yownu-Server 'yownu-server))
-  
-  
   (method override (initialize-settings)
     (nextmethod)
     (set! yownu-settings (new File-Settings))
