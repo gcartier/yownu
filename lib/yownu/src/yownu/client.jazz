@@ -599,6 +599,7 @@
       (<install>
         (<!>             name: rewind-logic           visible?: #f)
         (<!>             name: step-logic             visible?: #f)
+        (<!>             name: at-logic               visible?: #f)
         (<!>             name: reset-history          visible?: #f)
         (<!>             name: toggle-evaluate-future visible?: #f))))
   
