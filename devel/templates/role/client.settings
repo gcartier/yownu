@@ -24,7 +24,7 @@ yownu.planet-trees               default ;; 10.
 
 
 ;; Role
-world.start-user?                default ;; #f
+world.start-user?                default ;; #t
 
 ;; Game
 world.avatar                     default ;; Orb "character/bloodelffemale" "creature/gorilla"
