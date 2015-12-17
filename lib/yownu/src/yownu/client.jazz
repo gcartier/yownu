@@ -343,6 +343,8 @@
         (<world-user!>                                 visible?: #t)
         (<world-spell!>
           (<!>           name: bomb                    visible?: #f)
+          ;; for now as it enables jumping over kingdom bridge
+          (<!>           name: run                     visible?: #f)
           (<!>           name: blink                   visible?: #f)
           (<!>           name: warp                    visible?: #f)
           (<!>           name: sprint                  visible?: #f))
@@ -411,6 +413,8 @@
     (<Role-Trait>
       (<install>
         (<!>             name: bomb                    visible?: #f)
+        ;; for now as it enables jumping over kingdom bridge
+        (<!>             name: run                     visible?: #f)
         (<!>             name: blink                   visible?: #f)
         (<!>             name: warp                    visible?: #f)
         (<!>             name: sprint                  visible?: #f)
