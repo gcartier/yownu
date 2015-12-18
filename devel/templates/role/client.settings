@@ -61,7 +61,7 @@ world.earth?                     default ;; #t
 world.music?                     default ;; #t
 world.music-style                default ;; #f "piano" "minecraft" "warcraft"
 world.music-volume               default ;; 1.
-world.ambience?                  #t
+world.ambience?                  default ;; #t
 world.ambience-volume            default ;; .5
 world.game-volume                default ;; #f
 world.interface-volume           default ;; #f
@@ -104,7 +104,7 @@ world.profiler-display           default ;; #f
 world.debug-collisions?          default ;; #f
 
 ;; Camera
-world.camera-smoothing?          #t
+world.camera-smoothing?          default ;; #t
 world.camera-move-speed          default ;; .2
 world.camera-blink-speed         default ;; 2.
 world.camera-warp-speed          default ;; 4.

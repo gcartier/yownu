@@ -16,6 +16,7 @@
 
 (import (gambit.walk)
         (jazz.action)
+        (jazz.application)
         (jazz.audio)
         (jazz.cairo)
         (jazz.component)
