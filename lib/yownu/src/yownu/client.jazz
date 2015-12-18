@@ -354,8 +354,10 @@
           (<!>           name: disconnect-from-server  visible?: #f)
           (<!>           name: request-server-update   visible?: #f))
         (<world-camera!>
+          (<!>           name: person-motion           visible?: #f)
           (<!>           name: orbit-motion            visible?: #f)
           (<!>           name: free-motion             visible?: #f)
+          (<!>           name: toggle-camera-smoothing visible?: #f)
           (<!>           name: toggle-camera-lock      visible?: #f))
         (<world-graphics!>
           (<!>           name: toggle-lighting         visible?: #f)
@@ -444,8 +446,10 @@
   (define-trait user-camera World-Actionbar
     (<Role-Trait>
       (<install>
+        (<!>             name: person-motion           visible?: #f)
         (<!>             name: orbit-motion            visible?: #f)
         (<!>             name: free-motion             visible?: #f)
+        (<!>             name: toggle-camera-smoothing visible?: #f)
         (<!>             name: toggle-camera-lock      visible?: #f))))
 
   (define-trait user-edition World-Actionbar
