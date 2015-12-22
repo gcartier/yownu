@@ -29,6 +29,7 @@
         (world.history)
         (world.interface.actions)
         (world.interface.bars)
+        (world.interface.history)
         (world.role)
         (world.server)
         (world.server.actions)
