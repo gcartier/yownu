@@ -52,7 +52,7 @@ world.sun-color                  default ;; #f
 world.sun-cycle?                 default ;; #t
 world.start-time                 default ;; dawn dusk day night
 world.default-lights?            default ;; #f
-world.cache-images?              default ;; #f
+world.cache-images?              default ;; #t
 world.skybox                     default ;; #f
 world.fog?                       default ;; #t
 world.earth?                     default ;; #t
