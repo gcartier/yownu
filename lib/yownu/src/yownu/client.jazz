@@ -571,8 +571,9 @@
           (<!>           name: reload-textures         visible?: #f)
           (<!>           name: change-editor-mode      visible?: #f))
         (<world-history!>
-          (<!>           name: rewind-logic            visible?: #f)
-          (<!>           name: step-logic              visible?: #f)
+          (<!>           name: step-backward           visible?: #f)
+          (<!>           name: step-forward            visible?: #f)
+          (<!>           name: step-over               visible?: #f)
           (<!>           name: reset-history           visible?: #f)
           (<!>           name: toggle-evaluate-future  visible?: #f))
         (<world-window!>
@@ -662,8 +663,9 @@
   (define-trait designer-history World-Actionbar
     (<Role-Trait>
       (<install>
-        (<!>             name: rewind-logic            visible?: #f)
-        (<!>             name: step-logic              visible?: #f)
+        (<!>             name: step-backward           visible?: #f)
+        (<!>             name: step-forward            visible?: #f)
+        (<!>             name: step-over               visible?: #f)
         (<!>             name: at-logic                visible?: #f)
         (<!>             name: reset-history           visible?: #f)
         (<!>             name: toggle-evaluate-future  visible?: #f))))
