@@ -96,6 +96,7 @@ world.debug-ms3d?                default ;; #f
 world.debug-meshes?              default ;; #f
 world.debug-lightmap?            default ;; #f
 world.debug-textures?            default ;; #f
+world.debug-categories?          default ;; #f
 world.debug-animations?          default ;; #f
 world.info-display               default ;; #f
 world.profiler-display           default ;; #f

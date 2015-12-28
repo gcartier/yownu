@@ -41,6 +41,7 @@
         (jazz.runtime)
         (jazz.skin)
         (jazz.snapshot)
+        (jazz.syntax)
         (jazz.ui)
         (jazz.version)
         (jazz.view)
