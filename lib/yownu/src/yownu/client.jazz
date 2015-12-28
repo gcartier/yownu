@@ -367,7 +367,8 @@
           (<!>           name: toggle-fog              visible?: #f)
           (<!>           name: toggle-gadgets          visible?: #f)
           (<!>           name: toggle-normals          visible?: #f)
-          (<!>           name: toggle-elements         visible?: #f)
+          (<!>           name: toggle-x-rays           visible?: #f)
+          (<!>           name: toggle-blocks           visible?: #f)
           (<!>           name: toggle-post-processing  visible?: #f))
         (<world-interface!>
           (<!>           name: run-script              visible?: #f)
@@ -443,7 +444,8 @@
         (<!>             name: toggle-fog              visible?: #f)
         (<!>             name: toggle-gadgets          visible?: #f)
         (<!>             name: toggle-normals          visible?: #f)
-        (<!>             name: toggle-elements         visible?: #f)
+        (<!>             name: toggle-x-rays           visible?: #f)
+        (<!>             name: toggle-blocks           visible?: #f)
         (<!>             name: toggle-post-processing  visible?: #f))))
 
   (define-trait user-camera World-Actionbar
@@ -550,7 +552,6 @@
           (<!>           name: toggle-fog              visible?: #f)
           (<!>           name: toggle-gadgets          visible?: #f)
           (<!>           name: toggle-normals          visible?: #f)
-          (<!>           name: toggle-elements         visible?: #f)
           (<!>           name: toggle-post-processing  visible?: #f))
         (<world-edition!>
           (<!>           name: select-target-mode      visible?: #f)
@@ -635,7 +636,6 @@
         (<!>             name: toggle-fog              visible?: #f)
         (<!>             name: toggle-gadgets          visible?: #f)
         (<!>             name: toggle-normals          visible?: #f)
-        (<!>             name: toggle-elements         visible?: #f)
         (<!>             name: toggle-post-processing  visible?: #f))))
 
   (define-trait designer-camera World-Actionbar
