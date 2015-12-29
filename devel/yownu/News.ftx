@@ -57,7 +57,7 @@
   (2)
   (1 ("2015/05/23" 1))
   (9 ("Add silence between musics" 0))
-  (2 ("Add Change music (alt M)" 0))
+  (9 ("Add Change music (alt M)" 0))
   (9 ("Add Display music (control alt M)" 0))
   (9 ("Implement IronBars" 0))
   (9 ("Implement BedBlock" 0))
