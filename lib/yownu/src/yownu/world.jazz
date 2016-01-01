@@ -101,7 +101,6 @@
         (world.light)
         (world.light-syntax)
         (world.lighting)
-        @log (world.log)
         (world.lookat)
         (world.manager)
         (world.mark)
