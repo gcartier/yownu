@@ -368,6 +368,7 @@
           (<!>           name: toggle-gadgets          visible?: #f)
           (<!>           name: toggle-normals          visible?: #f)
           (<!>           name: toggle-x-rays           visible?: #f)
+          (<!>           name: toggle-redstone-x-rays  visible?: #f)
           (<!>           name: toggle-blocks           visible?: #f)
           (<!>           name: toggle-post-processing  visible?: #f))
         (<world-interface!>
@@ -445,6 +446,7 @@
         (<!>             name: toggle-gadgets          visible?: #f)
         (<!>             name: toggle-normals          visible?: #f)
         (<!>             name: toggle-x-rays           visible?: #f)
+        (<!>             name: toggle-redstone-x-rays  visible?: #f)
         (<!>             name: toggle-blocks           visible?: #f)
         (<!>             name: toggle-post-processing  visible?: #f))))
 
