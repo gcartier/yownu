@@ -98,6 +98,7 @@ world.debug-lightmap?            default ;; #f
 world.debug-textures?            default ;; #f
 world.debug-categories?          default ;; #f
 world.debug-animations?          default ;; #f
+world.debug-throttle?            default ;; #f
 world.info-display               default ;; #f
 world.profiler-display           default ;; #f
 

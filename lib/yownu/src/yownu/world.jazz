@@ -37,6 +37,7 @@
         (jazz.network)
         (jazz.opengl)
         (jazz.opengl.glew)
+        (jazz.opengl.window)
         (jazz.platform)
         (jazz.runtime)
         (jazz.skin)
