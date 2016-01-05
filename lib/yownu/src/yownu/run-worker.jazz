@@ -22,6 +22,11 @@
 
 (definition (run descriptor)
   (set-valid-roles '(user designer programmer admin))
+  ;; when running the under the debugger do not evaluate
+  ;; forms as this can result in world.work being loaded
+  (set-evaluate-forms-hook
+    (lambda rest
+      #t))
   (boot-environment~ (new Yownu-Worker)))
 
 
