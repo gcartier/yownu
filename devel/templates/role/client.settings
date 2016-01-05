@@ -28,6 +28,7 @@ world.start-user?                default ;; #t
 
 ;; Game
 world.avatar                     default ;; Orb "character/bloodelffemale" "creature/gorilla"
+world.free-aim?                  default ;; #f
 
 ;; Window
 world.fullscreen?                default ;; #f
@@ -69,6 +70,10 @@ world.sounds?                    default ;; #t
 world.selection-sounds?          default ;; #t
 world.gc-sound?                  default ;; #f
 
+;; Generation
+world.tile-resolution            default ;; 32
+world.generate-mipmap?           default ;; 32
+
 ;; Interface
 world.start-interface?           default ;; #t
 world.interface-target?          default ;; #f
@@ -78,9 +83,6 @@ world.axes-graduation?           default ;; #f
 world.track-sensitivity          default ;; 200.
 world.random-seed                default ;; #f
 world.show-belt?                 default ;; #t
-
-;; Game
-world.free-aim?                  default ;; #f
 
 ;; History
 world.history-max                default ;; 100
@@ -124,12 +126,3 @@ world.test7                      default ;; #f
 world.test8                      default ;; #f
 world.test9                      default ;; #f
 world.test0                      default ;; #f
-
-
-;;;
-;;;; Minecraft
-;;;
-
-
-minecraft.tile-resolution        default ;; 32
-minecraft.generate-mipmap?       default ;; 32
