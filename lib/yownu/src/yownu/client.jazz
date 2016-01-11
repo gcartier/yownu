@@ -21,6 +21,7 @@
         (jazz.debuggee)
         (jazz.debugger)
         (jazz.debugger.stub)
+        (jazz.editor)
         (jazz.editor.jazz)
         (jazz.editor.lisp)
         (jazz.handler)
@@ -773,9 +774,15 @@
   
   (form
     (<install>
+      ;; Application
       (<!>                       name: application visible?: #f)
       (<!>                       name: formatted-text visible?: #f)
       (<!>                       name: menubar visible?: #f)
+      ;; Scripting
+      (<Code-Text-Actions>       name: code-text)
+      (<Lisp-Text-Actions>       name: lisp-text)
+      (<Jazz-Text-Actions>       name: jazz-text)
+      ;; World
       (<World-Menu-Actions>      name: world-menu)
       (<World-Interface-Actions> name: world-interface)
       (<World-Graphics-Actions>  name: world-graphics)
@@ -797,6 +804,7 @@
       (<World-Minecraft-Actions> name: world-minecraft)
       (<World-Anonymous-Actions> name: world-anonymous)
       (<World-User-Actions>      name: world-user visible?: #f)
+      ;; Yownu
       (<Yownu-Actions>           name: yownu))))
 
 
