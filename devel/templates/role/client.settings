@@ -82,6 +82,8 @@ world.axes?                      default ;; #f
 world.axes-graduation?           default ;; #f
 world.track-sensitivity          default ;; 200.
 world.random-seed                default ;; #f
+
+;; Inventory
 world.show-belt?                 default ;; #t
 
 ;; History

@@ -31,6 +31,7 @@
         (jazz.platform)
         (jazz.reference)
         (jazz.settings)
+        (jazz.time)
         (jazz.version)
         (world)
         (world.autoload)
@@ -110,6 +111,7 @@
   
   (method override (finish-process)
     (nextmethod)
+    (setup-cataloguer)
     ;; a try
     (set-debugger-manager (new Debugger-Manager)))
   
