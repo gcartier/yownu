@@ -382,6 +382,10 @@
           (<!>           name: move-target-mode        visible?: #f)
           (<!>           name: rotate-target-mode      visible?: #f)
           (<!>           name: scale-target-mode       visible?: #f)
+          (<!>           name: skeleton-target-mode    visible?: #f)
+          (<!>           name: no-showcase             visible?: #f)
+          (<!>           name: blocks-showcase         visible?: #f)
+          (<!>           name: models-showcase         visible?: #f)
           (<!>           name: gadgets-showcase        visible?: #f)
           (<!>           name: tiles-showcase          visible?: #f)
           (<!>           name: shaders-showcase        visible?: #f)
@@ -407,7 +411,8 @@
         (<world-tutorial!>)
         (<world-debug!>                                visible?: #f)
         (<world-minecraft!>
-          (<!>           name: toggle-player-glow      visible?: #f)))))
+          (<!>           name: toggle-player-glow      visible?: #f))
+        (<yownu!>                                      visible?: #f))))
   
   (define-trait user-main World-Actionbar
     (<Role-Trait>
@@ -616,7 +621,8 @@
           (<!>           name: test7                   visible?: #f)
           (<!>           name: test8                   visible?: #f)
           (<!>           name: test9                   visible?: #f)
-          (<!>           name: test0                   visible?: #f)))))
+          (<!>           name: test0                   visible?: #f))
+        (<yownu!>                                      visible?: #f))))
   
   (define-trait designer-main World-Actionbar
     (<Role-Trait>
@@ -734,7 +740,8 @@
 
   (define-trait programmer-bindings Bindings
     (<Role-Trait> name: programmer
-      (<install>)))
+      (<install>
+        (<yownu!>                  visible?: #f))))
   
   (define-trait programmer-main World-Actionbar
     (<Role-Trait>
