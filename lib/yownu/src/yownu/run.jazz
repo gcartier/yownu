@@ -38,6 +38,7 @@
                            (error "Unable to initialize App alias"))))
     (register-resources-alias 'Yownu 'yownu))
   
+  (set-tier 'client)
   (set-settings-root {Directory Home ".yownu"})
   (set-settings-alias 'Resources)
   (set-aliases-setup setup-aliases)
