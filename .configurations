@@ -1,0 +1,1 @@
+(name: finite system: gambit platform: mac compiler: c++ processor: #f windowing: cocoa safety: release optimize?: #f debug-environments?: #t debug-location?: #t debug-source?: #f debug-foreign?: #f mutable-bindings?: #f kernel-interpret?: #t destination: "cache/finite" features: (finite) properties: (cache?: #t cache: "cache/release"))
