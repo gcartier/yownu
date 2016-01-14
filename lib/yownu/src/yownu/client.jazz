@@ -62,7 +62,7 @@
   
   
   (method override (process-version)
-    {Version 1 0 closed-alpha})
+    {Version 1 0 0 1 closed-alpha})
   
   
   (method override (new-toplevel)
