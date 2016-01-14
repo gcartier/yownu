@@ -81,6 +81,7 @@ world.interface-script?          default ;; #f
 world.axes?                      default ;; #f
 world.axes-graduation?           default ;; #f
 world.track-sensitivity          default ;; 200.
+world.wheel-zoom?                default ;; #f
 world.random-seed                default ;; #f
 
 ;; Inventory
