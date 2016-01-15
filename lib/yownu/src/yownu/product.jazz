@@ -114,7 +114,9 @@
     opengl?: #t
     git?: #t
     audio?: #t
-    files: '("README")
+    files: (cond-expand
+             (windows '("README" "yownu-worker.exe"))
+             (else '("README")))
     directories: '("devel")))
 
 
