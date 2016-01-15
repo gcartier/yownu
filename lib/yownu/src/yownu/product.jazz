@@ -103,7 +103,7 @@
       {Directory Home "Devel" "install"}))
   (else
     (definition install-dir
-      {Directory Home "install"})))
+      {Directory Home "yownu" "install"})))
 
 
 (definition (install descriptor)
