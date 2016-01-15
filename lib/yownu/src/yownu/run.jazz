@@ -28,14 +28,12 @@
 (definition (run descriptor)
   (define (setup-aliases)
     (register-alias 'App
-                    (cond ((is-alias? 'Yownu)
-                           (list 'Yownu))
-                          ((is-alias? 'Build)
-                           (expand~ (get-parent~ (get-parent~ {Directory Build}))))
-                          ((is-alias? 'Bundle)
-                           (list 'Bundle))
-                          (else
-                           (error "Unable to initialize App alias"))))
+                    (list (cond ((is-alias? 'Yownu)
+                                 'Yownu)
+                                ((is-alias? 'Bundle)
+                                 'Bundle)
+                                (else
+                                 'Build))))
     (register-resources-alias 'Yownu 'yownu))
   
   (set-tier 'client)
