@@ -103,7 +103,7 @@
       {Directory Home "Devel" "install"}))
   (else
     (definition install-dir
-      {Directory Home "yownu" "release"})))
+      {Directory Home "install"})))
 
 
 (definition (install descriptor)
@@ -113,6 +113,7 @@
     platform?: #t
     opengl?: #t
     git?: #t
+    audio?: #t
     files: '("README")
     directories: '("devel")))
 
