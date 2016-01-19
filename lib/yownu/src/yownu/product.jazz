@@ -118,7 +118,19 @@
     files: (cond-expand
              (windows '("README" "yownu-worker.exe"))
              (else '("README")))
-    directories: '("devel")))
+    directories: '("devel"))
+  (let ((root-dir (get-parent~ (get-parent~ {Directory Yownu}))))
+    (let ((world-dir (new-directory~ root-dir '("worlds" "yownu")))
+          (installation-dir (new-directory~ install-dir "yownu-world")))
+      (install-directory~ world-dir installation-dir
+        filter: (lambda (action pathname)
+                  (if (and (eq? action 'copy)
+                           (pathname=? (get-parent~ pathname) world-dir)
+                           (filename=? (get-name~ pathname) ".git"))
+                      #f
+                    #t))
+        feedback: (lambda (action pathname)
+                    (build-feedback "; {a} {a}..." action (get-name~ pathname)))))))
 
 
 ;;;
