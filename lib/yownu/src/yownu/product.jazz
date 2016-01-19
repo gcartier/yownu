@@ -58,6 +58,7 @@
     
     (define (copy-info)
       (install-file '("README"))
+      (install-file '("devel" "yownu" "About.ftx"))
       (install-file '("devel" "yownu" "Help.ftx"))
       (install-file '("devel" "yownu" "News.ftx") )
       (install-file '("devel" "yownu" "Roadmap.ftx")))
