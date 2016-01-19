@@ -34,6 +34,10 @@
     (<install> floor-level: #f))
   
   
+  (method override (planets?)
+    #t)
+  
+  
   ;;;
   ;;;; Populate
   ;;;
