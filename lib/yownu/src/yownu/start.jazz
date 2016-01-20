@@ -19,6 +19,7 @@
         (jazz.platform)
         (world)
         (world.boot)
+        (world.capabilities)
         (world.colors)
         (world.fonts)
         (world.io)
@@ -29,13 +30,6 @@
 
 
 (definition (start-yownu)
-  (define (check-extension ext)
-    (format "{a} {a} supported"
-            ext
-            (if (glewIsSupported ext)
-                "is"
-              "not")))
-  
   (cond ((command-argument "glversion")
          (initialize-platform)
          (new-opengl-window render?: #f visible?: #f)
@@ -48,19 +42,9 @@
         ((command-argument "glinformation")
          (initialize-platform)
          (new-opengl-window render?: #f visible?: #f)
-         (system-message (string-append (format "OpenGL {a}{%}{%}" (glGetString GL_VERSION))
-                                        (check-extension "GL_EXT_texture_array") (format "{%}")
-                                        (check-extension "GL_EXT_framebuffer_object") (format "{%}")
-                                        (check-extension "GL_EXT_framebuffer_blit") (format "{%}")
-                                        (check-extension "GL_EXT_framebuffer_multisample") (format "{%}")
-                                        (check-extension "GL_ARB_multisample") (format "{%}")
-                                        (check-extension "GL_ARB_debug_output") (format "{%}{%}")
-                                        (format "GL_MAX_LIGHTS: {a}{%}" (glGetInteger* GL_MAX_LIGHTS))
-                                        (format "GL_MAX_TEXTURE_SIZE: {a}{%}" (glGetInteger* GL_MAX_TEXTURE_SIZE))
-                                        (format "GL_MAX_3D_TEXTURE_SIZE: {a}{%}" (glGetInteger* GL_MAX_3D_TEXTURE_SIZE))
-                                        (format "GL_MAX_TEXTURE_IMAGE_UNITS: {a}{%}" (glGetInteger* GL_MAX_TEXTURE_IMAGE_UNITS))
-                                        (format "GL_MAX_VERTEX_UNIFORM_COMPONENTS: {a}{%}" (glGetInteger* GL_MAX_VERTEX_UNIFORM_COMPONENTS))
-                                        (format "GL_MAX_FRAGMENT_UNIFORM_COMPONENTS: {a}{%}" (glGetInteger* GL_MAX_FRAGMENT_UNIFORM_COMPONENTS)))))
+         (system-message (let ((output (open-output-string)))
+                           (describe-capabilities output)
+                           (get-output-string output))))
         (else
          (load-point 'start)
          (set-min-heap! (* 500000 1024))
