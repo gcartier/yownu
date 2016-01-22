@@ -30,15 +30,8 @@
           (new-directory~ {Directory Build} (format "{a}.app/Contents/Resources" bundle))
         {Directory Build})))
   
-  (define (macos-dir)
-    (let ((bundle (product-descriptor-build-bundle descriptor)))
-      (if bundle
-          (new-directory~ {Directory Build} (format "{a}.app/Contents/MacOS" bundle))
-        #f)))
-  
   (let ((project-dir {Directory Yownu})
-        (resources-dir (resources-dir))
-        (macos-dir (macos-dir)))
+        (resources-dir (resources-dir)))
     (define (install-file path)
       (let ((src (new-file~ project-dir path))
             (dst (new-file~ resources-dir path)))
@@ -77,20 +70,13 @@
     (define (copy-templates)
       (install-directory '("devel" "templates")))
     
-    (define (copy-worker)
-      (when (eq? kernel-platform 'mac)
-        (install-directory~ {Directory Build "yownu-worker.app"} (new-directory~ macos-dir "yownu-worker.app")
-          feedback: (lambda (action pathname)
-                      (build-feedback "; {a} {a}..." action (get-name~ pathname))))))
-    
     (build-product-descriptor descriptor unit: unit force?: force?)
     (initialize-aliases)
     (copy-info)
     (copy-assets)
     (copy-doc)
     (copy-external)
-    (copy-templates)
-    (copy-worker)))
+    (copy-templates)))
 
 
 ;;;
@@ -115,6 +101,7 @@
 
 (definition (install descriptor)
   (initialize-aliases)
+  ;; appl
   (install-application descriptor install-dir
     scriptable?: #t
     platform?: #t
@@ -125,6 +112,14 @@
              (windows '("README" "yownu-worker.exe"))
              (else '("README")))
     directories: '("devel"))
+  ;; worker
+  (cond-expand
+    (mac
+      (install-directory~ {Directory Build "yownu-worker.app"} (new-directory~ install-dir '("yownu.app" "Contents" "MacOS" "yownu-worker.app"))
+        feedback: (lambda (action pathname)
+                    (build-feedback "; {a} {a}..." action (get-name~ pathname)))))
+    (else))
+  ;; world
   (let ((root-dir (get-parent~ (get-parent~ {Directory Yownu}))))
     (let ((world-dir (new-directory~ root-dir '("worlds" "yownu")))
           (installation-dir (new-directory~ install-dir yownu-world)))
