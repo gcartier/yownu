@@ -119,17 +119,20 @@
         feedback: (lambda (action pathname)
                     (build-feedback "; {a} {a}..." action (get-name~ pathname)))))
     (else))
-  ;; world
-  (let ((root-dir (get-parent~ (get-parent~ {Directory Yownu}))))
-    (let ((world-dir (new-directory~ root-dir '("worlds" "yownu")))
-          (installation-dir (new-directory~ install-dir yownu-world)))
-      (install-directory~ world-dir installation-dir
-        filter: (lambda (action pathname)
-                  (if (filename=? (get-name~ pathname) ".git")
-                      #f
-                    #t))
-        feedback: (lambda (action pathname)
-                    (build-feedback "; {a} {a}..." action (get-name~ pathname)))))))
+  ;; world - platform agnostic so only install on mac
+  (cond-expand
+    (mac
+      (let ((root-dir (get-parent~ (get-parent~ {Directory Yownu}))))
+        (let ((world-dir (new-directory~ root-dir '("worlds" "yownu")))
+              (installation-dir (new-directory~ install-dir yownu-world)))
+          (install-directory~ world-dir installation-dir
+            filter: (lambda (action pathname)
+                      (if (filename=? (get-name~ pathname) ".git")
+                          #f
+                        #t))
+            feedback: (lambda (action pathname)
+                        (build-feedback "; {a} {a}..." action (get-name~ pathname)))))))
+    (else)))
 
 
 ;;;
@@ -145,12 +148,17 @@
 
 (definition (deploy descriptor)
   (initialize-aliases)
+  ;; appl
   (deploy-application descriptor
                       (new-directory~ install-dir installation-dirname)
                       make: 'yownu-all
                       install: 'yownu)
-  (feedback "")
-  (deploy-directory 'world (new-directory~ install-dir yownu-world)))
+  ;; world - platform agnostic so only deploy on mac
+  (cond-expand
+    (mac
+      (feedback "")
+      (deploy-directory 'world (new-directory~ install-dir yownu-world)))
+    (else)))
 
 
 ;;;
