@@ -46,6 +46,7 @@
         (world.role)
         (world.settings)
         (world.syntax (phase syntax))
+        (yownu)
         (yownu.debugger)
         (yownu.window))
 
@@ -62,7 +63,7 @@
   
   
   (method override (process-version)
-    {Version 1 0 0 1 closed-alpha})
+    yownu-version)
   
   
   (method override (new-toplevel)

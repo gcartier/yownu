@@ -1,0 +1,27 @@
+;;;===============
+;;;  WorldScheme
+;;;===============
+;;;
+;;;; Yownu
+;;;
+;;;  The Initial Developer of the Original Code is Guillaume Cartier.
+;;;  Portions created by the Initial Developer are Copyright (C) 2012-2015
+;;;  the Initial Developer. All Rights Reserved.
+;;;
+;;;  Contributor(s):
+
+
+(module yownu jazz
+
+
+(import (jazz.io)
+        (jazz.version))
+
+
+;;;
+;;;; Version
+;;;
+
+
+(definition public yownu-version
+  {Version 1 0 0 2 closed-alpha}))

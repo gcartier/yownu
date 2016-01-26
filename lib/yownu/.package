@@ -9,7 +9,8 @@
                    (run yownu.run)
                    (product yownu.product)
                    (build (yownu executable: "Yownu" minimum-heap: 500000 bundle: "yownu" resources: "resources/yownu"))
-                   (update yownu.biome
+                   (update yownu
+                           yownu.biome
                            yownu.client
                            yownu.debugger
                            yownu.product
