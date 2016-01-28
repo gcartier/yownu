@@ -166,7 +166,7 @@
           (<!>           name: character-pane          visible?: #f))
         (<world-spell!>
           (<!>           name: bullet                  visible?: #f)
-          (<!>           name: bomb                    visible?: #f)
+          (<!>           name: arrow                   visible?: #f)
           (<!>           name: sprint                  visible?: #f))
         (<world-camera!>
           (<!>           name: toggle-camera-lock      visible?: #f))
@@ -251,7 +251,7 @@
     (<Role-Trait>
       (<install>
         (<!>             name: bullet                  visible?: #f)
-        (<!>             name: bomb                    visible?: #f)
+        (<!>             name: arrow                   visible?: #f)
         (<!>             name: sprint                  visible?: #f)
         (<!>             name: mind-control            visible?: #f)
         (<!>             name: toggle-aim              visible?: #f)
