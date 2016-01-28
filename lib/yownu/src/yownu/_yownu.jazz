@@ -24,4 +24,4 @@
 
 
 (definition public yownu-version
-  {Version 1 0 0 2 closed-alpha}))
+  {Version 1 0 0 3 closed-alpha}))
