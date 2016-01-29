@@ -31,6 +31,8 @@
   (2)
   (2)
   (1 ("2016/01/28" 1))
+  (3 ("Bedpoint now saved when quitting" 0))
+  (3 ("Can now interact with underwater objects" 0))
   (3 ("Blocks are now easier to place" 0))
   (3 ("Eating food will slowing restore health" 0))
   (3 ("Drinking potion will restore health" 0))
