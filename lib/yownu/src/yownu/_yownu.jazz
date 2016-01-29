@@ -24,4 +24,8 @@
 
 
 (definition public yownu-version
-  {Version 1 0 0 4 closed-alpha}))
+  {Version 1 0 0 5 closed-alpha})
+
+
+(definition public yownu-release
+  "Jan 29 2016"))

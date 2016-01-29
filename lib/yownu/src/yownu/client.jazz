@@ -66,6 +66,10 @@
     yownu-version)
   
   
+  (method override (process-release)
+    yownu-release)
+  
+  
   (method override (new-toplevel)
     (let ((fullscreen? (xor (world-setting 'world.fullscreen? (not (get-controller-debugger))) (shift-down?)))
           (pos (world-setting 'world.position {Point 250 100}))
