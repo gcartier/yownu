@@ -275,7 +275,6 @@
       (lambda ()
         (for-each-active-catalog~ (get-cataloguer) #f
           (lambda (catalog)
-            (debug catalog)
             (load-content~ catalog report?: #f))))))
   
   
