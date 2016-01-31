@@ -24,6 +24,7 @@
         (jazz.editor)
         (jazz.editor.jazz)
         (jazz.editor.lisp)
+        (jazz.event)
         (jazz.handler)
         (jazz.io)
         (jazz.jml)
@@ -32,6 +33,7 @@
         (jazz.platform)
         (jazz.reference)
         (jazz.settings)
+        (jazz.syntax (phase syntax))
         (jazz.time)
         (jazz.version)
         (world)
@@ -124,6 +126,7 @@
   (method override (finish-process)
     (nextmethod)
     (setup-cataloguer)
+    (preload-catalogs)
     ;; a try
     (set-debugger-manager (new Debugger-Manager)))
   
@@ -259,16 +262,21 @@
             (extensions :jazz))
         (new Filing-Catalog 'user output directories extensions #f #f #t)))
     
-    ;; pretty costly
-    (when (world-setting 'world.catalog? #f)
-      (let ((cataloguer (new Cataloguer)))
-        (add-catalog~ cataloguer (world-catalog))
-        (add-catalog~ cataloguer (user-catalog))
-        (for-each-active-catalog~ cataloguer #f
+    (let ((cataloguer (new Cataloguer)))
+      (add-catalog~ cataloguer (world-catalog))
+      (add-catalog~ cataloguer (user-catalog))
+      (set-cataloguer cataloguer)))
+  
+  
+  (method (preload-catalogs)
+    ;; using delay-event to load the catalogs after the run loop is
+    ;; started ensures that the null? test on the load-stack passes
+    (delay-event
+      (lambda ()
+        (for-each-active-catalog~ (get-cataloguer) #f
           (lambda (catalog)
-            (load-content~ catalog report?: #f)
-            (update~ catalog report?: #t)))
-        (set-cataloguer cataloguer))))
+            (debug catalog)
+            (load-content~ catalog report?: #f))))))
   
   
   ;;;
