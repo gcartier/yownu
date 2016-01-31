@@ -59,7 +59,7 @@
   
   
   (method override (process-release)
-    yownu-date)
+    yownu-release)
   
   
   (method override (new-toplevel)
