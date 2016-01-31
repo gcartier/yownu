@@ -368,7 +368,6 @@
           (<!>           name: toggle-fly              visible?: #f))
         (<world-user!>                                 visible?: #t)
         (<world-spell!>
-          (<!>           name: arrow                   visible?: #f)
           ;; for now as it enables jumping over kingdom bridge
           (<!>           name: run                     visible?: #f)
           (<!>           name: blink                   visible?: #f)
@@ -447,7 +446,6 @@
   (define-trait user-game World-Actionbar
     (<Role-Trait>
       (<install>
-        (<!>             name: arrow                   visible?: #f)
         ;; for now as it enables jumping over kingdom bridge
         (<!>             name: run                     visible?: #f)
         (<!>             name: blink                   visible?: #f)
