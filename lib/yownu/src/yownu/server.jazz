@@ -133,8 +133,7 @@
         (,World-Interface-Bar interface vertical   (-10 center))
         (,World-Tutorial-Bar  tutorial  horizontal (10 10) #f)
         (,World-Objective-Bar objective horizontal (114 10) #f)
-        (,World-Collision-Bar collision horizontal (-10 36) #f)
-        (,World-Minecraft-Bar minecraft vertical   (-10 -62) #f))))
+        (,World-Collision-Bar collision horizontal (-10 36) #f))))
 
 
   ;;;
@@ -389,7 +388,6 @@
       (<World-Tutorial-Actions>  name: world-tutorial)
       (<World-Objective-Actions> name: world-objective)
       (<World-Collision-Actions> name: world-collision)
-      (<World-Minecraft-Actions> name: world-minecraft)
       (<World-Anonymous-Actions> name: world-anonymous)
       (<Yownu-Actions>           name: yownu))))
 

@@ -313,8 +313,7 @@
             `(,World-Interface-Bar interface vertical   (-10 center))))
         (,World-Tutorial-Bar  tutorial  horizontal (10 10) #f)
         (,World-Objective-Bar objective horizontal (114 10) #f)
-        (,World-Collision-Bar collision horizontal (-10 36) #f)
-        (,World-Minecraft-Bar minecraft vertical   (-10 -62) #f))))
+        (,World-Collision-Bar collision horizontal (-10 36) #f))))
 
 
   ;;;
@@ -383,6 +382,7 @@
           (<!>           name: toggle-camera-smoothing visible?: #f)
           (<!>           name: toggle-camera-lock      visible?: #f))
         (<world-graphics!>
+          (<!>           name: toggle-glow             visible?: #f)
           (<!>           name: toggle-lighting         visible?: #f)
           (<!>           name: toggle-fog              visible?: #f)
           (<!>           name: toggle-gadgets          visible?: #f)
@@ -429,8 +429,6 @@
           (<!>           name: restore-gaia/world      visible?: #f))
         (<world-tutorial!>)
         (<world-debug!>                                visible?: #f)
-        (<world-minecraft!>
-          (<!>           name: toggle-player-glow      visible?: #f))
         (<yownu!>                                      visible?: #f))))
   
   (define-trait user-main World-Actionbar
@@ -526,10 +524,6 @@
   (define-trait user-debug World-Actionbar
     (<Role-Trait>
       (<install>                                       visible?: #f)))
-  
-  (define-trait user-minecraft World-Actionbar
-    (<Role-Trait>
-      (<install>                                       visible?: #f)))
 
   (definition user-role
     `((:bindings ,user-bindings)
@@ -544,8 +538,7 @@
       (window ,user-window)
       (tutorial ,user-tutorial)
       (objective ,user-objective)
-      (debug ,user-debug)
-      (minecraft ,user-minecraft)))
+      (debug ,user-debug)))
 
 
   ;;;
@@ -828,7 +821,6 @@
       (<World-Tutorial-Actions>  name: world-tutorial)
       (<World-Objective-Actions> name: world-objective)
       (<World-Collision-Actions> name: world-collision)
-      (<World-Minecraft-Actions> name: world-minecraft)
       (<World-Anonymous-Actions> name: world-anonymous)
       (<World-User-Actions>      name: world-user visible?: #f)
       ;; Yownu
