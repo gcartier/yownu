@@ -30,10 +30,6 @@
 (class Yownu-Zone extends Zone
   
   
-  (form
-    (<install> floor-level: #f))
-  
-  
   (method override (planets?)
     #t)
   
