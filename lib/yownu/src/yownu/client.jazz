@@ -607,7 +607,6 @@
           (<!>           name: restore-gaia/world      visible?: #f))
         (<world-tutorial!>)
         (<world-debug!>
-          (<!>           name: toggle-target           visible?: #f)
           (<!>           name: toggle-script           visible?: #f)
           (<!>           name: toggle-axes             visible?: #f)
           (<!>           name: toggle-debug-sectors    visible?: #f)
@@ -710,7 +709,6 @@
   (define-trait designer-debug World-Actionbar
     (<Role-Trait>
       (<install>
-        (<!>             name: toggle-target           visible?: #f)
         (<!>             name: toggle-script           visible?: #f)
         (<!>             name: toggle-axes             visible?: #f)
         (<!>             name: toggle-debug-sectors    visible?: #f)
