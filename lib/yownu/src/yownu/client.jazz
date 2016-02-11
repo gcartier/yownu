@@ -593,13 +593,6 @@
           (<!>           name: meshes-showcase         visible?: #f)
           (<!>           name: textures-showcase       visible?: #f)
           (<!>           name: import-model            visible?: #f)
-          (<!>           name: toggle-grid             visible?: #f)
-          (<!>           name: toggle-grid-z           visible?: #f)
-          (<!>           name: toggle-grid-y           visible?: #f)
-          (<!>           name: toggle-grid-x           visible?: #f)
-          (<!>           name: move-grid               visible?: #f)
-          (<!>           name: decrease-grid           visible?: #f)
-          (<!>           name: increase-grid           visible?: #f)
           (<!>           name: reload-textures         visible?: #f)
           (<!>           name: change-editor-mode      visible?: #f))
         (<world-history!>
@@ -678,7 +671,6 @@
         (<!>             name: animations-showcase     visible?: #f)
         (<!>             name: meshes-showcase         visible?: #f)
         (<!>             name: textures-showcase       visible?: #f)
-        (<!>             name: toggle-grid             visible?: #f)
         (<!>             name: change-editor-mode      visible?: #f))))
   
   (define-trait designer-target World-Actionbar
