@@ -93,7 +93,6 @@ world.inhibit-slicing?           default ;; #f
 
 ;; Debug
 world.validate-shaders?          default ;; #t
-world.testing                    default ;; #f
 world.gc-report?                 default ;; #f
 world.debug-w3d?                 default ;; #f
 world.debug-ms3d?                default ;; #f
