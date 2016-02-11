@@ -53,6 +53,7 @@ world.sun-color                  default ;; #f
 world.sun-cycle?                 default ;; #t
 world.start-time                 default ;; dawn dusk day night
 world.cache-images?              default ;; #t
+world.mesh-categories?           default ;; #t
 world.skybox                     default ;; #f
 world.fog?                       default ;; #t
 world.earth?                     default ;; #t
@@ -99,7 +100,6 @@ world.debug-ms3d?                default ;; #f
 world.debug-meshes?              default ;; #f
 world.debug-lightmap?            default ;; #f
 world.debug-textures?            default ;; #f
-world.debug-categories?          default ;; #f
 world.debug-animations?          default ;; #f
 world.debug-throttle?            default ;; #f
 world.info-display               default ;; #f
