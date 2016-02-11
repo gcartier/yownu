@@ -587,8 +587,6 @@
           (<!>           name: rotate-target-mode      visible?: #f)
           (<!>           name: scale-target-mode       visible?: #f)
           (<!>           name: skeleton-target-mode    visible?: #f)
-          (<!>           name: models-showcase         visible?: #f)
-          (<!>           name: gadgets-showcase        visible?: #f)
           (<!>           name: tiles-showcase          visible?: #f)
           (<!>           name: shaders-showcase        visible?: #f)
           (<!>           name: animations-showcase     visible?: #f)
@@ -675,8 +673,6 @@
   (define-trait designer-edition World-Actionbar
     (<Role-Trait>
       (<install>
-        (<!>             name: models-showcase         visible?: #f)
-        (<!>             name: gadgets-showcase        visible?: #f)
         (<!>             name: tiles-showcase          visible?: #f)
         (<!>             name: shaders-showcase        visible?: #f)
         (<!>             name: animations-showcase     visible?: #f)
