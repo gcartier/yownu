@@ -593,8 +593,7 @@
           (<!>           name: meshes-showcase         visible?: #f)
           (<!>           name: textures-showcase       visible?: #f)
           (<!>           name: import-model            visible?: #f)
-          (<!>           name: reload-textures         visible?: #f)
-          (<!>           name: change-editor-mode      visible?: #f))
+          (<!>           name: reload-textures         visible?: #f))
         (<world-history!>
           (<!>           name: step-backward           visible?: #f)
           (<!>           name: step-forward            visible?: #f)
@@ -669,8 +668,7 @@
         (<!>             name: shaders-showcase        visible?: #f)
         (<!>             name: animations-showcase     visible?: #f)
         (<!>             name: meshes-showcase         visible?: #f)
-        (<!>             name: textures-showcase       visible?: #f)
-        (<!>             name: change-editor-mode      visible?: #f))))
+        (<!>             name: textures-showcase       visible?: #f))))
   
   (define-trait designer-target World-Actionbar
     (<Role-Trait>
