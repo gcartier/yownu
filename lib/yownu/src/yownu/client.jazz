@@ -286,39 +286,38 @@
   
   
   (method override (setup-application-interface)
-    (let ((world (current-world)))
-      (let ((interface (get-interface~ world)))
-        (new History-Slider name: 'slider parent: interface size: {Dimension 400 40} location: '(center 32) visible?: #f)
-        (install-bars
-          `(,(case current-role
-               ((user)
-                `(,World-Main-Bar      main      horizontal (-105 -10)))
-               (else
-                `(,World-Main-Bar      main      horizontal (center -10))))
-            ;; (,World-Client-Bar    client    horizontal (10 -98)) ;; overlaps the script pane
-            ,(case current-role
-               ((user)
-                `(,World-Game-Bar      game      horizontal (center -10)))
-               (else
-                `(,World-Game-Bar      game      horizontal (center -36))))
-            (,World-Window-Bar    window    horizontal (-10 -10))
-            (,World-Camera-Bar    camera    horizontal (-10 -36))
-            (,World-Debug-Bar     debug     horizontal (10 -10))
-            (,World-History-Bar   history   horizontal (10 -36))
-            (,World-Models-Bar    models    horizontal none #f)
-            (,World-Blocks-Bar    blocks    horizontal none #f)
-            (,World-Target-Bar    target    horizontal (-10 10))
-            (,World-Edition-Bar   edition   vertical   (-36 center))
-            ,(case current-role
-               ((user)
-                `(,World-Interface-Bar interface horizontal (10 -10)))
-               (else
-                `(,World-Interface-Bar interface vertical   (-10 center))))
-            (,World-Tutorial-Bar  tutorial  horizontal (10 10) #f)
-            (,World-Objective-Bar objective horizontal (114 10) #f)
-            (,World-Collision-Bar collision horizontal (-10 36) #f)))
-        (set-layouter~ (child~ interface 'models) models-bar-layouter)
-        (set-layouter~ (child~ interface 'blocks) blocks-bar-layouter))))
+    (let ((interface (current-interface)))
+      (new History-Slider name: 'slider parent: interface size: {Dimension 400 40} location: '(center 32) visible?: #f)
+      (install-bars
+        `(,(case current-role
+             ((user)
+              `(,World-Main-Bar      main      horizontal (-105 -10)))
+             (else
+              `(,World-Main-Bar      main      horizontal (center -10))))
+          ;; (,World-Client-Bar    client    horizontal (10 -98)) ;; overlaps the script pane
+          ,(case current-role
+             ((user)
+              `(,World-Game-Bar      game      horizontal (center -10)))
+             (else
+              `(,World-Game-Bar      game      horizontal (center -36))))
+          (,World-Window-Bar    window    horizontal (-10 -10))
+          (,World-Camera-Bar    camera    horizontal (-10 -36))
+          (,World-Debug-Bar     debug     horizontal (10 -10))
+          (,World-History-Bar   history   horizontal (10 -36))
+          (,World-Models-Bar    models    horizontal none #f)
+          (,World-Blocks-Bar    blocks    horizontal none #f)
+          (,World-Target-Bar    target    horizontal (-10 10))
+          (,World-Edition-Bar   edition   vertical   (-36 center))
+          ,(case current-role
+             ((user)
+              `(,World-Interface-Bar interface horizontal (10 -10)))
+             (else
+              `(,World-Interface-Bar interface vertical   (-10 center))))
+          (,World-Tutorial-Bar  tutorial  horizontal (10 10) #f)
+          (,World-Objective-Bar objective horizontal (114 10) #f)
+          (,World-Collision-Bar collision horizontal (-10 36) #f)))
+      (set-layouter~ (child~ interface 'models) models-bar-layouter)
+      (set-layouter~ (child~ interface 'blocks) blocks-bar-layouter)))
 
 
   ;;;

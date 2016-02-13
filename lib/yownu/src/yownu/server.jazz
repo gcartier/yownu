@@ -118,22 +118,22 @@
   
   
   (method override (setup-application-interface)
-    (let ((world (current-world)))
-      (let ((interface (get-interface~ world)))
-        (new History-Slider name: 'slider parent: interface size: {Dimension 400 40} location: '(center 32) visible?: #f)
-        (install-bars
-          `((,World-Main-Bar      main      horizontal (center -10))
-            (,World-Server-Bar    server    horizontal (10 -98))
-            (,World-Game-Bar      game      horizontal (center -36))
-            (,World-Window-Bar    window    horizontal (-10 -10))
-            (,World-Camera-Bar    camera    horizontal (-10 -36))
-            (,World-Debug-Bar     debug     horizontal (10 -10))
-            (,World-History-Bar   history   horizontal (10 -36))
-            (,World-Models-Bar    models    horizontal (10 -24.) #f)
-            (,World-Interface-Bar interface vertical   (-10 center))
-            (,World-Tutorial-Bar  tutorial  horizontal (10 10) #f)
-            (,World-Objective-Bar objective horizontal (114 10) #f)
-            (,World-Collision-Bar collision horizontal (-10 36) #f))))))
+    (let ((interface (current-interface))
+          (world (current-world)))
+      (new History-Slider name: 'slider parent: interface size: {Dimension 400 40} location: '(center 32) visible?: #f)
+      (install-bars
+        `((,World-Main-Bar      main      horizontal (center -10))
+          (,World-Server-Bar    server    horizontal (10 -98))
+          (,World-Game-Bar      game      horizontal (center -36))
+          (,World-Window-Bar    window    horizontal (-10 -10))
+          (,World-Camera-Bar    camera    horizontal (-10 -36))
+          (,World-Debug-Bar     debug     horizontal (10 -10))
+          (,World-History-Bar   history   horizontal (10 -36))
+          (,World-Models-Bar    models    horizontal (10 -24.) #f)
+          (,World-Interface-Bar interface vertical   (-10 center))
+          (,World-Tutorial-Bar  tutorial  horizontal (10 10) #f)
+          (,World-Objective-Bar objective horizontal (114 10) #f)
+          (,World-Collision-Bar collision horizontal (-10 36) #f)))))
 
 
   ;;;
