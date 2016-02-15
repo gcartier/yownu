@@ -374,7 +374,7 @@
           (<!>           name: run                     visible?: #f)
           (<!>           name: blink                   visible?: #f)
           (<!>           name: warp                    visible?: #f)
-          (<!>           name: sprint                  visible?: #f))
+          (<!>           name: dash                    visible?: #f))
         (<world-client!>
           (<!>           name: connect-to-server       visible?: #f)
           (<!>           name: disconnect-from-server  visible?: #f)
@@ -453,7 +453,7 @@
         (<!>             name: run                     visible?: #f)
         (<!>             name: blink                   visible?: #f)
         (<!>             name: warp                    visible?: #f)
-        (<!>             name: sprint                  visible?: #f)
+        (<!>             name: dash                    visible?: #f)
         (<!>             name: mind-control            visible?: #f)
         (<!>             name: toggle-aim              visible?: #f)
         (<!>             name: toggle-free-aim         visible?: #f)
@@ -639,7 +639,7 @@
   (define-trait designer-game World-Actionbar
     (<Role-Trait>
       (<install>
-        (<!>             name: sprint                 visible?: #f)
+        (<!>             name: dash                   visible?: #f)
         (<!>             name: mind-control           visible?: #f)
         (<!>             name: toggle-aim             visible?: #f)
         (<!>             name: toggle-free-aim        visible?: #f))))

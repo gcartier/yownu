@@ -170,7 +170,7 @@
         (<world-spell!>
           (<!>           name: bullet                  visible?: #f)
           (<!>           name: arrow                   visible?: #f)
-          (<!>           name: sprint                  visible?: #f))
+          (<!>           name: dash                    visible?: #f))
         (<world-camera!>
           (<!>           name: toggle-camera-lock      visible?: #f))
         (<world-graphics!>
@@ -255,7 +255,7 @@
       (<install>
         (<!>             name: bullet                  visible?: #f)
         (<!>             name: arrow                   visible?: #f)
-        (<!>             name: sprint                  visible?: #f)
+        (<!>             name: dash                    visible?: #f)
         (<!>             name: mind-control            visible?: #f)
         (<!>             name: toggle-aim              visible?: #f)
         (<!>             name: toggle-free-aim         visible?: #f)
