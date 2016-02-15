@@ -123,6 +123,7 @@
         (world.render)
         (world.renderer)
         (world.renderers)
+        (world.script)
         (world.sector)
         (world.settings)
         (world.shader)
