@@ -129,6 +129,7 @@
         (world.shader)
         (world.shaders)
         (world.skybox)
+        (world.speed)
         (world.support)
         (world.syntax (phase syntax))
         (world.tag)
