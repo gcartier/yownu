@@ -371,7 +371,7 @@
         (<world-user!>                                 visible?: #t)
         (<world-spell!>
           ;; for now as it enables jumping over kingdom bridge
-          (<!>           name: run                     visible?: #f)
+          (<!>           name: sprint                  visible?: #f)
           (<!>           name: blink                   visible?: #f)
           (<!>           name: warp                    visible?: #f)
           (<!>           name: dash                    visible?: #f))
@@ -450,7 +450,7 @@
     (<Role-Trait>
       (<install>
         ;; for now as it enables jumping over kingdom bridge
-        (<!>             name: run                     visible?: #f)
+        (<!>             name: sprint                  visible?: #f)
         (<!>             name: blink                   visible?: #f)
         (<!>             name: warp                    visible?: #f)
         (<!>             name: dash                    visible?: #f)

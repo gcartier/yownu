@@ -95,6 +95,7 @@
         (world.interface.inventory)
         (world.interface.pane)
         (world.interface.skin)
+        (world.interface.showcase)
         (world.io)
         (world.keys)
         (world.light)
