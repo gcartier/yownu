@@ -780,6 +780,8 @@
     (<install>
       ;; Application
       (<!>                       name: application visible?: #f)
+      (<!>                       name: text
+        (<!>                     name: search-current visible?: #f))
       (<!>                       name: formatted-text visible?: #f)
       (<!>                       name: menubar visible?: #f)
       ;; Scripting
