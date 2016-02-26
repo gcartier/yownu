@@ -124,6 +124,7 @@
         (world.render)
         (world.renderer)
         (world.renderers)
+        (world.scripts)
         (world.sector)
         (world.settings)
         (world.shader)
