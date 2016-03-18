@@ -37,7 +37,6 @@ world.position                   default ;; {Point 50 50}
 world.size                       default ;; {Dimension 1200 800}
 
 ;; Video
-world.block-shader               default ;; phong
 world.sector-size                default ;; 16
 world.view-distance              default ;; 13
 world.dynamic-lights             default ;; 8
