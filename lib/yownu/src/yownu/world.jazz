@@ -69,6 +69,7 @@
         (world.camera)
         (world.collision)
         (world.configure)
+        (world.contour)
         (world.creature)
         (world.debug)
         (world.draw)

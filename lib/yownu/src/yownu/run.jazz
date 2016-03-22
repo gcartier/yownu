@@ -25,7 +25,7 @@
   (set! yownu-start start))
 
 
-(definition (run descriptor)
+(definition protected (prepare-client)
   (define (setup-aliases)
     (register-alias 'App
                     (list (cond ((is-alias? 'Yownu)
@@ -42,8 +42,11 @@
   (set-aliases-setup setup-aliases)
   (set-valid-roles '(user designer programmer))
   (set-worker-filename (cond-expand (mac "yownu-worker.app/Contents/MacOS/Yownu-Worker")
-                                    (else "Yownu-Worker")))
-  ;; world world.settings and world.work must be compiled
+                                    (else "Yownu-Worker"))))
+
+
+(definition (run descriptor)
+  (prepare-client)
   (load-unit 'world.settings)
   (load-unit 'world.work)
   (load-unit 'yownu.start)
