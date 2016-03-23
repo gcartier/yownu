@@ -387,6 +387,7 @@
     (<install> toplevel-state: restored
       (<documents~>
         (<Jazz-Text-Preferences> name: jazz-text))
+      @wait-debugger!?
       (<Debug-Preferences>       name: debug))))
 
 

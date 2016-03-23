@@ -19,7 +19,9 @@
         (jazz.catalog)
         (jazz.component)
         (jazz.debuggee)
+        @wait-debugger!?
         (jazz.debugger)
+        @wait-debugger!?
         (jazz.debugger.stub)
         (jazz.editor)
         (jazz.editor.jazz)
@@ -59,6 +61,7 @@
   
   
   (slot yownu-settings initialize #f getter generate)
+  @wait-debugger!?
   (slot local-debugger initialize #f)
 
   
@@ -115,11 +118,13 @@
   
   
   ;; copy-pasted from IDE
+  @wait-debugger!?
   (method override (get-local-debugger)
     local-debugger)
   
   
   ;; copy-pasted from IDE
+  @wait-debugger!?
   (method override (install-process)
     (nextmethod)
     (start-debuggers))
@@ -130,10 +135,12 @@
     (setup-cataloguer)
     (preload-catalogs)
     ;; a try
+    @wait-debugger!?
     (set-debugger-manager (new Debugger-Manager)))
   
   
   ;; copy-pasted from IDE
+  @wait-debugger!?
   (method override (conclude-environment)
     (nextmethod)
     ;; do this at the last moment possible because any error beyond this point
@@ -211,6 +218,7 @@
   
   
   ;; copy-pasted from IDE
+  @wait-debugger!?
   (method override (register-base-objects)
     (nextmethod)
     (register-object~ (get-local-register) 'debugger (new Jazz-Debugger-Local-Proxy local-debugger)))
@@ -230,6 +238,7 @@
   ;;;
   
   
+  @wait-debugger!?
   (method override (start-console)
     (if (remote-proxy? (get-controller-debugger))
         (nextmethod)
@@ -238,6 +247,7 @@
   
   
   ;; copy-pasted from IDE
+  @wait-debugger!?
   (method (start-debuggers)
     (when (not local-debugger)
       (set! local-debugger (new Yownu-Debugger))
@@ -765,6 +775,7 @@
     (<install>                                   toplevel-state: restored toolbar-classes: ((:menubar . {Reference World-Menubar}) (:toolbar . {Reference World-Toolbar}) (:status . {Reference World-Status}))
       (<documents~>
         (<Jazz-Text-Preferences> name: jazz-text))
+      @wait-debugger!?
       (<Debug-Preferences>       name: debug))))
 
 
