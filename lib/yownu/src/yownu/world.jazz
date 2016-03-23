@@ -21,7 +21,6 @@
         (jazz.cairo)
         (jazz.component)
         (jazz.debuggee)
-        (jazz.detprof)
         (jazz.development)
         (jazz.editor.jazz)
         (jazz.event)
