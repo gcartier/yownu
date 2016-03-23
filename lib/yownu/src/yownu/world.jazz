@@ -41,6 +41,7 @@
         (jazz.opengl.window)
         (jazz.platform)
         (jazz.runtime)
+        (jazz.settings)
         (jazz.skin)
         (jazz.snapshot)
         (jazz.syntax)

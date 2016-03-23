@@ -15,7 +15,7 @@
 
 
 (import (jazz.process)
-        (jazz.settings (cond windows))
+        (jazz.settings)
         (world)
         (world.boot)
         (world.colors)
@@ -27,21 +27,13 @@
         (yownu.windows (cond windows)))
 
 
-(cond-expand
-  (cocoa
-    (definition (start-yownu-server)
-      (load-point 'start)
-      (set-min-heap! (* 1000000 1024))
-      (boot-client Yownu-Server
-                   start: (lambda () (open-world/zone "yownu" #f)))))
-  (else
-    (definition (start-yownu-server)
-      (load-point 'start)
-      (set-min-heap! (* 1000000 1024))
-      (boot-client Yownu-Server
-                   start: (lambda () (open-world/zone "yownu" #f))
-                   finish: (lambda () (start-panel~ (get-process)))
-                   visible?: (boolean-parameter "window" 'world.server.window? #f)))))
+(definition (start-yownu-server)
+  (load-point 'start)
+  (set-min-heap! (* 1000000 1024))
+  (boot-client Yownu-Server
+               start: (lambda () (open-world/zone "yownu" #f))
+               finish: (lambda () (start-panel~ (get-process)))
+               visible?: (boolean-parameter "window" 'world.server.window? #f)))
 
 
 (set-yownu-start start-yownu-server))
