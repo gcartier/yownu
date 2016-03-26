@@ -71,7 +71,9 @@
     (let ((fullscreen? (xor (world-setting 'world.fullscreen? (not (get-controller-debugger))) (shift-down?)))
           (pos (world-setting 'world.position {Point 250 100}))
           (size (world-setting 'world.size {Dimension 1200 800})))
-      (new-opengl-window class: Yownu-Window fullscreen?: fullscreen? position: pos size: size need-version: {Version 3 2} render?: #f visible?: #f)))
+      (let ((toplevel (new-opengl-window class: Yownu-Window fullscreen?: fullscreen? position: pos size: size need-version: {Version 3 2} render?: #f visible?: #f)))
+        (set-caption-base~ toplevel "Yownu Server")
+        toplevel)))
   
   
   (method override (initialize-settings)
@@ -149,15 +151,15 @@
       (new History-Slider name: 'slider parent: interface size: {Dimension 400 40} location: '(center 32) visible?: #f)
       (install-bars
         `((,World-Main-Bar      main      horizontal (center -10))
-          (,World-Server-Bar    server    horizontal (10 -98))
+          (,World-Server-Bar    server    horizontal (-10 -98))
           (,World-Game-Bar      game      horizontal (center -36))
           (,World-Window-Bar    window    horizontal (-10 -10))
           (,World-Camera-Bar    camera    horizontal (-10 -36))
           (,World-Debug-Bar     debug     horizontal (10 -10))
-          (,World-History-Bar   history   horizontal (10 -36))
+          (,World-History-Bar   history   horizontal (10 -36) #f)
           (,World-Models-Bar    models    horizontal none #f)
           (,World-Blocks-Bar    blocks    horizontal none #f)
-          (,World-Edition-Bar   edition   vertical   (-36 center))
+          (,World-Edition-Bar   edition   vertical   (-36 center) #f)
           (,World-Interface-Bar interface vertical   (-10 center))
           (,World-Tutorial-Bar  tutorial  horizontal (10 10) #f)
           (,World-Objective-Bar objective horizontal (114 10) #f)
@@ -191,17 +193,20 @@
           (<!>           name: world-open              visible?: #f)
           (<!>           name: world-save              visible?: #f)
           (<!>           name: world-save-as           visible?: #f)
-          (<!>           name: world-revert            visible?: #f))
+          (<!>           name: world-revert            visible?: #f)
+          (<!>           name: toggle-user             visible?: #f))
         (<world-game!>
           (<!>           name: mind-control            visible?: #f)
           (<!>           name: toggle-aim              visible?: #f)
           (<!>           name: toggle-free-aim         visible?: #f)
-          (<!>           name: character-pane          visible?: #f))
+          (<!>           name: character-pane          visible?: #f)
+          (<!>           name: bag-pane                visible?: #f))
         (<world-spell!>
           (<!>           name: bullet                  visible?: #f)
           (<!>           name: arrow                   visible?: #f)
           (<!>           name: dash                    visible?: #f))
         (<world-camera!>
+          (<!>           name: toggle-camera-smoothing visible?: #f)
           (<!>           name: toggle-camera-lock      visible?: #f))
         (<world-graphics!>
           (<!>           name: toggle-lighting         visible?: #f)
@@ -213,7 +218,9 @@
           (<!>           name: toggle-blocks           visible?: #f)
           (<!>           name: toggle-post-processing  visible?: #f))
         (<world-sound!>
-          (<!>           name: toggle-music            visible?: #f))
+          (<!>           name: toggle-music            visible?: #f)
+          (<!>           name: toggle-ambience         visible?: #f)
+          (<!>           name: toggle-sound            visible?: #f))
         (<world-edition!>
           (<!>           name: select-target-mode      visible?: #f)
           (<!>           name: move-target-mode        visible?: #f)
@@ -250,6 +257,7 @@
         (<world-debug!>
           (<!>           name: toggle-target           visible?: #f)
           (<!>           name: toggle-script           visible?: #f)
+          (<!>           name: toggle-axes             visible?: #f)
           (<!>           name: toggle-debug-sectors    visible?: #f)
           (<!>           name: toggle-debug-areas      visible?: #f)
           (<!>           name: toggle-draw-atlas       visible?: #f)
@@ -278,7 +286,8 @@
         (<!>             name: world-new               visible?: #f)
         (<!>             name: world-open              visible?: #f)
         (<!>             name: world-save              visible?: #f)
-        (<!>             name: world-revert            visible?: #f))))
+        (<!>             name: world-revert            visible?: #f)
+        (<!>             name: toggle-user             visible?: #f))))
     
   (define-trait admin-game World-Actionbar
     (<Role-Trait>
@@ -289,7 +298,8 @@
         (<!>             name: mind-control            visible?: #f)
         (<!>             name: toggle-aim              visible?: #f)
         (<!>             name: toggle-free-aim         visible?: #f)
-        (<!>             name: character-pane          visible?: #f))))
+        (<!>             name: character-pane          visible?: #f)
+        (<!>             name: bag-pane                visible?: #f))))
 
   (define-trait admin-interface World-Actionbar
     (<Role-Trait>
@@ -304,11 +314,14 @@
         (<!>             name: toggle-redstone-x-rays  visible?: #f)
         (<!>             name: toggle-blocks           visible?: #f)
         (<!>             name: toggle-post-processing  visible?: #f)
-        (<!>             name: toggle-music            visible?: #f))))
+        (<!>             name: toggle-music            visible?: #f)
+        (<!>             name: toggle-ambience         visible?: #f)
+        (<!>             name: toggle-sound            visible?: #f))))
 
   (define-trait admin-camera World-Actionbar
     (<Role-Trait>
       (<install>
+        (<!>             name: toggle-camera-smoothing visible?: #f)
         (<!>             name: toggle-camera-lock      visible?: #f))))
 
   (define-trait admin-edition World-Actionbar
@@ -350,6 +363,7 @@
       (<install>
         (<!>             name: toggle-target           visible?: #f)
         (<!>             name: toggle-script           visible?: #f)
+        (<!>             name: toggle-axes             visible?: #f)
         (<!>             name: toggle-debug-sectors    visible?: #f)
         (<!>             name: toggle-debug-areas      visible?: #f)
         (<!>             name: toggle-draw-atlas       visible?: #f)

@@ -162,5 +162,4 @@
             "New"
           (get-name~ (zone-directory (get-moniker~ zone))))))
     
-    (set-title~ window (format "Yownu - {a}"
-                               (present-zone))))))
+    (set-caption~ window (present-zone)))))
