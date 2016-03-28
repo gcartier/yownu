@@ -45,6 +45,7 @@
                                   yownu.worker
                                   yownu.worker-settings)
                           (dependencies world.worker))
+            (yownu-world (product yownu.product-world))
             (yownu-all (dependencies yownu
                                      yownu-server
                                      yownu-worker))
