@@ -48,6 +48,7 @@
 (definition (run descriptor)
   (prepare-server)
   (load-unit 'world.settings)
+  (load-unit 'world.work)
   (load-unit 'yownu.start-server)
   (yownu-start))
 
