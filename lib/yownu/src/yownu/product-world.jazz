@@ -58,6 +58,7 @@
 
 
 (definition (deploy descriptor)
+  (install descriptor)
   (initialize-aliases)
   (deploy-directory 'world (new-directory~ install-dir yownu-world)))
 
