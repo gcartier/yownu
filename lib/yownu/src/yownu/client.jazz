@@ -304,7 +304,7 @@
               `(,World-Main-Bar      main      horizontal (-105 -10)))
              (else
               `(,World-Main-Bar      main      horizontal (center -10))))
-          (,World-Client-Bar    client    horizontal (-10 -98)) ;; overlaps the script pane
+          ;(,World-Client-Bar    client    horizontal (-10 -98)) ;; overlaps the script pane
           ,(case current-role
              ((user)
               `(,World-Game-Bar      game      horizontal (center -10)))
@@ -385,10 +385,6 @@
           (<!>           name: blink                   visible?: #f)
           (<!>           name: warp                    visible?: #f)
           (<!>           name: dash                    visible?: #f))
-        (<world-client!>
-          (<!>           name: connect-to-server       visible?: #f)
-          (<!>           name: disconnect-from-server  visible?: #f)
-          (<!>           name: request-server-update   visible?: #f))
         (<world-camera!>
           (<!>           name: person-motion           visible?: #f)
           (<!>           name: orbit-motion            visible?: #f)
@@ -578,10 +574,6 @@
           (<!>           name: mind-control            visible?: #f)
           (<!>           name: toggle-aim              visible?: #f)
           (<!>           name: toggle-free-aim         visible?: #f))
-        (<world-client!>
-          (<!>           name: connect-to-server       visible?: #f)
-          (<!>           name: disconnect-from-server  visible?: #f)
-          (<!>           name: request-server-update   visible?: #f))
         (<world-camera!>
           (<!>           name: toggle-camera-lock      visible?: #f))
         (<world-graphics!>
