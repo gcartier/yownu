@@ -264,17 +264,7 @@
           (<!>           name: clear-console           visible?: #f)
           (<!>           name: clear-terminal          visible?: #f)
           (<!>           name: garbage-collect         visible?: #f)
-          (<!>           name: explore-interface       visible?: #f)
-          (<!>           name: test1                   visible?: #f)
-          (<!>           name: test2                   visible?: #f)
-          (<!>           name: test3                   visible?: #f)
-          (<!>           name: test4                   visible?: #f)
-          (<!>           name: test5                   visible?: #f)
-          (<!>           name: test6                   visible?: #f)
-          (<!>           name: test7                   visible?: #f)
-          (<!>           name: test8                   visible?: #f)
-          (<!>           name: test9                   visible?: #f)
-          (<!>           name: test0                   visible?: #f)))))
+          (<!>           name: explore-interface       visible?: #f)))))
   
   (define-trait admin-main World-Actionbar
     (<Role-Trait>
