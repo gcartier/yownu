@@ -14,8 +14,7 @@
 (module yownu jazz
 
 
-(import (jazz.io)
-        (jazz.version))
+(import (jazz.version))
 
 
 ;;;

@@ -14,8 +14,7 @@
 (module yownu.zone jazz
 
 
-(import (jazz.jml)
-        (jazz.syntax (phase syntax))
+(import (jazz.syntax (phase syntax))
         (world)
         (world.autoload)
         (world.geometry)
