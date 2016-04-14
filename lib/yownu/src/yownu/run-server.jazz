@@ -36,7 +36,7 @@
                                  'Build))))
     (register-resources-alias 'Yownu-Server 'yownu-server))
   
-  (set-tier 'server)
+  (set-process-kind 'process)
   (set-settings-root {Directory Home ".yownu-server"})
   (set-settings-alias 'Resources)
   (set-aliases-setup setup-aliases)

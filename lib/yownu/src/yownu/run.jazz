@@ -36,7 +36,7 @@
                                  'Build))))
     (register-resources-alias 'Yownu 'yownu))
   
-  (set-tier 'client)
+  (set-process-kind 'application)
   (set-settings-root {Directory Home ".yownu"})
   (set-settings-alias 'Resources)
   (set-aliases-setup setup-aliases)
