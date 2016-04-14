@@ -34,7 +34,7 @@
   (set-min-heap! (* 1000000 1024))
   (boot-client Yownu-Process
                start: (lambda () (with-task-mutex (lambda () (open-world/zone "yownu" #f))))
-               finish: (lambda () (when (boolean-argument "panel" #f) (start-panel~ (get-process))))
+               finish: (lambda () (start-panel~ (get-process)))
                visible?: (boolean-parameter "window" 'world.server.window? #f)))
 
 
