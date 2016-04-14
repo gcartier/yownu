@@ -21,6 +21,7 @@
         (world.colors)
         (world.fonts)
         (world.io)
+        (world.process)
         (world.settings)
         (world.task)
         (yownu.run-server)
@@ -31,7 +32,7 @@
 (definition (start-yownu-server)
   (load-point 'start)
   (set-min-heap! (* 1000000 1024))
-  (boot-client Yownu-Server
+  (boot-client Yownu-Process
                start: (lambda () (with-task-mutex (lambda () (open-world/zone "yownu" #f))))
                finish: (lambda () (when (boolean-argument "panel" #f) (start-panel~ (get-process))))
                visible?: (boolean-parameter "window" 'world.server.window? #f)))

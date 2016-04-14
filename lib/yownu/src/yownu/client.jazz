@@ -37,8 +37,8 @@
         (jazz.syntax (phase syntax))
         (jazz.time)
         (world)
+        (world.appl)
         (world.autoload)
-        (world.client)
         (world.client.actions)
         (world.client.bars)
         (world.history)
@@ -55,7 +55,7 @@
         (yownu.window))
 
 
-(class Yownu-Client extends World-Client
+(class Yownu-Application extends World-Application
   
   
   (slot yownu-settings initialize #f getter generate)
@@ -344,6 +344,7 @@
       ((user) user-role)
       ((designer) designer-role)
       ((programmer) programmer-role)
+      ((admin) admin-role)
       (else (nextmethod role))))
 
 
@@ -750,7 +751,200 @@
 
   (definition programmer-role
     `((:bindings ,programmer-bindings)
-      (main ,programmer-main))))
+      (main ,programmer-main)))
+
+
+  ;;;
+  ;;;; Admin
+  ;;;
+
+
+  (define-trait admin-bindings Bindings
+    (<Role-Trait>
+      (<install>
+        (<world-menu!>)
+        (<world-world!>
+          (<!>           name: world-new               visible?: #f)
+          (<!>           name: world-open              visible?: #f)
+          (<!>           name: world-save              visible?: #f)
+          (<!>           name: world-save-as           visible?: #f)
+          (<!>           name: world-revert            visible?: #f)
+          (<!>           name: toggle-user             visible?: #f))
+        (<world-game!>
+          (<!>           name: mind-control            visible?: #f)
+          (<!>           name: toggle-aim              visible?: #f)
+          (<!>           name: toggle-free-aim         visible?: #f)
+          (<!>           name: character-pane          visible?: #f)
+          (<!>           name: bag-pane                visible?: #f))
+        (<world-spell!>
+          (<!>           name: bullet                  visible?: #f)
+          (<!>           name: arrow                   visible?: #f)
+          (<!>           name: dash                    visible?: #f))
+        (<world-camera!>
+          (<!>           name: toggle-camera-smoothing visible?: #f)
+          (<!>           name: toggle-camera-lock      visible?: #f))
+        (<world-graphics!>
+          (<!>           name: toggle-lighting         visible?: #f)
+          (<!>           name: toggle-fog              visible?: #f)
+          (<!>           name: toggle-gadgets          visible?: #f)
+          (<!>           name: toggle-normals          visible?: #f)
+          (<!>           name: toggle-x-rays           visible?: #f)
+          (<!>           name: toggle-redstone-x-rays  visible?: #f)
+          (<!>           name: toggle-blocks           visible?: #f)
+          (<!>           name: toggle-post-processing  visible?: #f))
+        (<world-sound!>
+          (<!>           name: toggle-music            visible?: #f)
+          (<!>           name: toggle-ambience         visible?: #f)
+          (<!>           name: toggle-sound            visible?: #f))
+        (<world-edition!>
+          (<!>           name: select-target-mode      visible?: #f)
+          (<!>           name: move-target-mode        visible?: #f)
+          (<!>           name: rotate-target-mode      visible?: #f)
+          (<!>           name: scale-target-mode       visible?: #f)
+          (<!>           name: no-showcase             visible?: #f)
+          (<!>           name: blocks-showcase         visible?: #f)
+          (<!>           name: models-showcase         visible?: #f)
+          (<!>           name: gadgets-showcase        visible?: #f)
+          (<!>           name: tiles-showcase          visible?: #f)
+          (<!>           name: shaders-showcase        visible?: #f)
+          (<!>           name: animations-showcase     visible?: #f)
+          (<!>           name: meshes-showcase         visible?: #f)
+          (<!>           name: textures-showcase       visible?: #f)
+          (<!>           name: skyboxes-showcase       visible?: #f)
+          (<!>           name: toggle-grid             visible?: #f)
+          (<!>           name: change-editor-mode      visible?: #f)
+          (<!>           name: import-model            visible?: #f)
+          (<!>           name: reload-textures         visible?: #f))
+        (<world-interface!>
+          (<!>           name: toggle-occlusion        visible?: #f)
+          (<!>           name: toggle-wireframe        visible?: #f))
+        (<world-history!>
+          (<!>           name: step-backward           visible?: #f)
+          (<!>           name: step-forward            visible?: #f)
+          (<!>           name: step-over               visible?: #f)
+          (<!>           name: reset-history           visible?: #f)
+          (<!>           name: toggle-evaluate-future  visible?: #f))
+        (<world-tutorial!>)
+        (<world-debug!>
+          (<!>           name: toggle-target           visible?: #f)
+          (<!>           name: toggle-script           visible?: #f)
+          (<!>           name: toggle-axes             visible?: #f)
+          (<!>           name: toggle-debug-sectors    visible?: #f)
+          (<!>           name: toggle-debug-areas      visible?: #f)
+          (<!>           name: toggle-draw-atlas       visible?: #f)
+          (<!>           name: toggle-draw-me          visible?: #f)
+          (<!>           name: toggle-gc-sound         visible?: #f)
+          (<!>           name: change-missile-behavior visible?: #f)
+          (<!>           name: reset-marks             visible?: #f)
+          (<!>           name: clear-console           visible?: #f)
+          (<!>           name: clear-terminal          visible?: #f)
+          (<!>           name: garbage-collect         visible?: #f)
+          (<!>           name: explore-interface       visible?: #f)))))
+  
+  (define-trait admin-main World-Actionbar
+    (<Role-Trait>
+      (<install>
+        (<!>             name: world-new               visible?: #f)
+        (<!>             name: world-open              visible?: #f)
+        (<!>             name: world-save              visible?: #f)
+        (<!>             name: world-revert            visible?: #f)
+        (<!>             name: toggle-user             visible?: #f))))
+    
+  (define-trait admin-game World-Actionbar
+    (<Role-Trait>
+      (<install>
+        (<!>             name: bullet                  visible?: #f)
+        (<!>             name: arrow                   visible?: #f)
+        (<!>             name: dash                    visible?: #f)
+        (<!>             name: mind-control            visible?: #f)
+        (<!>             name: toggle-aim              visible?: #f)
+        (<!>             name: toggle-free-aim         visible?: #f)
+        (<!>             name: character-pane          visible?: #f)
+        (<!>             name: bag-pane                visible?: #f))))
+
+  (define-trait admin-interface World-Actionbar
+    (<Role-Trait>
+      (<install>
+        (<!>             name: toggle-occlusion        visible?: #f)
+        (<!>             name: toggle-wireframe        visible?: #f)
+        (<!>             name: toggle-lighting         visible?: #f)
+        (<!>             name: toggle-fog              visible?: #f)
+        (<!>             name: toggle-gadgets          visible?: #f)
+        (<!>             name: toggle-normals          visible?: #f)
+        (<!>             name: toggle-x-rays           visible?: #f)
+        (<!>             name: toggle-redstone-x-rays  visible?: #f)
+        (<!>             name: toggle-blocks           visible?: #f)
+        (<!>             name: toggle-post-processing  visible?: #f)
+        (<!>             name: toggle-music            visible?: #f)
+        (<!>             name: toggle-ambience         visible?: #f)
+        (<!>             name: toggle-sound            visible?: #f))))
+
+  (define-trait admin-camera World-Actionbar
+    (<Role-Trait>
+      (<install>
+        (<!>             name: toggle-camera-smoothing visible?: #f)
+        (<!>             name: toggle-camera-lock      visible?: #f))))
+
+  (define-trait admin-edition World-Actionbar
+    (<Role-Trait>
+      (<install>
+        (<!>             name: textures-showcase       visible?: #f))))
+
+  (define-trait admin-models World-Actionbar
+    (<Role-Trait>
+      (<install>
+        (<!>             name: import-model            visible?: #f))))
+
+  (define-trait admin-history World-Actionbar
+    (<Role-Trait>
+      (<install>
+        (<!>             name: step-backward           visible?: #f)
+        (<!>             name: step-forward            visible?: #f)
+        (<!>             name: step-over               visible?: #f)
+        (<!>             name: reset-history           visible?: #f)
+        (<!>             name: toggle-evaluate-future  visible?: #f))))
+  
+  (define-trait admin-window World-Actionbar
+    (<Role-Trait>
+      (<install>)))
+  
+  (define-trait admin-tutorial World-Actionbar
+    (<Role-Trait>
+      (<install>)))
+  
+  (define-trait admin-objective World-Actionbar
+    (<Role-Trait>
+      (<install>)))
+  
+  (define-trait admin-debug World-Actionbar
+    (<Role-Trait>
+      (<install>
+        (<!>             name: toggle-target           visible?: #f)
+        (<!>             name: toggle-script           visible?: #f)
+        (<!>             name: toggle-axes             visible?: #f)
+        (<!>             name: toggle-debug-sectors    visible?: #f)
+        (<!>             name: toggle-debug-areas      visible?: #f)
+        (<!>             name: toggle-draw-atlas       visible?: #f)
+        (<!>             name: toggle-draw-me          visible?: #f)
+        (<!>             name: change-missile-behavior visible?: #f)
+        (<!>             name: reset-marks             visible?: #f)
+        (<!>             name: clear-terminal          visible?: #f)
+        (<!>             name: garbage-collect         visible?: #f)
+        (<!>             name: explore-interface       visible?: #f))))
+
+  (definition admin-role
+    `((:bindings ,admin-bindings)
+      (main ,admin-main)
+      (game ,admin-game)
+      (interface ,admin-interface)
+      (camera ,admin-camera)
+      (edition ,admin-edition)
+      (models ,admin-models)
+      (history ,admin-history)
+      (window ,admin-window)
+      (tutorial ,admin-tutorial)
+      (objective ,admin-objective)
+      (debug ,admin-debug))))
 
 
 ;;;

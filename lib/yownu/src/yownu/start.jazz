@@ -50,7 +50,7 @@
          (load-point 'start)
          (set-min-heap! (* 500000 1024))
          (initialize-platform)
-         (boot-client Yownu-Client start: (lambda () (with-task-mutex (lambda () (open-world/zone "yownu" #f))))))))
+         (boot-client Yownu-Application start: (lambda () (with-task-mutex (lambda () (open-world/zone "yownu" #f))))))))
 
 
 (set-yownu-start start-yownu))
