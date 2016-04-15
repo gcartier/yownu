@@ -30,11 +30,13 @@
         (world.interface.actions)
         (world.interface.bars)
         (world.interface.history)
+        (world.io)
         (world.process)
         (world.role)
         (world.settings)
         (world.syntax (phase syntax))
         (yownu)
+        (yownu.settings)
         (yownu.window))
 
 
@@ -62,20 +64,6 @@
   
   (method override (initialize-settings)
     (nextmethod)
-    (set! yownu-settings (new File-Settings))
-    (register-settings yownu-settings)
-    (let ((root (determine-root)))
-      (when (not root)
-        (system-message "Unable to find Yownu's world"
-                        type: 'problem
-                        title: "Yownu")
-        (exit 1))
-      (register-alias 'Root (get-list~ root))
-      (register-alias 'Yownu-World '(Root "worlds" "yownu")))
-    (when (not (exists?~ {Directory Yownu-World}))
-      (system-message (format "Unable to find Yownu's world: {a}" (parse~ {Directory Yownu-World}))
-                      type: 'problem
-                      title: "Yownu")
-      (exit 1))
-    (set-setting~ yownu-settings 'world.world-directories '(("yownu" . {Directory Yownu-World})))
-    (set-setting~ yownu-settings 'world.worlds-directories #f))))
+    (register-yownu-aliases)
+    (set! yownu-settings (make-yownu-settings))
+    (register-settings yownu-settings))))

@@ -40,6 +40,7 @@
         (<Jazz-File>       name: product-worker  source: {File :context "src" "yownu" "product-worker.jazz"})
         (<Jazz-File>       name: _yownu          source: {File :context "src" "yownu" "_yownu.jazz"})
         (<Jazz-File>       name: product-server  source: {File :context "src" "yownu" "product-server.jazz"})
-        (<Jazz-File>       name: product-world   source: {File :context "src" "yownu" "product-world.jazz"}))
+        (<Jazz-File>       name: product-world   source: {File :context "src" "yownu" "product-world.jazz"})
+        (<Jazz-File>       name: settings        source: {File :context "src" "yownu" "settings.jazz"}))
       (<Jazz-File>         name: y               source: {File :context "src" "y.jazz"})
       (<Jazz-File>         name: yrun            source: {File :context "src" "yrun.jazz"})))))

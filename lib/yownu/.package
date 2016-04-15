@@ -17,6 +17,7 @@
                            yownu.run
                            yownu.run-server
                            yownu.server
+                           yownu.settings
                            yownu.start
                            yownu.start-server
                            yownu.window
