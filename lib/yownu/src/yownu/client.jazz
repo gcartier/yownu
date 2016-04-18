@@ -51,6 +51,7 @@
         (world.role)
         (world.settings)
         (world.syntax (phase syntax))
+        (world.window)
         (yownu)
         (yownu.debugger)
         (yownu.settings)
