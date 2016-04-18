@@ -99,10 +99,6 @@
     (new Yownu-Bindings))
   
   
-  (method override (use-profile?)
-    #f)
-  
-  
   ;; copy-pasted from IDE
   @wait-debugger!?
   (method override (get-local-debugger)
