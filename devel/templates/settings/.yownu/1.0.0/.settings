@@ -12,7 +12,7 @@
 
 
 ;; Role
-world.start-user?                default ;; #t
+world.start-user?                default ;; #f
 
 ;; Game
 world.avatar                     default ;; Orb "character/bloodelffemale" "creature/gorilla"
@@ -25,9 +25,8 @@ world.position                   default ;; {Point 50 50}
 world.size                       default ;; {Dimension 1200 800}
 
 ;; Video
-world.sector-size                default ;; 16
-world.view-distance              default ;; 13
-world.dynamic-lights             default ;; 8
+world.view-distance              default ;; 9
+world.dynamic-lights             default ;; 4
 world.texture-arrays?            default ;; <system dependent>
 world.arb-multisample?           default ;; <system dependent>
 world.post-processing?           default ;; #t
@@ -58,8 +57,8 @@ world.selection-sounds?          default ;; #t
 world.gc-sound?                  default ;; #f
 
 ;; Generation
-world.tile-resolution            default ;; 32
-world.generate-mipmap?           default ;; 32
+world.tile-resolution            default ;; 128
+world.generate-mipmap?           default ;; >= 32
 
 ;; Interface
 world.start-interface?           default ;; #t
@@ -97,23 +96,23 @@ world.debug-collisions?          default ;; #f
 
 ;; Camera
 world.camera-smoothing?          default ;; #t
-world.camera-move-speed          default ;; .2
+world.camera-move-speed          default ;; .5
 world.camera-blink-speed         default ;; 2.
 world.camera-warp-speed          default ;; 4.
 world.camera-strafe-speed        default ;; .1
 world.camera-rotate-speed        default ;; .035
 
 ;; Test
-world.test1                      default ;; #f
-world.test2                      default ;; #f
-world.test3                      default ;; #f
-world.test4                      default ;; #f
-world.test5                      default ;; #f
-world.test6                      default ;; #f
-world.test7                      default ;; #f
-world.test8                      default ;; #f
-world.test9                      default ;; #f
-world.test0                      default ;; #f
+world.test1                      default ;; "test/test1"
+world.test2                      default ;; "test/test2"
+world.test3                      default ;; "test/test3"
+world.test4                      default ;; "test/test4"
+world.test5                      default ;; "test/test5"
+world.test6                      default ;; "test/test6"
+world.test7                      default ;; "test/test7"
+world.test8                      default ;; "test/test8"
+world.test9                      default ;; "test/test9"
+world.test0                      default ;; "test/test0"
 
 
 ;;;
