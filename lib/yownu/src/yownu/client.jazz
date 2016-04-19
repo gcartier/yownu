@@ -283,26 +283,34 @@
       (new History-Slider name: 'slider parent: interface size: {Dimension 400 40} location: '(center 32) visible?: #f)
       (install-bars
         `(,(case current-role
-             ((user)
+             ((user creator)
               `(,World-Main-Bar      main      horizontal (-105 -10)))
              (else
               `(,World-Main-Bar      main      horizontal (center -10))))
           ;(,World-Client-Bar    client    horizontal (-10 -98)) ;; overlaps the script pane
           ,(case current-role
-             ((user)
+             ((user creator)
               `(,World-Game-Bar      game      horizontal (center -10)))
              (else
               `(,World-Game-Bar      game      horizontal (center -36))))
           (,World-Window-Bar    window    horizontal (-10 -10))
           (,World-Camera-Bar    camera    horizontal (-10 -36))
-          (,World-Debug-Bar     debug     horizontal (10 -10))
+          ,(case current-role
+             ((creator)
+              `(,World-Debug-Bar     debug     horizontal (200 -10)))
+             (else
+              `(,World-Debug-Bar     debug     horizontal (10 -10))))
           (,World-History-Bar   history   horizontal (10 -36))
           (,World-Models-Bar    models    horizontal none #f)
           (,World-Blocks-Bar    blocks    horizontal none #f)
           (,World-Target-Bar    target    horizontal (-10 10))
-          (,World-Edition-Bar   edition   vertical   (-36 center))
           ,(case current-role
-             ((user)
+             ((creator)
+              `(,World-Edition-Bar   edition   horizontal (-200 -10)))
+             (else
+              `(,World-Edition-Bar   edition   vertical   (-36 center))))
+          ,(case current-role
+             ((user creator)
               `(,World-Interface-Bar interface horizontal (10 -10)))
              (else
               `(,World-Interface-Bar interface vertical   (-10 center))))
@@ -327,6 +335,7 @@
   (method override (role-traits role)
     (case role
       ((user) user-role)
+      ((creator) creator-role)
       ((designer) designer-role)
       ((programmer) programmer-role)
       ((admin) admin-role)
@@ -360,7 +369,8 @@
           (<!>           name: toggle-aim              visible?: #f)
           (<!>           name: toggle-free-aim         visible?: #f)
           (<!>           name: toggle-mount            visible?: #f)
-          (<!>           name: toggle-fly              visible?: #f))
+          (<!>           name: toggle-fly              visible?: #f)
+          (<!>           name: change-vehicle          visible?: #f))
         (<world-user!>                                 visible?: #t)
         (<world-spell!>
           ;; for now as it enables jumping over kingdom bridge
@@ -531,6 +541,234 @@
       (tutorial ,user-tutorial)
       (objective ,user-objective)
       (debug ,user-debug)))
+
+
+  ;;;
+  ;;;; Creator
+  ;;;
+
+
+  (define-trait creator-bindings Bindings
+    (<Role-Trait>        name: creator
+      (<install>
+        (<world-menu!>
+          (<!>           name: view-help               visible?: #f))
+        (<world-world!>
+          (<!>           name: world-open              visible?: #f)
+          (<!>           name: world-save              visible?: #f)
+          (<!>           name: world-save-as           visible?: #f)
+          (<!>           name: world-revert            visible?: #f)
+          (<!>           name: toggle-user             visible?: #f))
+        (<world-zone!>
+          (<!>           name: zone-new                visible?: #f)
+          (<!>           name: zone-open               visible?: #f)
+          (<!>           name: zone-open-content       visible?: #f)
+          (<!>           name: zone-reload             visible?: #f))
+        (<world-game!>
+          (<!>           name: mind-control            visible?: #f)
+          (<!>           name: toggle-aim              visible?: #f)
+          (<!>           name: toggle-free-aim         visible?: #f)
+          (<!>           name: toggle-mount            visible?: #f)
+          (<!>           name: toggle-fly              visible?: #f)
+          (<!>           name: change-vehicle          visible?: #f))
+        (<world-spell!>
+          (<!>           name: bullet                  visible?: #f)
+          (<!>           name: arrow                   visible?: #f)
+          ;; for now as it enables jumping over kingdom bridge
+          (<!>           name: sprint                  visible?: #f)
+          (<!>           name: blink                   visible?: #f)
+          (<!>           name: warp                    visible?: #f)
+          (<!>           name: dash                    visible?: #f))
+        (<world-camera!>
+          (<!>           name: person-motion           visible?: #f)
+          (<!>           name: orbit-motion            visible?: #f)
+          (<!>           name: free-motion             visible?: #f)
+          (<!>           name: toggle-camera-smoothing visible?: #f)
+          (<!>           name: toggle-camera-lock      visible?: #f))
+        (<world-graphics!>
+          (<!>           name: toggle-glow             visible?: #f)
+          (<!>           name: toggle-lighting         visible?: #f)
+          (<!>           name: toggle-fog              visible?: #f)
+          (<!>           name: toggle-gadgets          visible?: #f)
+          (<!>           name: toggle-normals          visible?: #f)
+          (<!>           name: toggle-x-rays           visible?: #f)
+          (<!>           name: toggle-redstone-x-rays  visible?: #f)
+          (<!>           name: toggle-blocks           visible?: #f)
+          (<!>           name: toggle-post-processing  visible?: #f))
+        (<world-edition!>
+          (<!>           name: select-target-mode      visible?: #f)
+          (<!>           name: move-target-mode        visible?: #f)
+          (<!>           name: rotate-target-mode      visible?: #f)
+          (<!>           name: scale-target-mode       visible?: #f)
+          (<!>           name: skeleton-target-mode    visible?: #f)
+          (<!>           name: tiles-showcase          visible?: #f)
+          (<!>           name: shaders-showcase        visible?: #f)
+          (<!>           name: animations-showcase     visible?: #f)
+          (<!>           name: meshes-showcase         visible?: #f)
+          (<!>           name: textures-showcase       visible?: #f)
+          (<!>           name: import-model            visible?: #f)
+          (<!>           name: toggle-grid             visible?: #f)
+          (<!>           name: toggle-grid-z           visible?: #f)
+          (<!>           name: toggle-grid-y           visible?: #f)
+          (<!>           name: toggle-grid-x           visible?: #f)
+          (<!>           name: move-grid               visible?: #f)
+          (<!>           name: decrease-grid           visible?: #f)
+          (<!>           name: increase-grid           visible?: #f)
+          (<!>           name: reload-textures         visible?: #f)
+          (<!>           name: change-editor-mode      visible?: #f))
+        (<world-history!>                              visible?: #f)
+        (<world-window!>
+          (<!>           name: live-gaia/world         visible?: #f)
+          (<!>           name: design-gaia/world       visible?: #f)
+          (<!>           name: restore-gaia/world      visible?: #f))
+        (<world-tutorial!>)
+        (<world-debug!>
+          (<!>           name: reset-profiling         visible?: #f)
+          (<!>           name: toggle-script           visible?: #f)
+          (<!>           name: toggle-axes             visible?: #f)
+          (<!>           name: toggle-debug-sectors    visible?: #f)
+          (<!>           name: toggle-debug-areas      visible?: #f)
+          (<!>           name: toggle-draw-atlas       visible?: #f)
+          (<!>           name: toggle-draw-me          visible?: #f)
+          (<!>           name: toggle-gc-sound         visible?: #f)
+          (<!>           name: change-missile-behavior visible?: #f)
+          (<!>           name: reset-marks             visible?: #f)
+          (<!>           name: clear-console           visible?: #f)
+          (<!>           name: clear-terminal          visible?: #f)
+          (<!>           name: garbage-collect         visible?: #f)
+          (<!>           name: explore-interface       visible?: #f)
+          (<!>           name: test1                   visible?: #f)
+          (<!>           name: test2                   visible?: #f)
+          (<!>           name: test3                   visible?: #f)
+          (<!>           name: test4                   visible?: #f)
+          (<!>           name: test5                   visible?: #f)
+          (<!>           name: test6                   visible?: #f)
+          (<!>           name: test7                   visible?: #f)
+          (<!>           name: test8                   visible?: #f)
+          (<!>           name: test9                   visible?: #f)
+          (<!>           name: test0                   visible?: #f))
+        (<yownu!>                                      visible?: #f))))
+  
+  (define-trait creator-main World-Actionbar
+    (<Role-Trait>
+      (<install>
+        (<!>             name: world-open              visible?: #f)
+        (<!>             name: world-save              visible?: #f)
+        (<!>             name: world-revert            visible?: #f)
+        (<!>             name: zone-new                visible?: #f)
+        (<!>             name: zone-open               visible?: #f)
+        (<!>             name: toggle-user             visible?: #f))))
+  
+  (define-trait creator-game World-Actionbar
+    (<Role-Trait>
+      (<install>
+        (<!>             name: bullet                  visible?: #f)
+        (<!>             name: arrow                   visible?: #f)
+        ;; for now as it enables jumping over kingdom bridge
+        (<!>             name: sprint                  visible?: #f)
+        (<!>             name: blink                   visible?: #f)
+        (<!>             name: warp                    visible?: #f)
+        (<!>             name: dash                    visible?: #f)
+        (<!>             name: mind-control            visible?: #f)
+        (<!>             name: toggle-aim              visible?: #f)
+        (<!>             name: toggle-free-aim         visible?: #f)
+        (<!>             name: toggle-mount            visible?: #f)
+        (<!>             name: toggle-fly              visible?: #f))))
+  
+  (define-trait creator-interface World-Actionbar
+    (<Role-Trait>
+      (<install>
+        (<!>             name: run-script              visible?: #f)
+        (<!>             name: run-last-script         visible?: #f)
+        (<!>             name: toggle-occlusion        visible?: #f)
+        (<!>             name: toggle-wireframe        visible?: #f)
+        (<!>             name: toggle-lighting         visible?: #f)
+        (<!>             name: toggle-fog              visible?: #f)
+        (<!>             name: toggle-gadgets          visible?: #f)
+        (<!>             name: toggle-normals          visible?: #f)
+        (<!>             name: toggle-x-rays           visible?: #f)
+        (<!>             name: toggle-redstone-x-rays  visible?: #f)
+        (<!>             name: toggle-blocks           visible?: #f)
+        (<!>             name: toggle-post-processing  visible?: #f))))
+
+  (define-trait creator-camera World-Actionbar
+    (<Role-Trait>
+      (<install>
+        (<!>             name: person-motion           visible?: #f)
+        (<!>             name: orbit-motion            visible?: #f)
+        (<!>             name: free-motion             visible?: #f)
+        (<!>             name: toggle-camera-smoothing visible?: #f)
+        (<!>             name: toggle-camera-lock      visible?: #f))))
+
+  (define-trait creator-edition World-Actionbar
+    (<Role-Trait>
+      (<install>
+        (<!>             name: tiles-showcase          visible?: #f)
+        (<!>             name: shaders-showcase        visible?: #f)
+        (<!>             name: animations-showcase     visible?: #f)
+        (<!>             name: meshes-showcase         visible?: #f)
+        (<!>             name: textures-showcase       visible?: #f)
+        (<!>             name: toggle-grid             visible?: #f)
+        (<!>             name: change-editor-mode      visible?: #f))))
+  
+  (define-trait creator-target World-Actionbar
+    (<Role-Trait>
+      (<install>                                       visible?: #f)))
+
+  (define-trait creator-models World-Actionbar
+    (<Role-Trait>
+      (<install>
+        (<!>             name: import-model            visible?: #f))))
+
+  (define-trait creator-history World-Actionbar
+    (<Role-Trait>
+      (<install>                                       visible?: #f)))
+  
+  (define-trait creator-window World-Actionbar
+    (<Role-Trait>
+      (<install>
+        (<!>             name: live-gaia/world         visible?: #f)
+        (<!>             name: design-gaia/world       visible?: #f)
+        (<!>             name: restore-gaia/world      visible?: #f))))
+  
+  (define-trait creator-tutorial World-Actionbar
+    (<Role-Trait>
+      (<install>)))
+  
+  (define-trait creator-objective World-Actionbar
+    (<Role-Trait>
+      (<install>)))
+  
+  (define-trait creator-debug World-Actionbar
+    (<Role-Trait>
+      (<install>
+        (<!>             name: reset-profiling         visible?: #f)
+        (<!>             name: toggle-script           visible?: #f)
+        (<!>             name: toggle-axes             visible?: #f)
+        (<!>             name: toggle-debug-sectors    visible?: #f)
+        (<!>             name: toggle-debug-areas      visible?: #f)
+        (<!>             name: toggle-draw-atlas       visible?: #f)
+        (<!>             name: toggle-draw-me          visible?: #f)
+        (<!>             name: change-missile-behavior visible?: #f)
+        (<!>             name: reset-marks             visible?: #f)
+        (<!>             name: clear-terminal          visible?: #f)
+        (<!>             name: garbage-collect         visible?: #f)
+        (<!>             name: explore-interface       visible?: #f))))
+
+  (definition creator-role
+    `((:bindings ,creator-bindings)
+      (main ,creator-main)
+      (game ,creator-game)
+      (interface ,creator-interface)
+      (camera ,creator-camera)
+      (edition ,creator-edition)
+      (target ,creator-target)
+      (models ,creator-models)
+      (history ,creator-history)
+      (window ,creator-window)
+      (tutorial ,creator-tutorial)
+      (objective ,creator-objective)
+      (debug ,creator-debug)))
 
 
   ;;;
