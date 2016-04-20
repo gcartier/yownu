@@ -12,6 +12,7 @@
 
 
 ;; Role
+world.role                       default ;; designer / creator
 world.start-user?                default ;; #f
 
 ;; Game
