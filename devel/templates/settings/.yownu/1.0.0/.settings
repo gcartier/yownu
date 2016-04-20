@@ -96,6 +96,7 @@ world.profiler-display           default ;; #f
 world.debug-collisions?          default ;; #f
 
 ;; Camera
+world.independent-camera?        default ;; #t
 world.camera-smoothing?          default ;; #t
 world.camera-move-speed          default ;; .5
 world.camera-blink-speed         default ;; 2.
