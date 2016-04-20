@@ -287,7 +287,7 @@
               `(,World-Main-Bar      main      horizontal (-105 -10)))
              (else
               `(,World-Main-Bar      main      horizontal (center -10))))
-          ;(,World-Client-Bar    client    horizontal (-10 -98)) ;; overlaps the script pane
+          (,World-Client-Bar    client    horizontal (-400 -10))
           ,(case current-role
              ((user creator)
               `(,World-Game-Bar      game      horizontal (center -10)))
