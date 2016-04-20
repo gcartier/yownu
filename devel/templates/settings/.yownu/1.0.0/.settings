@@ -19,7 +19,6 @@ world.role                       default ;; designer / creator
 world.start-user?                default ;; #f
 
 ;; Game
-world.avatar                     default ;; Orb "character/bloodelffemale" "creature/gorilla"
 world.free-aim?                  default ;; #f
 
 ;; Window
