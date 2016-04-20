@@ -11,6 +11,9 @@
 ;;;
 
 
+;; Rating
+world.young-child?               default ;; #f
+
 ;; Role
 world.role                       default ;; designer / creator
 world.start-user?                default ;; #f
