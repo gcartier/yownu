@@ -41,6 +41,7 @@ world.ambient-color              default ;; #f
 world.sun-color                  default ;; #f
 world.sun-cycle?                 default ;; #t
 world.start-time                 default ;; dawn dusk day night
+world.day-duration               default ;; 1200.
 world.cache-images?              default ;; #t
 world.mesh-categories?           default ;; #t
 world.skybox                     default ;; #f
