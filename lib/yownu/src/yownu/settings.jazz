@@ -20,22 +20,23 @@
 
 
 (definition protected (register-yownu-aliases)
-  (define (determine-root)
+  (define (determine-world)
     (when (exists?~ {Directory App})
       (let ((parent (get-parent~ {Directory App})))
         (when (and parent (exists?~ parent) (not (meta-root?~ parent)))
           (let ((parent (get-parent~ parent)))
             (when (and parent (exists?~ parent) (not (meta-root?~ parent)))
-              parent))))))
+              (let ((world (new-directory~ parent '("worlds" "yownu"))))
+                (when (exists?~ world)
+                  world))))))))
   
-  (let ((root (determine-root)))
-    (when (not root)
+  (let ((world (determine-world)))
+    (when (not world)
       (system-message "Unable to find Yownu's world"
                       type: 'problem
                       title: "Yownu")
       (exit 1))
-    (register-alias 'Root (get-list~ root))
-    (register-alias 'Yownu-World '(Root "worlds" "yownu")))
+    (register-alias 'Yownu-World (get-list~ world)))
   (when (not (exists?~ {Directory Yownu-World}))
     (system-message (format "Unable to find Yownu's world: {a}" (parse~ {Directory Yownu-World}))
                     type: 'problem
