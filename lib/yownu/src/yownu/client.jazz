@@ -600,6 +600,7 @@
           (<!>           name: toggle-x-rays           visible?: #f)
           (<!>           name: toggle-redstone-x-rays  visible?: #f)
           (<!>           name: toggle-blocks           visible?: #f)
+          (<!>           name: toggle-models           visible?: #f)
           (<!>           name: toggle-post-processing  visible?: #f))
         (<world-interface!>
           (<!>           name: toggle-interface        visible?: #f)
@@ -637,6 +638,7 @@
           (<!>           name: reset-profiling         visible?: #f)
           (<!>           name: toggle-script           visible?: #f)
           (<!>           name: toggle-axes             visible?: #f)
+          (<!>           name: toggle-axes-graduation  visible?: #f)
           (<!>           name: toggle-debug-sectors    visible?: #f)
           (<!>           name: toggle-debug-areas      visible?: #f)
           (<!>           name: toggle-draw-atlas       visible?: #f)
@@ -648,6 +650,7 @@
           (<!>           name: clear-terminal          visible?: #f)
           (<!>           name: garbage-collect         visible?: #f)
           (<!>           name: explore-interface       visible?: #f)
+          (<!>           name: propagation-debugger    visible?: #f)
           (<!>           name: test1                   visible?: #f)
           (<!>           name: test2                   visible?: #f)
           (<!>           name: test3                   visible?: #f)
