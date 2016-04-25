@@ -616,6 +616,7 @@
           (<!>           name: animations-showcase     visible?: #f)
           (<!>           name: meshes-showcase         visible?: #f)
           (<!>           name: textures-showcase       visible?: #f)
+          (<!>           name: skyboxes-showcase       visible?: #f)
           (<!>           name: import-model            visible?: #f)
           (<!>           name: toggle-grid             visible?: #f)
           (<!>           name: toggle-grid-z           visible?: #f)
@@ -720,6 +721,7 @@
         (<!>             name: animations-showcase     visible?: #f)
         (<!>             name: meshes-showcase         visible?: #f)
         (<!>             name: textures-showcase       visible?: #f)
+        (<!>             name: skyboxes-showcase       visible?: #f)
         (<!>             name: toggle-grid             visible?: #f)
         (<!>             name: change-editor-mode      visible?: #f))))
   
