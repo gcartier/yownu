@@ -16,4 +16,20 @@
       (<Trait>     name: Debug
         (<install>               configuration: "debug"))
       (<Trait>     name: Release
-        (<install>               configuration: "release"))))))
+        (<install>               configuration: "release")))
+    (<Trait>       name: Server
+      (<install>)
+      (<Trait>     name: None
+        (<install> arguments: ("-listen" "*:50000")))
+      (<Trait>     name: Flat
+        (<install> arguments: ("-listen" "*:50000" "-server" "Flat")))
+      (<Trait>     name: Kingdom
+        (<install> arguments: ("-listen" "*:50000" "-server" "Kingdom"))))
+    (<Trait>       name: Client
+      (<install>)
+      (<Trait>     name: None
+        (<install>))
+      (<Trait>     name: Guillaume
+        (<install> arguments: ("-client" "Guillaume")))
+      (<Trait>     name: Joel
+        (<install> arguments: ("-client" "Joel")))))))
