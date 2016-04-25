@@ -289,7 +289,7 @@
       (install-bars
         `(,(case current-role
              ((user creator)
-              `(,World-Main-Bar      main      horizontal (-105 -10)))
+              `(,World-Main-Bar      main      horizontal (-171 -10)))
              (else
               `(,World-Main-Bar      main      horizontal (center -10))))
           ;(,World-Client-Bar    client    horizontal (-400 -10))
@@ -586,9 +586,6 @@
           (<!>           name: warp                    visible?: #f)
           (<!>           name: dash                    visible?: #f))
         (<world-camera!>
-          (<!>           name: person-motion           visible?: #f)
-          (<!>           name: orbit-motion            visible?: #f)
-          (<!>           name: free-motion             visible?: #f)
           (<!>           name: toggle-camera-smoothing visible?: #f)
           (<!>           name: toggle-camera-lock      visible?: #f))
         (<world-graphics!>
@@ -710,9 +707,6 @@
   (define-trait creator-camera World-Actionbar
     (<Role-Trait>
       (<install>
-        (<!>             name: person-motion           visible?: #f)
-        (<!>             name: orbit-motion            visible?: #f)
-        (<!>             name: free-motion             visible?: #f)
         (<!>             name: toggle-camera-smoothing visible?: #f)
         (<!>             name: toggle-camera-lock      visible?: #f))))
 
