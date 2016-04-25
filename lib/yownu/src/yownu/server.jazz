@@ -22,6 +22,7 @@
         (jazz.jml)
         (jazz.platform)
         (jazz.settings)
+        (jazz.snapshot)
         (jazz.version)
         (world)
         (world.autoload)
@@ -60,6 +61,10 @@
   
   (method override (process-release)
     yownu-release)
+  
+  
+  (method override (process-debugger)
+    (snapshot-exception-debugger))
   
   
   (method override (initialize-settings)

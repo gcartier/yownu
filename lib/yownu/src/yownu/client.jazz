@@ -31,6 +31,7 @@
         (jazz.io)
         (jazz.jml)
         (jazz.opengl.window)
+        (jazz.snapshot)
         (jazz.platform)
         (jazz.reference)
         (jazz.settings)
@@ -76,6 +77,10 @@
   
   (method override (process-release)
     yownu-release)
+  
+  
+  (method override (process-debugger)
+    (snapshot-exception-debugger))
   
   
   (method override (new-toplevel)
