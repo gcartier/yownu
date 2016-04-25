@@ -596,6 +596,10 @@
           (<!>           name: toggle-redstone-x-rays  visible?: #f)
           (<!>           name: toggle-blocks           visible?: #f)
           (<!>           name: toggle-post-processing  visible?: #f))
+        (<world-interface!>
+          (<!>           name: toggle-interface        visible?: #f)
+          (<!>           name: toggle-occlusion        visible?: #f)
+          (<!>           name: toggle-wireframe        visible?: #f))
         (<world-edition!>
           (<!>           name: select-target-mode      visible?: #f)
           (<!>           name: move-target-mode        visible?: #f)
@@ -682,6 +686,7 @@
         (<!>             name: run-script              visible?: #f)
         (<!>             name: run-last-script         visible?: #f)
         (<!>             name: toggle-glow             visible?: #f)
+        (<!>             name: toggle-interface        visible?: #f)
         (<!>             name: toggle-occlusion        visible?: #f)
         (<!>             name: toggle-wireframe        visible?: #f)
         (<!>             name: toggle-lighting         visible?: #f)
