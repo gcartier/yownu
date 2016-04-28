@@ -26,16 +26,6 @@
 
 
 (definition protected (prepare-client)
-  (define (setup-aliases)
-    (register-alias 'App
-                    (list (cond ((is-alias? 'Yownu)
-                                 'Yownu)
-                                ((is-alias? 'Bundle)
-                                 'Bundle)
-                                (else
-                                 'Build))))
-    (register-resources-alias 'Yownu 'yownu))
-  
   (set-process-kind 'application)
   (set-settings-root {Directory Home ".yownu"})
   (set-settings-alias 'Resources)
