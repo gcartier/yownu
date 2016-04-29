@@ -37,6 +37,11 @@
                           (product yownu.product-server)
                           (build (yownu-server executable: "Yownu-Server" minimum-heap: 1000000 bundle: "yownu-server" resources: "resources/yownu-server"))
                           (dependencies world.server))
+            (yownu-processor (title "Yownu-Processor")
+                             (run yownu.run-processor)
+                             (product yownu.product-processor)
+                             (build (yownu-processor executable: "Yownu-Processor" minimum-heap: 1000000 bundle: "yownu-processor" resources: "resources/yownu-processor"))
+                             (dependencies world.processor))
             (yownu-worker (title "Yownu-Worker")
                           (run yownu.run-worker)
                           (product yownu.product-worker)
@@ -49,6 +54,7 @@
             (yownu-world (product yownu.product-world))
             (yownu-all (dependencies yownu
                                      yownu-server
+                                     yownu-processor
                                      yownu-worker))
             (yownu-script (run yownu.script)))
   (project ".project"))

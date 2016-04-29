@@ -1,0 +1,74 @@
+;;;=========
+;;;  Yownu
+;;;=========
+;;;
+;;;; Yownu Processor
+;;;
+;;;  The Initial Developer of the Original Code is Guillaume Cartier.
+;;;  Portions created by the Initial Developer are Copyright (C) 2012-2016
+;;;  the Initial Developer. All Rights Reserved.
+;;;
+;;;  Contributor(s):
+
+
+(module yownu.processor jazz
+
+
+(import (jazz.action)
+        (jazz.component)
+        (jazz.debuggee)
+        (jazz.debugger)
+        (jazz.io)
+        (jazz.jml)
+        (jazz.platform)
+        (jazz.settings)
+        (jazz.snapshot)
+        (jazz.version)
+        (world)
+        (world.autoload)
+        (world.history)
+        (world.interface)
+        (world.interface.actions)
+        (world.interface.bars)
+        (world.interface.history)
+        (world.io)
+        (world.process)
+        (world.role)
+        (world.settings)
+        (world.syntax (phase syntax))
+        (yownu)
+        (yownu.settings)
+        (yownu.window))
+
+
+(class Yownu-Processor extends World-Process
+  
+  
+  (slot yownu-settings initialize #f getter generate)
+
+  
+  (method override (process-name)
+    "Yownu-Processor")
+  
+  
+  (method override (process-icon)
+    "WebServer")
+  
+  
+  (method override (process-version)
+    yownu-version)
+  
+  
+  (method override (process-release)
+    yownu-release)
+  
+  
+  (method override (process-debugger)
+    (snapshot-exception-debugger))
+  
+  
+  (method override (initialize-settings)
+    (nextmethod)
+    (register-yownu-aliases)
+    (set! yownu-settings (make-yownu-settings))
+    (register-settings yownu-settings))))
