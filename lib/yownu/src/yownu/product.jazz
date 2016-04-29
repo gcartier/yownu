@@ -105,7 +105,8 @@
     files: (cond-expand
              (windows '("README" "yownu-worker.exe"))
              (else '("README")))
-    directories: '("devel"))
+    directories: '("devel")
+    ignored-macosx: '("yownu-worker.app"))
   ;; worker
   (cond-expand
     (mac
