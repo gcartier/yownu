@@ -55,10 +55,12 @@
          (set-min-heap! (* 500000 1024))
          (initialize-platform)
          ;; TO TEST SERVER
+         (set-window? (boolean-parameter "window" 'world.server.window? #t))
+         ;; TO TEST SERVER
          (boot-client Yownu-Application
                       start: (lambda () (with-task-mutex (lambda () (open-world/zone "yownu" #f))))
                       finish: (lambda () (when (boolean-parameter "panel" 'world.server.panel? #f) (start-panel~ (get-application))))
-                      visible?: (boolean-parameter "window" 'world.server.window? #t)))))
+                      visible?: (window?)))))
 
 
 (set-yownu-start start-yownu))

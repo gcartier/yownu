@@ -35,7 +35,7 @@
   (boot-client Yownu-Process
                start: (lambda () (with-task-mutex (lambda () (open-world/zone "yownu" #f))))
                finish: (lambda () (start-panel~ (get-process)))
-               visible?: (boolean-parameter "window" 'world.server.window? #f)))
+               visible?: #f))
 
 
 (set-yownu-start start-yownu-server))
