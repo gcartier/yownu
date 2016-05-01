@@ -41,7 +41,6 @@
   (set-min-heap! (* 1000000 1024))
   @TO-TEST-PROCESSOR
   (boot-client Yownu-Processor
-               worker?: #f
                visible?: #f)
   ;; TO TEST PROCESSOR
   (initialize-platform)
@@ -51,7 +50,6 @@
                         (ready-processor)
                         ;; QUICKY
                         (with-task-mutex (lambda () (open-world/zone "yownu" "welcome"))))
-               worker?: #f
                visible?: #f))
 
 
