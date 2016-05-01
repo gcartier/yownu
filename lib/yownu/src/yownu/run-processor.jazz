@@ -30,9 +30,9 @@
   (set-settings-root {Directory Home ".yownu"})
   (set-settings-alias 'Resources)
   (set-aliases-setup setup-aliases)
-  (set-valid-roles '(admin))
-  (set-worker-filename (cond-expand (mac "yownu-worker.app/Contents/MacOS/Yownu-Worker")
-                                    (else "Yownu-Worker"))))
+  (set-valid-roles '(user creator designer programmer admin))
+  (setup-processor-filename)
+  (setup-worker-filename))
 
 
 (definition (run descriptor)

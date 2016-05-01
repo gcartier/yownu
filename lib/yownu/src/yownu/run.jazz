@@ -31,8 +31,8 @@
   (set-settings-alias 'Resources)
   (set-aliases-setup setup-aliases)
   (set-valid-roles '(user creator designer programmer admin))
-  (set-worker-filename (cond-expand (mac "yownu-worker.app/Contents/MacOS/Yownu-Worker")
-                                    (else "Yownu-Worker"))))
+  (setup-processor-filename)
+  (setup-worker-filename))
 
 
 (definition (run descriptor)

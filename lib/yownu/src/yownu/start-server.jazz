@@ -14,7 +14,11 @@
 (module yownu.start-server jazz
 
 
-(import (jazz.process)
+(import ;; TO TEST SERVER
+        (jazz.application)
+        ;; TO TEST SERVER
+        (jazz.platform)
+        (jazz.process)
         (jazz.settings)
         (world)
         (world.boot)
@@ -24,6 +28,8 @@
         (world.process)
         (world.settings)
         (world.task)
+        ;; TO TEST SERVER
+        (yownu.client)
         (yownu.run-server)
         (yownu.server)
         (yownu.windows (cond windows)))
@@ -32,9 +38,17 @@
 (definition (start-yownu-server)
   (load-point 'start)
   (set-min-heap! (* 1000000 1024))
+  @TO-TEST-SERVER
   (boot-client Yownu-Process
                start: (lambda () (with-task-mutex (lambda () (open-world/zone "yownu" #f))))
                finish: (lambda () (start-panel~ (get-process)))
+               visible?: #f)
+  ;; TO TEST SERVER
+  (initialize-platform)
+  (set-window? #f)
+  (boot-client Yownu-Application
+               start: (lambda () (with-task-mutex (lambda () (open-world/zone "yownu" #f))))
+               finish: (lambda () (start-panel~ (get-application)))
                visible?: #f))
 
 

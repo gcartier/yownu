@@ -91,6 +91,7 @@
         (world.history)
         (world.homogeneous)
         (world.info)
+        (world.instance)
         (world.interface)
         (world.interface.bars)
         (world.interface.color)

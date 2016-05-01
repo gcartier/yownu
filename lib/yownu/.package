@@ -13,12 +13,15 @@
                            yownu.biome
                            yownu.client
                            yownu.debugger
+                           yownu.processor
                            yownu.product
                            yownu.run
+                           yownu.run-processor
                            yownu.run-server
                            yownu.server
                            yownu.settings
                            yownu.start
+                           yownu.start-processor
                            yownu.start-server
                            yownu.window
                            yownu.windows
