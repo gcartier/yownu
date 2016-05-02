@@ -49,7 +49,7 @@
                start: (lambda ()
                         (ready-processor)
                         ;; QUICKY
-                        (with-task-mutex (lambda () (open-world/zone "yownu" "welcome"))))
+                        (with-task-mutex (lambda () (open-world/zone "yownu" "Empty"))))
                visible?: #f))
 
 
