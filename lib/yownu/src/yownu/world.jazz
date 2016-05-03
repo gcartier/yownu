@@ -154,14 +154,4 @@
         (yownu.biome))
 
 
-(class Yownu-World extends World
-  
-  
-  (method override (update-title)
-    (define (present-zone)
-      (let ((zone (current-zone+)))
-        (if (not zone)
-            "New"
-          (get-name~ (zone-directory (get-moniker~ zone))))))
-    
-    (set-caption~ window (present-zone)))))
+(class Yownu-World extends World))
