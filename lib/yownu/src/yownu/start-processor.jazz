@@ -47,9 +47,14 @@
   (set-window? #f)
   (boot-client Yownu-Application
                start: (lambda ()
-                        (ready-processor)
-                        ;; QUICKY
-                        (with-task-mutex (lambda () (open-world/zone "yownu" "Empty"))))
+                        (let ((instance (command-argument "instance")))
+                          (if instance
+                              (begin
+                                (ready-processor)
+                                (with-task-mutex (lambda () (open-instance instance))))
+                            ;; TO TEST AS NOT REALLY CORRECT TO INVOKE UI
+                            (jazz.view:message-box "It is incorrect to launch this application")
+                            (exit 1))))
                visible?: #f))
 
 
