@@ -45,11 +45,11 @@
                visible?: #f)
   ;; TO TEST SERVER
   (initialize-platform)
-  (set-window? #f)
+  (set-window? (boolean-argument "window" #f))
   (boot-client Yownu-Application
                start: (lambda () (with-task-mutex (lambda () (open-world/zone "yownu" #f))))
                finish: (lambda () (start-panel~ (get-application)))
-               visible?: #f))
+               visible?: (window?)))
 
 
 (set-yownu-start start-yownu-server))

@@ -20,8 +20,8 @@
     (<Trait>       name: Server
       (<install>)
       (<Trait>     name: None
-        (<install> arguments: ("-listen" "*:50000")))
+        (<install> arguments: ("-listen" "*:50000" "-window" "true")))
       (<Trait>     name: Flat
-        (<install> arguments: ("-listen" "*:50000" "-server" "Flat")))
+        (<install> arguments: ("-listen" "*:50000" "-server" "Flat" "-window" "true")))
       (<Trait>     name: Kingdom
-        (<install> arguments: ("-listen" "*:50000" "-server" "Kingdom")))))))
+        (<install> arguments: ("-listen" "*:50000" "-server" "Kingdom" "-window" "true")))))))
