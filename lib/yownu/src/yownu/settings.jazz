@@ -16,7 +16,8 @@
 
 (import (jazz.io)
         (jazz.platform)
-        (jazz.settings))
+        (jazz.settings)
+        (world.io))
 
 
 ;; QUICK SOLUTION TO TEST AEC WORLD
@@ -51,8 +52,5 @@
     (exit 1)))
   
   
-(definition protected (make-yownu-settings)
-  (let ((settings (new File-Settings)))
-    (set-setting~ settings 'world.world-directories '(("yownu" . {Directory Yownu-World})))
-    (set-setting~ settings 'world.worlds-directories #f)
-    settings)))
+(definition protected (register-yownu-world)
+  (set-world-directories '(("yownu" . {Directory Yownu-World})))))

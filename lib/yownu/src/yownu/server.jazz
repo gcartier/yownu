@@ -42,9 +42,6 @@
 
 
 (class Yownu-Process extends World-Process
-  
-  
-  (slot yownu-settings initialize #f getter generate)
 
   
   (method override (process-name)
@@ -70,5 +67,4 @@
   (method override (initialize-settings)
     (nextmethod)
     (register-yownu-aliases)
-    (set! yownu-settings (make-yownu-settings))
-    (register-settings yownu-settings))))
+    (register-yownu-world))))

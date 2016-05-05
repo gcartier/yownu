@@ -62,7 +62,6 @@
 (class Yownu-Application extends World-Application
   
   
-  (slot yownu-settings initialize #f getter generate)
   @wait-debugger!?
   (slot local-debugger initialize #f)
 
@@ -95,8 +94,7 @@
   (method override (initialize-settings)
     (nextmethod)
     (register-yownu-aliases)
-    (set! yownu-settings (make-yownu-settings))
-    (register-settings yownu-settings))
+    (register-yownu-world))
   
   
   (method override (default-preferences)
