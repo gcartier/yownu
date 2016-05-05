@@ -21,10 +21,8 @@
       (<install>)
       (<Trait>     name: None
         (<install> arguments: ("-listen" "*:50000")))
-      (<Trait>     name: Flat
-        (<install> arguments: ("-listen" "*:50000" "-server" "Flat")))
-      (<Trait>     name: Kingdom
-        (<install> arguments: ("-listen" "*:50000" "-server" "Kingdom"))))
+      (<Trait>     name: Test
+        (<install> arguments: ("-listen" "*:50000" "-server" "Test"))))
     (<Trait>       name: Client
       (<install>)
       (<Trait>     name: None
