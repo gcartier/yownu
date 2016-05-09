@@ -22,14 +22,25 @@
 
 (definition protected (register-yownu-aliases)
   (define (determine-world)
+    (let ((worlds (determine-worlds)))
+      (when worlds
+        (let ((world (new-directory~ worlds "yownu")))
+          (when (exists?~ world)
+            world)))))
+  
+  (define (determine-worlds)
     (when (exists?~ {Directory App})
       (let ((parent (get-parent~ {Directory App})))
         (when (and parent (exists?~ parent) (not (meta-root?~ parent)))
           (let ((parent (get-parent~ parent)))
             (when (and parent (exists?~ parent) (not (meta-root?~ parent)))
-              (let ((world (new-directory~ parent '("worlds" "yownu"))))
-                (when (exists?~ world)
-                  world))))))))
+              (let ((worlds (new-directory~ parent "worlds")))
+                (if (exists?~ worlds)
+                    worlds
+                  (let ((worlds (new-directory~ parent "Worlds")))
+                    (if (exists?~ worlds)
+                        worlds
+                      #f))))))))))
   
   (let ((world (determine-world)))
     (when (not world)
