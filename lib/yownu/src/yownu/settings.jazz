@@ -20,11 +20,6 @@
         (world.io))
 
 
-;; QUICK SOLUTION TO TEST AEC WORLD
-(definition TEST-AEC-WORLD?
-  #f)
-
-
 (definition protected (register-yownu-aliases)
   (define (determine-world)
     (when (exists?~ {Directory App})
@@ -36,9 +31,7 @@
                 (when (exists?~ world)
                   world))))))))
   
-  (let ((world (if TEST-AEC-WORLD?
-                   {Directory Home "Devel" "yownu" "install" "Yownu-World-AeC"}
-                 (determine-world))))
+  (let ((world (determine-world)))
     (when (not world)
       (system-message "Unable to find Yownu's world"
                       type: 'problem
