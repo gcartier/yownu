@@ -107,11 +107,15 @@
              (else '("README")))
     directories: '("devel")
     ignored-macosx: '("yownu-server.app"
+                      "yownu-processor.app"
                       "yownu-worker.app"))
   ;; apps
   (cond-expand
     (mac
       (install-directory~ {Directory Build "yownu-server.app"} (new-directory~ install-dir '("yownu.app" "Contents" "MacOS" "yownu-server.app"))
+        feedback: (lambda (action pathname)
+                    (build-feedback "; {a} {a}..." action (get-name~ pathname))))
+      (install-directory~ {Directory Build "yownu-processor.app"} (new-directory~ install-dir '("yownu.app" "Contents" "MacOS" "yownu-processor.app"))
         feedback: (lambda (action pathname)
                     (build-feedback "; {a} {a}..." action (get-name~ pathname))))
       (install-directory~ {Directory Build "yownu-worker.app"} (new-directory~ install-dir '("yownu.app" "Contents" "MacOS" "yownu-worker.app"))
