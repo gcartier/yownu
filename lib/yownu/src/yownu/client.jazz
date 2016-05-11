@@ -308,7 +308,7 @@
           (,World-History-Bar   history   horizontal (10 -36))
           (,World-Models-Bar    models    horizontal none #f)
           (,World-Blocks-Bar    blocks    horizontal none #f)
-          (,World-Target-Bar    target    horizontal (-10 10))
+          (,World-Target-Bar    target    vertical (-10 75.))
           ,(case current-role
              ((creator)
               `(,World-Edition-Bar   edition   horizontal (-200 -10)))
