@@ -38,7 +38,9 @@
 
 (definition (start-yownu-processor)
   (load-point 'start)
-  (set-min-heap! (* 1000000 1024))
+  (set-min-heap! (* 500000 1024))
+  ;; this value results in ultra weird behavior on windows
+  ;; (set-min-heap! (* 1000000 1024))
   @TO-TEST-PROCESSOR
   (boot-client Yownu-Processor
                visible?: #f)

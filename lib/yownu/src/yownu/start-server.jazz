@@ -37,7 +37,9 @@
 
 (definition (start-yownu-server)
   (load-point 'start)
-  (set-min-heap! (* 1000000 1024))
+  (set-min-heap! (* 500000 1024))
+  ;; this value results in ultra weird behavior on windows
+  ;; (set-min-heap! (* 1000000 1024))
   @TO-TEST-SERVER
   (boot-client Yownu-Process
                start: (lambda () (with-task-mutex (lambda () (open-world/zone "yownu" #f))))
