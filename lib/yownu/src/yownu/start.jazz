@@ -48,7 +48,12 @@
                            (get-output-string output))))
         (else
          (load-point 'start)
-         (set-min-heap! (* 500000 1024))
+         ;; hack around what appears to be a gambit bug that results in ultra
+         ;; weird behavior on windows especially for large values like 1000000
+         (cond-expand
+           (windows)
+           (else
+            (set-min-heap! (* 500000 1024))))
          (initialize-platform)
          (boot-client Yownu-Application
                       start: (lambda () (with-task-mutex (lambda () (open-world/zone "yownu" #f))))))))

@@ -37,9 +37,12 @@
 
 (definition (start-yownu-server)
   (load-point 'start)
-  (set-min-heap! (* 500000 1024))
-  ;; this value results in ultra weird behavior on windows
-  ;; (set-min-heap! (* 1000000 1024))
+  ;; hack around what appears to be a gambit bug that results in ultra
+  ;; weird behavior on windows especially for large values like 1000000
+  (cond-expand
+    (windows)
+    (else
+     (set-min-heap! (* 1000000 1024))))
   @TO-TEST-SERVER
   (boot-client Yownu-Process
                start: (lambda () (with-task-mutex (lambda () (open-world/zone "yownu" #f))))
