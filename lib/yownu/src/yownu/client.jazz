@@ -17,6 +17,7 @@
 (import (jazz.action)
         (jazz.application)
         (jazz.catalog)
+        (jazz.command)
         (jazz.component)
         (jazz.debuggee)
         @wait-debugger!?
@@ -28,12 +29,14 @@
         (jazz.editor.lisp)
         (jazz.event)
         (jazz.handler)
+        (jazz.ide)
         (jazz.io)
         (jazz.jml)
         (jazz.opengl.window)
         (jazz.snapshot)
         (jazz.platform)
         (jazz.reference)
+        (jazz.search)
         (jazz.settings)
         (jazz.syntax (phase syntax))
         (jazz.time)
@@ -1183,11 +1186,13 @@
   
   
   (form
-    (<install>                                   toplevel-state: restored toolbar-classes: ((:menubar . {Reference World-Menubar}) (:toolbar . {Reference World-Toolbar}) (:status . {Reference World-Status}))
+    (<install>                                         toplevel-state: restored toolbar-classes: ((:menubar . {Reference World-Menubar}) (:toolbar . {Reference World-Toolbar}) (:status . {Reference World-Status}))
       (<documents~>
-        (<Jazz-Text-Preferences> name: jazz-text))
+        ;; Scripting
+        (<Jazz-Text-Preferences>    name: jazz-text)
+        (<Command-Text-Preferences> name: command-text))
       @wait-debugger!?
-      (<Debug-Preferences>       name: debug))))
+      (<Debug-Preferences>          name: debug))))
 
 
 ;;;
@@ -1201,38 +1206,46 @@
   (form
     (<install>
       ;; Application
-      (<!>                       name: application visible?: #f)
-      (<!>                       name: text
-        (<!>                     name: search-current visible?: #f))
-      (<!>                       name: formatted-text visible?: #f)
-      (<!>                       name: menubar visible?: #f)
+      (<!>                           name: application visible?: #f)
+      (<!>                           name: text
+        (<!>                         name: search-current visible?: #f))
+      (<!>                           name: formatted-text visible?: #f)
+      (<!>                           name: menubar visible?: #f)
       ;; Scripting
-      (<Code-Text-Actions>       name: code-text)
-      (<Lisp-Text-Actions>       name: lisp-text)
-      (<Jazz-Text-Actions>       name: jazz-text)
+      (<Code-Text-Actions>           name: code-text)
+      (<Lisp-Text-Actions>           name: lisp-text)
+      (<Jazz-Text-Actions>           name: jazz-text)
+      (<Search-Mode-Actions>         name: search-mode)
+      (<Highlight-Mode-Actions>      name: highlight-mode)
+      (<Extended-Mode-Actions>       name: extended-mode)
+      (<Execute-Mode-Actions>        name: execute-mode)
+      (<Find-Mode-Actions>           name: find-mode)
+      (<Search-Results-Tree-Actions> name: search-results-tree)
+      (<Chapters-Browser-Actions>    name: chapters-browser)
+      (<Summary-View-Actions>        name: summary-view)
       ;; World
-      (<World-Menu-Actions>      name: world-menu)
-      (<World-Interface-Actions> name: world-interface)
-      (<World-Graphics-Actions>  name: world-graphics)
-      (<World-Sound-Actions>     name: world-sound)
-      (<World-Client-Actions>    name: world-client)
-      (<World-World-Actions>     name: world-world)
-      (<World-Zone-Actions>      name: world-zone)
-      (<World-Movement-Actions>  name: world-movement)
-      (<World-Camera-Actions>    name: world-camera)
-      (<World-Game-Actions>      name: world-game)
-      (<World-Spell-Actions>     name: world-spell)
-      (<World-Edition-Actions>   name: world-edition)
-      (<World-History-Actions>   name: world-history)
-      (<World-Window-Actions>    name: world-window)
-      (<World-Debug-Actions>     name: world-debug)
-      (<World-Tutorial-Actions>  name: world-tutorial)
-      (<World-Objective-Actions> name: world-objective)
-      (<World-Collision-Actions> name: world-collision)
-      (<World-Anonymous-Actions> name: world-anonymous)
-      (<World-User-Actions>      name: world-user visible?: #f)
+      (<World-Menu-Actions>          name: world-menu)
+      (<World-Interface-Actions>     name: world-interface)
+      (<World-Graphics-Actions>      name: world-graphics)
+      (<World-Sound-Actions>         name: world-sound)
+      (<World-Client-Actions>        name: world-client)
+      (<World-World-Actions>         name: world-world)
+      (<World-Zone-Actions>          name: world-zone)
+      (<World-Movement-Actions>      name: world-movement)
+      (<World-Camera-Actions>        name: world-camera)
+      (<World-Game-Actions>          name: world-game)
+      (<World-Spell-Actions>         name: world-spell)
+      (<World-Edition-Actions>       name: world-edition)
+      (<World-History-Actions>       name: world-history)
+      (<World-Window-Actions>        name: world-window)
+      (<World-Debug-Actions>         name: world-debug)
+      (<World-Tutorial-Actions>      name: world-tutorial)
+      (<World-Objective-Actions>     name: world-objective)
+      (<World-Collision-Actions>     name: world-collision)
+      (<World-Anonymous-Actions>     name: world-anonymous)
+      (<World-User-Actions>          name: world-user visible?: #f)
       ;; Yownu
-      (<Yownu-Actions>           name: yownu))))
+      (<Yownu-Actions>               name: yownu))))
 
 
 ;;;
