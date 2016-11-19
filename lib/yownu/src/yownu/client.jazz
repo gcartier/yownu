@@ -29,7 +29,6 @@
         (jazz.editor.lisp)
         (jazz.event)
         (jazz.handler)
-        (jazz.ide)
         (jazz.io)
         (jazz.jml)
         (jazz.opengl.window)
@@ -1221,8 +1220,8 @@
       (<Execute-Mode-Actions>        name: execute-mode)
       (<Find-Mode-Actions>           name: find-mode)
       (<Search-Results-Tree-Actions> name: search-results-tree)
-      (<Chapters-Browser-Actions>    name: chapters-browser)
-      (<Summary-View-Actions>        name: summary-view)
+      @wait-and-need-to-split-ide-package (<Chapters-Browser-Actions>    name: chapters-browser)
+      @wait-and-need-to-split-ide-package (<Summary-View-Actions>        name: summary-view)
       ;; World
       (<World-Menu-Actions>          name: world-menu)
       (<World-Interface-Actions>     name: world-interface)
