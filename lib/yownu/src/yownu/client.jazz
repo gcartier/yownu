@@ -39,6 +39,7 @@
         (jazz.settings)
         (jazz.syntax (phase syntax))
         (jazz.time)
+        (jazz.view)
         (world)
         (world.appl)
         (world.autoload)
@@ -124,6 +125,7 @@
     (nextmethod)
     (setup-cataloguer)
     (preload-catalogs)
+    (set-safe-explore-action 'ignore)
     ;; a try
     @wait-debugger!?
     (set-debugger-manager (new Debugger-Manager)))
