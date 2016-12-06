@@ -72,13 +72,13 @@ world.axes?                      default ;; #f
 world.axes-graduation?           default ;; #f
 world.track-sensitivity          default ;; 200.
 world.wheel-zoom?                default ;; #f
-world.random-seed                default ;; #f
+world.seed                       default ;; #f
 
 ;; Inventory
 world.show-belt?                 default ;; #t
 
 ;; History
-world.history-max                default ;; 100
+world.history-size               default ;; 1000
 world.evaluate-future?           default ;; #t
 world.inhibit-slicing?           default ;; #f
 
@@ -93,7 +93,8 @@ world.debug-textures?            default ;; #f
 world.debug-animations?          default ;; #f
 world.debug-throttle?            default ;; #f
 world.info-display               default ;; #f
-world.profiler-display           default ;; #f
+world.profiler-show              default ;; #f
+world.profiler-hide              default ;; #f
 
 ;; Collision
 world.debug-collisions?          default ;; #f
