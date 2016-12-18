@@ -373,13 +373,12 @@
           (<!>           name: zone-open-content       visible?: #f)
           (<!>           name: zone-reload             visible?: #f))
         (<world-game!>
-          (<!>           name: change-vehicle          visible?: #f)
           (<!>           name: mind-control            visible?: #f)
           (<!>           name: toggle-aim              visible?: #f)
           (<!>           name: toggle-free-aim         visible?: #f)
           (<!>           name: toggle-mount            visible?: #f)
           (<!>           name: toggle-fly              visible?: #f)
-          (<!>           name: change-vehicle          visible?: #f))
+          (<!>           name: toggle-vehicle          visible?: #f))
         (<world-user!>                                 visible?: #t)
         (<world-spell!>
           ;; for now as it enables jumping over kingdom bridge
@@ -580,7 +579,7 @@
           (<!>           name: toggle-free-aim         visible?: #f)
           (<!>           name: toggle-mount            visible?: #f)
           (<!>           name: toggle-fly              visible?: #f)
-          (<!>           name: change-vehicle          visible?: #f))
+          (<!>           name: toggle-vehicle          visible?: #f))
         (<world-spell!>
           (<!>           name: bullet                  visible?: #f)
           (<!>           name: arrow                   visible?: #f)
