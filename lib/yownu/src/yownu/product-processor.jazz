@@ -107,7 +107,7 @@
 (definition installation-dirname
   (cond-expand
     (mac "yownu-processor.app")
-    (windows "yownu-processor")))
+    (else "yownu-processor")))
 
 
 (definition (deploy descriptor)

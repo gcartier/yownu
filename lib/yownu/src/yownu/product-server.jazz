@@ -107,7 +107,7 @@
 (definition installation-dirname
   (cond-expand
     (mac "yownu-server.app")
-    (windows "yownu-server")))
+    (else "yownu-server")))
 
 
 (definition (deploy descriptor)

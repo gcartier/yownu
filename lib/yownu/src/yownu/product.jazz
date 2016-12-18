@@ -132,7 +132,7 @@
 (definition installation-dirname
   (cond-expand
     (mac "yownu.app")
-    (windows "yownu")))
+    (else "yownu")))
 
 
 (definition (deploy descriptor)
