@@ -76,12 +76,12 @@
 
 
 (cond-expand
-  (mac
+  (windows
     (definition install-dir
-      {Directory Home "Devel" "yownu-server" "install"}))
+      {Directory Home "yownu-server" "install"}))
   (else
     (definition install-dir
-      {Directory Home "yownu-server" "install"})))
+      {Directory Home "Devel" "yownu-server" "install"})))
 
 
 (definition (install descriptor)

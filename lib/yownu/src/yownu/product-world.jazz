@@ -24,18 +24,18 @@
 
 
 (cond-expand
-  (mac
-    (definition install-dir
-      {Directory Home "Devel" "yownu" "install"})
-    
-    (definition yownu-world
-      "Yownu-World"))
-  (else
+  (windows
     (definition install-dir
       {Directory Home "yownu" "install"})
     
     (definition yownu-world
-      "yownu-world")))
+      "yownu-world"))
+  (else
+    (definition install-dir
+      {Directory Home "Devel" "yownu" "install"})
+    
+    (definition yownu-world
+      "Yownu-World")))
 
 
 (definition (install descriptor)

@@ -85,12 +85,12 @@
 
 
 (cond-expand
-  (mac
+  (windows
     (definition install-dir
-      {Directory Home "Devel" "yownu" "install"}))
+      {Directory Home "yownu" "install"}))
   (else
     (definition install-dir
-      {Directory Home "yownu" "install"})))
+      {Directory Home "Devel" "yownu" "install"})))
 
 
 (definition (install descriptor)

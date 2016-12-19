@@ -33,7 +33,8 @@
                                  jazz.editor.jazz
                                  jazz.fonts
                                  jazz.git
-                                 jiri
+                                 (cond
+                                   ((or mac windows) jiri))
                                  world
                                  world.client
                                  world.server))
