@@ -41,7 +41,6 @@
     (windows)
     (else
      (set-min-heap! (* 1000000 1024))))
-  (initialize-platform)
   (set-window? #f)
   (boot-client Yownu-Process
                start: (lambda ()
