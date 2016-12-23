@@ -57,7 +57,7 @@
                (name (string-argument "name"))
                (avatar (string-argument "avatar" "character/dwarfmale")))
            (create-server-file server-name server-address server-port name avatar)
-           (format :terminal "Server {a} created" server-name)))
+           (format :terminal "Server {a} created{%}" server-name)))
         ((command-argument "create-client")
          (let ((client-name (string-argument "create-client"))
                (server-address (string-argument "server-address" "localhost"))
@@ -66,7 +66,7 @@
                (avatar (string-argument "avatar" "character/bloodelffemale"))
                (script (string-argument "script" #f)))
            (create-client-file client-name server-address server-port name avatar script)
-           (format :terminal "Client {a} created" client-name)))
+           (format :terminal "Client {a} created{%}" client-name)))
         ((command-argument "create-clients")
          (let ((client-prefix (string-argument "create-clients"))
                (count (integer-argument "count" 5))
@@ -81,7 +81,7 @@
            (register-yownu-world)
            (open-world (new-file~ (find-world "yownu") ".world") start-zone: 'none)
            (create-client-files client-prefix count server-address server-port script)
-           (format :terminal "Clients {a}1..{a} created" client-prefix count)))
+           (format :terminal "Clients {a}1..{a} created{%}" client-prefix count)))
         (else
          (load-point 'start)
          ;; hack around what appears to be a gambit bug that results in ultra
