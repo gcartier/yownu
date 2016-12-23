@@ -2,7 +2,7 @@
 ;;;  Yownu
 ;;;=========
 ;;;
-;;;; Yownu Server
+;;;; Yownu Process
 ;;;
 ;;;  The Initial Developer of the Original Code is Guillaume Cartier.
 ;;;  Portions created by the Initial Developer are Copyright (C) 2012-2016
@@ -11,7 +11,7 @@
 ;;;  Contributor(s):
 
 
-(module yownu.server jazz
+(module yownu.process jazz
 
 
 (import (jazz.action)

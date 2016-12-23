@@ -10,9 +10,10 @@
                    (product yownu.product)
                    (build (yownu executable: "Yownu" minimum-heap: 500000 bundle: "yownu" resources: "resources/yownu"))
                    (update yownu
+                           yownu.application
                            yownu.biome
-                           yownu.client
                            yownu.debugger
+                           yownu.process
                            yownu.processor
                            yownu.product
                            yownu.product-processor
@@ -20,7 +21,6 @@
                            yownu.run
                            yownu.run-processor
                            yownu.run-server
-                           yownu.server
                            yownu.settings
                            yownu.start
                            yownu.start-processor

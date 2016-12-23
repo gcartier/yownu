@@ -21,7 +21,6 @@
     (<*>                                           tag-reference: {File :context "yownu-worker.project"})
     (<Project-Directory>                           directory: {Directory :context "src"}
       (<Project-Directory>                         directory: {Directory :context "src" "yownu"}
-        (<Jazz-File>       name: client            source: {File :context "src" "yownu" "client.jazz"})
         (<Jazz-File>       name: run               source: {File :context "src" "yownu" "run.jazz"})
         (<Jazz-File>       name: window            source: {File :context "src" "yownu" "window.jazz"})
         (<Jazz-File>       name: world             source: {File :context "src" "yownu" "world.jazz"})
@@ -33,7 +32,6 @@
         (<Jazz-File>       name: debugger          source: {File :context "src" "yownu" "debugger.jazz"})
         (<Jazz-File>       name: script            source: {File :context "src" "yownu" "script.jazz"})
         (<Jazz-File>       name: run-server        source: {File :context "src" "yownu" "run-server.jazz"})
-        (<Jazz-File>       name: server            source: {File :context "src" "yownu" "server.jazz"})
         (<Jazz-File>       name: start-server      source: {File :context "src" "yownu" "start-server.jazz"})
         (<Jazz-File>       name: run-worker        source: {File :context "src" "yownu" "run-worker.jazz"})
         (<Jazz-File>       name: worker            source: {File :context "src" "yownu" "worker.jazz"})
@@ -46,6 +44,8 @@
         (<Jazz-File>       name: processor         source: {File :context "src" "yownu" "processor.jazz"})
         (<Jazz-File>       name: product-processor source: {File :context "src" "yownu" "product-processor.jazz"})
         (<Jazz-File>       name: run-processor     source: {File :context "src" "yownu" "run-processor.jazz"})
-        (<Jazz-File>       name: start-processor   source: {File :context "src" "yownu" "start-processor.jazz"}))
+        (<Jazz-File>       name: start-processor   source: {File :context "src" "yownu" "start-processor.jazz"})
+        (<Jazz-File>       name: application       source: {File :context "src" "yownu" "application.jazz"})
+        (<Jazz-File>       name: process           source: {File :context "src" "yownu" "process.jazz"}))
       (<Jazz-File>         name: y                 source: {File :context "src" "y.jazz"})
       (<Jazz-File>         name: yrun              source: {File :context "src" "yrun.jazz"})))))

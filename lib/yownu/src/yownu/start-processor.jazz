@@ -30,7 +30,7 @@
         (world.settings)
         (world.task)
         ;; TO TEST SERVER
-        (yownu.client)
+        (yownu.application)
         (yownu.processor)
         (yownu.run-processor)
         (yownu.windows (cond windows)))

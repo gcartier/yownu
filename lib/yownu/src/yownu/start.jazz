@@ -26,7 +26,8 @@
         (world.io)
         (world.settings)
         (world.task)
-        (yownu.client)
+        (yownu.application)
+        (yownu.process)
         (yownu.run)
         (yownu.windows (cond windows)))
 
@@ -56,8 +57,8 @@
            (else
             (set-min-heap! (* 500000 1024))))
          (initialize-platform)
-         (set-window? (boolean-argument "window" #f))
-         (boot-client Yownu-Application
+         (set-window? (boolean-argument "window" #t))
+         (boot-client (if (window?) Yownu-Application Yownu-Process)
                       start: (lambda () (with-task-mutex (lambda () (open-world/zone "yownu" #f))))))))
 
 
