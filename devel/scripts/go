@@ -1,0 +1,22 @@
+case "$1" in
+	"-d" )
+		DEBUGGER="-debugger :51000"
+         shift
+		;;
+
+	* )
+		DEBUGGER=""
+		;;
+esac
+
+declare -i COUNT
+
+if [ -z "$1" ]; then
+  COUNT=5
+else
+  COUNT=$1
+fi
+
+for ((i=1; i<=$COUNT; i+=1)); do
+     cache/release/jazz $DEBUGGER -r yownu -client "Local$i" -window false -local true &
+done
