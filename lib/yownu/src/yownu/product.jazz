@@ -103,7 +103,8 @@
     git?: #t
     audio?: #t
     files: (cond-expand
-             (windows '("README" "yownu-worker.exe"))
+             (windows '("README" "yownu-server.exe" "yownu-processor.exe" "yownu-worker.exe"))
+             (unix '("README" "Yownu-Server" "Yownu-Processor" "Yownu-Worker"))
              (else '("README")))
     directories: '("devel")
     ignored-macosx: '("yownu-server.app"
