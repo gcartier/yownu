@@ -14,9 +14,7 @@
 (module yownu.start-server jazz
 
 
-(import ;; TO TEST SERVER
-        (jazz.application)
-        ;; TO TEST SERVER
+(import (jazz.application)
         (jazz.platform)
         (jazz.process)
         (jazz.settings)
