@@ -28,7 +28,6 @@
         (world.process)
         (world.settings)
         (world.task)
-        ;; TO TEST SERVER
         (yownu.application)
         (yownu.process)
         (yownu.run-server)
@@ -43,7 +42,6 @@
     (windows)
     (else
      (set-min-heap! (* 1000000 1024))))
-  ;; TO TEST SERVER
   (initialize-platform)
   (set-window? (boolean-argument "window" #f))
   (boot-client (if (window?) Yownu-Application Yownu-Process)

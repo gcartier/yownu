@@ -29,8 +29,7 @@
         (world.processor)
         (world.settings)
         (world.task)
-        ;; TO TEST SERVER
-        (yownu.application)
+        (yownu.process)
         (yownu.processor)
         (yownu.run-processor)
         (yownu.windows (cond windows)))
@@ -44,13 +43,9 @@
     (windows)
     (else
      (set-min-heap! (* 1000000 1024))))
-  @TO-TEST-PROCESSOR
-  (boot-client Yownu-Processor
-               visible?: #f)
-  ;; TO TEST PROCESSOR
   (initialize-platform)
   (set-window? #f)
-  (boot-client Yownu-Application
+  (boot-client Yownu-Process
                start: (lambda ()
                         (setup-processor)
                         (with-task-mutex
