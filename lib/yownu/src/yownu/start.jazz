@@ -24,11 +24,13 @@
         (world.colors)
         (world.fonts)
         (world.io)
+        (world.profiling)
         (world.settings)
         (world.task)
         (yownu.application)
         (yownu.process)
         (yownu.run)
+        (yownu.settings)
         (yownu.windows (cond windows)))
 
 
@@ -65,6 +67,21 @@
                (script (string-argument "script" #f)))
            (create-client-file client-name server-address server-port name avatar script)
            (format :terminal "Client {a} created" client-name)))
+        ((command-argument "create-clients")
+         (let ((client-prefix (string-argument "create-clients"))
+               (count (integer-argument "count" 5))
+               (server-address (string-argument "server-address" "localhost"))
+               (server-port (string-argument "server-port" "50000"))
+               (script (string-argument "script" #f)))
+           ;; all these initializations are a quick hack to
+           ;; have a working world needed to collect avatar models
+           (set-window? #f)
+           (setup-profiling)
+           (register-yownu-aliases)
+           (register-yownu-world)
+           (open-world (new-file~ (find-world "yownu") ".world") start-zone: 'none)
+           (create-client-files client-prefix count server-address server-port script)
+           (format :terminal "Clients {a}1..{a} created" client-prefix count)))
         (else
          (load-point 'start)
          ;; hack around what appears to be a gambit bug that results in ultra
