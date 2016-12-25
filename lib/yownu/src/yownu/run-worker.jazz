@@ -15,6 +15,7 @@
 
 
 (import (jazz.io)
+        (script)
         (world)
         (yownu.worker-settings)
         (yownu.worker))
