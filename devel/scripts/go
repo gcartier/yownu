@@ -1,6 +1,14 @@
+JAZZ=cache/release/jazz
+
 case "$1" in
 	"-d" )
 		DEBUGGER="-debugger :51000"
+         shift
+		;;
+
+	"-debug" )
+		DEBUGGER="-debugger :51000"
+         JAZZ=cache/debug/jazz
          shift
 		;;
 
@@ -18,5 +26,5 @@ else
 fi
 
 for ((i=1; i<=$COUNT; i+=1)); do
-     cache/release/jazz $DEBUGGER -r yownu -client "Bot$i" -window false -local true &
+     $JAZZ $DEBUGGER -r yownu -process-title "Bot$i" -client "Bot$i" -bot true -window false -local true &
 done
