@@ -1,20 +1,23 @@
-JAZZ=cache/release/jazz
+case "$1" in
+    "-d" | "-debug" )
+        JAZZ=cache/debug/jazz
+        shift
+        ;;
+
+    * )
+        JAZZ=cache/release/jazz
+        ;;
+esac
 
 case "$1" in
-	"-d" )
-		DEBUGGER="-debugger :51000"
-         shift
-		;;
+    "-g" | "-gaia" )
+        GAIA="-debugger :51000"
+        shift
+        ;;
 
-	"-debug" )
-		DEBUGGER="-debugger :51000"
-         JAZZ=cache/debug/jazz
-         shift
-		;;
-
-	* )
-		DEBUGGER=""
-		;;
+    * )
+        GAIA=""
+        ;;
 esac
 
 declare -i COUNT
@@ -25,6 +28,13 @@ else
   COUNT=$1
 fi
 
+# BOTSDIR=~/.yownu/1.0.0/work/bots
+
+# if [ ! -d "$BOTSDIR" ]; then
+#     mkdir $BOTSDIR
+# fi
+
 for ((i=1; i<=$COUNT; i+=1)); do
-     $JAZZ $DEBUGGER -r yownu -process-title "Bot$i" -client "Bot$i" -bot true -window false -local true &
+    $JAZZ -:d- $GAIA -r yownu -process-title "Bot$i" -client "Bot$i" -bot true -window false -local true &
+    # >$BOTSDIR/Bot$i
 done
