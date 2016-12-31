@@ -75,13 +75,20 @@
 ;;;
 
 
-(cond-expand
-  (windows
-    (definition install-dir
-      {Directory Home "yownu-processor" "install"}))
-  (else
-    (definition install-dir
-      {Directory Home "Devel" "yownu-processor" "install"})))
+(definition install-dir
+  (cond-expand
+    (windows
+     {Directory Home "yownu-processor" "install"})
+    (else
+     {Directory Home "Devel" "yownu-processor" "install"})))
+
+
+(definition install-name
+  (cond-expand
+    (mac
+     "yownu-processor.app")
+    (else
+     "yownu-processor")))
 
 
 (definition (install descriptor)
@@ -104,17 +111,11 @@
 ;;;
 
 
-(definition installation-dirname
-  (cond-expand
-    (mac "yownu-processor.app")
-    (else "yownu-processor")))
-
-
 (definition (deploy descriptor)
   (initialize-aliases)
   ;; appl
   (deploy-application descriptor
-                      (new-directory~ install-dir installation-dirname)
+                      (new-directory~ install-dir install-name)
                       make: 'yownu-all
                       install: 'yownu))
 
