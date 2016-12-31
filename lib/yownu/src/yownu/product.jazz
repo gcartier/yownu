@@ -100,33 +100,36 @@
 (definition (install descriptor)
   (initialize-aliases)
   ;; appl
-  (install-application descriptor install-dir
-    scriptable?: #t
-    platform?: #t
-    opengl?: #t
-    git?: #t
-    audio?: #t
-    files: (cond-expand
-             (windows '("README" "yownu-server.exe" "yownu-processor.exe" "yownu-worker.exe"))
-             (unix '("README" "Yownu-Server" "Yownu-Processor" "Yownu-Worker"))
-             (else '("README")))
-    directories: '("devel")
-    ignored-macosx: '("yownu-server.app"
-                      "yownu-processor.app"
-                      "yownu-worker.app"))
-  ;; apps
-  (cond-expand
-    (mac
-      (install-directory~ {Directory Build "yownu-server.app"} (new-directory~ install-dir '("yownu.app" "Contents" "MacOS" "yownu-server.app"))
-        feedback: (lambda (action pathname)
-                    (build-feedback "; {a} {a}..." action (get-name~ pathname))))
-      (install-directory~ {Directory Build "yownu-processor.app"} (new-directory~ install-dir '("yownu.app" "Contents" "MacOS" "yownu-processor.app"))
-        feedback: (lambda (action pathname)
-                    (build-feedback "; {a} {a}..." action (get-name~ pathname))))
-      (install-directory~ {Directory Build "yownu-worker.app"} (new-directory~ install-dir '("yownu.app" "Contents" "MacOS" "yownu-worker.app"))
-        feedback: (lambda (action pathname)
-                    (build-feedback "; {a} {a}..." action (get-name~ pathname)))))
-    (else)))
+  (let ((name (cond-expand (debug "yownu-debug.app") (else "yownu.app"))))
+    (install-application descriptor install-dir
+      name: name
+      scriptable?: #t
+      platform?: #t
+      opengl?: #t
+      git?: #t
+      audio?: #t
+      files: (cond-expand
+               (windows '("README" "yownu-server.exe" "yownu-processor.exe" "yownu-worker.exe"))
+               (unix '("README" "Yownu-Server" "Yownu-Processor" "Yownu-Worker"))
+               (else '("README")))
+      directories: '("devel")
+      ignored-macosx: '("yownu-server.app"
+                        "yownu-processor.app"
+                        "yownu-worker.app"))
+    ;; apps
+    (cond-expand
+      (mac
+       (let ((app-dir (new-directory~ install-dir name)))
+         (install-directory~ {Directory Build "yownu-server.app"} (new-directory~ app-dir '("Contents" "MacOS" "yownu-server.app"))
+           feedback: (lambda (action pathname)
+                       (build-feedback "; {a} {a}..." action (get-name~ pathname))))
+         (install-directory~ {Directory Build "yownu-processor.app"} (new-directory~ app-dir '("Contents" "MacOS" "yownu-processor.app"))
+           feedback: (lambda (action pathname)
+                       (build-feedback "; {a} {a}..." action (get-name~ pathname))))
+         (install-directory~ {Directory Build "yownu-worker.app"} (new-directory~ app-dir '("Contents" "MacOS" "yownu-worker.app"))
+           feedback: (lambda (action pathname)
+                       (build-feedback "; {a} {a}..." action (get-name~ pathname))))))
+      (else))))
 
 
 ;;;
@@ -136,7 +139,7 @@
 
 (definition installation-dirname
   (cond-expand
-    (mac "yownu.app")
+    (mac (cond-expand (debug "yownu-debug.app") (else "yownu.app")))
     (else "yownu")))
 
 
