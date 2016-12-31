@@ -61,7 +61,8 @@
   
   
   (method override (process-debugger)
-    (snapshot-exception-debugger))
+    ;; already installed in settings
+    #f)
   
   
   (method override (initialize-settings)
