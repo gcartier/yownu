@@ -20,6 +20,17 @@ case "$1" in
         ;;
 esac
 
+case "$1" in
+    "-w" | "-window" )
+        WINDOW=true
+        shift
+        ;;
+
+    * )
+        WINDOW=false
+        ;;
+esac
+
 declare -i COUNT
 
 if [ -z "$1" ]; then
