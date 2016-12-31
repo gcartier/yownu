@@ -40,12 +40,12 @@ else
 fi
 
 # BOTSDIR=~/.yownu/1.0.0/work/bots
-
+# 
 # if [ ! -d "$BOTSDIR" ]; then
 #     mkdir $BOTSDIR
 # fi
 
 for ((i=1; i<=$COUNT; i+=1)); do
-    $JAZZ -:d- $GAIA -r yownu -process-title "Bot$i" -client "Bot$i" -bot true -window false -local true &
-    # >$BOTSDIR/Bot$i
+    $JAZZ $GAIA -r yownu -process-title "Bot$i" -client "Bot$i" -bot true -window $WINDOW -local true &
+    # $JAZZ -:d- $GAIA -r yownu -process-title "Bot$i" -client "Bot$i" -bot true -window $WINDOW -local true >$BOTSDIR/Bot$i &
 done
