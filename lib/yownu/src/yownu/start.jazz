@@ -101,7 +101,8 @@
          (when (window?)
            (initialize-platform))
          (boot-client (if (window?) Yownu-Application Yownu-Process)
-                      start: (lambda () (with-task-mutex (lambda () (open-world/zone "yownu" #f))))))))
+                      start: (lambda ()
+                               (boot-world "yownu"))))))
 
 
 (set-yownu-start start-yownu))

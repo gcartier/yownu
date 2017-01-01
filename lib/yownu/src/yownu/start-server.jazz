@@ -44,8 +44,11 @@
   (when (window?)
     (initialize-platform))
   (boot-client (if (window?) Yownu-Application Yownu-Process)
-               start: (lambda () (with-task-mutex (lambda () (open-world/zone "yownu" #f))))
-               finish: (lambda () (when (boolean-argument "panel" #t) (start-panel~ (get-application))))
+               start: (lambda ()
+                        (boot-world "yownu"))
+               finish: (lambda ()
+                         (when (boolean-argument "panel" #t)
+                           (start-panel~ (get-application))))
                visible?: (window?)))
 
 

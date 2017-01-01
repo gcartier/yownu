@@ -45,9 +45,7 @@
   (boot-client Yownu-Process
                start: (lambda ()
                         (setup-processor)
-                        (with-task-mutex
-                          (lambda ()
-                            (open-world/zone "yownu" #f)))
+                        (boot-world "yownu")
                         (ready-processor))
                visible?: (window?)))
 
