@@ -377,7 +377,7 @@
           (<!>           name: mind-control            visible?: #f)
           (<!>           name: toggle-aim              visible?: #f)
           (<!>           name: toggle-free-aim         visible?: #f)
-          (<!>           name: toggle-mount            visible?: #f)
+          (<!>           name: toggle-ride             visible?: #f)
           (<!>           name: toggle-fly              visible?: #f)
           (<!>           name: toggle-vehicle          visible?: #f))
         (<world-user!>                                 visible?: #t)
@@ -464,7 +464,7 @@
         (<!>             name: mind-control            visible?: #f)
         (<!>             name: toggle-aim              visible?: #f)
         (<!>             name: toggle-free-aim         visible?: #f)
-        (<!>             name: toggle-mount            visible?: #f)
+        (<!>             name: toggle-ride             visible?: #f)
         (<!>             name: toggle-fly              visible?: #f))))
   
   (define-trait user-target World-Actionbar
@@ -578,7 +578,7 @@
           (<!>           name: mind-control            visible?: #f)
           (<!>           name: toggle-aim              visible?: #f)
           (<!>           name: toggle-free-aim         visible?: #f)
-          (<!>           name: toggle-mount            visible?: #f)
+          (<!>           name: toggle-ride             visible?: #f)
           (<!>           name: toggle-fly              visible?: #f)
           (<!>           name: toggle-vehicle          visible?: #f))
         (<world-spell!>
@@ -687,7 +687,7 @@
         (<!>             name: mind-control            visible?: #f)
         (<!>             name: toggle-aim              visible?: #f)
         (<!>             name: toggle-free-aim         visible?: #f)
-        (<!>             name: toggle-mount            visible?: #f)
+        (<!>             name: toggle-ride             visible?: #f)
         (<!>             name: toggle-fly              visible?: #f))))
   
   (define-trait creator-interface World-Actionbar
