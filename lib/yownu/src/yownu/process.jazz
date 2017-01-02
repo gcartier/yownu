@@ -68,4 +68,30 @@
   (method override (initialize-settings)
     (nextmethod)
     (register-yownu-aliases)
-    (register-yownu-world))))
+    (register-yownu-world))
+  
+  
+  (method override (default-preferences)
+    (new Yownu-Process-Preferences)))
+
+
+;;;
+;;;; Preferences
+;;;
+
+
+;; quicky to rethink after sejour
+(import (jazz.command)
+        (jazz.document)
+        (jazz.editor.jazz)
+        (jazz.process))
+
+(class Yownu-Process-Preferences extends Process-Preferences
+  
+  
+  (form
+    (<install>
+      (<Documents-Preferences>      name: documents
+        ;; Scripting
+        (<Jazz-Text-Preferences>    name: jazz-text)
+        (<Command-Text-Preferences> name: command-text))))))
