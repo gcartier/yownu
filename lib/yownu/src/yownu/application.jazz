@@ -1207,13 +1207,32 @@
       ;; Application
       (<!>                           name: application visible?: #f)
       (<!>                           name: text
+        (<!>                         name: goto-line visible?: #f)
+        (<!>                         name: display-info visible?: #f)
+        (<!>                         name: search-forward-mode visible?: #f)
+        (<!>                         name: search-backward-mode visible?: #f)
         (<!>                         name: search-current visible?: #f))
       (<!>                           name: formatted-text visible?: #f)
       (<!>                           name: menubar visible?: #f)
       ;; Scripting
-      (<Code-Text-Actions>           name: code-text)
-      (<Lisp-Text-Actions>           name: lisp-text)
-      (<Jazz-Text-Actions>           name: jazz-text)
+      (<Code-Text-Actions>           name: code-text
+        (<!>                         name: analyse visible?: #f)
+        (<!>                         name: analyse-buffer visible?: #f)
+        (<!>                         name: evaluate visible?: #f)
+        (<!>                         name: evaluate-delayed visible?: #f)
+        (<!>                         name: evaluate-buffer visible?: #f)
+        (<!>                         name: edit-definitions visible?: #f)
+        (<!>                         name: edit-references visible?: #f)
+        (<!>                         name: find-imports visible?: #f)
+        (<!>                         name: find-all-imports visible?: #f))
+      (<Lisp-Text-Actions>           name: lisp-text
+        (<!>                         name: highlight-declaration visible?: #f)
+        (<!>                         name: highlight-selection visible?: #f)
+        (<!>                         name: remove-highlights visible?: #f))
+      (<Jazz-Text-Actions>           name: jazz-text
+        (<!>                         name: reprint-current-form visible?: #f)
+        (<!>                         name: present-documentation visible?: #f)
+        (<!>                         name: edit-documentation visible?: #f))
       (<Search-Mode-Actions>         name: search-mode)
       (<Highlight-Mode-Actions>      name: highlight-mode)
       (<Extended-Mode-Actions>       name: extended-mode)
