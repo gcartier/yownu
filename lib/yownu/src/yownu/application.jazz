@@ -304,7 +304,9 @@
              (else
               `(,World-Game-Bar      game      horizontal (center -36))))
           ;; disable for sejour
-          @w (,World-Window-Bar    window    horizontal (-10 -10))
+          ,@(if sejour?
+                '()
+              `((,World-Window-Bar    window    horizontal (-10 -10))))
           (,World-Camera-Bar    camera    horizontal (-10 -36))
           ,(case current-role
              ((creator)
