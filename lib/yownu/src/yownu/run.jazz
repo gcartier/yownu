@@ -28,8 +28,7 @@
 
 (definition protected (prepare-client)
   (set-process-kind 'application)
-  (set-settings-root (cond-expand (unix {Directory "/tmp/.yownu"})   ; quick solution for sejour
-                                  (else {Directory Home ".yownu"})))
+  (set-settings-root {Directory Home ".yownu"})
   (set-settings-alias 'Resources)
   (set-aliases-setup setup-aliases)
   (set-valid-roles '(user creator designer programmer admin))
