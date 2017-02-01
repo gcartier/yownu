@@ -1211,8 +1211,6 @@
       (<!>                           name: text
         (<!>                         name: goto-line visible?: #f)
         (<!>                         name: display-info visible?: #f)
-        (<!>                         name: search-forward-mode visible?: #f)
-        (<!>                         name: search-backward-mode visible?: #f)
         (<!>                         name: search-current visible?: #f))
       (<!>                           name: formatted-text visible?: #f)
       (<!>                           name: menubar visible?: #f)
