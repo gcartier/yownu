@@ -1027,6 +1027,7 @@
           (<!>           name: toggle-blocks           visible?: #f)
           (<!>           name: toggle-post-processing  visible?: #f))
         (<world-sound!>
+          (<!>           name: toggle-mic              visible?: #f)
           (<!>           name: toggle-music            visible?: #f)
           (<!>           name: toggle-ambience         visible?: #f)
           (<!>           name: toggle-sound            visible?: #f))
@@ -1107,6 +1108,7 @@
         (<!>             name: toggle-redstone-x-rays  visible?: #f)
         (<!>             name: toggle-blocks           visible?: #f)
         (<!>             name: toggle-post-processing  visible?: #f)
+        (<!>             name: toggle-mic              visible?: #f)
         (<!>             name: toggle-music            visible?: #f)
         (<!>             name: toggle-ambience         visible?: #f)
         (<!>             name: toggle-sound            visible?: #f))))
