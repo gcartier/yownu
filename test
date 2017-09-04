@@ -1,0 +1,38 @@
+if ( [ "$1" == "debug" ] || [ "$1" == "-d" ] ); then
+    DEBUGGER="-debugger :51000"
+    shift
+else
+    DEBUGGER=""
+fi
+
+if ( [ "$1" == "-l" ] ); then
+    cache/release/jazz $DEBUGGER -r yownu -local true
+    exit
+fi
+
+if [ -z "$1" ]; then
+    COUNT="2"
+else
+    COUNT="$1"
+fi
+
+case $COUNT in
+    "1" )
+        cache/release/jazz $DEBUGGER -r yownu -client Guillaume -local true &
+        ;;
+    "2" )
+        cache/release/jazz $DEBUGGER -r yownu -client Guillaume -local true &
+        cache/release/jazz $DEBUGGER -r yownu -client Joel -local true &
+        ;;
+    "3" )
+        cache/release/jazz $DEBUGGER -r yownu -client Guillaume -local true &
+        cache/release/jazz $DEBUGGER -r yownu -client Joel -local true &
+        cache/release/jazz $DEBUGGER -r yownu -client Barbara -local true &
+        ;;
+    * )
+        echo "Unsupported count: $COUNT"
+        exit 1
+        ;;
+esac
+
+cache/release/jazz $DEBUGGER -r yownu-server -server Local
