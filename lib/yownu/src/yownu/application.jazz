@@ -304,6 +304,7 @@
              (else
               `(,World-Game-Bar      game      horizontal (center -36))))
           (,World-Window-Bar    window    horizontal (-10 -10))
+          (,World-Media-Bar     media     horizontal (-150 -10))
           (,World-Camera-Bar    camera    horizontal (-10 -36))
           ,(case current-role
              ((creator)
@@ -1027,10 +1028,12 @@
           (<!>           name: toggle-blocks           visible?: #f)
           (<!>           name: toggle-post-processing  visible?: #f))
         (<world-sound!>
-          (<!>           name: toggle-mic              visible?: #f)
           (<!>           name: toggle-music            visible?: #f)
           (<!>           name: toggle-ambience         visible?: #f)
           (<!>           name: toggle-sound            visible?: #f))
+        (<world-media!>
+          (<!>           name: toggle-audio            visible?: #f)
+          (<!>           name: toggle-video            visible?: #f))
         (<world-edition!>
           (<!>           name: select-target-mode      visible?: #f)
           (<!>           name: move-target-mode        visible?: #f)
@@ -1107,11 +1110,16 @@
         (<!>             name: toggle-x-rays           visible?: #f)
         (<!>             name: toggle-redstone-x-rays  visible?: #f)
         (<!>             name: toggle-blocks           visible?: #f)
-        (<!>             name: toggle-post-processing  visible?: #f)
-        (<!>             name: toggle-mic              visible?: #f)
+        (<!>             name: toggle-post-processing  visible?: #f))))
+
+  (define-trait admin-media World-Actionbar
+    (<Role-Trait>
+      (<install>
         (<!>             name: toggle-music            visible?: #f)
         (<!>             name: toggle-ambience         visible?: #f)
-        (<!>             name: toggle-sound            visible?: #f))))
+        (<!>             name: toggle-sound            visible?: #f)
+        (<!>             name: toggle-audio            visible?: #f)
+        (<!>             name: toggle-video            visible?: #f))))
 
   (define-trait admin-camera World-Actionbar
     (<Role-Trait>
@@ -1170,6 +1178,7 @@
       (main ,admin-main)
       (game ,admin-game)
       (interface ,admin-interface)
+      (media ,admin-media)
       (camera ,admin-camera)
       (edition ,admin-edition)
       (models ,admin-models)
@@ -1247,6 +1256,7 @@
       (<World-Interface-Actions>     name: world-interface)
       (<World-Graphics-Actions>      name: world-graphics)
       (<World-Sound-Actions>         name: world-sound)
+      (<World-Media-Actions>         name: world-media)
       (<World-Client-Actions>        name: world-client)
       (<World-World-Actions>         name: world-world)
       (<World-Zone-Actions>          name: world-zone)
