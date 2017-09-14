@@ -15,8 +15,11 @@
 
 
 (import (jazz.io)
+        (jazz.settings)
         (script)
         (world)
+        (yownu.worker-application)
+        (yownu.worker-process)
         (yownu.worker-settings)
         (yownu.worker))
 
@@ -28,7 +31,9 @@
   (set-evaluate-forms-hook
     (lambda rest
       #t))
-  (boot-environment~ (new Yownu-Worker)))
+  (boot-environment~ (new (if (boolean-argument "window" #f)
+                              Yownu-Worker-Application
+                            Yownu-Worker-Process))))
 
 
 (register-product-run 'yownu-worker

@@ -54,7 +54,8 @@
                           (build (yownu-worker executable: "Yownu-Worker" bundle: "yownu-worker" resources: "resources/yownu-worker" include-compiler?: #t))
                           (update yownu.product-worker
                                   yownu.run-worker
-                                  yownu.worker
+                                  yownu.worker-application
+                                  yownu.worker-process
                                   yownu.worker-settings)
                           (dependencies world.worker))
             (yownu-world (product yownu.product-world))
