@@ -9,4 +9,4 @@ else
   shift
 fi
 
-./jaz deploy "yownu@$ENVIRONMENT" "$@"
+./jaz deploy "yownu@$ENVIRONMENT" "$@" -debug

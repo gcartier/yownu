@@ -1,3 +1,5 @@
+#!/bin/sh
+
 if ( [ "$1" == "debug" ] || [ "$1" == "-d" ] ); then
     DEBUGGER="-debugger :51000"
     shift
@@ -10,6 +12,19 @@ if ( [ "$1" == "-l" ] ); then
     exit
 fi
 
+if ( [ "$1" == "-r" ] ); then
+    C1="SecretGuillaume"
+    C2="SecretJoel"
+    C3="SecretBarbara"
+    LOCAL=false
+    shift
+else
+    C1="Guillaume"
+    C2="Joel"
+    C3="Barbara"
+    LOCAL=true
+fi
+
 if [ -z "$1" ]; then
     COUNT="2"
 else
@@ -17,17 +32,19 @@ else
 fi
 
 case $COUNT in
+    "0" )
+        ;;
     "1" )
-        cache/release/jazz $DEBUGGER -r yownu -client Guillaume -local true &
+        cache/release/jazz $DEBUGGER -r yownu -client $C1 -local true &
         ;;
     "2" )
-        cache/release/jazz $DEBUGGER -r yownu -client Guillaume -local true &
-        cache/release/jazz $DEBUGGER -r yownu -client Joel -local true &
+        cache/release/jazz $DEBUGGER -r yownu -client $C1 -local true &
+        cache/release/jazz $DEBUGGER -r yownu -client $C2 -local true &
         ;;
     "3" )
-        cache/release/jazz $DEBUGGER -r yownu -client Guillaume -local true &
-        cache/release/jazz $DEBUGGER -r yownu -client Joel -local true &
-        cache/release/jazz $DEBUGGER -r yownu -client Barbara -local true &
+        cache/release/jazz $DEBUGGER -r yownu -client $C1 -local true &
+        cache/release/jazz $DEBUGGER -r yownu -client $C2 -local true &
+        cache/release/jazz $DEBUGGER -r yownu -client $C3 -local true &
         ;;
     * )
         echo "Unsupported count: $COUNT"
@@ -35,4 +52,6 @@ case $COUNT in
         ;;
 esac
 
-cache/release/jazz $DEBUGGER -r yownu-server -server Local
+if $LOCAL ; then
+    cache/release/jazz $DEBUGGER -listen *:50000 -r yownu-server -server Local
+fi
