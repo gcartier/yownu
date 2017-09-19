@@ -63,7 +63,6 @@
         (world.asset)
         (world.assets)
         (world.atlas)
-        (world.audio)
         (world.autoload)
         (world.billboard)
         (world.binary)
