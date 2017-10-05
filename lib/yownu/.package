@@ -35,6 +35,7 @@
                                  jazz.git
                                  (cond
                                    ((or mac windows) jiri))
+                                 jazz.platform
                                  world
                                  world.client
                                  world.server))
