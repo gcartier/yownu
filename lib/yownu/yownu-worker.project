@@ -10,10 +10,8 @@
 
 
 (form
-  (<Jazz-Project>  name: Yownu-Worker   default-traits: (Safety.Release) directory: {Directory :context "../../cache"} working: {Directory :context "../.."} arguments: ("-listen" "*:50000") product: yownu-worker
+  (<Jazz-Project>  name: Yownu-Worker   default-traits: (Safety.Devel) directory: {Directory :context "../../cache"} working: {Directory :context "../.."} arguments: ("-listen" "*:50000") product: yownu-worker
     (<Trait>       name: Safety
       (<install>)
-      (<Trait>     name: Debug
-        (<install>               configuration: "debug"))
-      (<Trait>     name: Release
-        (<install>               configuration: "release"))))))
+      (<Trait>     name: Devel
+        (<install>               configuration: "devel"))))))
