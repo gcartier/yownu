@@ -69,24 +69,24 @@
   (slot local-debugger initialize #f)
 
   
-  (method override (process-name)
+  (method override (process-name self)
     "Yownu")
   
   
-  (method override (process-version)
+  (method override (process-version self)
     yownu-version)
   
   
-  (method override (process-release)
+  (method override (process-release self)
     yownu-release)
   
   
-  (method override (process-debugger)
+  (method override (process-debugger self)
     ;; already installed in settings
     #f)
   
   
-  (method override (new-toplevel)
+  (method override (new-toplevel self)
     (if (not (window?))
         (new Yownu-Window visible?: #f)
     (let ((fullscreen? window-fullscreen?)
@@ -95,17 +95,17 @@
       (new-opengl-window class: Yownu-Window fullscreen?: fullscreen? position: pos size: size render?: #f visible?: #f))))
   
   
-  (method override (initialize-settings)
-    (nextmethod)
+  (method override (initialize-settings self)
+    (nextmethod self)
     (register-yownu-aliases)
     (register-yownu-world))
   
   
-  (method override (default-preferences)
+  (method override (default-preferences self)
     (new Yownu-Preferences))
   
   
-  (method override (default-bindings)
+  (method override (default-bindings self)
     (new Yownu-Bindings))
   
   
@@ -122,10 +122,10 @@
     (start-debuggers))
   
   
-  (method override (finish-process)
-    (nextmethod)
-    (setup-cataloguer)
-    (preload-catalogs)
+  (method override (finish-process self)
+    (nextmethod self)
+    (setup-cataloguer self)
+    (preload-catalogs self)
     (set-safe-explore-action 'ignore)
     ;; a try
     @wait-debugger!?
@@ -139,13 +139,13 @@
     ;; do this at the last moment possible because any error beyond this point
     ;; will be handled by the IDE itself which must thus be fully functional
     (if (get-controller-debugger)
-        (attach-process~ local-debugger (get-local-process) #t)
+        (attach-process local-debugger (get-local-process) #t)
       (when (and kernel-source-access? (world-setting 'yownu.debugger? #f))
         (attach-to-controller (get-local-register) #t)
         (with-system-exception-debugger
           (lambda ()
             (ready-to-controller)
-            (transmit-runtime-information~ (get-local-process) 'all)
+            (transmit-runtime-information (get-local-process) 'all)
             (current-input-port (console-input-port))
             (current-output-port (console-output-port)))))))
   
@@ -155,11 +155,11 @@
   ;;;
   
   
-  (method override (close-environment)
+  (method override (close-environment self)
     (let ((cataloguer (get-cataloguer)))
       (when cataloguer
-        (save-catalogs~ cataloguer)))
-    (nextmethod))
+        (save-catalogs cataloguer)))
+    (nextmethod self))
 
   
   ;;;
@@ -167,9 +167,9 @@
   ;;;
   
   
-  (method override (class-actions)
+  (method override (class-actions self)
     (append (list (find-actions 'yownu))
-            (nextmethod)))
+            (nextmethod self)))
   
   
   ;;;
@@ -177,10 +177,10 @@
   ;;;
   
   
-  (method (on-teleport-player evt)
+  (method (on-teleport-player self evt)
     (let ((zone (current-zone)))
       (if (eq? (category-name (class-of zone)) 'Yownu-Zone)
-          (place-player~ zone)
+          (place-player zone)
         (bell))))
   
   
@@ -189,19 +189,19 @@
   ;;;
   
   
-  (method override (news-file)
+  (method override (news-file self)
     (world-file '("devel" "yownu" "News.ftx") 'Resources))
   
   
-  (method override (roadmap-file)
+  (method override (roadmap-file self)
     (world-file '("devel" "yownu" "Roadmap.ftx") 'Resources))
   
   
-  (method override (help-file)
+  (method override (help-file self)
     (world-file '("devel" "yownu" "Help.ftx") 'Resources))
   
   
-  (method override (about-file)
+  (method override (about-file self)
     (world-file '("devel" "yownu" "About.ftx") 'Resources))
   
   
@@ -214,7 +214,7 @@
   @wait-debugger!?
   (method override (register-base-objects)
     (nextmethod)
-    (register-object~ (get-local-register) 'debugger (new Jazz-Debugger-Local-Proxy local-debugger)))
+    (register-object (get-local-register) 'debugger (new Jazz-Debugger-Local-Proxy local-debugger)))
   
   
   ;;;
@@ -222,7 +222,7 @@
   ;;;
   
   
-  (method override (runtime-units)
+  (method override (runtime-units self)
     '(tutorial.objectives))
   
   
@@ -244,7 +244,7 @@
   (method (start-debuggers)
     (when (not local-debugger)
       (set! local-debugger (new Yownu-Debugger))
-      (start-debugger~ local-debugger)
+      (start-debugger local-debugger)
       (register-debugger local-debugger)
       (set-current-debugger local-debugger)))
   
@@ -254,7 +254,7 @@
   ;;;
   
   
-  (method override (setup-cataloguer)
+  (method override (setup-cataloguer self)
     (define (world-catalog)
       (let ((output {File Settings "work" "catalogs" "world.jcat"})
             (directories {Directory Yownu-World})
@@ -268,19 +268,19 @@
         (new Filing-Catalog 'user output directories extensions #f #f #t)))
     
     (let ((cataloguer (new Cataloguer)))
-      (add-catalog~ cataloguer (world-catalog))
-      (add-catalog~ cataloguer (user-catalog))
+      (add-catalog cataloguer (world-catalog))
+      (add-catalog cataloguer (user-catalog))
       (set-cataloguer cataloguer)))
   
   
-  (method (preload-catalogs)
+  (method (preload-catalogs self)
     ;; using delay-event to load the catalogs after the run loop is
     ;; started ensures that the null? test on the load-stack passes
     (delay-event
       (lambda ()
-        (for-each-active-catalog~ (get-cataloguer) #f
+        (for-each-active-catalog (get-cataloguer) #f
           (lambda (catalog)
-            (load-content~ catalog report?: #f))))))
+            (load-content catalog report?: #f))))))
   
   
   ;;;
@@ -288,7 +288,7 @@
   ;;;
   
   
-  (method override (setup-application-interface)
+  (method override (setup-application-interface self)
     (let ((interface (current-interface)))
       (new History-Slider name: 'slider parent: interface size: {Dimension 400 40} location: '(center 32) visible?: #f)
       (install-bars
@@ -328,8 +328,8 @@
           (,World-Tutorial-Bar  tutorial  horizontal (10 10) #f)
           (,World-Objective-Bar objective horizontal (114 10) #f)
           (,World-Collision-Bar collision horizontal (-10 36) #f)))
-      (set-layouter~ (child~ interface 'models) models-bar-layouter)
-      (set-layouter~ (child~ interface 'blocks) blocks-bar-layouter)))
+      (set-layouter (child interface 'models) models-bar-layouter)
+      (set-layouter (child interface 'blocks) blocks-bar-layouter)))
 
 
   ;;;
@@ -337,20 +337,20 @@
   ;;;
   
   
-  (method override (customize-roles)
+  (method override (customize-roles self)
     (when (neq? initial-role 'user)
-      (set-property~ (child~ (child~ (get-client-form~ user-bindings) 'world-world) 'toggle-user) 'visible? #t)
-      (set-property~ (child~ (get-client-form~ user-main) 'toggle-user) 'visible? #t)))
+      (set-property (child (child (get-client-form user-bindings) 'world-world) 'toggle-user) 'visible? #t)
+      (set-property (child (get-client-form user-main) 'toggle-user) 'visible? #t)))
   
   
-  (method override (role-traits role)
+  (method override (role-traits self role)
     (case role
       ((user) user-role)
       ((creator) creator-role)
       ((designer) designer-role)
       ((programmer) programmer-role)
       ((admin) admin-role)
-      (else (nextmethod role))))
+      (else (nextmethod self role))))
 
 
   ;;;

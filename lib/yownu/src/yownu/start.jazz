@@ -14,7 +14,8 @@
 (module yownu.start jazz
 
 
-(import (jazz.opengl.glew)
+(import (jazz.io)
+        (jazz.opengl.glew)
         (jazz.opengl.window)
         (jazz.platform)
         (jazz.settings)
@@ -85,7 +86,7 @@
            (setup-profiling)
            (register-yownu-aliases)
            (register-yownu-world)
-           (open-world (new-file~ (find-world "yownu") ".world") start-zone: 'none)
+           (open-world (new-file (find-world "yownu") ".world") start-zone: 'none)
            (create-client-files client-prefix count server-address server-port script)
            (format :terminal "Clients {a}1..{a} created{%}" client-prefix count)))
         ;; Boot client

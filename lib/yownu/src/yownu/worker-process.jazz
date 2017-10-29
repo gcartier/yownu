@@ -26,9 +26,9 @@
 (class Yownu-Worker-Process extends Worker-Process
   
   
-  (method override (process-name)
+  (method override (process-name self)
     "Yownu")
   
   
-  (method override (initialize-app)
+  (method override (initialize-app self)
     (register-resources-alias 'Yownu 'yownu))))

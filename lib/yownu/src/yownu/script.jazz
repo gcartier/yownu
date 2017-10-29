@@ -47,8 +47,8 @@
       (when (is? declaration Module-Declaration)
         (collect (lambda (import)
                    (when (not (get-hit?~ import))
-                     (get-name~ import)))
-                 (get-imports~ declaration)))))
+                     (get-name import)))
+                 (get-imports declaration)))))
   
   (let ((all '()))
     (iterate-units

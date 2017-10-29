@@ -26,15 +26,15 @@
 (class Yownu-Worker-Application extends Worker-Application
   
   
-  (method override (process-name)
+  (method override (process-name self)
     "Yownu")
   
   
-  (method override (new-toplevel)
+  (method override (new-toplevel self)
     (new Yownu-Worker-Toplevel))
   
   
-  (method override (initialize-app)
+  (method override (initialize-app self)
     (register-resources-alias 'Yownu 'yownu)))
 
 
@@ -46,5 +46,5 @@
 (class Yownu-Worker-Toplevel extends Worker-Toplevel
   
   
-  (method override (effective-title)
+  (method override (effective-title self)
     "Yownu")))

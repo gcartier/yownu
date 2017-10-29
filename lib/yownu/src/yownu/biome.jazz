@@ -27,13 +27,13 @@
   (slot trees getter generate)
   
   
-  (method override (initialize (name: name #f) (earth: earth #f) (trees: trees #f))
-    (set! name~self name)
-    (set! earth~self earth)
-    (set! trees~self trees))
+  (method override (initialize self (name: name #f) (earth: earth #f) (trees: trees #f))
+    (set! self.name name)
+    (set! self.earth earth)
+    (set! self.trees trees))
   
   
-  (method override (print output readably)
+  (method override (print self output readably)
     (print-unreadable self output
       (lambda (output)
         (format output "{s}" name)))))
@@ -62,7 +62,7 @@
 
 
 (definition public (find-biome name)
-  (or (find biomes name key: get-name~ return: 'item)
+  (or (find biomes name key: get-name return: 'item)
       (error "Unknown biome: {s}" name)))
 
 

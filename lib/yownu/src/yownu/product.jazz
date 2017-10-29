@@ -27,51 +27,51 @@
   (define (resources-dir)
     (let ((bundle (product-descriptor-build-bundle descriptor)))
       (if bundle
-          (new-directory~ {Directory Build} (format "{a}.app/Contents/Resources" bundle))
+          (new-directory {Directory Build} (format "{a}.app/Contents/Resources" bundle))
         {Directory Build})))
   
   (let ((project-dir {Directory Yownu})
         (resources-dir (resources-dir)))
-    (define (install-file path)
-      (let ((src (new-file~ project-dir path))
-            (dst (new-file~ resources-dir path)))
-        (install-file~ src dst
+    (define (install-filename path)
+      (let ((src (new-file project-dir path))
+            (dst (new-file resources-dir path)))
+        (install-file src dst
           feedback: (lambda (action pathname)
-                      (build-feedback "; {a} {a}..." action (get-name~ pathname))))))
+                      (build-feedback "; {a} {a}..." action (get-name pathname))))))
     
-    (define (install-directory path (src #f) (dst #f))
-      (let ((src (new-directory~ project-dir (or src path)))
-            (dst (new-directory~ resources-dir (or dst path))))
-        (install-directory~ src dst
+    (define (install-dirname path (src #f) (dst #f))
+      (let ((src (new-directory project-dir (or src path)))
+            (dst (new-directory resources-dir (or dst path))))
+        (install-directory src dst
           feedback: (let ((first? #t))
                       (lambda (action pathname)
                         (when first?
-                          (build-feedback "; {a} {a}..." action (get-name~ pathname))
+                          (build-feedback "; {a} {a}..." action (get-name pathname))
                           (set! first? #f)))))))
     
     (define (copy-info)
-      (install-file '("README"))
-      (install-file '("devel" "yownu" "About.ftx"))
-      (install-file '("devel" "yownu" "Help.ftx"))
-      (install-file '("devel" "yownu" "News.ftx") )
-      (install-file '("devel" "yownu" "Roadmap.ftx")))
+      (install-filename '("README"))
+      (install-filename '("devel" "yownu" "About.ftx"))
+      (install-filename '("devel" "yownu" "Help.ftx"))
+      (install-filename '("devel" "yownu" "News.ftx") )
+      (install-filename '("devel" "yownu" "Roadmap.ftx")))
     
     (define (copy-assets)
-      (install-directory '("world" "lib" "world.client" "assets"))
-      (install-directory '("lib" "yownu" "assets")))
+      (install-dirname '("world" "lib" "world.client" "assets"))
+      (install-dirname '("lib" "yownu" "assets")))
     
     (define (copy-doc)
-      (install-directory '("world" "lib" "world.website" "content")))
+      (install-dirname '("world" "lib" "world.website" "content")))
     
     (define (copy-external)
       (when (eq? kernel-platform 'windows)
-        (install-file '("devel" "external" "fbx-conv" "windows" "fbx-conv.exe"))))
+        (install-filename '("devel" "external" "fbx-conv" "windows" "fbx-conv.exe"))))
     
     (define (copy-scripts)
-      (install-directory '("devel" "scripts")))
+      (install-dirname '("devel" "scripts")))
     
     (define (copy-templates)
-      (install-directory '("devel" "templates")))
+      (install-dirname '("devel" "templates")))
     
     (build-product-descriptor descriptor unit: unit force?: force?)
     (initialize-aliases)
@@ -131,16 +131,16 @@
   ;; apps
   (cond-expand
     (mac
-     (let ((app-dir (new-directory~ install-dir install-name)))
-       (install-directory~ {Directory Build "yownu-server.app"} (new-directory~ app-dir '("Contents" "MacOS" "yownu-server.app"))
+     (let ((app-dir (new-directory install-dir install-name)))
+       (install-directory {Directory Build "yownu-server.app"} (new-directory app-dir '("Contents" "MacOS" "yownu-server.app"))
          feedback: (lambda (action pathname)
-                     (build-feedback "; {a} {a}..." action (get-name~ pathname))))
-       (install-directory~ {Directory Build "yownu-processor.app"} (new-directory~ app-dir '("Contents" "MacOS" "yownu-processor.app"))
+                     (build-feedback "; {a} {a}..." action (get-name pathname))))
+       (install-directory {Directory Build "yownu-processor.app"} (new-directory app-dir '("Contents" "MacOS" "yownu-processor.app"))
          feedback: (lambda (action pathname)
-                     (build-feedback "; {a} {a}..." action (get-name~ pathname))))
-       (install-directory~ {Directory Build "yownu-worker.app"} (new-directory~ app-dir '("Contents" "MacOS" "yownu-worker.app"))
+                     (build-feedback "; {a} {a}..." action (get-name pathname))))
+       (install-directory {Directory Build "yownu-worker.app"} (new-directory app-dir '("Contents" "MacOS" "yownu-worker.app"))
          feedback: (lambda (action pathname)
-                     (build-feedback "; {a} {a}..." action (get-name~ pathname))))))
+                     (build-feedback "; {a} {a}..." action (get-name pathname))))))
     (else)))
 
 
@@ -153,7 +153,7 @@
   (initialize-aliases)
   ;; appl
   (deploy-application descriptor
-                      (new-directory~ install-dir install-name)
+                      (new-directory install-dir install-name)
                       make: 'yownu-all
                       install: 'yownu))
 

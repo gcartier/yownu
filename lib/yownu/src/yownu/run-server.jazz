@@ -37,7 +37,7 @@
   (setup-worker-filename))
 
 
-(definition (run descriptor)
+(definition (run-server descriptor)
   (prepare-server)
   (load-unit 'world.settings)
   (load-unit 'world.work)
@@ -46,4 +46,4 @@
 
 
 (register-product-run 'yownu-server
-  run))
+  run-server))

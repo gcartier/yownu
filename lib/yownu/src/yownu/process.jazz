@@ -44,34 +44,34 @@
 (class Yownu-Process extends World-Process
 
   
-  (method override (process-name)
+  (method override (process-name self)
     "Yownu-Server")
   
   
-  (method override (process-icon)
+  (method override (process-icon self)
     "WebServer")
   
   
-  (method override (process-version)
+  (method override (process-version self)
     yownu-version)
   
   
-  (method override (process-release)
+  (method override (process-release self)
     yownu-release)
   
   
-  (method override (process-debugger)
+  (method override (process-debugger self)
     ;; already installed in settings
     #f)
   
   
-  (method override (initialize-settings)
-    (nextmethod)
+  (method override (initialize-settings self)
+    (nextmethod self)
     (register-yownu-aliases)
     (register-yownu-world))
   
   
-  (method override (default-preferences)
+  (method override (default-preferences self)
     (new Yownu-Process-Preferences)))
 
 

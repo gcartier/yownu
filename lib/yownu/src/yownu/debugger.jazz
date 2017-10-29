@@ -28,21 +28,21 @@
   ;; Until Yownu internal consoles
   
   
-  (method override (register-console-text debugged-process debugged-thread select?)
+  (method override (register-console-text self debugged-process debugged-thread select?)
     #f)
   
   
-  (method override (unregister-console-text text)
+  (method override (unregister-console-text self text)
     )
   
   
-  (method override (select-console resource)
+  (method override (select-console self resource)
     )
   
   
-  (method override (console-output resource str)
+  (method override (console-output self resource str)
     (display str (terminal-port)))
   
   
-  (method override (clear-console resource)
+  (method override (clear-console self resource)
     (clear-terminal))))
