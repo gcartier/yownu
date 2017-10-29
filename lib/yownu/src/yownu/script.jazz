@@ -46,7 +46,7 @@
                          (walk-unit unit-name))))
       (when (is? declaration Module-Declaration)
         (collect (lambda (import)
-                   (when (not (get-hit?~ import))
+                   (when (not (get-hit? import))
                      (get-name import)))
                  (get-imports declaration)))))
   
