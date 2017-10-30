@@ -43,7 +43,7 @@
         (jazz.settings)
         (jazz.skin)
         (jazz.snapshot)
-        (jazz.syntax)
+        (jazz.syntax (phase syntax))
         (jazz.tracker)
         (jazz.ui)
         (jazz.ui.development)
