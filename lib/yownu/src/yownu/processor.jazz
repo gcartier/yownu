@@ -26,6 +26,7 @@
         (jazz.version)
         (world)
         (world.autoload)
+        (world.context)
         (world.history)
         (world.interface)
         (world.interface.actions)

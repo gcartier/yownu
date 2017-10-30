@@ -45,6 +45,7 @@
         (world.autoload)
         (world.client.actions)
         (world.client.bars)
+        (world.context)
         (world.history)
         (world.interface)
         (world.interface.actions)

@@ -18,5 +18,6 @@
 
 (import (world)
         (world.autoload)
+        (world.context)
         (world.live)
         (world.syntax (phase syntax))))

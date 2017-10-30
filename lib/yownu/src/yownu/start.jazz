@@ -23,6 +23,7 @@
         (world.boot)
         (world.capabilities)
         (world.colors)
+        (world.context)
         (world.fonts)
         (world.io)
         (world.profiling)
