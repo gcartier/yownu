@@ -115,7 +115,7 @@
         (world.interface.documents)
         (world.interface.inventory)
         (world.interface.map)
-        (world.interface.pane)
+        (world.interface.panel)
         (world.interface.script)
         (world.interface.skin)
         (world.interface.showcase)
