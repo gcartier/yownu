@@ -19,7 +19,7 @@
         (jazz.debuggee)
         (jazz.debugger)
         (jazz.io)
-        (jazz.jml)
+        (jazz.markup)
         (jazz.platform)
         (jazz.settings)
         (jazz.snapshot)

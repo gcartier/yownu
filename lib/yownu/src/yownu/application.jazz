@@ -30,7 +30,7 @@
         (jazz.event)
         (jazz.handler)
         (jazz.io)
-        (jazz.jml)
+        (jazz.markup)
         (jazz.opengl.window)
         (jazz.snapshot)
         (jazz.platform)
