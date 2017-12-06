@@ -1228,8 +1228,6 @@
       (<!>                           name: menubar visible?: #f)
       ;; Scripting
       (<Code-Text-Actions>           name: code-text
-        (<!>                         name: analyse visible?: #f)
-        (<!>                         name: analyse-buffer visible?: #f)
         (<!>                         name: evaluate-delayed visible?: #f)
         (<!>                         name: evaluate-buffer visible?: #f)
         (<!>                         name: edit-definitions visible?: #f)
