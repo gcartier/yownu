@@ -1222,8 +1222,7 @@
       (<!>                           name: application visible?: #f)
       (<!>                           name: text
         (<!>                         name: goto-line visible?: #f)
-        (<!>                         name: display-info visible?: #f)
-        (<!>                         name: search-current visible?: #f))
+        (<!>                         name: display-info visible?: #f))
       (<!>                           name: formatted-text visible?: #f)
       (<!>                           name: menubar visible?: #f)
       ;; Scripting
