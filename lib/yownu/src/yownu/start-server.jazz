@@ -52,7 +52,7 @@
                         (boot-world "yownu"))
                finish: (lambda ()
                          (when (boolean-argument "panel" #t)
-                           (start-panel (get-application))))
+                           (start-panel (current-application))))
                visible?: (window?)))
 
 
