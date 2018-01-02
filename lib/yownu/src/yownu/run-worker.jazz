@@ -24,12 +24,13 @@
 
 
 (definition (run-worker descriptor)
-  (set-valid-roles '(user creator designer programmer admin))
+  (set-dynamic-worker-filename? #t)
   ;; when running the under the debugger do not evaluate
   ;; forms as this can result in world.work being loaded
   (set-evaluate-forms-hook
     (lambda rest
       #t))
+  (load-unit 'world.settings)
   (boot-environment (new (if (boolean-argument "window" #f)
                               Yownu-Worker-Application
                             Yownu-Worker-Process))))

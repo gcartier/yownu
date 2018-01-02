@@ -27,8 +27,4 @@
   
   
   (method override (process-name self)
-    "Yownu")
-  
-  
-  (method override (initialize-app self)
-    (register-resources-alias 'Yownu 'yownu))))
+    "Yownu")))

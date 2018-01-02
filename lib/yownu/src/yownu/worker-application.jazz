@@ -31,11 +31,7 @@
   
   
   (method override (new-toplevel self)
-    (new Yownu-Worker-Toplevel))
-  
-  
-  (method override (initialize-app self)
-    (register-resources-alias 'Yownu 'yownu)))
+    (new Yownu-Worker-Toplevel)))
 
 
 ;;;
