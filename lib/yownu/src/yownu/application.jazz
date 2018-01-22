@@ -301,9 +301,9 @@
           ;(,World-Client-Bar    client    horizontal (-400 -10))
           ,(case current-role
              ((user creator)
-              `(,World-Game-Bar      game      horizontal (center -10)))
+              `(,World-Universe-Bar universe horizontal (center -10)))
              (else
-              `(,World-Game-Bar      game      horizontal (center -36))))
+              `(,World-Universe-Bar universe horizontal (center -36))))
           (,World-Window-Bar    window    horizontal (-10 -10))
           (,World-Media-Bar     media     horizontal (-150 -10))
           (,World-Camera-Bar    camera    horizontal (-10 -36))
@@ -375,7 +375,7 @@
           (<!>           name: zone-open               visible?: #f)
           (<!>           name: zone-open-content       visible?: #f)
           (<!>           name: zone-reload             visible?: #f))
-        (<world-game!>
+        (<world-universe!>
           (<!>           name: mind-control            visible?: #f)
           (<!>           name: toggle-aim              visible?: #f)
           (<!>           name: toggle-free-aim         visible?: #f)
@@ -455,7 +455,7 @@
         (<!>             name: zone-open               visible?: #f)
         (<!>             name: toggle-user             visible?: #f))))
   
-  (define-trait user-game World-Actionbar
+  (define-trait user-universe World-Actionbar
     (<Role-Trait>
       (<install>
         ;; for now as it enables jumping over kingdom bridge
@@ -542,7 +542,7 @@
   (definition user-role
     `((:bindings ,user-bindings)
       (main ,user-main)
-      (game ,user-game)
+      (universe ,user-universe)
       (target ,user-target)
       (interface ,user-interface)
       (camera ,user-camera)
@@ -576,7 +576,7 @@
           (<!>           name: zone-open               visible?: #f)
           (<!>           name: zone-open-content       visible?: #f)
           (<!>           name: zone-reload             visible?: #f))
-        (<world-game!>
+        (<world-universe!>
           (<!>           name: mind-control            visible?: #f)
           (<!>           name: toggle-aim              visible?: #f)
           (<!>           name: toggle-free-aim         visible?: #f)
@@ -678,7 +678,7 @@
         (<!>             name: zone-open               visible?: #f)
         (<!>             name: toggle-user             visible?: #f))))
   
-  (define-trait creator-game World-Actionbar
+  (define-trait creator-universe World-Actionbar
     (<Role-Trait>
       (<install>
         (<!>             name: bullet                  visible?: #f)
@@ -777,7 +777,7 @@
   (definition creator-role
     `((:bindings ,creator-bindings)
       (main ,creator-main)
-      (game ,creator-game)
+      (universe ,creator-universe)
       (interface ,creator-interface)
       (camera ,creator-camera)
       (edition ,creator-edition)
@@ -808,7 +808,7 @@
         (<world-zone!>
           (<!>           name: zone-open-content       visible?: #f)
           (<!>           name: zone-reload             visible?: #f))
-        (<world-game!>
+        (<world-universe!>
           (<!>           name: mind-control            visible?: #f)
           (<!>           name: toggle-aim              visible?: #f)
           (<!>           name: toggle-free-aim         visible?: #f))
@@ -875,7 +875,7 @@
         (<!>             name: world-save              visible?: #f)
         (<!>             name: world-revert            visible?: #f))))
   
-  (define-trait designer-game World-Actionbar
+  (define-trait designer-universe World-Actionbar
     (<Role-Trait>
       (<install>
         (<!>             name: dash                   visible?: #f)
@@ -956,7 +956,7 @@
   (definition designer-role
     `((:bindings ,designer-bindings)
       (main ,designer-main)
-      (game ,designer-game)
+      (universe ,designer-universe)
       (interface ,designer-interface)
       (camera ,designer-camera)
       (edition ,designer-edition)
@@ -1006,7 +1006,7 @@
           (<!>           name: world-save-as           visible?: #f)
           (<!>           name: world-revert            visible?: #f)
           (<!>           name: toggle-user             visible?: #f))
-        (<world-game!>
+        (<world-universe!>
           (<!>           name: mind-control            visible?: #f)
           (<!>           name: toggle-aim              visible?: #f)
           (<!>           name: toggle-free-aim         visible?: #f)
@@ -1087,7 +1087,7 @@
         (<!>             name: world-revert            visible?: #f)
         (<!>             name: toggle-user             visible?: #f))))
     
-  (define-trait admin-game World-Actionbar
+  (define-trait admin-universe World-Actionbar
     (<Role-Trait>
       (<install>
         (<!>             name: bullet                  visible?: #f)
@@ -1177,7 +1177,7 @@
   (definition admin-role
     `((:bindings ,admin-bindings)
       (main ,admin-main)
-      (game ,admin-game)
+      (universe ,admin-universe)
       (interface ,admin-interface)
       (media ,admin-media)
       (camera ,admin-camera)
@@ -1260,7 +1260,7 @@
       (<World-Zone-Actions>          name: world-zone)
       (<World-Movement-Actions>      name: world-movement)
       (<World-Camera-Actions>        name: world-camera)
-      (<World-Game-Actions>          name: world-game)
+      (<World-Universe-Actions>      name: world-universe)
       (<World-Spell-Actions>         name: world-spell)
       (<World-Edition-Actions>       name: world-edition)
       (<World-History-Actions>       name: world-history)
