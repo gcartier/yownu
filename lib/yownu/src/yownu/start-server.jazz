@@ -49,7 +49,7 @@
     (initialize-platform))
   (boot-client (if (window?) Yownu-Application Yownu-Process)
                start: (lambda ()
-                        (boot-world "yownu"))
+                        (boot-world 'server "yownu"))
                finish: (lambda ()
                          (when (boolean-argument "panel" #t)
                            (start-panel (current-application))))

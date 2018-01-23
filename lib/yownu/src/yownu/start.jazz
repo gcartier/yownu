@@ -87,7 +87,7 @@
            (setup-profiling)
            (register-yownu-aliases)
            (register-yownu-world)
-           (open-world (new-file (find-world "yownu") ".world") start-zone: 'none)
+           (open-world 'local (new-file (find-world "yownu") ".world") start-zone: 'none)
            (create-client-files client-prefix count server-address server-port script)
            (format :terminal "Clients {a}1..{a} created{%}" client-prefix count)))
         ;; Boot client
@@ -104,7 +104,7 @@
            (initialize-platform))
          (boot-client (if (window?) Yownu-Application Yownu-Process)
                       start: (lambda ()
-                               (boot-world "yownu"))))))
+                               (boot-world 'local "yownu"))))))
 
 
 (set-yownu-start start-yownu))

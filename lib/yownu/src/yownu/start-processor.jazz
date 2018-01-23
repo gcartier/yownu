@@ -46,7 +46,7 @@
   (boot-client Yownu-Process
                start: (lambda ()
                         (setup-processor)
-                        (boot-world "yownu")
+                        (boot-world 'processor "yownu")
                         (ready-processor))
                visible?: (window?)))
 

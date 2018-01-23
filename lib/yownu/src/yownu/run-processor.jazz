@@ -26,6 +26,7 @@
 
 
 (definition protected (prepare-processor)
+  (set-tier-kind 'processor)
   (set-process-kind 'process)
   (set-settings-root {Directory Home ".yownu"})
   (set-settings-alias 'Resources)
