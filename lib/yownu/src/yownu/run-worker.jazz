@@ -23,13 +23,17 @@
         (yownu.worker-settings))
 
 
+(definition (prepare-worker)
+  (set-worker-process? #t)
+  (set-process-kind 'application)
+  (set-settings-root {Directory Home ".yownu"})
+  (set-settings-alias 'Resources)
+  (set-aliases-setup setup-aliases)
+  (set-valid-roles '(user creator designer programmer admin)))
+
+
 (definition (run-worker descriptor)
-  (set-dynamic-worker-filename? #t)
-  ;; when running the under the debugger do not evaluate
-  ;; forms as this can result in world.work being loaded
-  (set-evaluate-forms-hook
-    (lambda rest
-      #t))
+  (prepare-worker)
   (load-unit 'world.settings)
   (boot-environment (new (if (boolean-argument "window" #f)
                               Yownu-Worker-Application

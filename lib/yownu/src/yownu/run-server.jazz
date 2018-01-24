@@ -31,8 +31,7 @@
   (set-settings-root {Directory Home ".yownu"})
   (set-settings-alias 'Resources)
   (set-aliases-setup setup-aliases)
-  (set-valid-roles '(user creator designer programmer admin))
-  ;; WAIT (set-valid-roles '(admin))
+  (set-valid-roles '(admin))
   (setup-processor-filename)
   (setup-worker-filename))
 

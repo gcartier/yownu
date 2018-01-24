@@ -104,7 +104,7 @@
            (initialize-platform))
          (boot-client (if (window?) Yownu-Application Yownu-Process)
                       start: (lambda ()
-                               (boot-world 'local "yownu"))))))
+                               (boot-world 'client "yownu"))))))
 
 
 (set-yownu-start start-yownu))
