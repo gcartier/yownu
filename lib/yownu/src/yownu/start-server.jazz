@@ -42,15 +42,14 @@
     (windows)
     (else
      (set-min-heap! (* 1000000 1024))))
-  (set-window? #f)
-  (boot-client Yownu-Process
-               start: (lambda ()
-                        (boot-world 'server "yownu")
-                        (ready-server))
-               finish: (lambda ()
-                         (when (boolean-argument "panel" #t)
-                           (start-panel (current-application))))
-               visible?: #f))
+  (boot-tier Yownu-Process
+             start: (lambda ()
+                      (boot-world 'server "yownu")
+                      (ready-server))
+             finish: (lambda ()
+                       (when (boolean-argument "panel" #t)
+                         (start-panel (current-application))))
+             window?: #f))
 
 
 (set-yownu-start start-yownu-server))

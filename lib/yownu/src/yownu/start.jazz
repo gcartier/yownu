@@ -99,12 +99,13 @@
            (windows)
            (else
             (set-min-heap! (* 500000 1024))))
-         (set-window? (boolean-argument "window" #t))
-         (when (window?)
-           (initialize-platform))
-         (boot-client (if (window?) Yownu-Application Yownu-Process)
+         (let ((window? (boolean-argument "window" #t)))
+           (when window?
+             (initialize-platform))
+           (boot-tier (if window? Yownu-Application Yownu-Process)
                       start: (lambda ()
-                               (boot-world 'client "yownu"))))))
+                               (boot-world 'client "yownu"))
+                      window?: window?)))))
 
 
 (set-yownu-start start-yownu))
