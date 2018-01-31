@@ -48,7 +48,7 @@
                         (setup-processor)
                         (boot-world 'processor "yownu")
                         (ready-processor))
-               visible?: (window?)))
+               visible?: #f))
 
 
 (set-yownu-start start-yownu-processor))
