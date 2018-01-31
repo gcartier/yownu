@@ -36,9 +36,17 @@
   (setup-worker-filename))
 
 
+(definition protected (prepare-settings)
+  (load-unit 'world.settings)
+  (when start-tier-listener
+    (start-tier-listener))
+  (when connect-slave-to-master
+    (connect-slave-to-master)))
+
+
 (definition (run-server descriptor)
   (prepare-server)
-  (load-unit 'world.settings)
+  (prepare-settings)
   (load-unit 'world.work)
   (load-unit 'yownu.start-server)
   (yownu-start))

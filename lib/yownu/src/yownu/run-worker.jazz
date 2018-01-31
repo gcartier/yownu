@@ -32,9 +32,17 @@
   (set-valid-roles '(user creator designer programmer admin)))
 
 
+(definition protected (prepare-settings)
+  (load-unit 'world.settings)
+  (when start-tier-listener
+    (start-tier-listener))
+  (when connect-slave-to-master
+    (connect-slave-to-master)))
+
+
 (definition (run-worker descriptor)
   (prepare-worker)
-  (load-unit 'world.settings)
+  (prepare-settings)
   (boot-environment (new (if (boolean-argument "window" #f)
                               Yownu-Worker-Application
                             Yownu-Worker-Process))))
