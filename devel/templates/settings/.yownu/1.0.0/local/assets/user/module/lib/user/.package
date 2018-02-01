@@ -1,4 +1,0 @@
-(package user
-  
-  (root "src")
-  (products (user (update))))
