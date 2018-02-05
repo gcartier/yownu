@@ -10,14 +10,12 @@
 
 
 (form
-  (<Jazz-Project>  name: Yownu-Server default-traits: (Safety.Devel Server.None) directory: {Directory :context "../../cache"} working: {Directory :context "../.."} product: yownu-server
+  (<Jazz-Project>  name: Yownu-Server default-traits: (Safety.Devel) directory: {Directory :context "../../cache"} working: {Directory :context "../.."} product: yownu-server
     (<Trait>       name: Safety
       (<install>)
       (<Trait>     name: Devel
         (<install>               configuration: "devel")))
     (<Trait>       name: Server
       (<install>)
-      (<Trait>     name: None
-        (<install> arguments: ("-listen" ":50000" "-panel" "true" "-window" "false")))
       (<Trait>     name: Local
         (<install> arguments: ("-listen" ":50000" "-server" "Local" "-panel" "true" "-window" "false")))))))
