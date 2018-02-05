@@ -26,13 +26,13 @@
 
 
 (definition protected (prepare-client)
+  (set-tier-kind 'client)
   (set-process-kind 'application)
   (set-settings-root {Directory Home ".yownu"})
   (set-settings-alias 'Resources)
   (set-aliases-setup setup-aliases)
   (set-valid-roles '(user creator designer programmer admin))
   (setup-server-filename)
-  (setup-processor-filename)
   (setup-worker-filename))
 
 

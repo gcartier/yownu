@@ -24,7 +24,7 @@
 
 
 (definition (prepare-worker)
-  (set-worker-process? #t)
+  (set-tier-kind 'worker)
   (set-process-kind 'application)
   (set-settings-root {Directory Home ".yownu"})
   (set-settings-alias 'Resources)

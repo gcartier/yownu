@@ -32,7 +32,6 @@
   (set-settings-alias 'Resources)
   (set-aliases-setup setup-aliases)
   (set-valid-roles '(user creator designer programmer admin))
-  (setup-processor-filename)
   (setup-worker-filename))
 
 
