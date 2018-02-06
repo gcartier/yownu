@@ -26,6 +26,7 @@
 
 
 (definition protected (prepare-server)
+  (set-window? #f)
   (set-tier-kind 'server)
   (set-process-kind 'process)
   (set-settings-root {Directory Home ".yownu"})

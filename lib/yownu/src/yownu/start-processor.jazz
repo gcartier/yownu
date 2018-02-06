@@ -46,8 +46,7 @@
              start: (lambda ()
                       (setup-processor)
                       (boot-world 'processor "yownu")
-                      (ready-processor))
-             window?: #f))
+                      (ready-processor))))
 
 
 (set-yownu-start start-yownu-processor))

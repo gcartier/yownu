@@ -24,6 +24,7 @@
 
 
 (definition (prepare-worker)
+  (set-window? #f)
   (set-tier-kind 'worker)
   (set-process-kind 'application)
   (set-settings-root {Directory Home ".yownu"})

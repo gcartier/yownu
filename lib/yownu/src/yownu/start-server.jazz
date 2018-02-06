@@ -48,8 +48,7 @@
                       (ready-server))
              finish: (lambda ()
                        (when (boolean-argument "panel" #t)
-                         (start-panel (current-application))))
-             window?: #f))
+                         (start-panel (current-application))))))
 
 
 (set-yownu-start start-yownu-server))
