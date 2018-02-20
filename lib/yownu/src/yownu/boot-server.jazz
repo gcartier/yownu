@@ -2,7 +2,7 @@
 ;;;  Yownu
 ;;;=========
 ;;;
-;;;; Yownu Worker Process
+;;;; Yownu Boot Server
 ;;;
 ;;;  The Initial Developer of the Original Code is Guillaume Cartier.
 ;;;  Portions created by the Initial Developer are Copyright (C) 2012-2018
@@ -11,19 +11,14 @@
 ;;;  Contributor(s):
 
 
-(module yownu.worker-process jazz
+(module yownu.boot-server jazz
 
 
-(import (world.worker.process))
+(import (world)
+        (world.server.boot)
+        (yownu.process))
 
 
-;;;
-;;;; Process
-;;;
-
-
-(class Yownu-Worker-Process extends Worker-Process
-  
-  
-  (method override (process-name self)
-    "Yownu")))
+(set-boot-process
+  (lambda ()
+    (boot-server Yownu-Process))))

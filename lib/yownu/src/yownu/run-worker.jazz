@@ -19,8 +19,7 @@
         (jazz.settings)
         (world)
         (yownu.worker-application)
-        (yownu.worker-process)
-        (yownu.worker-settings))
+        (yownu.worker-process))
 
 
 (definition (prepare-worker)

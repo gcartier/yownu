@@ -14,32 +14,10 @@
 (module yownu.process jazz
 
 
-(import (jazz.action)
-        (jazz.component)
-        (jazz.debuggee)
-        (jazz.debugger)
-        (jazz.io)
-        (jazz.markup)
-        (jazz.platform)
-        (jazz.settings)
-        (jazz.snapshot)
-        (jazz.version)
-        (world)
-        (world.autoload)
-        (world.context)
-        (world.history)
-        (world.interface)
-        (world.interface.actions)
-        (world.interface.bars)
-        (world.interface.history)
-        (world.io)
+(import (jazz.markup)
         (world.process)
-        (world.role)
-        (world.settings)
-        (world.syntax (phase syntax))
         (yownu)
-        (yownu.settings)
-        (yownu.window))
+        (yownu.settings))
 
 
 (class Yownu-Process extends World-Process

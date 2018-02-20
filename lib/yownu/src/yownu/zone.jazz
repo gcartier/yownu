@@ -22,7 +22,6 @@
         (world.planet)
         (world.settings)
         (world.skybox)
-        (world.syntax (phase syntax))
         (world.zone)
         (yownu.biome))
 

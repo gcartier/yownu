@@ -16,7 +16,6 @@
 
 (import (jazz.io)
         (jazz.platform)
-        (jazz.settings)
         (world.io))
 
 

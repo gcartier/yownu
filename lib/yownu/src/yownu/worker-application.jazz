@@ -14,8 +14,7 @@
 (module yownu.worker-application jazz
 
 
-(import (jazz.io)
-        (world.worker.appl))
+(import (world.worker.appl))
 
 
 ;;;

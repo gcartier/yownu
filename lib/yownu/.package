@@ -13,6 +13,9 @@
                    (update yownu
                            yownu.application
                            yownu.biome
+                           yownu.boot
+                           yownu.boot-processor
+                           yownu.boot-server
                            yownu.debugger
                            yownu.process
                            yownu.processor
@@ -23,9 +26,6 @@
                            yownu.run-processor
                            yownu.run-server
                            yownu.settings
-                           yownu.start
-                           yownu.start-processor
-                           yownu.start-server
                            yownu.window
                            yownu.windows
                            yownu.world
