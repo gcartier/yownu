@@ -29,7 +29,6 @@
                            yownu.settings
                            yownu.window
                            yownu.windows
-                           yownu.world
                            yownu.zone)
                    (dependencies gambit.walk
                                  jazz.editor.jazz

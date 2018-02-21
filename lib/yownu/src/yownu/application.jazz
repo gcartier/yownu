@@ -349,10 +349,6 @@
         (<world-menu!>
           (<!>           name: view-help               visible?: #f))
         (<world-world!>
-          (<!>           name: world-open              visible?: #f)
-          (<!>           name: world-save              visible?: #f)
-          (<!>           name: world-save-as           visible?: #f)
-          (<!>           name: world-revert            visible?: #f)
           (<!>           name: toggle-user             visible?: #f))
         (<world-zone!>
           (<!>           name: zone-new                visible?: #f)
@@ -432,9 +428,6 @@
   (define-trait user-main World-Actionbar
     (<Role-Trait>
       (<install>
-        (<!>             name: world-open              visible?: #f)
-        (<!>             name: world-save              visible?: #f)
-        (<!>             name: world-revert            visible?: #f)
         (<!>             name: zone-new                visible?: #f)
         (<!>             name: zone-open               visible?: #f)
         (<!>             name: toggle-user             visible?: #f))))
@@ -550,10 +543,6 @@
         (<world-menu!>
           (<!>           name: view-help               visible?: #f))
         (<world-world!>
-          (<!>           name: world-open              visible?: #f)
-          (<!>           name: world-save              visible?: #f)
-          (<!>           name: world-save-as           visible?: #f)
-          (<!>           name: world-revert            visible?: #f)
           (<!>           name: toggle-user             visible?: #f))
         (<world-zone!>
           (<!>           name: zone-new                visible?: #f)
@@ -655,9 +644,6 @@
   (define-trait creator-main World-Actionbar
     (<Role-Trait>
       (<install>
-        (<!>             name: world-open              visible?: #f)
-        (<!>             name: world-save              visible?: #f)
-        (<!>             name: world-revert            visible?: #f)
         (<!>             name: zone-new                visible?: #f)
         (<!>             name: zone-open               visible?: #f)
         (<!>             name: toggle-user             visible?: #f))))
@@ -784,11 +770,6 @@
       (<install>
         (<world-menu!>
           (<!>           name: view-help               visible?: #f))
-        (<world-world!>
-          (<!>           name: world-open              visible?: #f)
-          (<!>           name: world-save              visible?: #f)
-          (<!>           name: world-save-as           visible?: #f)
-          (<!>           name: world-revert            visible?: #f))
         (<world-zone!>
           (<!>           name: zone-open-content       visible?: #f)
           (<!>           name: zone-reload             visible?: #f))
@@ -854,10 +835,7 @@
   
   (define-trait designer-main World-Actionbar
     (<Role-Trait>
-      (<install>
-        (<!>             name: world-open              visible?: #f)
-        (<!>             name: world-save              visible?: #f)
-        (<!>             name: world-revert            visible?: #f))))
+      (<install>)))
   
   (define-trait designer-universe World-Actionbar
     (<Role-Trait>
@@ -965,10 +943,7 @@
   
   (define-trait programmer-main World-Actionbar
     (<Role-Trait>
-      (<install>
-        (<!> name: world-open   visible?: #f)
-        (<!> name: world-save   visible?: #f)
-        (<!> name: world-revert visible?: #f))))
+      (<install>)))
 
   (definition programmer-role
     `((:bindings ,programmer-bindings)
@@ -985,10 +960,6 @@
       (<install>
         (<world-menu!>)
         (<world-world!>
-          (<!>           name: world-open              visible?: #f)
-          (<!>           name: world-save              visible?: #f)
-          (<!>           name: world-save-as           visible?: #f)
-          (<!>           name: world-revert            visible?: #f)
           (<!>           name: toggle-user             visible?: #f))
         (<world-universe!>
           (<!>           name: mind-control            visible?: #f)
@@ -1066,9 +1037,6 @@
   (define-trait admin-main World-Actionbar
     (<Role-Trait>
       (<install>
-        (<!>             name: world-open              visible?: #f)
-        (<!>             name: world-save              visible?: #f)
-        (<!>             name: world-revert            visible?: #f)
         (<!>             name: toggle-user             visible?: #f))))
     
   (define-trait admin-universe World-Actionbar

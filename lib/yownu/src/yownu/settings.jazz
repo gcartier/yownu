@@ -56,4 +56,4 @@
   
   
 (definition protected (register-yownu-world)
-  (set-world-directories '(("yownu" . {Directory Yownu-World})))))
+  (set-world-directory {Directory Yownu-World})))

@@ -23,7 +23,6 @@
       (<Project-Directory>                          directory: {Directory :context "src" "yownu"}
         (<Jazz-File>       name: run                source: {File :context "src" "yownu" "run.jazz"})
         (<Jazz-File>       name: window             source: {File :context "src" "yownu" "window.jazz"})
-        (<Jazz-File>       name: world              source: {File :context "src" "yownu" "world.jazz"})
         (<Jazz-File>       name: zone               source: {File :context "src" "yownu" "zone.jazz"})
         (<Jazz-File>       name: biome              source: {File :context "src" "yownu" "biome.jazz"})
         (<Jazz-File>       name: product            source: {File :context "src" "yownu" "product.jazz"})
@@ -47,6 +46,7 @@
         (<Jazz-File>       name: worker-process     source: {File :context "src" "yownu" "worker-process.jazz"})
         (<Jazz-File>       name: boot-server        source: {File :context "src" "yownu" "boot-server.jazz"})
         (<Jazz-File>       name: boot-processor     source: {File :context "src" "yownu" "boot-processor.jazz"})
-        (<Jazz-File>       name: boot               source: {File :context "src" "yownu" "boot.jazz"}))
+        (<Jazz-File>       name: boot               source: {File :context "src" "yownu" "boot.jazz"})
+        (<Jazz-File>       name: devel              source: {File :context "src" "yownu" "devel.jazz"}))
       (<Jazz-File>         name: y                  source: {File :context "src" "y.jazz"})
       (<Jazz-File>         name: yrun               source: {File :context "src" "yrun.jazz"})))))

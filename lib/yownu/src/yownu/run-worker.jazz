@@ -14,6 +14,8 @@
 (module yownu.run-worker jazz
 
 
+(require (yownu.worker-settings))
+
 (import (jazz.io)
         (jazz.process)
         (jazz.settings)
