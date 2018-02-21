@@ -22,4 +22,4 @@
 
 (set-boot-process
   (lambda ()
-    (boot-client Yownu-Application Yownu-Process))))
+    (boot-client Yownu-Application Yownu-Process context: 'yownu.devel))))
