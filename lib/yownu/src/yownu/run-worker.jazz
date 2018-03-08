@@ -17,11 +17,7 @@
 (require (yownu.worker-settings))
 
 (import (jazz.io)
-        (jazz.process)
-        (jazz.settings)
-        (world)
-        (yownu.worker-application)
-        (yownu.worker-process))
+        (world))
 
 
 (definition (prepare-worker)
@@ -45,9 +41,8 @@
 (definition (run-worker descriptor)
   (prepare-worker)
   (prepare-settings)
-  (boot-environment (new (if (boolean-argument "window" #f)
-                              Yownu-Worker-Application
-                            Yownu-Worker-Process))))
+  (load-unit 'yownu.boot-worker)
+  (boot-process))
 
 
 (register-product-run 'yownu-worker

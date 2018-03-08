@@ -16,6 +16,7 @@
                            yownu.boot
                            yownu.boot-processor
                            yownu.boot-server
+                           yownu.boot-worker
                            yownu.debugger
                            yownu.devel
                            yownu.process

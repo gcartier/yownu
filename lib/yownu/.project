@@ -47,6 +47,7 @@
         (<Jazz-File>       name: boot-server        source: {File :context "src" "yownu" "boot-server.jazz"})
         (<Jazz-File>       name: boot-processor     source: {File :context "src" "yownu" "boot-processor.jazz"})
         (<Jazz-File>       name: boot               source: {File :context "src" "yownu" "boot.jazz"})
-        (<Jazz-File>       name: devel              source: {File :context "src" "yownu" "devel.jazz"}))
+        (<Jazz-File>       name: devel              source: {File :context "src" "yownu" "devel.jazz"})
+        (<Jazz-File>       name: boot-worker        source: {File :context "src" "yownu" "boot-worker.jazz"}))
       (<Jazz-File>         name: y                  source: {File :context "src" "y.jazz"})
       (<Jazz-File>         name: yrun               source: {File :context "src" "yrun.jazz"})))))
