@@ -18,4 +18,4 @@
     (<Trait>       name: Server
       (<install>)
       (<Trait>     name: Local
-        (<install> arguments: ("-listen" ":50000" "-server" "Local" "-panel" "true" "-window" "false")))))))
+        (<install>               arguments: ()))))))
