@@ -275,7 +275,7 @@
   
   (method override (setup-application-interface self)
     (let ((interface (current-interface)))
-      (new History-Slider name: 'slider parent: interface size: {Dimension 400 40} location: '(center 32) visible?: #f)
+      (new History-Slider name: 'slider parent: interface size: {Dimension 400 40} location: '(center 220) visible?: #f)
       (install-bars
         `(,(case current-role
              ((user creator)
