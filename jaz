@@ -44,8 +44,8 @@ bootstrap_dispatch () {
 display_module_info () {
     echo "$1"
     if [ -d "$2" ]; then
-	cd "$2" &&
-	git log -1
+	 cd "$2" &&
+	 git log -1
     fi
 }
 
