@@ -128,7 +128,6 @@
         (world.lava)
         (world.layer)
         (world.light)
-        (world.light-syntax)
         (world.lighting)
         (world.log)
         (world.lookat)
