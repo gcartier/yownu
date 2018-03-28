@@ -23,7 +23,7 @@
 ;;;
 
 
-(definition (build descriptor (unit: unit #f) (force?: force? #f))
+(definition (build descriptor (unit: unit #f) (skip-references?: skip-references? #f) (force?: force? #f))
   (define (resources-dir)
     (let ((bundle (product-descriptor-build-bundle descriptor)))
       (if bundle
@@ -73,7 +73,7 @@
     (define (copy-templates)
       (install-dirname '("devel" "templates")))
     
-    (build-product-descriptor descriptor unit: unit force?: force?)
+    (build-product-descriptor descriptor unit: unit skip-references?: skip-references? force?: force?)
     (initialize-aliases)
     (copy-info)
     (copy-assets)
