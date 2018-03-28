@@ -374,7 +374,7 @@
           (<!>           name: orbit-motion            visible?: #f)
           (<!>           name: free-motion             visible?: #f)
           (<!>           name: toggle-camera-smoothing visible?: #f)
-          (<!>           name: toggle-camera-lock      visible?: #f))
+          (<!>           name: toggle-camera-follow    visible?: #f))
         (<world-graphics!>
           (<!>           name: toggle-glow             visible?: #f)
           (<!>           name: toggle-lighting         visible?: #f)
@@ -474,7 +474,7 @@
         (<!>             name: orbit-motion            visible?: #f)
         (<!>             name: free-motion             visible?: #f)
         (<!>             name: toggle-camera-smoothing visible?: #f)
-        (<!>             name: toggle-camera-lock      visible?: #f))))
+        (<!>             name: toggle-camera-follow    visible?: #f))))
 
   (define-trait user-edition World-Actionbar
     (<Role-Trait>
@@ -566,7 +566,7 @@
           (<!>           name: dash                    visible?: #f))
         (<world-camera!>
           (<!>           name: toggle-camera-smoothing visible?: #f)
-          (<!>           name: toggle-camera-lock      visible?: #f))
+          (<!>           name: toggle-camera-follow    visible?: #f))
         (<world-graphics!>
           (<!>           name: toggle-glow             visible?: #f)
           (<!>           name: toggle-lighting         visible?: #f)
@@ -686,7 +686,7 @@
     (<Role-Trait>
       (<install>
         (<!>             name: toggle-camera-smoothing visible?: #f)
-        (<!>             name: toggle-camera-lock      visible?: #f))))
+        (<!>             name: toggle-camera-follow    visible?: #f))))
 
   (define-trait creator-edition World-Actionbar
     (<Role-Trait>
@@ -778,7 +778,7 @@
           (<!>           name: toggle-aim              visible?: #f)
           (<!>           name: toggle-free-aim         visible?: #f))
         (<world-camera!>
-          (<!>           name: toggle-camera-lock      visible?: #f))
+          (<!>           name: toggle-camera-follow    visible?: #f))
         (<world-graphics!>
           (<!>           name: toggle-lighting         visible?: #f)
           (<!>           name: toggle-fog              visible?: #f)
@@ -857,7 +857,7 @@
   (define-trait designer-camera World-Actionbar
     (<Role-Trait>
       (<install>
-        (<!>             name: toggle-camera-lock      visible?: #f))))
+        (<!>             name: toggle-camera-follow    visible?: #f))))
 
   (define-trait designer-edition World-Actionbar
     (<Role-Trait>
@@ -973,7 +973,7 @@
           (<!>           name: dash                    visible?: #f))
         (<world-camera!>
           (<!>           name: toggle-camera-smoothing visible?: #f)
-          (<!>           name: toggle-camera-lock      visible?: #f))
+          (<!>           name: toggle-camera-follow    visible?: #f))
         (<world-graphics!>
           (<!>           name: toggle-lighting         visible?: #f)
           (<!>           name: toggle-fog              visible?: #f)
@@ -1078,7 +1078,7 @@
     (<Role-Trait>
       (<install>
         (<!>             name: toggle-camera-smoothing visible?: #f)
-        (<!>             name: toggle-camera-lock      visible?: #f))))
+        (<!>             name: toggle-camera-follow    visible?: #f))))
 
   (define-trait admin-edition World-Actionbar
     (<Role-Trait>
