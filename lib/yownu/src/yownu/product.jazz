@@ -119,7 +119,7 @@
     platform?: #t
     opengl?: #t
     git?: #t
-    audio?: #t
+    gstreamer?: #t
     files: (cond-expand
              (windows '("README" "yownu-server.exe" "yownu-processor.exe" "yownu-worker.exe"))
              (unix '("README" "Yownu-Server" "Yownu-Processor" "Yownu-Worker"))

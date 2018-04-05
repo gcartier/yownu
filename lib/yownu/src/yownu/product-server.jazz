@@ -99,7 +99,7 @@
     platform?: #t
     opengl?: #t
     git?: #t
-    audio?: #t
+    gstreamer?: #t
     files: (cond-expand
              (windows '("README" "yownu-worker.exe"))
              (else '("README")))
