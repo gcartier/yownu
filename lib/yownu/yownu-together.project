@@ -1,0 +1,17 @@
+;;;==============
+;;;  JazzScheme
+;;;==============
+;;;
+;;;; Jazz-Project
+;;;
+
+
+(data jazz.debugger.jazz.data.project
+
+
+(form
+  (<Jazz-Project>  name: Yownu-Together   default-traits: (Safety.Devel) directory: {Directory :context "../../cache"} working: {Directory :context "../.."} arguments: ("-listen" "*:50000") product: yownu-together
+    (<Trait>       name: Safety
+      (<install>)
+      (<Trait>     name: Devel
+        (<install>               configuration: "devel"))))))
