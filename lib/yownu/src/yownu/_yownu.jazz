@@ -29,8 +29,8 @@
 
 
 (definition public yownu-version
-  {Version 1 0 1 3 closed-alpha})
+  {Version 1 0 1 4 closed-alpha})
 
 
 (definition public yownu-release
-  "Aug 6 2017"))
+  "Apr 14 2018"))
