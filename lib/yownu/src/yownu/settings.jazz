@@ -16,10 +16,11 @@
 
 (import (jazz.io)
         (jazz.platform)
+        (world)
         (world.io))
 
 
-(definition protected (register-yownu-aliases)
+(definition protected (find-world)
   (define (determine-world)
     (let ((worlds (determine-worlds)))
       (and worlds
@@ -28,8 +29,8 @@
                   world)))))
   
   (define (determine-worlds)
-    (and (exists? {Directory App})
-         (let ((parent (get-parent {Directory App})))
+    (and (exists? {Directory Application})
+         (let ((parent (get-parent {Directory Application})))
            (and (and parent (exists? parent) (not (meta-root? parent)))
                 (let ((parent (get-parent parent)))
                   (and (and parent (exists? parent) (not (meta-root? parent)))
@@ -42,18 +43,18 @@
                                #f))))))))))
   
   (let ((world (determine-world)))
-    (when (not world)
-      (system-message "Unable to find Yownu's world"
-                      type: 'problem
-                      title: "Yownu")
-      (exit 1))
-    (register-alias 'Yownu-World (get-list world)))
-  (when (not (exists? {Directory Yownu-World}))
-    (system-message (format "Unable to find Yownu's world: {a}" (parse {Directory Yownu-World}))
-                    type: 'problem
-                    title: "Yownu")
-    (exit 1)))
-  
-  
-(definition protected (register-yownu-world)
-  (set-world-directory {Directory Yownu-World})))
+    (cond ((not world)
+           (system-message "Unable to find Yownu's world"
+                           type: 'problem
+                           title: "Yownu")
+           (exit 1))
+          ((not (exists? world))
+           (system-message (format "Unable to find Yownu's world: {a}" (parse world))
+                           type: 'problem
+                           title: "Yownu")
+           (exit 1))
+          (else
+           world))))
+
+
+(set-world-finder find-world))

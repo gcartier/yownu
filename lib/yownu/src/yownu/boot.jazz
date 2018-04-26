@@ -17,7 +17,8 @@
 (import (world)
         (world.client.boot)
         (yownu.application)
-        (yownu.process))
+        (yownu.process)
+        (yownu.settings))
 
 
 (set-boot-process

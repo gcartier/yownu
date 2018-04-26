@@ -18,7 +18,6 @@
     (<*>                                            tag-reference: {File :context "yownu.project"})
     (<*>                                            tag-reference: {File :context "yownu-server.project"})
     (<*>                                            tag-reference: {File :context "yownu-processor.project"})
-    (<*>                                            tag-reference: {File :context "yownu-together.project"})
     (<*>                                            tag-reference: {File :context "yownu-worker.project"})
     (<Project-Directory>                            directory: {Directory :context "src"}
       (<Project-Directory>                          directory: {Directory :context "src" "yownu"}
@@ -49,9 +48,6 @@
         (<Jazz-File>       name: boot-processor     source: {File :context "src" "yownu" "boot-processor.jazz"})
         (<Jazz-File>       name: boot               source: {File :context "src" "yownu" "boot.jazz"})
         (<Jazz-File>       name: devel              source: {File :context "src" "yownu" "devel.jazz"})
-        (<Jazz-File>       name: boot-worker        source: {File :context "src" "yownu" "boot-worker.jazz"})
-        (<Jazz-File>       name: boot-together      source: {File :context "src" "yownu" "boot-together.jazz"})
-        (<Jazz-File>       name: product-together   source: {File :context "src" "yownu" "product-together.jazz"})
-        (<Jazz-File>       name: run-together       source: {File :context "src" "yownu" "run-together.jazz"}))
+        (<Jazz-File>       name: boot-worker        source: {File :context "src" "yownu" "boot-worker.jazz"}))
       (<Jazz-File>         name: y                  source: {File :context "src" "y.jazz"})
       (<Jazz-File>         name: yrun               source: {File :context "src" "yrun.jazz"})))))

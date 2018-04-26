@@ -20,7 +20,9 @@
 (hub place-player)
 
 
-(import (jazz.version))
+(import (jazz.io)
+        (jazz.version)
+        (world))
 
 
 ;;;
@@ -33,4 +35,67 @@
 
 
 (definition public yownu-release
-  "Apr 14 2018"))
+  "Apr 14 2018")
+
+
+;;;
+;;;; Aliases
+;;;
+
+
+(definition public (setup-aliases)
+  (register-alias 'Application
+                  (if (is-alias? 'Yownu)
+                      (list 'Yownu)
+                    (cond-expand
+                      (mac (get-list (get-parent (get-parent {Directory Build}))))
+                      (else (list 'Build)))))
+  (register-resources-alias 'Yownu 'yownu))
+
+
+;;;
+;;;; Server
+;;;
+
+
+(definition public (determine-server-filename)
+  (cond-expand (mac "yownu-server.app/Contents/MacOS/Yownu-Server")
+               (else "Yownu-Server")))
+
+
+;;;
+;;;; Processor
+;;;
+
+
+(definition public (determine-processor-filename)
+  (cond-expand (mac "yownu-processor.app/Contents/MacOS/Yownu-Processor")
+               (else "Yownu-Processor")))
+
+
+;;;
+;;;; Worker
+;;;
+
+
+(definition public (determine-worker-filename)
+  (cond-expand (mac "yownu-worker.app/Contents/MacOS/Yownu-Worker")
+               (else "Yownu-Worker")))
+
+
+;;;
+;;;; Devel
+;;;
+
+
+(when (command-argument "devel")
+  (set-window? #t)
+  (set-tier-title "Yownu")
+  (set-tier-kind 'client)
+  (set-process-kind 'application)
+  (set-settings-root {Directory Home ".yownu"})
+  (set-settings-alias 'Resources)
+  (set-aliases-setup setup-aliases)
+  (set-valid-roles '(user creator designer programmer admin))
+  (set-server-filename (determine-server-filename))
+  (set-worker-filename (determine-worker-filename))))

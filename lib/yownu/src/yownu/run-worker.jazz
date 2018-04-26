@@ -17,11 +17,13 @@
 (require (yownu.worker-settings))
 
 (import (jazz.io)
-        (world))
+        (world)
+        (yownu))
 
 
 (definition (prepare-worker)
   (set-window? #f)
+  (set-tier-title "Yownu")
   (set-tier-kind 'worker)
   (set-process-kind 'application)
   (set-settings-root {Directory Home ".yownu"})

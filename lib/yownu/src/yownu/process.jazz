@@ -15,6 +15,7 @@
 
 
 (import (jazz.markup)
+        (world.io)
         (world.process)
         (yownu)
         (yownu.settings))
@@ -46,8 +47,7 @@
   
   (method override (initialize-settings self)
     (nextmethod self)
-    (register-yownu-aliases)
-    (register-yownu-world))
+    (register-world))
   
   
   (method override (default-preferences self)

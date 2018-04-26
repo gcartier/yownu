@@ -16,7 +16,6 @@
                            yownu.boot
                            yownu.boot-processor
                            yownu.boot-server
-                           yownu.boot-together
                            yownu.boot-worker
                            yownu.debugger
                            yownu.devel
@@ -25,11 +24,9 @@
                            yownu.product
                            yownu.product-processor
                            yownu.product-server
-                           yownu.product-together
                            yownu.run
                            yownu.run-processor
                            yownu.run-server
-                           yownu.run-together
                            yownu.settings
                            yownu.window
                            yownu.windows
@@ -56,12 +53,6 @@
                           (product yownu.product-server)
                           (build (yownu-server executable: "Yownu-Server" minimum-heap: 100000 bundle: "yownu-server" resources: "resources/yownu-server"))
                           (dependencies world.server))
-            (yownu-together (title "Yownu-Together")
-                            (prefix "Together")
-                            (run yownu.run-together)
-                            (product yownu.product-together)
-                            (build (yownu-together executable: "Yownu-Together" minimum-heap: 200000 bundle: "yownu-together" resources: "resources/yownu-together"))
-                            (dependencies world.together))
             (yownu-worker (title "Yownu-Worker")
                           (prefix "Worker")
                           (run yownu.run-worker)
@@ -77,7 +68,6 @@
             (yownu-all (dependencies yownu
                                      yownu-processor
                                      yownu-server
-                                     yownu-together
                                      yownu-worker))
             (yownu-script (run yownu.script)))
   (project ".project"))

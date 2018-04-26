@@ -15,19 +15,21 @@
 
 
 (import (jazz.io)
-        (world))
+        (world)
+        (yownu))
 
 
 (definition protected (prepare-client)
   (set-window? #t)
+  (set-tier-title "Yownu")
   (set-tier-kind 'client)
   (set-process-kind 'application)
   (set-settings-root {Directory Home ".yownu"})
   (set-settings-alias 'Resources)
   (set-aliases-setup setup-aliases)
   (set-valid-roles '(user creator designer programmer admin))
-  (setup-server-filename)
-  (setup-worker-filename))
+  (set-server-filename (determine-server-filename))
+  (set-worker-filename (determine-worker-filename)))
 
 
 (definition protected (prepare-settings)
