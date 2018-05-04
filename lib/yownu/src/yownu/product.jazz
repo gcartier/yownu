@@ -103,6 +103,11 @@
                    "yownu-debug.app")
                   (else
                    "yownu.app")))
+    (unix
+     (cond-expand (debug
+                   "Yownud")
+                  (else
+                   "Yownu")))
     (else
      (cond-expand (debug
                    "yownud")
