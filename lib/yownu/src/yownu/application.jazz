@@ -333,7 +333,7 @@
       ((user) user-role)
       ((creator) creator-role)
       ((designer) designer-role)
-      ((programmer) programmer-role)
+      ((developer) developer-role)
       ((admin) admin-role)
       (else (nextmethod self role))))
 
@@ -932,22 +932,22 @@
 
 
   ;;;
-  ;;;; Programmer
+  ;;;; Developer
   ;;;
 
 
-  (define-trait programmer-bindings Bindings
-    (<Role-Trait> name: programmer
+  (define-trait developer-bindings Bindings
+    (<Role-Trait> name: developer
       (<install>
         (<yownu!>                  visible?: #f))))
   
-  (define-trait programmer-main World-Actionbar
+  (define-trait developer-main World-Actionbar
     (<Role-Trait>
       (<install>)))
 
-  (definition programmer-role
-    `((:bindings ,programmer-bindings)
-      (main ,programmer-main)))
+  (definition developer-role
+    `((:bindings ,developer-bindings)
+      (main ,developer-main)))
 
 
   ;;;
