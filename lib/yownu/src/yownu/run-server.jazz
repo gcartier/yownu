@@ -27,7 +27,7 @@
   (set-settings-root {Directory Home ".yownu"})
   (set-settings-alias 'Resources)
   (set-aliases-setup setup-aliases)
-  (set-valid-roles '(admin))
+  (set-valid-roles '(developer admin))
   (set-processor-filename (determine-processor-filename))
   (set-worker-filename (determine-worker-filename)))
 
