@@ -19,6 +19,7 @@
         (world.autoload)
         (world.context)
         (world.geometry)
+        (world.math)
         (world.planet)
         (world.settings)
         (world.skybox)
