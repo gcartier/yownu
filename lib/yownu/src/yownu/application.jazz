@@ -96,15 +96,15 @@
   
   ;; copy-pasted from IDE
   @wait-debugger!?
-  (method override (get-local-debugger)
+  (method override (get-local-debugger self)
     local-debugger)
   
   
   ;; copy-pasted from IDE
   @wait-debugger!?
-  (method override (install-process)
-    (nextmethod)
-    (start-debuggers))
+  (method override (install-process self)
+    (nextmethod self)
+    (start-debuggers self))
   
   
   (method override (finish-process self)
@@ -119,8 +119,8 @@
   
   ;; copy-pasted from IDE
   @wait-debugger!?
-  (method override (conclude-environment)
-    (nextmethod)
+  (method override (conclude-environment self)
+    (nextmethod self)
     ;; do this at the last moment possible because any error beyond this point
     ;; will be handled by the IDE itself which must thus be fully functional
     (if (get-controller-debugger)
@@ -197,8 +197,8 @@
   
   ;; copy-pasted from IDE
   @wait-debugger!?
-  (method override (register-base-objects)
-    (nextmethod)
+  (method override (register-base-objects self)
+    (nextmethod self)
     (register-object (get-local-register) 'debugger (new Jazz-Debugger-Local-Proxy local-debugger)))
   
   
@@ -217,16 +217,16 @@
   
   
   @wait-debugger!?
-  (method override (start-console)
+  (method override (start-console self)
     (if (remote-proxy? (get-controller-debugger))
-        (nextmethod)
+        (nextmethod self)
       ;; no REPL until Yownu internal consoles
-      (select-console)))
+      (select-console self)))
   
   
   ;; copy-pasted from IDE
   @wait-debugger!?
-  (method (start-debuggers)
+  (method (start-debuggers self)
     (when (not local-debugger)
       (set! local-debugger (new Yownu-Debugger))
       (start-debugger local-debugger)
