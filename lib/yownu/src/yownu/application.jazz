@@ -25,6 +25,7 @@
         (jazz.event)
         (jazz.handler)
         (jazz.io)
+        (jazz.listener)
         (jazz.markup)
         (jazz.opengl.window)
         (jazz.reference)
@@ -105,6 +106,11 @@
   (method override (install-process self)
     (nextmethod self)
     (start-debuggers self))
+  
+  
+  (method override (install-process self)
+    (nextmethod self)
+    (start-socket-server))
   
   
   (method override (finish-process self)
