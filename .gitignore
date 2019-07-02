@@ -6,5 +6,6 @@
 /jiri
 /world
 .configuration
+.jaz
 .jazzini
 .DS_Store
