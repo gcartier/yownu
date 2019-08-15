@@ -16,6 +16,8 @@
 
 (import (jazz.io)
         (world)
+        (world.profiling)
+        (world.server.presence)
         (yownu))
 
 
@@ -34,6 +36,7 @@
 
 (definition protected (prepare-settings)
   (load-unit 'world.settings)
+  (setup-server-presence)
   (when start-tier-listener
     (start-tier-listener))
   (when connect-slave-to-master
