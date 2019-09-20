@@ -59,7 +59,11 @@
 
 
 (definition protected (determine-settings-root)
-  {Directory Home ".yownu"})
+  (cond-expand (prod   {Directory Home ".yownu" "prod"})
+               (stage  {Directory Home ".yownu" "stage"})
+               (triage {Directory Home ".yownu" "triage"})
+               (test   {Directory Home ".yownu" "test"})
+               (else   {Directory Home ".yownu" "devel"})))
 
 
 ;;;
