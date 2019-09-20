@@ -15,10 +15,17 @@
 
 
 (import (jazz.io)
+        (jazz.logger)
         (world)
         (world.profiling)
         (world.server.presence)
         (yownu))
+
+
+(definition (prepare-logger)
+  (initialize-aliases)
+  (set-logger-directory (new-directory (determine-settings-root) '("1.0.0" "work" "logs")))
+  (set-logger-prefix "server"))
 
 
 (definition protected (prepare-server)
@@ -26,8 +33,9 @@
   (set-tier-title "Yownu")
   (set-tier-kind 'server)
   (set-process-kind 'process)
-  (set-settings-root {Directory Home ".yownu"})
   (set-settings-alias 'Resources)
+  (set-settings-root (determine-settings-root))
+  (set-documents-root (determine-documents-root))
   (set-aliases-setup setup-aliases)
   (set-valid-roles '(developer admin))
   (set-processor-filename (determine-processor-filename))
@@ -46,6 +54,7 @@
 
 
 (definition (run-server descriptor)
+  (prepare-logger)
   (prepare-server)
   (prepare-settings)
   (load-unit 'world.work)
