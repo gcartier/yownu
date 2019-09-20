@@ -54,6 +54,15 @@
 
 
 ;;;
+;;;; Settings
+;;;
+
+
+(definition protected (determine-settings-root)
+  {Directory Home ".yownu"})
+
+
+;;;
 ;;;; Server
 ;;;
 

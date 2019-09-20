@@ -15,9 +15,16 @@
 
 
 (import (jazz.io)
+        (jazz.logger)
         (world)
         (world.profiling)
         (yownu))
+
+
+(definition (prepare-logger)
+  (initialize-aliases)
+  (set-logger-directory (new-directory (determine-settings-root) '("1.0.0" "work" "logs")))
+  (set-logger-prefix "client"))
 
 
 (definition protected (prepare-client)
@@ -25,7 +32,7 @@
   (set-tier-title "Yownu")
   (set-tier-kind 'client)
   (set-process-kind 'application)
-  (set-settings-root {Directory Home ".yownu"})
+  (set-settings-root (determine-settings-root))
   (set-settings-alias 'Resources)
   (set-aliases-setup setup-aliases)
   (set-valid-roles '(user creator designer developer admin))
@@ -44,6 +51,7 @@
 
 
 (definition (run-yownu descriptor)
+  (prepare-logger)
   (prepare-client)
   (prepare-settings)
   (load-unit 'world.work)
