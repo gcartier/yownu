@@ -22,6 +22,7 @@
 
 (import (jazz.io)
         (jazz.version)
+        (jiri.platform (cond windows))
         (world))
 
 
@@ -64,6 +65,30 @@
                (triage {Directory Home ".yownu" "triage"})
                (test   {Directory Home ".yownu" "test"})
                (else   {Directory Home ".yownu" "devel"})))
+
+
+;;;
+;;;; Documents
+;;;
+
+
+(definition protected (determine-documents-root)
+  (cond-expand
+    (mac
+     (cond-expand (prod   '(Home "Documents" "Yownu" "prod"))
+                  (stage  '(Home "Documents" "Yownu" "stage"))
+                  (triage '(Home "Documents" "Yownu" "triage"))
+                  (test   '(Home "Documents" "Yownu" "test"))
+                  (else   '(Home "Documents" "Yownu" "devel"))))
+    (windows
+     (let ((dir (get-special-folder CSIDL_PERSONAL)))
+       (cond-expand (prod   (list dir "Yownu" "prod"))
+                    (stage  (list dir "Yownu" "stage"))
+                    (triage (list dir "Yownu" "triage"))
+                    (test   (list dir "Yownu" "test"))
+                    (else   (list dir "Yownu" "devel")))))
+    (else
+     '(Settings))))
 
 
 ;;;

@@ -34,6 +34,7 @@
   (set-process-kind 'application)
   (set-settings-alias 'Resources)
   (set-settings-root (determine-settings-root))
+  (set-documents-root (determine-documents-root))
   (set-aliases-setup setup-aliases)
   (set-valid-roles '(user creator designer developer admin))
   (set-server-filename (determine-server-filename))
@@ -50,10 +51,15 @@
     (connect-slave-to-master)))
 
 
+(definition (create-documents)
+  (create-directories {Directory Documents}))
+
+
 (definition (run-yownu descriptor)
   (prepare-logger)
   (prepare-client)
   (prepare-settings)
+  (create-documents)
   (load-unit 'world.work)
   (load-unit 'yownu.boot)
   (boot-process))
