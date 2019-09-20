@@ -16,6 +16,7 @@
 
 (import (jazz.io)
         (world)
+        (world.profiling)
         (yownu))
 
 
@@ -29,7 +30,9 @@
   (set-aliases-setup setup-aliases)
   (set-valid-roles '(user creator designer developer admin))
   (set-server-filename (determine-server-filename))
-  (set-worker-filename (determine-worker-filename)))
+  (set-worker-filename (determine-worker-filename))
+  (advise-sites)
+  (setup-profiling))
 
 
 (definition protected (prepare-settings)

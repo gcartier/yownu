@@ -31,7 +31,9 @@
   (set-aliases-setup setup-aliases)
   (set-valid-roles '(developer admin))
   (set-processor-filename (determine-processor-filename))
-  (set-worker-filename (determine-worker-filename)))
+  (set-worker-filename (determine-worker-filename))
+  (advise-sites)
+  (setup-profiling))
 
 
 (definition protected (prepare-settings)
