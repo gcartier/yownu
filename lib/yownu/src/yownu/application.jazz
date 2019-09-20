@@ -1161,7 +1161,8 @@
     (<install>                                         toplevel-state: restored toolbar-classes: ((:menubar . {Reference World-Menubar}) (:toolbar . {Reference World-Toolbar}) (:status . {Reference World-Status}))
       (<documents~>
         ;; Scripting
-        (<Jazz-Text-Preferences>    name: jazz-text)
+        (<Jazz-Text-Preferences>    name: jazz-text
+          pulse-caret?: #f)
         (<Command-Text-Preferences> name: command-text))
       @wait-debugger!?
       (<Debug-Preferences>          name: debug))))
