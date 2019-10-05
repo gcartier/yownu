@@ -131,7 +131,7 @@
   (set-tier-title "Yownu")
   (set-tier-kind 'client)
   (set-process-kind 'application)
-  (set-settings-root {Directory Home ".yownu"})
+  (set-settings-root {Directory Home ".yownu" "devel"})
   (set-settings-alias 'Resources)
   (set-aliases-setup setup-aliases)
   (set-valid-roles '(user creator designer developer admin))
