@@ -37,7 +37,7 @@
   (set-settings-root (determine-settings-root))
   (set-documents-root (determine-documents-root))
   (set-aliases-setup setup-aliases)
-  (set-valid-roles '(developer admin))
+  (set-valid-roles '(user developer admin))
   (set-processor-filename (determine-processor-filename))
   (set-worker-filename (determine-worker-filename))
   (advise-sites)
