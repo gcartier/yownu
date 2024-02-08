@@ -71,7 +71,7 @@
                 (random-between (- space-radius) space-radius)
                 (random-between (- space-radius) space-radius)))
       
-      (site (populate on?: #f)
+      (site populate
         (place-planets))
       @convert
       (place-player self)))
