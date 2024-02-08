@@ -14,7 +14,8 @@
 (module yownu.zone jazz
 
 
-(import (jazz.syntax (phase syntax))
+(import (jazz.opengl.render)
+        (jazz.syntax (phase syntax))
         (world)
         (world.autoload)
         (world.context)
@@ -141,7 +142,7 @@
                           (let ((index (position-index area center)))
                             (table-add areas index poly)))))
                     faces)
-          (iterate-table areas
+          (table-iterate areas
             (lambda (index polygons)
               (add-polygons area #f index polygons #f)))))))
   
@@ -154,7 +155,7 @@
     (continuation-capture
       (lambda (return)
         (for-each (lambda (planet)
-                    (iterate-table (generate-planet planet)
+                    (table-iterate (generate-planet planet)
                       (lambda (idx faces)
                         (when (index=? idx index)
                           (continuation-return return faces)))))

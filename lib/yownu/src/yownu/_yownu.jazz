@@ -51,7 +51,7 @@
                     (cond-expand
                       (mac (get-list (get-parent (get-parent {Directory Build}))))
                       (else (list 'Build)))))
-  (register-resources-alias 'Yownu 'yownu))
+  (register-resources-alias 'Yownu))
 
 
 ;;;

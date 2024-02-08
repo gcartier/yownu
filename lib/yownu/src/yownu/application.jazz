@@ -80,7 +80,7 @@
     (let ((fullscreen? window-fullscreen?)
           (pos (world-setting 'world.position {Point 250 100}))
           (size (world-setting 'world.size {Dimension 1200 800})))
-      (new-opengl-window class: Yownu-Window fullscreen?: fullscreen? position: pos size: size visible?: #f))))
+      (new Yownu-Window fullscreen?: fullscreen? position: pos size: size))))
   
   
   (method override (initialize-settings self)
