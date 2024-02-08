@@ -296,7 +296,11 @@
              (else
               `(,World-Universe-Bar universe horizontal (center -36))))
           (,World-Window-Bar    window    horizontal (-10 -10))
-          (,World-Media-Bar     media     horizontal (-150 -10))
+          ,(case current-role
+             ((creator designer)
+              `(,World-Media-Bar     media     horizontal (-200 -10)))
+             (else
+              `(,World-Media-Bar     media     horizontal (-150 -10))))
           (,World-Camera-Bar    camera    horizontal (-10 -36))
           ,(case current-role
              ((creator)
@@ -318,8 +322,7 @@
              (else
               `(,World-Interface-Bar interface vertical   (-10 center))))
           (,World-Tutorial-Bar  tutorial  horizontal (10 10) #f)
-          (,World-Objective-Bar objective horizontal (114 10) #f)
-          (,World-Collision-Bar collision horizontal (-10 36) #f)))
+          (,World-Objective-Bar objective horizontal (114 10) #f)))
       (set-layouter (child interface 'models) models-bar-layouter)
       (set-layouter (child interface 'blocks) blocks-bar-layouter)))
 
@@ -1229,7 +1232,6 @@
       (<World-Debug-Actions>         name: world-debug)
       (<World-Tutorial-Actions>      name: world-tutorial)
       (<World-Objective-Actions>     name: world-objective)
-      (<World-Collision-Actions>     name: world-collision)
       (<World-Anonymous-Actions>     name: world-anonymous)
       (<World-User-Actions>          name: world-user visible?: #f)
       ;; Yownu
